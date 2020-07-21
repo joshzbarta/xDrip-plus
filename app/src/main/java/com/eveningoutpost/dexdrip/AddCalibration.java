@@ -40,8 +40,17 @@ public class AddCalibration extends AppCompatActivity implements NavigationDrawe
             startActivity(intent);
             finish();
         }
-        setContentView(R.layout.activity_add_calibration);
-        addListenerOnButton();
+
+        final Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+            final String note_only = extras.getString("note_only", "false");
+            if(!note_only.equals("true")) {
+                setContentView(R.layout.activity_add_calibration);
+                addListenerOnButton();
+            }
+        }
+
         automatedCalibration();
     }
 
