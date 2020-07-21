@@ -267,7 +267,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
     private boolean small_height = false;
     private boolean small_screen = false;
     double thisnumber = -1;
-    double thisglucosenumber = 0;
+    private double thisglucosenumber = 0;
     double thiscarbsnumber = 0;
     double thisInsulinSumNumber = 0;
     double[] thisinsulinnumber = new double[MAX_INSULIN_PROFILES];
@@ -534,7 +534,9 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
         btnBloodGlucose.setOnClickListener(v -> {
             reset_viewport = true;
-            processCalibration();
+            //processCalibration();
+
+            processBGTest(thisglucosenumber, thistimeoffset);
         });
 
         btnTime.setOnClickListener(v -> {
@@ -606,6 +608,8 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
         currentBgValueText.setText(""); // clear any design prototyping default
     }
+
+
 
     private boolean firstRunDialogs(final boolean checkedeula) {
 
@@ -748,11 +752,38 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         }
     }
 
-    // handle sending the intent
-    private void processCalibrationNoUI(final double glucosenumber, final double timeoffset) {
-        if (glucosenumber > 0) {
+    private void processBGTest(final double bg, final double timeOffset)
+    {
+        if(bg > 0 && bg <=1000)
+        {
+            //record bg
+        }
 
-            if (timeoffset < 0) {
+        textBloodGlucose.setVisibility(View.INVISIBLE);
+        btnBloodGlucose.setVisibility(View.INVISIBLE);
+        if (hideTreatmentButtonsIfAllDone()) {
+            updateCurrentBgInfo("bg button");
+        }
+    }
+
+    private void processCalibration() {
+        // TODO BG Tests to be possible without being calibrations
+        // TODO Offer Choice? Reject calibrations under various circumstances
+        // This should be wrapped up in a generic method
+        processCalibrationNoUI(thisglucosenumber, thistimeoffset);
+
+        textBloodGlucose.setVisibility(View.INVISIBLE);
+        btnBloodGlucose.setVisibility(View.INVISIBLE);
+        if (hideTreatmentButtonsIfAllDone()) {
+            updateCurrentBgInfo("bg button");
+        }
+    }
+
+    // handle sending the intent
+    private void processCalibrationNoUI(final double bg, final double timeOffset) {
+        if (bg > 0) {
+
+            if (timeOffset < 0) {
                 toaststaticnext(gs(R.string.got_calibration_in_the_future__cannot_process));
                 return;
             }
@@ -761,11 +792,11 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
             calintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             calintent.putExtra("timestamp", JoH.tsl());
-            calintent.putExtra("bg_string", JoH.qs(glucosenumber));
-            calintent.putExtra("bg_age", Long.toString((long) (timeoffset / 1000)));
+            calintent.putExtra("bg_string", JoH.qs(bg));
+            calintent.putExtra("bg_age", Long.toString((long) (timeOffset / 1000)));
             calintent.putExtra("allow_undo", "true");
             calintent.putExtra("cal_source", "processCalibrationNoUi");
-            Log.d(TAG, "ProcessCalibrationNoUI number: " + glucosenumber + " offset: " + timeoffset);
+            Log.d(TAG, "ProcessCalibrationNoUI number: " + bg + " offset: " + timeOffset);
 
             final String calibration_type = Pref.getString("treatment_fingerstick_calibration_usage", "ask");
             if (calibration_type.equals("ask")) {
@@ -792,7 +823,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
             } else if (calibration_type.equals("auto")) {
                 Log.d(TAG, "Creating bloodtest  record from cal input data");
-                BloodTest.createFromCal(glucosenumber, timeoffset, "Manual Entry");
+                BloodTest.createFromCal(bg, timeOffset, "Manual Entry");
                 GcmActivity.syncBloodTests();
                 if ((!Pref.getBooleanDefaultFalse("bluetooth_meter_for_calibrations_auto"))
                         && (DexCollectionType.getDexCollectionType() != DexCollectionType.Follower)
@@ -833,18 +864,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         JoH.runOnUiThreadDelayed(Home::staticRefreshBGCharts, 4000);
     }
 
-    private void processCalibration() {
-        // TODO BG Tests to be possible without being calibrations
-        // TODO Offer Choice? Reject calibrations under various circumstances
-        // This should be wrapped up in a generic method
-        processCalibrationNoUI(thisglucosenumber, thistimeoffset);
 
-        textBloodGlucose.setVisibility(View.INVISIBLE);
-        btnBloodGlucose.setVisibility(View.INVISIBLE);
-        if (hideTreatmentButtonsIfAllDone()) {
-            updateCurrentBgInfo("bg button");
-        }
-    }
 
     private void cancelTreatment() {
         hideAllTreatmentButtons();
@@ -1483,7 +1503,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
             case "blood":
                 if (!glucoseset && (thisnumber > 0)) {
-                    thisglucosenumber = thisnumber;
+                     thisglucosenumber = thisnumber;
                     if (Pref.getString("units", "mgdl").equals("mgdl")) {
                         if (textBloodGlucose != null)
                             textBloodGlucose.setText(thisnumber + " mg/dl");
