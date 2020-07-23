@@ -126,11 +126,31 @@ public class BloodTest extends Model {
     // static methods
     private static final long CLOSEST_READING_MS = 30000; // 30 seconds
 
-    public static BloodTest create(long timestamp_ms, double mgdl, String source) {
-        return create(timestamp_ms, mgdl, source, null);
+    public static BloodTest create(long timestamp_ms, double mgdl, boolean withCalibration, String source) {
+        return create(timestamp_ms, mgdl, withCalibration, source, null);
     }
 
-    public static BloodTest create(long timestamp_ms, double mgdl, String source, String suggested_uuid) {
+    public static BloodTest create(double bg, double timeoffset, boolean withCalibration, String source) {
+        return create(bg, timeoffset, withCalibration, source, null);
+    }
+
+    public static BloodTest create(double bg, double timeoffset, boolean withCalibration, String source,  String suggested_uuid) {
+        final String unit = Pref.getString("units", "mgdl");
+
+        if (unit.compareTo("mgdl") != 0) {
+            bg = bg * Constants.MMOLL_TO_MGDL;
+        }
+
+        if ((bg < 40) || (bg > 400)) {
+            Log.wtf(TAG, "Invalid out of range bloodtest glucose mg/dl value of: " + bg);
+            JoH.static_toast_long("Bloodtest out of range: " + bg + " mg/dl");
+            return null;
+        }
+
+        return create((long) (new Date().getTime() - timeoffset), bg, withCalibration, source, suggested_uuid);
+    }
+
+    public static BloodTest create(long timestamp_ms, double mgdl, boolean withCalibration, String source, String suggested_uuid) {
 
         if ((timestamp_ms == 0) || (mgdl == 0)) {
             UserError.Log.e(TAG, "Either timestamp or mgdl is zero - cannot create reading");
@@ -165,11 +185,14 @@ public class BloodTest extends Model {
                 SyncService.startSyncService(3000); // sync in 3 seconds
             }
 
-            if (Pref.getBooleanDefaultFalse("bluetooth_meter_for_calibrations_auto")) {
-                if ((JoH.msSince(bt.timestamp) < Constants.MINUTE_IN_MS * 5) && (JoH.msSince(bt.timestamp) > 0)) {
-                    UserError.Log.d(TAG, "Blood test value recent enough to send to G5");
-                    //Ob1G5StateMachine.addCalibration((int) bt.mgdl, timestamp_ms);
-                    NativeCalibrationPipe.addCalibration((int) bt.mgdl, timestamp_ms);
+            if(withCalibration)
+            {
+                if (Pref.getBooleanDefaultFalse("bluetooth_meter_for_calibrations_auto")) {
+                    if ((JoH.msSince(bt.timestamp) < Constants.MINUTE_IN_MS * 5) && (JoH.msSince(bt.timestamp) > 0)) {
+                        UserError.Log.d(TAG, "Blood test value recent enough to send to G5/G6");
+                        //Ob1G5StateMachine.addCalibration((int) bt.mgdl, timestamp_ms);
+                        NativeCalibrationPipe.addCalibration((int) bt.mgdl, timestamp_ms);
+                    }
                 }
             }
 
@@ -178,26 +201,6 @@ public class BloodTest extends Model {
             UserError.Log.d(TAG, "Not creating new reading as timestamp is too close");
         }
         return null;
-    }
-
-    public static BloodTest createFromCal(double bg, double timeoffset, String source) {
-        return createFromCal(bg, timeoffset, source, null);
-    }
-
-    public static BloodTest createFromCal(double bg, double timeoffset, String source, String suggested_uuid) {
-        final String unit = Pref.getString("units", "mgdl");
-
-        if (unit.compareTo("mgdl") != 0) {
-            bg = bg * Constants.MMOLL_TO_MGDL;
-        }
-
-        if ((bg < 40) || (bg > 400)) {
-            Log.wtf(TAG, "Invalid out of range bloodtest glucose mg/dl value of: " + bg);
-            JoH.static_toast_long("Bloodtest out of range: " + bg + " mg/dl");
-            return null;
-        }
-
-        return create((long) (new Date().getTime() - timeoffset), bg, source, suggested_uuid);
     }
 
     public static void pushBloodTestSyncToWatch(BloodTest bt, boolean is_new) {

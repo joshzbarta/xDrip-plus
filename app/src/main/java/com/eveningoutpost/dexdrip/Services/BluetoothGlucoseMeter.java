@@ -641,7 +641,7 @@ public class BluetoothGlucoseMeter extends Service {
             }
 
 
-            final BloodTest bt = BloodTest.create((gtb.time - ct.timediff) + gtb.offsetMs(), gtb.mgdl, BLUETOOTH_GLUCOSE_METER_TAG + ":\n" + mLastManufacturer + "   " + mLastConnectedDeviceAddress, gtb.getUuid().toString());
+            final BloodTest bt = BloodTest.create((gtb.time - ct.timediff) + gtb.offsetMs(), gtb.mgdl, false, BLUETOOTH_GLUCOSE_METER_TAG + ":\n" + mLastManufacturer + "   " + mLastConnectedDeviceAddress, gtb.getUuid().toString());
             if (bt != null) {
                 UserError.Log.d(TAG, "Successfully created new BloodTest: " + bt.toS());
                 bt.glucoseReadingRx = gtb; // add reference
@@ -704,7 +704,7 @@ public class BluetoothGlucoseMeter extends Service {
 
                     if (playSounds() && JoH.ratelimit("bt_meter_data_in", 1))
                         JoH.playResourceAudio(R.raw.bt_meter_data_in);
-                    final BloodTest bt = BloodTest.create((gtb.time) + gtb.offsetMs(), gtb.mgdl, BLUETOOTH_GLUCOSE_METER_TAG + ":\n" + mLastManufacturer + "   " + mLastConnectedDeviceAddress);
+                    final BloodTest bt = BloodTest.create((gtb.time) + gtb.offsetMs(), gtb.mgdl, false, BLUETOOTH_GLUCOSE_METER_TAG + ":\n" + mLastManufacturer + "   " + mLastConnectedDeviceAddress);
                     if (bt != null) {
                         UserError.Log.d(TAG, "Successfully created new BloodTest: " + bt.toS());
                         bt.glucoseReadingRx = gtb; // add reference

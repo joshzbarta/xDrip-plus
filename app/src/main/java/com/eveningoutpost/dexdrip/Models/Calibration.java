@@ -295,8 +295,8 @@ public class Calibration extends Model {
 
             if (Ob1G5CollectionService.usingNativeMode()) {
                 JoH.static_toast_long("Sending Blood Tests to Transmitter"); // TODO extract string
-                BloodTest.create(JoH.tsl() - (Constants.SECOND_IN_MS * 30), bg1, "Initial Calibration");
-                BloodTest.create(JoH.tsl(), bg2, "Initial Calibration");
+                BloodTest.create(JoH.tsl() - (Constants.SECOND_IN_MS * 30), bg1, true,"Initial Calibration");
+                BloodTest.create(JoH.tsl(), bg2, true, "Initial Calibration");
 
                 if (!Pref.getBooleanDefaultFalse("bluetooth_meter_for_calibrations_auto")) {
                     // blood tests above don't automatically become part of calibration pipe if this setting is unset so do here
