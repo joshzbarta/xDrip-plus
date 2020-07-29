@@ -3273,11 +3273,11 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         Pref.setBoolean("default_to_voice_notes", !Pref.getBooleanDefaultFalse("default_to_voice_notes"));
     }
 
-    public void showNoteTextInputDialog(View myitem, final long timestamp) {
-        showNoteTextInputDialog(myitem, timestamp, -1);
+    public void showNoteTextInputDialog(View view, final long timestamp) {
+        showNoteTextInputDialog(view, timestamp, -1);
     }
 
-    public void showNoteTextInputDialog(View myitem, final long timestamp, final double position) {
+    public void showNoteTextInputDialog(View view, final long timestamp, final double position) {
         Log.d(TAG, "showNoteTextInputDialog: ts:" + timestamp + " pos:" + position);
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
@@ -3310,7 +3310,6 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
             if (Pref.getBooleanDefaultFalse("default_to_voice_notes")) {
                 showcasemenu(SHOWCASE_NOTE_LONG);
             }
-
         });
         if (Treatments.byTimestamp(timestamp, (int) (2.5 * MINUTE_IN_MS)) != null) {
             dialogBuilder.setNeutralButton("Delete", (dialog, whichButton) -> {
