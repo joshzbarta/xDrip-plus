@@ -102,7 +102,7 @@ public class MegaStatus extends ActivityWithMenu {
     private static ArrayList<MegaStatusListAdapter> MegaStatusAdapters = new ArrayList<>();
     private BroadcastReceiver serviceDataReceiver;
 
-    private void addAsection(String section, String title) {
+    private void addSection(String section, String title) {
         sectionList.add(section);
         sectionTitles.add(title);
         MegaStatusAdapters.add(new MegaStatusListAdapter());
@@ -134,55 +134,55 @@ public class MegaStatus extends ActivityWithMenu {
 
         if (sectionList.isEmpty()) {
 
-            addAsection("Classic Status Page", "Legacy System Status");
+            addSection("Classic Status Page", "Legacy System Status");
 
             final DexCollectionType dexCollectionType = DexCollectionType.getDexCollectionType();
 
             // probably want a DexCollectionService related set
             if (DexCollectionType.usesDexCollectionService(dexCollectionType)) {
-                addAsection(G4_STATUS, "Bluetooth Collector Status");
+                addSection(G4_STATUS, "Bluetooth Collector Status");
             }
             if (dexCollectionType.equals(DexcomG5)) {
                 if (Pref.getBooleanDefaultFalse(Ob1G5CollectionService.OB1G5_PREFS)) {
-                    addAsection(G5_STATUS, "OB1 G5/G6 Collector and Transmitter Status");
+                    addSection(G5_STATUS, "OB1 G5/G6 Collector and Transmitter Status");
                 } else {
-                    addAsection(G5_STATUS, "G5 Collector and Transmitter Status");
+                    addSection(G5_STATUS, "G5 Collector and Transmitter Status");
                 }
             } else if (dexCollectionType.equals(Medtrum)) {
-                addAsection(MEDTRUM_STATUS, "Medtrum A6 Status");
+                addSection(MEDTRUM_STATUS, "Medtrum A6 Status");
             }
             if (BlueJayEntry.isEnabled()) {
-                addAsection(BLUEJAY_STATUS, "BlueJay Watch Status");
+                addSection(BLUEJAY_STATUS, "BlueJay Watch Status");
             }
             if (DexCollectionType.getDexCollectionType() == DexCollectionType.LibreReceiver) {
-                addAsection(XDRIP_LIBRE2, "Libre 2 Patched App Status");
+                addSection(XDRIP_LIBRE2, "Libre 2 Patched App Status");
             }
             if (DexCollectionType.hasWifi()) {
-                addAsection(IP_COLLECTOR, dexCollectionType == DexCollectionType.Mock ? "FAKE / MOCK DATA SOURCE" : "Wifi Wixel / Parakeet Status");
+                addSection(IP_COLLECTOR, dexCollectionType == DexCollectionType.Mock ? "FAKE / MOCK DATA SOURCE" : "Wifi Wixel / Parakeet Status");
             }
             if (InPenEntry.isEnabled()) {
-                addAsection(INPEN_STATUS,"InPen Status");
+                addSection(INPEN_STATUS,"InPen Status");
             }
             if (Home.get_master_or_follower()) {
-                addAsection(XDRIP_PLUS_SYNC, "xDrip+ Sync Group");
+                addSection(XDRIP_PLUS_SYNC, "xDrip+ Sync Group");
             }
             if (Pref.getBooleanDefaultFalse("cloud_storage_mongodb_enable")
                     || Pref.getBooleanDefaultFalse("cloud_storage_api_enable")
                     || Pref.getBooleanDefaultFalse("share_upload")
                     || (Pref.getBooleanDefaultFalse("wear_sync") && Home.get_engineering_mode())) {
-                addAsection(UPLOADERS, "Cloud Uploader Queues");
+                addSection(UPLOADERS, "Cloud Uploader Queues");
             }
             if (LeFunEntry.isEnabled()) {
-                addAsection(LEFUN_STATUS, "Lefun Watch Status");
+                addSection(LEFUN_STATUS, "Lefun Watch Status");
             }
             if (MiBandEntry.isEnabled()) {
-                addAsection(MIBAND_STATUS, "MiBand Watch Status");
+                addSection(MIBAND_STATUS, "MiBand Watch Status");
             }
             if(dexCollectionType.equals(NSFollow)) {
-                addAsection(NIGHTSCOUT_FOLLOW, "Nightscout Follow Status");
+                addSection(NIGHTSCOUT_FOLLOW, "Nightscout Follow Status");
             }
             if(dexCollectionType.equals(SHFollow)) {
-                addAsection(SHARE_FOLLOW, "Dex Share Follow Status");
+                addSection(SHARE_FOLLOW, "Dex Share Follow Status");
             }
 
             //addAsection("Misc", "Currently Empty");
