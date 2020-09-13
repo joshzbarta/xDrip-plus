@@ -266,7 +266,7 @@ dependencies {
     implementation 'com.embarkmobile:zxing-android-minimal:2.0.0@aar'
     implementation 'com.embarkmobile:zxing-android-integration:2.0.0@aar'
     //implementation 'com.embarkmobile:zxing-android-legacy:2.0.0@aar'
-    implementation 'com.google.zxing:core:3.1.0'
+    implementation 'com.google.zxing:core:3.4.0'
     implementation 'net.tribe7.seeds:seeds-functional:16.0.1'
     implementation 'net.tribe7.seeds:seeds-primitives:16.0.1'
     implementation 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:2.2.0'
@@ -313,13 +313,13 @@ dependencies {
         exclude group: 'com.android.support'
     }
     // espresso, workarounds needed for correct functioning
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1', {
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
     androidTestImplementation 'com.android.support.test:runner:1.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestImplementation 'com.android.support.test.espresso:espresso-idling-resource:3.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-idling-resource:3.0.2'
     // add this for intent mocking support
     //androidTestImplementation 'com.android.support.test.espresso:espresso-intents:3.0.1'
     // add this for webview testing support
