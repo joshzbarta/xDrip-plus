@@ -9,8 +9,10 @@ import android.os.Looper;
 import android.text.format.DateFormat;
 import android.widget.Toast;
 
+import com.activeandroid.ActiveAndroid;
 import com.activeandroid.Cache;
 import com.activeandroid.Configuration;
+import com.activeandroid.util.SQLiteUtils;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.Models.UserError.Log;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
@@ -65,7 +67,7 @@ public class DatabaseUtil {
 
 
         try {
-
+            //SQLiteUtils.execSql("PRAGMA main.locking_mode=EXCLUSIVE");
             final String databaseName = new Configuration.Builder(context).create().getDatabaseName();
 
             final String dir = getExternalDir();
@@ -85,6 +87,7 @@ public class DatabaseUtil {
                 final File currentDB = context.getDatabasePath(databaseName);
                 final File zipOutputFile = new File(zipFilename);
                 if (currentDB.exists()) {
+
                     srcStream = new FileInputStream(currentDB);
                     biStream = new BufferedInputStream(srcStream, BUFFER_SIZE);
 
@@ -93,12 +96,15 @@ public class DatabaseUtil {
                     zipOutputStream.putNextEntry(new ZipEntry(prefix + DateFormat.format("yyyyMMdd-kkmmss", System.currentTimeMillis()) + ".sqlite"));
 
                     byte buffer[] = new byte[BUFFER_SIZE];
+                    ActiveAndroid.beginTransaction();
                     int count;
                     while ((count = biStream.read(buffer, 0, BUFFER_SIZE)) != -1) {
                         zipOutputStream.write(buffer, 0, count);
                     }
-                    if (!zipFilename.contains("b4import"))
+                    ActiveAndroid.endTransaction();
+                    if (!zipFilename.contains("b4import")){
                         Pref.setString("last-saved-database-zip", zipFilename);
+                    }
                 } else {
                     toastText(context, "Problem: No current DB found!");
                     Log.d(TAG, "Problem: No current DB found");
@@ -114,16 +120,22 @@ public class DatabaseUtil {
             Log.e(TAG, "Exception while writing DB", e);
             zipFilename = null;
         } finally {
-            if (biStream != null) try {
-                biStream.close();
-            } catch (IOException e1) {
-                Log.e(TAG, "Something went wrong closing: ", e1);
+            if (biStream != null) {
+                try {
+                    biStream.close();
+                } catch (IOException e1) {
+                    Log.e(TAG, "Something went wrong closing: ", e1);
+                }
             }
-            if (zipOutputStream != null) try {
-                zipOutputStream.close();
-            } catch (IOException e1) {
-                Log.e(TAG, "Something went wrong closing: ", e1);
+
+            if (zipOutputStream != null) {
+                try {
+                    zipOutputStream.close();
+                } catch (IOException e1) {
+                    Log.e(TAG, "Something went wrong closing: ", e1);
+                }
             }
+            //SQLiteUtils.execSql("PRAGMA main.locking_mode=NORMAL");
         }
         JoH.clearCache();
         return zipFilename;
@@ -330,6 +342,7 @@ public class DatabaseUtil {
         try {
             String databaseName = new Configuration.Builder(context).create().getDatabaseName();
             File currentDB = context.getDatabasePath(databaseName);
+
             File currentDBold = context.getDatabasePath(databaseName + ".old");
             File currentDBtmp = context.getDatabasePath(databaseName + ".tmp");
 
@@ -351,8 +364,10 @@ public class DatabaseUtil {
             if (currentDB.canWrite()) {
                 srcStream = new FileInputStream(replacement);
                 src = srcStream.getChannel();
+
                 destStream = new FileOutputStream(currentDBtmp);
                 dst = destStream.getChannel();
+
                 dst.transferFrom(src, 0, src.size());
                 currentDB.renameTo(currentDBold);
                 currentDBtmp.renameTo(currentDB);
@@ -368,10 +383,12 @@ public class DatabaseUtil {
 
 
         } finally {
-            if (src != null) try {
-                src.close();
-            } catch (IOException e1) {
-                Log.e(TAG, "Something went wrong closing: ", e1);
+            if (src != null) {
+                try {
+                    src.close();
+                } catch (IOException e1) {
+                    Log.e(TAG, "Something went wrong closing: ", e1);
+                }
             }
             if (destStream != null) try {
                 destStream.close();
@@ -390,7 +407,7 @@ public class DatabaseUtil {
 
             }
             JoH.fullDatabaseReset();
-            return returnString;
+             return returnString;
         }
     }
 }
