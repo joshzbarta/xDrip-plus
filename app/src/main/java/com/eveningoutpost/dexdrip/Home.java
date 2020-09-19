@@ -578,7 +578,6 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         statusReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-
                 final String bwp = intent.getStringExtra("bwp");
                 if (bwp != null) {
                     statusBWP = bwp;

@@ -17,6 +17,7 @@ public class InsulinInjection {
     @Getter
     private String insulin;
 
+
     public InsulinInjection(final Insulin p, final double u) {
         profile = p;
         units = u;
@@ -32,9 +33,7 @@ public class InsulinInjection {
         return profile;
     }
 
-    public double getUnits() {
-        return units;
-    }
+   
 
     // This is just a rough way to decide if it is a basal insulin without user needing to set it
     // question as to whether this should be here or call to encapsulated method in Insulin
