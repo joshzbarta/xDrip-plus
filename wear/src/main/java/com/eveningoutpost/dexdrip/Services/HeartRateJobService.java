@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.JobIntentService;
 
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
+import com.eveningoutpost.dexdrip.utilityModels.Constants;
 import com.eveningoutpost.dexdrip.xdrip;
 
 /**

@@ -15,11 +15,11 @@ import com.eveningoutpost.dexdrip.models.BgReading;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.Sensor;
 import com.eveningoutpost.dexdrip.models.UserError.Log;
-import com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder;
-import com.eveningoutpost.dexdrip.UtilityModels.BgSparklineBuilder;
-import com.eveningoutpost.dexdrip.UtilityModels.ColorCache;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
-import com.eveningoutpost.dexdrip.UtilityModels.StatusLine;
+import com.eveningoutpost.dexdrip.utilityModels.BgGraphBuilder;
+import com.eveningoutpost.dexdrip.utilityModels.BgSparklineBuilder;
+import com.eveningoutpost.dexdrip.utilityModels.ColorCache;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.StatusLine;
 import com.eveningoutpost.dexdrip.calibrations.PluggableCalibration;
 
 import java.util.Date;

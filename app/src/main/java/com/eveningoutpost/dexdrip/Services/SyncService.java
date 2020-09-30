@@ -6,12 +6,12 @@ import android.content.Intent;
 
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError.Log;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
-import com.eveningoutpost.dexdrip.UtilityModels.UploaderTask;
+import com.eveningoutpost.dexdrip.utilityModels.Constants;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.UploaderTask;
 import com.eveningoutpost.dexdrip.xdrip;
 
-import static com.eveningoutpost.dexdrip.UtilityModels.Constants.SYNC_QUEUE_RETRY_ID;
+import static com.eveningoutpost.dexdrip.utilityModels.Constants.SYNC_QUEUE_RETRY_ID;
 
 public class SyncService extends IntentService {
     private static final String TAG = "SyncService";

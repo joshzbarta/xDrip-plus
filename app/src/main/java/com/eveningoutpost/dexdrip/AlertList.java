@@ -28,7 +28,7 @@ import android.widget.TextView;
 import com.eveningoutpost.dexdrip.models.AlertType;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError.Log;
-import com.eveningoutpost.dexdrip.UtilityModels.AlertPlayer;
+import com.eveningoutpost.dexdrip.utilityModels.AlertPlayer;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 
 import java.text.ParseException;

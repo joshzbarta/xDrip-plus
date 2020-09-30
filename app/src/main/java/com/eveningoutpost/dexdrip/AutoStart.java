@@ -6,9 +6,9 @@ import android.content.Intent;
 
 import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.Services.PlusSyncService;
-import com.eveningoutpost.dexdrip.UtilityModels.CollectionServiceStarter;
-import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
+import com.eveningoutpost.dexdrip.utilityModels.Inevitable;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
 
 // jamorham
 

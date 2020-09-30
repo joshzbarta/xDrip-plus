@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.ui;
 
 import android.databinding.ObservableArrayMap;
 
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
 
 import java.util.HashMap;
 import java.util.Map;

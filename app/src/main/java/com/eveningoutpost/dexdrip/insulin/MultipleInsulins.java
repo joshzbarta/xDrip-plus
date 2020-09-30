@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.insulin;
 
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
 
 public class MultipleInsulins {
 

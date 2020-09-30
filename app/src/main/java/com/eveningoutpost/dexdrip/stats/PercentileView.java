@@ -16,8 +16,8 @@ import com.eveningoutpost.dexdrip.models.UserError.Log;
 import android.view.View;
 
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.Constants;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
 
 import java.util.Calendar;
 import java.util.Collections;

@@ -6,13 +6,13 @@ import android.content.Intent;
 
 import com.eveningoutpost.dexdrip.BestGlucose;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.Intents;
+import com.eveningoutpost.dexdrip.utilityModels.Intents;
 import com.eveningoutpost.dexdrip.watch.thinjam.io.ThinJamApiReceiver;
 
 import lombok.val;
 
 import static com.eveningoutpost.dexdrip.models.JoH.msSince;
-import static com.eveningoutpost.dexdrip.UtilityModels.Constants.MINUTE_IN_MS;
+import static com.eveningoutpost.dexdrip.utilityModels.Constants.MINUTE_IN_MS;
 import static com.eveningoutpost.dexdrip.xdrip.getAppContext;
 
 public class BlueJayRemote {

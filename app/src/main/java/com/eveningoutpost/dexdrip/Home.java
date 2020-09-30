@@ -75,28 +75,28 @@ import com.eveningoutpost.dexdrip.Services.DexCollectionService;
 import com.eveningoutpost.dexdrip.Services.Ob1G5CollectionService;
 import com.eveningoutpost.dexdrip.Services.PlusSyncService;
 import com.eveningoutpost.dexdrip.Services.WixelReader;
-import com.eveningoutpost.dexdrip.UtilityModels.AlertPlayer;
-import com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder;
-import com.eveningoutpost.dexdrip.UtilityModels.CollectionServiceStarter;
-import com.eveningoutpost.dexdrip.UtilityModels.CompatibleApps;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.Experience;
-import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
-import com.eveningoutpost.dexdrip.UtilityModels.Intents;
-import com.eveningoutpost.dexdrip.UtilityModels.JamorhamShowcaseDrawer;
-import com.eveningoutpost.dexdrip.UtilityModels.NanoStatus;
-import com.eveningoutpost.dexdrip.UtilityModels.NightscoutUploader;
-import com.eveningoutpost.dexdrip.UtilityModels.Notifications;
-import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
-import com.eveningoutpost.dexdrip.UtilityModels.PrefsViewImpl;
-import com.eveningoutpost.dexdrip.UtilityModels.SendFeedBack;
-import com.eveningoutpost.dexdrip.UtilityModels.ShotStateStore;
-import com.eveningoutpost.dexdrip.UtilityModels.SourceWizard;
-import com.eveningoutpost.dexdrip.UtilityModels.StatusLine;
-import com.eveningoutpost.dexdrip.UtilityModels.UndoRedo;
-import com.eveningoutpost.dexdrip.UtilityModels.UpdateActivity;
-import com.eveningoutpost.dexdrip.UtilityModels.VoiceCommands;
+import com.eveningoutpost.dexdrip.utilityModels.AlertPlayer;
+import com.eveningoutpost.dexdrip.utilityModels.BgGraphBuilder;
+import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
+import com.eveningoutpost.dexdrip.utilityModels.CompatibleApps;
+import com.eveningoutpost.dexdrip.utilityModels.Constants;
+import com.eveningoutpost.dexdrip.utilityModels.Experience;
+import com.eveningoutpost.dexdrip.utilityModels.Inevitable;
+import com.eveningoutpost.dexdrip.utilityModels.Intents;
+import com.eveningoutpost.dexdrip.utilityModels.JamorhamShowcaseDrawer;
+import com.eveningoutpost.dexdrip.utilityModels.NanoStatus;
+import com.eveningoutpost.dexdrip.utilityModels.NightscoutUploader;
+import com.eveningoutpost.dexdrip.utilityModels.Notifications;
+import com.eveningoutpost.dexdrip.utilityModels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.PrefsViewImpl;
+import com.eveningoutpost.dexdrip.utilityModels.SendFeedBack;
+import com.eveningoutpost.dexdrip.utilityModels.ShotStateStore;
+import com.eveningoutpost.dexdrip.utilityModels.SourceWizard;
+import com.eveningoutpost.dexdrip.utilityModels.StatusLine;
+import com.eveningoutpost.dexdrip.utilityModels.UndoRedo;
+import com.eveningoutpost.dexdrip.utilityModels.UpdateActivity;
+import com.eveningoutpost.dexdrip.utilityModels.VoiceCommands;
 import com.eveningoutpost.dexdrip.calibrations.NativeCalibrationPipe;
 import com.eveningoutpost.dexdrip.calibrations.PluggableCalibration;
 import com.eveningoutpost.dexdrip.dagger.Injectors;
@@ -168,11 +168,11 @@ import lecho.lib.hellocharts.view.PreviewLineChartView;
 import lombok.Getter;
 
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-import static com.eveningoutpost.dexdrip.UtilityModels.ColorCache.X;
-import static com.eveningoutpost.dexdrip.UtilityModels.ColorCache.getCol;
-import static com.eveningoutpost.dexdrip.UtilityModels.Constants.DAY_IN_MS;
-import static com.eveningoutpost.dexdrip.UtilityModels.Constants.HOUR_IN_MS;
-import static com.eveningoutpost.dexdrip.UtilityModels.Constants.MINUTE_IN_MS;
+import static com.eveningoutpost.dexdrip.utilityModels.ColorCache.X;
+import static com.eveningoutpost.dexdrip.utilityModels.ColorCache.getCol;
+import static com.eveningoutpost.dexdrip.utilityModels.Constants.DAY_IN_MS;
+import static com.eveningoutpost.dexdrip.utilityModels.Constants.HOUR_IN_MS;
+import static com.eveningoutpost.dexdrip.utilityModels.Constants.MINUTE_IN_MS;
 import static com.eveningoutpost.dexdrip.xdrip.gs;
 
 public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPermissionsResultCallback {
@@ -3533,7 +3533,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
     public static double convertToMgDlIfMmol(double value) {
         if (!Pref.getString("units", "mgdl").equals("mgdl")) {
-            return value * com.eveningoutpost.dexdrip.UtilityModels.Constants.MMOLL_TO_MGDL;
+            return value * com.eveningoutpost.dexdrip.utilityModels.Constants.MMOLL_TO_MGDL;
         } else {
             return value; // no conversion needed
         }

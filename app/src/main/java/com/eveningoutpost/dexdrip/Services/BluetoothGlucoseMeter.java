@@ -40,11 +40,11 @@ import com.eveningoutpost.dexdrip.models.Calibration;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
-import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.BgGraphBuilder;
+import com.eveningoutpost.dexdrip.utilityModels.Constants;
+import com.eveningoutpost.dexdrip.utilityModels.Inevitable;
+import com.eveningoutpost.dexdrip.utilityModels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.xdrip;
 
 import java.lang.reflect.Method;
@@ -58,7 +58,7 @@ import static com.eveningoutpost.dexdrip.GlucoseMeter.VerioHelper.VERIO_F7A1_SER
 import static com.eveningoutpost.dexdrip.GlucoseMeter.VerioHelper.VERIO_F7A2_WRITE;
 import static com.eveningoutpost.dexdrip.GlucoseMeter.VerioHelper.VERIO_F7A3_NOTIFICATION;
 import static com.eveningoutpost.dexdrip.models.CalibrationRequest.isSlopeFlatEnough;
-import static com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder.unitized_string_with_units_static;
+import static com.eveningoutpost.dexdrip.utilityModels.BgGraphBuilder.unitized_string_with_units_static;
 
 /**
  * Created by jamorham on 09/12/2016.

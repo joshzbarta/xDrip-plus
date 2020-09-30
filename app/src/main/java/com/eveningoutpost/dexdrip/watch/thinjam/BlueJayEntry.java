@@ -3,9 +3,9 @@ package com.eveningoutpost.dexdrip.watch.thinjam;
 import android.content.SharedPreferences;
 
 import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.UtilityModels.CollectionServiceStarter;
-import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
+import com.eveningoutpost.dexdrip.utilityModels.Inevitable;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
 
 import lombok.val;
 

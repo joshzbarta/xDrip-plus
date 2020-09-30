@@ -7,8 +7,8 @@ import com.eveningoutpost.dexdrip.xdrip;
 
 import java.util.List;
 
-import static com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder.DEXCOM_PERIOD;
-import static com.eveningoutpost.dexdrip.UtilityModels.Constants.STALE_CALIBRATION_CUT_OFF;
+import static com.eveningoutpost.dexdrip.utilityModels.BgGraphBuilder.DEXCOM_PERIOD;
+import static com.eveningoutpost.dexdrip.utilityModels.Constants.STALE_CALIBRATION_CUT_OFF;
 
 /**
  * Created by jamorham on 01/10/2017.

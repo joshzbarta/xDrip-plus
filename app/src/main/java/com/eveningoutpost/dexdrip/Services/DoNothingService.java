@@ -16,13 +16,13 @@ import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.models.BgReading;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.CollectionServiceStarter;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.ForegroundServiceStarter;
-import com.eveningoutpost.dexdrip.UtilityModels.InstalledApps;
-import com.eveningoutpost.dexdrip.UtilityModels.NanoStatus;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
-import com.eveningoutpost.dexdrip.UtilityModels.StatusItem;
+import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
+import com.eveningoutpost.dexdrip.utilityModels.Constants;
+import com.eveningoutpost.dexdrip.utilityModels.ForegroundServiceStarter;
+import com.eveningoutpost.dexdrip.utilityModels.InstalledApps;
+import com.eveningoutpost.dexdrip.utilityModels.NanoStatus;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.StatusItem;
 import com.eveningoutpost.dexdrip.ui.helpers.Span;
 import com.eveningoutpost.dexdrip.utils.framework.WakeLockTrampoline;
 import com.eveningoutpost.dexdrip.R;
@@ -33,8 +33,8 @@ import java.util.Calendar;
 import java.util.List;
 
 import static com.eveningoutpost.dexdrip.GcmListenerSvc.lastMessageReceived;
-import static com.eveningoutpost.dexdrip.UtilityModels.StatusItem.Highlight.BAD;
-import static com.eveningoutpost.dexdrip.UtilityModels.StatusItem.Highlight.NOTICE;
+import static com.eveningoutpost.dexdrip.utilityModels.StatusItem.Highlight.BAD;
+import static com.eveningoutpost.dexdrip.utilityModels.StatusItem.Highlight.NOTICE;
 import static com.eveningoutpost.dexdrip.xdrip.gs;
 
 public class DoNothingService extends Service {

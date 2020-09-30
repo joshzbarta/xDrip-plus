@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.eveningoutpost.dexdrip.UtilityModels.SourceWizard.Item" />
+            type="com.eveningoutpost.dexdrip.utilityModels.SourceWizard.Item" />
 
         <import type="android.view.View" />
     </data>

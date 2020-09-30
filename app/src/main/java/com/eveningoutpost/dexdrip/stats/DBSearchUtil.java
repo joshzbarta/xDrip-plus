@@ -12,7 +12,7 @@ import com.eveningoutpost.dexdrip.models.UserError.Log;
 import com.activeandroid.Cache;
 import com.activeandroid.query.Select;
 import com.eveningoutpost.dexdrip.models.BgReading;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
+import com.eveningoutpost.dexdrip.utilityModels.Constants;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

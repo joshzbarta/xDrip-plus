@@ -13,10 +13,10 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.UtilityModels.NotificationChannels;
-import com.eveningoutpost.dexdrip.UtilityModels.Notifications;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
-import com.eveningoutpost.dexdrip.UtilityModels.XdripNotificationCompat;
+import com.eveningoutpost.dexdrip.utilityModels.NotificationChannels;
+import com.eveningoutpost.dexdrip.utilityModels.Notifications;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.XdripNotificationCompat;
 import com.eveningoutpost.dexdrip.utils.PowerStateReceiver;
 import com.eveningoutpost.dexdrip.utils.Preferences;
 import com.eveningoutpost.dexdrip.utils.WebAppHelper;

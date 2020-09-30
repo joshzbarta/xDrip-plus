@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 import com.ustwo.clockwise.common.WatchMode;
 
@@ -364,7 +364,7 @@ public class Home extends BaseWatchFace {
 
     public static double convertToMgDlIfMmol(double value) {
         if (!Pref.getString("units", "mgdl").equals("mgdl")) {
-            return value * com.eveningoutpost.dexdrip.UtilityModels.Constants.MMOLL_TO_MGDL;
+            return value * com.eveningoutpost.dexdrip.utilityModels.Constants.MMOLL_TO_MGDL;
         } else {
             return value; // no conversion needed
         }

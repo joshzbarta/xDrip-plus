@@ -4,7 +4,7 @@ package com.eveningoutpost.dexdrip.watch;
 
 import android.util.Pair;
 
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
 
 import java.util.ArrayList;
 import java.util.List;

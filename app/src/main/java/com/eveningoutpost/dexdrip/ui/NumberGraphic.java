@@ -13,13 +13,13 @@ import android.os.Build;
 
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.ColorCache;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.ColorCache;
+import com.eveningoutpost.dexdrip.utilityModels.Constants;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.xdrip;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
-import static com.eveningoutpost.dexdrip.UtilityModels.ColorCache.getCol;
+import static com.eveningoutpost.dexdrip.utilityModels.ColorCache.getCol;
 import static com.eveningoutpost.dexdrip.ui.activities.NumberWallPreview.ViewModel.PREF_numberwall_multi_param;
 import static com.eveningoutpost.dexdrip.ui.helpers.BitmapUtil.getScreenDpi;
 

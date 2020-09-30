@@ -7,7 +7,7 @@ import android.text.format.DateFormat;
 import android.util.Pair;
 
 import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.xdrip;
 
 import java.text.SimpleDateFormat;

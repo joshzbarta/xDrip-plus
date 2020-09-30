@@ -12,13 +12,13 @@ import com.eveningoutpost.dexdrip.GcmListenerSvc;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.JamListenerSvc;
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
-import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
-import com.eveningoutpost.dexdrip.UtilityModels.StatusItem;
-import com.eveningoutpost.dexdrip.UtilityModels.desertsync.DesertComms;
-import com.eveningoutpost.dexdrip.UtilityModels.desertsync.RouteTools;
+import com.eveningoutpost.dexdrip.utilityModels.Constants;
+import com.eveningoutpost.dexdrip.utilityModels.Inevitable;
+import com.eveningoutpost.dexdrip.utilityModels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilityModels.StatusItem;
+import com.eveningoutpost.dexdrip.utilityModels.desertsync.DesertComms;
+import com.eveningoutpost.dexdrip.utilityModels.desertsync.RouteTools;
 import com.eveningoutpost.dexdrip.utils.CipherUtils;
 import com.eveningoutpost.dexdrip.webservices.XdripWebService;
 import com.eveningoutpost.dexdrip.xdrip;
@@ -40,8 +40,8 @@ import lombok.NoArgsConstructor;
 
 import static com.eveningoutpost.dexdrip.GoogleDriveInterface.getDriveIdentityString;
 import static com.eveningoutpost.dexdrip.models.JoH.emptyString;
-import static com.eveningoutpost.dexdrip.UtilityModels.desertsync.RouteTools.getBestInterfaceAddress;
-import static com.eveningoutpost.dexdrip.UtilityModels.desertsync.RouteTools.ip;
+import static com.eveningoutpost.dexdrip.utilityModels.desertsync.RouteTools.getBestInterfaceAddress;
+import static com.eveningoutpost.dexdrip.utilityModels.desertsync.RouteTools.ip;
 
 // created by jamorham 18/08/2018
 
