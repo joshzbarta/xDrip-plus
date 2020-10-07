@@ -1052,7 +1052,7 @@ public class BgGraphBuilder {
             lowValues.clear();
             inRangeValues.clear();
             backfillValues.clear();
-           remoteValues.clear();
+            remoteValues.clear();
             calibrationValues.clear();
             bloodTestValues.clear();
             pluginValues.clear();
