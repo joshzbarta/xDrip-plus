@@ -26,13 +26,13 @@ import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.speech.RecognizerIntent;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.widget.Toolbar;
 import android.text.InputType;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -166,6 +166,7 @@ import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
 import lecho.lib.hellocharts.view.PreviewLineChartView;
 import lombok.Getter;
+import lombok.var;
 
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static com.eveningoutpost.dexdrip.utilityModels.ColorCache.X;
@@ -375,7 +376,8 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         binding.setExpiry(expiryStatus);
         setContentView(binding.getRoot());
 
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar mToolbar = findViewById(R.id.my_toolbar);
+
         setSupportActionBar(mToolbar);
 
         final Home home = this;
