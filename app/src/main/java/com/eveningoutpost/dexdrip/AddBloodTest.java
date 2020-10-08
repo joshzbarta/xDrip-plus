@@ -25,7 +25,7 @@ import java.util.UUID;
 
 public class AddBloodTest extends AppCompatActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
     Button button;
-    private static final String TAG = "AddCalibration";
+    private static final String TAG = "AddBloodTest";
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private static double lastExternalCalibrationValue = 0;
     public static final long estimatedInterstitialLagSeconds = 600; // how far behind venous glucose do we estimate
@@ -91,7 +91,7 @@ public class AddBloodTest extends AppCompatActivity implements NavigationDrawerF
                     return;
                 }
 
-                if ((Sensor.isActive() || Home.get_follower())) {
+                if (Sensor.isActive() || Home.get_follower()) {
 
                     if (!TextUtils.isEmpty(string_value)) {
                         if (!TextUtils.isEmpty(bg_age)) {
@@ -99,7 +99,6 @@ public class AddBloodTest extends AppCompatActivity implements NavigationDrawerF
                             new Thread() {
                                 @Override
                                 public void run() {
-
                                     final PowerManager.WakeLock wlt = JoH.getWakeLock("xdrip-autocalibt", 60000);
 
                                     long bgAgeNumber = Long.parseLong(bg_age);
