@@ -276,7 +276,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.MyViewHo
                             notifyItemChanged(holder.position, "time start updated");
                         }
                     });
-                    newFragment.show(((Activity) context).getFragmentManager(), "TimePicker");
+                    newFragment.show(((Activity) context).getSupportFragmentManager(), "TimePicker");
                 }
             });
             holder.endTime.setOnClickListener(new View.OnClickListener() {
@@ -296,7 +296,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.MyViewHo
                             ProfileAdapter.this.notifyItemChanged(holder.position, "time end updated");
                         }
                     });
-                    newFragment.show(((Activity) context).getFragmentManager(), "TimePicker");
+                    newFragment.show(((Activity) context).getSupportFragmentManager(), "TimePicker");
                 }
             });
 

@@ -1,12 +1,13 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
+import androidx.appcompat.app.AppCompatActivity;
 import android.support.wearable.view.WatchViewStub;
 import android.util.Log;
 import android.view.View;
@@ -31,7 +32,7 @@ import static com.eveningoutpost.dexdrip.ListenerService.SendData;
 
 // xDrip+ spoken treatments jamorham
 
-public class Simulation extends Activity {
+public class Simulation extends AppCompatActivity {
 
     private static final String WEARABLE_VOICE_PAYLOAD = "/xdrip_plus_voice_payload";
     private static final String WEARABLE_APPROVE_TREATMENT = "/xdrip_plus_approve_treatment";
@@ -75,7 +76,7 @@ public class Simulation extends Activity {
 
     public static void static_toast(final Context context, final String msg, final int length) {
         try {
-            Activity activity = (Activity) context;
+            AppCompatActivity activity = (AppCompatActivity) context;
             activity.runOnUiThread(() -> Toast.makeText(context, msg, length).show());
             Log.d(TAG, "Toast msg: " + msg);
         } catch (Exception e) {

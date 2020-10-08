@@ -257,7 +257,7 @@ public class EventLogActivity extends BaseAppCompatActivity {
     // push a query in to search box
     private void pushSearch(String query, boolean submit) {
         if (searchItem != null && searchView != null) {
-            searchItem.expandActionView();
+            MenuItemCompat.expandActionView(searchItem);
             searchView.setQuery(query, submit);
             searchView.clearFocus();
         } else {

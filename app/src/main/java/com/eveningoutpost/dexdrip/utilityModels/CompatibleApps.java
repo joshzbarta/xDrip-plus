@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.utilityModels;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.eveningoutpost.dexdrip.BuildConfig;
 import com.eveningoutpost.dexdrip.Home;
@@ -196,7 +197,7 @@ public class CompatibleApps extends BroadcastReceiver {
                 PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
-    public static void showChoiceDialog(Activity activity, final Intent intent) {
+    public static void showChoiceDialog(AppCompatActivity activity, final Intent intent) {
         if (intent == null) return;
         try {
             AlertDialog.Builder builder = new AlertDialog.Builder(activity);

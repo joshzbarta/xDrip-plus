@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.R;
@@ -67,6 +67,6 @@ public class TimePickerPrefActivity extends AppCompatActivity {
             Pref.setString(prefName, String.format(Locale.US, "%d", newmins * 60));
             finish();
         });
-        timePickerFragment.show(this.getFragmentManager(), "TimePicker");
+        timePickerFragment.show(this.getSupportFragmentManager(), "TimePicker");
     }
 }

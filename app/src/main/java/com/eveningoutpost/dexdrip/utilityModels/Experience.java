@@ -1,16 +1,16 @@
 package com.eveningoutpost.dexdrip.utilityModels;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.annotation.StringRes;
+import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.eveningoutpost.dexdrip.BuildConfig;
 import com.eveningoutpost.dexdrip.Home;
+import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.models.BgReading;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utils.Preferences;
 import com.eveningoutpost.dexdrip.utils.SdcardImportExport;
 import com.eveningoutpost.dexdrip.xdrip;
@@ -106,7 +106,7 @@ public class Experience {
     }
 
     // return true when done
-    public static boolean processSteps(final Activity activity) {
+    public static boolean processSteps(final AppCompatActivity activity) {
 
         if (stepState == null) advanceStep();
         UserError.Log.d(TAG, "Step: " + stepState);
@@ -167,7 +167,7 @@ public class Experience {
         return xdrip.gs(id);
     }
 
-    public static void skipStep(final Activity activity) {
+    public static void skipStep(final AppCompatActivity activity) {
         advanceStep();
         processSteps(activity);
     }

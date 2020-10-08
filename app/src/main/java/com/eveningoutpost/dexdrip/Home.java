@@ -2,8 +2,6 @@ package com.eveningoutpost.dexdrip;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
@@ -32,6 +30,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.util.DisplayMetrics;
@@ -56,6 +56,23 @@ import android.widget.Toast;
 import com.crashlytics.android.Crashlytics;
 import com.eveningoutpost.dexdrip.G5Model.Ob1G5StateMachine;
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
+import com.eveningoutpost.dexdrip.Services.ActivityRecognizedService;
+import com.eveningoutpost.dexdrip.Services.DexCollectionService;
+import com.eveningoutpost.dexdrip.Services.Ob1G5CollectionService;
+import com.eveningoutpost.dexdrip.Services.PlusSyncService;
+import com.eveningoutpost.dexdrip.Services.WixelReader;
+import com.eveningoutpost.dexdrip.calibrations.NativeCalibrationPipe;
+import com.eveningoutpost.dexdrip.calibrations.PluggableCalibration;
+import com.eveningoutpost.dexdrip.dagger.Injectors;
+import com.eveningoutpost.dexdrip.databinding.ActivityHomeBinding;
+import com.eveningoutpost.dexdrip.databinding.ActivityHomeShelfSettingsBinding;
+import com.eveningoutpost.dexdrip.databinding.PopupInitialStatusHelperBinding;
+import com.eveningoutpost.dexdrip.eassist.EmergencyAssistActivity;
+import com.eveningoutpost.dexdrip.insulin.Insulin;
+import com.eveningoutpost.dexdrip.insulin.InsulinManager;
+import com.eveningoutpost.dexdrip.insulin.MultipleInsulins;
+import com.eveningoutpost.dexdrip.insulin.inpen.InPenEntry;
+import com.eveningoutpost.dexdrip.insulin.pendiq.Pendiq;
 import com.eveningoutpost.dexdrip.models.ActiveBgAlert;
 import com.eveningoutpost.dexdrip.models.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.models.BgReading;
@@ -70,11 +87,18 @@ import com.eveningoutpost.dexdrip.models.Sensor;
 import com.eveningoutpost.dexdrip.models.StepCounter;
 import com.eveningoutpost.dexdrip.models.Treatments;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.Services.ActivityRecognizedService;
-import com.eveningoutpost.dexdrip.Services.DexCollectionService;
-import com.eveningoutpost.dexdrip.Services.Ob1G5CollectionService;
-import com.eveningoutpost.dexdrip.Services.PlusSyncService;
-import com.eveningoutpost.dexdrip.Services.WixelReader;
+import com.eveningoutpost.dexdrip.profileeditor.DatePickerFragment;
+import com.eveningoutpost.dexdrip.profileeditor.ProfileAdapter;
+import com.eveningoutpost.dexdrip.ui.BaseShelf;
+import com.eveningoutpost.dexdrip.ui.MicroStatus;
+import com.eveningoutpost.dexdrip.ui.MicroStatusImpl;
+import com.eveningoutpost.dexdrip.ui.NumberGraphic;
+import com.eveningoutpost.dexdrip.ui.UiPing;
+import com.eveningoutpost.dexdrip.ui.dialog.DidYouCancelAlarm;
+import com.eveningoutpost.dexdrip.ui.dialog.HeyFamUpdateOptInDialog;
+import com.eveningoutpost.dexdrip.ui.dialog.QuickSettingsDialogs;
+import com.eveningoutpost.dexdrip.ui.graphic.ITrendArrow;
+import com.eveningoutpost.dexdrip.ui.graphic.TrendArrowFactory;
 import com.eveningoutpost.dexdrip.utilityModels.AlertPlayer;
 import com.eveningoutpost.dexdrip.utilityModels.BgGraphBuilder;
 import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
@@ -97,30 +121,6 @@ import com.eveningoutpost.dexdrip.utilityModels.StatusLine;
 import com.eveningoutpost.dexdrip.utilityModels.UndoRedo;
 import com.eveningoutpost.dexdrip.utilityModels.UpdateActivity;
 import com.eveningoutpost.dexdrip.utilityModels.VoiceCommands;
-import com.eveningoutpost.dexdrip.calibrations.NativeCalibrationPipe;
-import com.eveningoutpost.dexdrip.calibrations.PluggableCalibration;
-import com.eveningoutpost.dexdrip.dagger.Injectors;
-import com.eveningoutpost.dexdrip.databinding.ActivityHomeBinding;
-import com.eveningoutpost.dexdrip.databinding.ActivityHomeShelfSettingsBinding;
-import com.eveningoutpost.dexdrip.databinding.PopupInitialStatusHelperBinding;
-import com.eveningoutpost.dexdrip.eassist.EmergencyAssistActivity;
-import com.eveningoutpost.dexdrip.insulin.Insulin;
-import com.eveningoutpost.dexdrip.insulin.InsulinManager;
-import com.eveningoutpost.dexdrip.insulin.MultipleInsulins;
-import com.eveningoutpost.dexdrip.insulin.inpen.InPenEntry;
-import com.eveningoutpost.dexdrip.insulin.pendiq.Pendiq;
-import com.eveningoutpost.dexdrip.profileeditor.DatePickerFragment;
-import com.eveningoutpost.dexdrip.profileeditor.ProfileAdapter;
-import com.eveningoutpost.dexdrip.ui.BaseShelf;
-import com.eveningoutpost.dexdrip.ui.MicroStatus;
-import com.eveningoutpost.dexdrip.ui.MicroStatusImpl;
-import com.eveningoutpost.dexdrip.ui.NumberGraphic;
-import com.eveningoutpost.dexdrip.ui.UiPing;
-import com.eveningoutpost.dexdrip.ui.dialog.DidYouCancelAlarm;
-import com.eveningoutpost.dexdrip.ui.dialog.HeyFamUpdateOptInDialog;
-import com.eveningoutpost.dexdrip.ui.dialog.QuickSettingsDialogs;
-import com.eveningoutpost.dexdrip.ui.graphic.ITrendArrow;
-import com.eveningoutpost.dexdrip.ui.graphic.TrendArrowFactory;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 import com.eveningoutpost.dexdrip.utils.BgToSpeech;
 import com.eveningoutpost.dexdrip.utils.DatabaseUtil;
@@ -287,8 +287,8 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
     long watchkeypad_timestamp = -1;
     private wordDataWrapper searchWords = null;
     public AlertDialog dialog;
-    private AlertDialog helper_dialog;
-    private AlertDialog status_helper_dialog;
+    private android.support.v7.app.AlertDialog helper_dialog;
+    private android.support.v7.app.AlertDialog status_helper_dialog;
     private PopupInitialStatusHelperBinding initial_status_binding;
     private ActivityHomeBinding binding;
     private boolean is_newbie;
@@ -310,7 +310,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
     private static final boolean oneshot = true;
     private static ShowcaseView myShowcase;
-    private static Activity mActivity;
+    private static AppCompatActivity mActivity;
 
     @Getter
     private static String statusIOB = "";
@@ -686,7 +686,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
     private void checkBadSettings() {
         if (Pref.getBoolean("predictive_bg", false)) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
             builder.setTitle(gs(R.string.settings_issue));
             builder.setMessage(gs(R.string.you_have_an_old_experimental_glucose_prediction_setting_enabled__this_is_not_recommended_and_could_mess_things_up_badly__shall_i_disable_this_for_you));
 
@@ -698,7 +698,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
             builder.setNegativeButton("No, I really know what I'm doing", (dialog, which) -> dialog.dismiss());
 
-            AlertDialog alert = builder.create();
+            android.support.v7.app.AlertDialog alert = builder.create();
             alert.show();
         }
     }
@@ -732,7 +732,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                     startIntentThreadWithDelayedRefresh(calintent);
                 }
             } else {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
                 builder.setTitle("Use " + JoH.qs(glucosenumber, 1) + " for Calibration?");
                 builder.setMessage(gs(R.string.do_you_want_to_use_this_synced_fingerstick_blood_glucose_result_to_calibrate_with__you_can_change_when_this_dialog_is_displayed_in_settings));
 
@@ -808,7 +808,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
         final String calibration_type = Pref.getString("treatment_fingerstick_calibration_usage", "ask");
         if (calibration_type.equals("ask")) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
             builder.setTitle(gs(R.string.use_bg_for_calibration));
             builder.setMessage(gs(R.string.do_you_want_to_use_this_entered_fingerstick_blood_glucose_test_to_calibrate_with__you_can_change_when_this_dialog_is_displayed_in_settings));
 
@@ -829,7 +829,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                 dialog.dismiss();
             });
 
-            AlertDialog alert = builder.create();
+            android.support.v7.app.AlertDialog alert = builder.create();
             alert.show();
 
         } else if (calibration_type.equals("auto")) {
@@ -839,7 +839,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
             if ((!Pref.getBooleanDefaultFalse("bluetooth_meter_for_calibrations_auto"))
                     && (DexCollectionType.getDexCollectionType() != DexCollectionType.Follower)
                     && (JoH.pratelimit("ask_about_auto_calibration", 86400 * 30))) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                final AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
                 builder.setTitle(gs(R.string.enable_automatic_calibration));
                 builder.setMessage(gs(R.string.entered_blood_tests_which_occur_during_flat_trend_periods_can_automatically_be_used_to_recalibrate_after_20_minutes_this_should_provide_the_most_accurate_method_to_calibrate_with__do_you_want_to_enable_this_feature));
 
@@ -1050,7 +1050,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                 InPenEntry.startWithReset();
             } else if (bundle.getString(Home.BLOOD_TEST_ACTION) != null) {
                 Log.d(TAG, "BLOOD_TEST_ACTION");
-                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                final android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
                 builder.setTitle(gs(R.string.blood_test_action));
                 builder.setMessage(gs(R.string.what_would_you_like_to_do));
                 final String bt_uuid = bundle.getString(Home.BLOOD_TEST_ACTION + "2");
@@ -1071,7 +1071,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
                         builder.setNegativeButton("Delete", (dialog, which) -> {
                             dialog.dismiss();
-                            final AlertDialog.Builder builder1 = new AlertDialog.Builder(mActivity);
+                            final AlertDialog.Builder builder1 = new android.support.v7.app.AlertDialog.Builder(mActivity);
                             builder1.setTitle(gs(R.string.confirm_delete));
                             builder1.setMessage(gs(R.string.are_you_sure_you_want_to_delete_this_blood_test_result));
                             builder1.setPositiveButton(gs(R.string.yes_delete), (dialog12, which12) -> {
@@ -1085,10 +1085,10 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                                 JoH.static_toast_short(gs(R.string.deleted));
                             });
                             builder1.setNegativeButton("No", (dialog1, which1) -> dialog1.dismiss());
-                            final AlertDialog alert = builder1.create();
+                            final android.support.v7.app.AlertDialog alert = builder1.create();
                             alert.show();
                         });
-                        final AlertDialog alert = builder.create();
+                        final android.support.v7.app.AlertDialog alert = builder.create();
                         alert.show();
                     } else {
                         JoH.static_toast_long("Could not find blood test data!! " + bt_uuid);
@@ -1321,7 +1321,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         });
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
 
-        final AlertDialog dialog = builder.create();
+        final android.support.v7.app.AlertDialog dialog = builder.create();
         input.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
                 if (dialog != null)
@@ -2376,7 +2376,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
             notificationText.append("\n DATA SOURCE DISABLED");
             if (!Experience.gotData()) {
                 // TODO should this move to Experience::processSteps ?
-                final Activity activity = this;
+                final AppCompatActivity activity = this;
                 JoH.runOnUiThreadDelayed(() -> {
                     if ((dialog == null || !dialog.isShowing())) {
                         if (JoH.ratelimit("start_source_wizard", 30)) {
@@ -2400,7 +2400,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         } else if (Pref.getLong("high_alerts_disabled_until", 0) > new Date().getTime()) {
             notificationText.append("\n " + getString(R.string.high_alerts_currently_disabled));
         }
-        NavigationDrawerFragment navigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        NavigationDrawerFragment navigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
         // DEBUG ONLY
         if ((BgGraphBuilder.last_noise > 0) && (Pref.getBoolean("show_noise_workings", false))) {
@@ -2552,7 +2552,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                     dialog.show();
                 } else {
                     if (!Experience.gotData() && !QuickSettingsDialogs.isDialogShowing() && JoH.ratelimit("start-sensor_prompt", 20)) {
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                        final android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
                         final Context context = this;
                         builder.setTitle(getString(R.string.start_sensor) + "?");
                         builder.setMessage("Data Source is set to: " + DexCollectionType.getDexCollectionType().toString() + "\n\nDo you want to change settings or start sensor?");
@@ -2669,7 +2669,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                 return;
             }
 
-            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            final android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
             builder.setTitle(R.string.collecting_initial_readings);
             initial_status_binding = PopupInitialStatusHelperBinding.inflate(getLayoutInflater());
             initial_status_binding.setIdq(initialDataQuality);
@@ -2694,7 +2694,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         if ((helper_dialog != null) && (helper_dialog.isShowing())) return;
         if (btnApprove.getVisibility() == View.VISIBLE) return;
         if (JoH.ratelimit("calibrate-sensor_prompt", 10)) {
-            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            final android.support.v7.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
             final Context context = this;
             builder.setTitle(gs(R.string.calibrate_sensor));
             builder.setMessage(gs(R.string.we_have_some_readings__next_we_need_the_first_calibration_blood_test__ready_to_calibrate_now));
@@ -3256,7 +3256,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
         alertDialogBuilder.setNegativeButton(R.string.nokeep_parakeet_as_it_is, (dialog, which) -> {/* do nothing*/});
 
-        AlertDialog alertDialog = alertDialogBuilder.create();
+        android.support.v7.app.AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
 
@@ -3278,7 +3278,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
     public void showNoteTextInputDialog(View view, final long timestamp, final double position) {
         Log.d(TAG, "showNoteTextInputDialog: ts:" + timestamp + " pos:" + position);
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        AlertDialog.Builder dialogBuilder = new android.support.v7.app.AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
         final View dialogView = inflater.inflate(R.layout.note_dialog_phone, null);
         dialogBuilder.setView(dialogView);
@@ -3313,7 +3313,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         if (Treatments.byTimestamp(timestamp, (int) (2.5 * MINUTE_IN_MS)) != null) {
             dialogBuilder.setNeutralButton("Delete", (dialog, whichButton) -> {
                 // are you sure?
-                final AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+                final AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(mActivity);
                 builder.setTitle(gs(R.string.confirm_delete));
                 builder.setMessage(gs(R.string.are_you_sure_you_want_to_delete_this_treatment));
                 builder.setPositiveButton(gs(R.string.yes_delete), (dialog1, which) -> {
@@ -3502,7 +3502,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                     }.execute();
                 }
             });
-            datePickerFragment.show(getFragmentManager(), "DatePicker");
+            datePickerFragment.show(getSupportFragmentManager(), "DatePicker");
             return true;
         }
 
@@ -3539,7 +3539,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         }
     }
 
-    public static void snackBar(int buttonString, String message, View.OnClickListener mOnClickListener, Activity activity) {
+    public static void snackBar(int buttonString, String message, View.OnClickListener mOnClickListener, AppCompatActivity activity) {
 
         android.support.design.widget.Snackbar.make(
 
@@ -3550,7 +3550,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                 .show();
     }
 
-    public static void staticBlockUI(Activity context, boolean state) {
+    public static void staticBlockUI(AppCompatActivity context, boolean state) {
         blockTouches = state;
         if (state) {
             JoH.lockOrientation(context);

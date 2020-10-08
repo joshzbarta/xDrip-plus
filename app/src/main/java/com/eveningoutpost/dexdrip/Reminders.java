@@ -5,8 +5,8 @@ package com.eveningoutpost.dexdrip;
 
 
 import android.animation.ValueAnimator;
-import android.app.Activity;
-import android.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import android.support.v7.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -26,6 +26,7 @@ import android.os.PowerManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -557,7 +558,7 @@ public class Reminders extends ActivityWithRecycler implements SensorEventListen
             if (ContextCompat.checkSelfPermission(getApplicationContext(),
                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     != PackageManager.PERMISSION_GRANTED) {
-                final Activity activity = this;
+                final AppCompatActivity activity = this;
                 JoH.show_ok_dialog(activity, xdrip.getAppContext().getString(R.string.Please_Allow_Permission), xdrip.getAppContext().getString(R.string.need_storage_permission), new Runnable() {
                     @Override
                     public void run() {
@@ -805,7 +806,7 @@ public class Reminders extends ActivityWithRecycler implements SensorEventListen
 
         if ((dialog != null) && (dialog.isShowing())) return;
 
-        final Activity activity = this;
+        final AppCompatActivity activity = this;
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
         dialogView = inflater.inflate(R.layout.reminder_new_dialog, null);
@@ -1159,7 +1160,7 @@ public class Reminders extends ActivityWithRecycler implements SensorEventListen
                 freshen(reminder);
             }
         });
-        timePickerFragment.show(this.getFragmentManager(), "TimePicker");
+        timePickerFragment.show(this.getSupportFragmentManager(), "TimePicker");
 
         // appears on top
         if (JoH.msTill(reminder.next_due) > Constants.DAY_IN_MS) {
@@ -1175,7 +1176,7 @@ public class Reminders extends ActivityWithRecycler implements SensorEventListen
 
                 }
             });
-            datePickerFragment.show(this.getFragmentManager(), "DatePicker");
+            datePickerFragment.show(this.getSupportFragmentManager(), "DatePicker");
         }
     }
 
@@ -1287,7 +1288,7 @@ public class Reminders extends ActivityWithRecycler implements SensorEventListen
     private void hideKeyboard(View v) {
         if (v == null) return;
         InputMethodManager inputMethodManager = (InputMethodManager) this
-                .getSystemService(Activity.INPUT_METHOD_SERVICE);
+                .getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
     }
 
@@ -1335,7 +1336,7 @@ public class Reminders extends ActivityWithRecycler implements SensorEventListen
         }
     }
 
-    private static void showcase(final Activity activity, final int which) {
+    private static void showcase(final AppCompatActivity activity, final int which) {
 
         final ViewTarget target;
         final String title;

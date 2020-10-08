@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.wearable.view.WatchViewStub;
@@ -26,7 +26,7 @@ import java.util.Map;
 
 // jamorham xdrip plus
 
-public class KeypadInputActivity extends Activity {
+public class KeypadInputActivity extends AppCompatActivity {
 
     private final static String TAG = "jamorham " + KeypadInputActivity.class.getSimpleName();
     private TextView mDialTextView;

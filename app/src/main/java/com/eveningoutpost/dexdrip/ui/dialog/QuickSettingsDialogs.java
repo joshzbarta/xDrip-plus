@@ -1,15 +1,15 @@
 package com.eveningoutpost.dexdrip.ui.dialog;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.R;
+import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
 
 // jamorham
@@ -20,7 +20,7 @@ public class QuickSettingsDialogs {
     private static AlertDialog dialog;
 
 
-    public static void booleanSettingDialog(Activity activity, String setting, String title, String checkboxText, String message, final Runnable postRun) {
+    public static void booleanSettingDialog(AppCompatActivity activity, String setting, String title, String checkboxText, String message, final Runnable postRun) {
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(activity);
 
         final View dialogView = activity.getLayoutInflater().inflate(R.layout.dialog_checkbox, null);
@@ -60,8 +60,8 @@ public class QuickSettingsDialogs {
     }
 
 
-    public static void textSettingDialog(Activity activity, String setting, String title, String message, int input_type, final Runnable postRun) {
-        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(activity);
+    public static void textSettingDialog(AppCompatActivity activity, String setting, String title, String message, int input_type, final Runnable postRun) {
+        final AlertDialog.Builder dialogBuilder = new android.support.v7.app.AlertDialog.Builder(activity);
 
         final View dialogView = activity.getLayoutInflater().inflate(R.layout.dialog_text_entry, null);
         dialogBuilder.setView(dialogView);

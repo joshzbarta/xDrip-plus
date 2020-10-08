@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.support.annotation.IdRes;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,8 +29,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.eveningoutpost.dexdrip.BaseAppCompatActivity;
-import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.R;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.utilityModels.JamorhamShowcaseDrawer;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.utilityModels.SendFeedBack;
@@ -190,7 +191,7 @@ public class LanguageEditor extends BaseAppCompatActivity {
         // handle case where we don't know about any translations for current language
         if (languageItemList.size() == 0 || Locale.getDefault().toString().startsWith("en")) {
             if (Locale.getDefault().toString().startsWith("en")) {
-                android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(this);
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
                 if (!Pref.getBoolean("force_english", false)) {
                     alertDialogBuilder.setMessage("To access translation features your phone or tablet must be set to a language other than English.\n\nTo achieve this, use the phone's system settings to change Language."); // don't extract/translate this string
@@ -206,7 +207,7 @@ public class LanguageEditor extends BaseAppCompatActivity {
                 alertDialogBuilder.show();
 
             } else {
-                android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(this);
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
                 alertDialogBuilder.setMessage("xDrip+ does not yet have the capability to translate for: " + Locale.getDefault().toString() + "\n\n" + "But we can add this if you request it!"); // don't extract/translate this string
                 alertDialogBuilder.setNegativeButton("No, don't request my language", new DialogInterface.OnClickListener() {
                     @Override
@@ -260,7 +261,7 @@ public class LanguageEditor extends BaseAppCompatActivity {
     }
 
     public void languageResetEverything(MenuItem v) {
-        android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(this);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Are you sure you want to reset all edited language data?"); // don't extract/translate this string
         alertDialogBuilder.setNegativeButton("No, keep my data", new DialogInterface.OnClickListener() {
             @Override
@@ -632,7 +633,7 @@ public class LanguageEditor extends BaseAppCompatActivity {
             final ViewTarget finalviewtarget = viewtarget;
             final String finalmessage = message;
             final String finaltitle = title;
-            final Activity finalactivity = this;
+            final AppCompatActivity finalactivity = this;
 
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {

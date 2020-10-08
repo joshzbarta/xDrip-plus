@@ -1,11 +1,11 @@
 package com.eveningoutpost.dexdrip.ui.dialog;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.R;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.utilityModels.Constants;
 import com.eveningoutpost.dexdrip.utilityModels.Experience;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
@@ -20,7 +20,7 @@ public class HeyFamUpdateOptInDialog {
 
     private static final boolean DEBUG = false;
 
-    public static void heyFam(final Activity activity) {
+    public static void heyFam(final AppCompatActivity activity) {
         if (DEBUG || (!Pref.getBooleanDefaultFalse(AUTO_UPDATE_PREFS_NAME)
                 && Experience.ageOfThisBuildAtLeast(Constants.DAY_IN_MS * 60)
                 && Experience.installedForAtLeast(Constants.DAY_IN_MS * 30)
@@ -42,9 +42,9 @@ public class HeyFamUpdateOptInDialog {
     }
 
     // inform the user about this message
-    private static void ask1(Activity activity, Runnable runnable) {
+    private static void ask1(AppCompatActivity activity, Runnable runnable) {
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        final android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(activity);
         builder.setTitle(R.string.hey_fam);
         builder.setMessage(R.string.you_have_update_checks_off);
 
@@ -55,15 +55,15 @@ public class HeyFamUpdateOptInDialog {
             }
         });
 
-        final AlertDialog dialog = builder.create();
+        final android.support.v7.app.AlertDialog dialog = builder.create();
         dialog.show();
 
     }
 
     // ask the user if they would like to enable updates
-    private static void ask2(Activity activity, Runnable runnable) {
+    private static void ask2(AppCompatActivity activity, Runnable runnable) {
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        final AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(activity);
         builder.setTitle(R.string.enable_update_checks);
         builder.setMessage(R.string.you_can_easily_roll_back_dialog_msg);
 
@@ -81,7 +81,7 @@ public class HeyFamUpdateOptInDialog {
             }
         });
 
-        final AlertDialog dialog = builder.create();
+        final android.support.v7.app.AlertDialog dialog = builder.create();
         dialog.show();
 
     }

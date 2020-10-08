@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.models;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.NotificationManager;
@@ -42,7 +42,6 @@ import android.os.SystemClock;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ContextThemeWrapper;
 import android.text.InputType;
 import android.text.method.DigitsKeyListener;
@@ -985,7 +984,7 @@ public class JoH {
         static_toast(context, msg, Toast.LENGTH_LONG);
     }
 
-    public static void show_ok_dialog(final Activity activity, final String title, final String message, final Runnable runnable) {
+    public static void show_ok_dialog(final AppCompatActivity activity, final String title, final String message, final Runnable runnable) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -1312,13 +1311,13 @@ public class JoH {
     }
 
 
-    public static void releaseOrientation(Activity activity) {
+    public static void releaseOrientation(AppCompatActivity activity) {
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
     }
 
     @SuppressWarnings("deprecation")
     @SuppressLint("NewApi")
-    public static void lockOrientation(Activity activity) {
+    public static void lockOrientation(AppCompatActivity activity) {
         Display display = activity.getWindowManager().getDefaultDisplay();
         int rotation = display.getRotation();
         int height;

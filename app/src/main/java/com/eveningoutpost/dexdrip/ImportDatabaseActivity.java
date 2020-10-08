@@ -1,8 +1,6 @@
 package com.eveningoutpost.dexdrip;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -15,6 +13,8 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -167,7 +167,7 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
     @Override
     protected void onListItemClick(ListView l, View v, final int position, long id) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        android.support.v7.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 importDB(position);
@@ -226,11 +226,11 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
         importDB(databases.get(position), this);
     }
 
-    private void importDB(File the_file, Activity activity) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+    private void importDB(File the_file, AppCompatActivity activity) {
+        AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(activity);
         builder.setTitle("Importing, please wait");
         builder.setMessage("Importing, please wait");
-        AlertDialog dialog = builder.create();
+        android.support.v7.app.AlertDialog dialog = builder.create();
         dialog.show();
         dialog.setMessage("Step 1: checking prerequisites");
         dialog.setCancelable(false);
@@ -242,7 +242,7 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
 
         startWatchUpdaterService(this, WatchUpdaterService.ACTION_RESET_DB, TAG);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        android.support.v7.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 returnToHome();
@@ -268,7 +268,7 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
         private final AlertDialog statusDialog;
         private File dbFile;
 
-        LoadTask(AlertDialog statusDialog, File dbFile) {
+        LoadTask(android.support.v7.app.AlertDialog statusDialog, File dbFile) {
             super();
             this.statusDialog = statusDialog;
             this.dbFile = dbFile;

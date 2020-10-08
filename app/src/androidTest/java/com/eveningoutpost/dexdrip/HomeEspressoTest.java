@@ -5,7 +5,7 @@ package com.eveningoutpost.dexdrip;
  */
 
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.annotation.UiThreadTest;
@@ -51,7 +51,7 @@ public class HomeEspressoTest {
             clearAllPrefs();
         }
 
-        final Activity activity = mActivityRule.getActivity();
+        final AppCompatActivity activity = mActivityRule.getActivity();
         activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
                 | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
                 | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON

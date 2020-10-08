@@ -1,8 +1,8 @@
 package com.eveningoutpost.dexdrip;
 
 
-import android.app.Activity;
-import android.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import android.support.v7.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.eveningoutpost.dexdrip.models.BgReading;
@@ -444,7 +445,7 @@ public class GcmActivity extends FauxActivity {
 
     static void sendSnoozeToRemoteWithConfirm(final Context context) {
         final long when = JoH.tsl();
-        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        final android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(context);
         builder.setTitle(xdrip.getAppContext().getString(R.string.confirm_remote_snooze));
         builder.setMessage(xdrip.getAppContext().getString(R.string.are_you_sure_you_wish_to_snooze_all_other_devices_in_your_sync_group));
         builder.setPositiveButton(xdrip.getAppContext().getString(R.string.yes_send_it), new DialogInterface.OnClickListener() {
@@ -466,7 +467,7 @@ public class GcmActivity extends FauxActivity {
                 dialog.dismiss();
             }
         });
-        final AlertDialog alert = builder.create();
+        final android.support.v7.app.AlertDialog alert = builder.create();
         alert.show();
         // Hide after some seconds
         final Handler handler = new Handler();
@@ -924,7 +925,7 @@ public class GcmActivity extends FauxActivity {
                                 if (ack_outstanding > MAX_ACK_OUTSTANDING_MS) {
                                     if (JoH.ratelimit("ack-failure", 7200)) {
                                         if (JoH.isAnyNetworkConnected()) {
-                                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                                            android.support.v7.app.AlertDialog.Builder builder = new AlertDialog.Builder(context);
                                             builder.setTitle("Possible Sync Problem");
                                             builder.setMessage("It appears we haven't been able to send/receive sync data for the last: " + JoH.qs(ack_outstanding / 60000, 0) + " minutes\n\nDo you want to perform a reset of the sync system?");
                                             builder.setPositiveButton("YES, Do it!", new DialogInterface.OnClickListener() {
@@ -946,7 +947,7 @@ public class GcmActivity extends FauxActivity {
                                                     Pref.setLong("sync_warning_never", JoH.tsl());
                                                 }
                                             });
-                                            AlertDialog alert = builder.create();
+                                            android.support.v7.app.AlertDialog alert = builder.create();
                                             alert.show();
                                         }
                                     }
@@ -978,7 +979,7 @@ public class GcmActivity extends FauxActivity {
         return checkPlayServices(xdrip.getAppContext(), null);
     }
 
-    static Boolean checkPlayServices(Context context, Activity activity) {
+    static Boolean checkPlayServices(Context context, AppCompatActivity activity) {
         checkCease();
         if (cease_all_activity) return false;
         final GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();

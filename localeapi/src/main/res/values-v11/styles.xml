@@ -14,10 +14,10 @@
 -->
 <resources>
 
-    <style name="Theme.Locale.Dark" parent="android:Theme.Holo" />
+    <style name="Theme.Locale.Dark" parent="Theme.AppCompat" />
 
-    <style name="Theme.Locale.Light" parent="android:Theme.Holo.Light" />
+    <style name="Theme.Locale.Light" parent="Theme.AppCompat.Light" />
 
-    <style name="Theme.Locale.Dialog" parent="android:Theme.Holo.Dialog" />
+    <style name="Theme.Locale.Dialog" parent="Theme.AppCompat.Dialog" />
 
 </resources>

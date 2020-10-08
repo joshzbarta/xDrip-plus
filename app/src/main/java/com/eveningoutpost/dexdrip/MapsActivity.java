@@ -2,11 +2,10 @@ package com.eveningoutpost.dexdrip;
 
 // jamorham
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.WindowManager;
 
@@ -24,7 +23,7 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private static final String defaultLocation = "-31.988644,115.515637"; // default bogus position
     private static final String TAG = "jamorham map";
@@ -33,7 +32,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static List<Double> lats = new ArrayList<Double>();
     private static boolean active = false;
     private static GoogleMap mMap;
-    private static Activity static_activity;
+    private static AppCompatActivity static_activity;
 
     // receive updates from elsewhere
     public static void newMapLocation(String location, long when) {

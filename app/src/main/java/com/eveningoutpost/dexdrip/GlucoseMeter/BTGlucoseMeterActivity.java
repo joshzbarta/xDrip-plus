@@ -1,7 +1,6 @@
 package com.eveningoutpost.dexdrip.GlucoseMeter;
 
 import android.annotation.TargetApi;
-import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
@@ -14,6 +13,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,10 +25,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.Services.BluetoothGlucoseMeter;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.utils.ListActivityWithMenu;
 import com.eveningoutpost.dexdrip.utils.LocationHelper;
@@ -117,7 +117,7 @@ public class BTGlucoseMeterActivity extends ListActivityWithMenu {
 
                     final MyBluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
                     if (device != null) {
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(adapterView.getContext());
+                        final AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(adapterView.getContext());
                         builder.setTitle("Choose Action");
                         builder.setMessage("You can disconnect from this device or forget its pairing here");
 

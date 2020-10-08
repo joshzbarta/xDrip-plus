@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.stats;
 
 
 import android.Manifest;
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -98,7 +98,7 @@ public class StatsActivity extends ActivityWithMenu {
         final String title = "Swipe for Different Reports";
         final String message = "Swipe left and right to see different report tabs.\n\nChoose time period for Today, Yesterday, 7 Days etc.\n\nFull screen mode, print colors and Sharing are supported from the butttons and 3 dot menu.";
         final ViewTarget target = new ViewTarget(R.id.button_stats_7d, this);
-        final Activity activity = this;
+        final AppCompatActivity activity = this;
 
 
         JoH.runOnUiThreadDelayed(new Runnable() {
@@ -322,7 +322,7 @@ public class StatsActivity extends ActivityWithMenu {
     {
         try {
         if (checkPermissions()) {
-            final Activity context = this;
+            final AppCompatActivity context = this;
             JoH.runOnUiThreadDelayed(new Runnable() {
                 @Override
                 public void run() {

@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.utilityModels;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.util.Pair;
@@ -2258,16 +2259,16 @@ public class BgGraphBuilder {
         }
     }
 
-    public OnValueSelectTooltipListener getOnValueSelectTooltipListener(Activity callerActivity) {
+    public OnValueSelectTooltipListener getOnValueSelectTooltipListener(AppCompatActivity callerActivity) {
         return new OnValueSelectTooltipListener(callerActivity);
     }
 
     public class OnValueSelectTooltipListener implements LineChartOnValueSelectListener {
 
         private Toast tooltip;
-        private Activity callerActivity;
+        private AppCompatActivity callerActivity;
 
-        public OnValueSelectTooltipListener(Activity callerActivity) {
+        public OnValueSelectTooltipListener(AppCompatActivity callerActivity) {
             this.callerActivity = callerActivity;
         }
 

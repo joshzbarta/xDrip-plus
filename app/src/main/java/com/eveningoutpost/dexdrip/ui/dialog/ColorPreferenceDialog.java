@@ -1,9 +1,9 @@
 package com.eveningoutpost.dexdrip.ui.dialog;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilityModels.ColorCache;
@@ -18,8 +18,8 @@ import com.rarepebble.colorpicker.ColorPickerView;
 
 public class ColorPreferenceDialog {
 
-    public static void pick(final Activity activity, final String pref, final String title, final Runnable runnable) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+    public static void pick(final AppCompatActivity activity, final String pref, final String title, final Runnable runnable) {
+        final android.support.v7.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         final ColorPickerView picker = new ColorPickerView(activity);
         int color = Color.GRAY;
         try {

@@ -1,8 +1,6 @@
 package com.eveningoutpost.dexdrip.utils;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,9 +10,11 @@ import android.os.Build;
 import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.R;
+import com.eveningoutpost.dexdrip.models.JoH;
 
 /**
  * Helper for checking if location services are enabled on the device.
@@ -44,14 +44,14 @@ public class LocationHelper {
      *
      * @param parent The currently visible activity.
      */
-    public static void requestLocation(final Activity parent) {
+    public static void requestLocation(final AppCompatActivity parent) {
         if (LocationHelper.isLocationEnabled(parent)) {
             return;
         }
 
         // Shamelessly borrowed from http://stackoverflow.com/a/10311877/868533
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(parent);
+        AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(parent);
         builder.setTitle(R.string.location_not_found_title);
         builder.setMessage(R.string.location_not_found_message);
         builder.setPositiveButton(R.string.location_yes, new DialogInterface.OnClickListener() {
@@ -78,7 +78,7 @@ public class LocationHelper {
      *
      * @param activity The currently visible activity.
      */
-    public static void requestLocationForBluetooth(final Activity activity) {
+    public static void requestLocationForBluetooth(final AppCompatActivity activity) {
         // Location needs to be enabled for Bluetooth discovery on Marshmallow.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
@@ -124,7 +124,7 @@ public class LocationHelper {
         }
     }
 
-    public static void requestLocationForEmergencyMessage(final Activity activity) {
+    public static void requestLocationForEmergencyMessage(final AppCompatActivity activity) {
         // Location needs to be enabled for Bluetooth discovery on Marshmallow.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
@@ -169,7 +169,7 @@ public class LocationHelper {
         return true;
     }
 
-    public static Boolean locationPermission(final Activity activity) {
+    public static Boolean locationPermission(final AppCompatActivity activity) {
         if (Build.VERSION.SDK_INT >= 29) {
             // check background location as well on android 10+
             return ((ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)

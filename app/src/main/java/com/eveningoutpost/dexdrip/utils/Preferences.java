@@ -3,7 +3,6 @@ package com.eveningoutpost.dexdrip.utils;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.appwidget.AppWidgetManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -36,6 +35,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -49,13 +50,6 @@ import com.bytehamster.lib.preferencesearch.SearchPreferenceResultListener;
 import com.eveningoutpost.dexdrip.BasePreferenceActivity;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.models.DesertSync;
-import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.models.Profile;
-import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.models.UserError.ExtraLogTags;
-import com.eveningoutpost.dexdrip.models.UserError.Log;
-import com.eveningoutpost.dexdrip.models.UserNotification;
 import com.eveningoutpost.dexdrip.NFCReaderX;
 import com.eveningoutpost.dexdrip.ParakeetHelper;
 import com.eveningoutpost.dexdrip.R;
@@ -64,6 +58,22 @@ import com.eveningoutpost.dexdrip.Services.BluetoothGlucoseMeter;
 import com.eveningoutpost.dexdrip.Services.DexCollectionService;
 import com.eveningoutpost.dexdrip.Services.G5BaseService;
 import com.eveningoutpost.dexdrip.Services.PlusSyncService;
+import com.eveningoutpost.dexdrip.WidgetUpdateService;
+import com.eveningoutpost.dexdrip.calibrations.PluggableCalibration;
+import com.eveningoutpost.dexdrip.cgm.nsfollow.NightscoutFollow;
+import com.eveningoutpost.dexdrip.cgm.sharefollow.ShareFollowService;
+import com.eveningoutpost.dexdrip.insulin.inpen.InPenEntry;
+import com.eveningoutpost.dexdrip.models.DesertSync;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.Profile;
+import com.eveningoutpost.dexdrip.models.UserError;
+import com.eveningoutpost.dexdrip.models.UserError.ExtraLogTags;
+import com.eveningoutpost.dexdrip.models.UserError.Log;
+import com.eveningoutpost.dexdrip.models.UserNotification;
+import com.eveningoutpost.dexdrip.profileeditor.ProfileEditor;
+import com.eveningoutpost.dexdrip.tidepool.TidepoolUploader;
+import com.eveningoutpost.dexdrip.tidepool.UploadChunk;
+import com.eveningoutpost.dexdrip.ui.LockScreenWallPaper;
 import com.eveningoutpost.dexdrip.utilityModels.BgGraphBuilder;
 import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
 import com.eveningoutpost.dexdrip.utilityModels.Constants;
@@ -82,15 +92,6 @@ import com.eveningoutpost.dexdrip.utilityModels.pebble.watchface.InstallPebbleSn
 import com.eveningoutpost.dexdrip.utilityModels.pebble.watchface.InstallPebbleTrendClayWatchFace;
 import com.eveningoutpost.dexdrip.utilityModels.pebble.watchface.InstallPebbleTrendWatchFace;
 import com.eveningoutpost.dexdrip.utilityModels.pebble.watchface.InstallPebbleWatchFace;
-import com.eveningoutpost.dexdrip.WidgetUpdateService;
-import com.eveningoutpost.dexdrip.calibrations.PluggableCalibration;
-import com.eveningoutpost.dexdrip.cgm.nsfollow.NightscoutFollow;
-import com.eveningoutpost.dexdrip.cgm.sharefollow.ShareFollowService;
-import com.eveningoutpost.dexdrip.insulin.inpen.InPenEntry;
-import com.eveningoutpost.dexdrip.profileeditor.ProfileEditor;
-import com.eveningoutpost.dexdrip.tidepool.TidepoolUploader;
-import com.eveningoutpost.dexdrip.tidepool.UploadChunk;
-import com.eveningoutpost.dexdrip.ui.LockScreenWallPaper;
 import com.eveningoutpost.dexdrip.utils.framework.IncomingCallsReceiver;
 import com.eveningoutpost.dexdrip.watch.lefun.LeFunEntry;
 import com.eveningoutpost.dexdrip.watch.miband.MiBand;
@@ -156,7 +157,7 @@ public class Preferences extends BasePreferenceActivity implements SearchPrefere
         this.preferenceFragment = new AllPrefsFragment(jumpTo);
         this.preferenceFragment.setParent(this);
         pFragment = this.preferenceFragment;
-        getFragmentManager().beginTransaction().replace(android.R.id.content,
+        getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
                 this.preferenceFragment).commit();
     }
 
@@ -2202,7 +2203,7 @@ public class Preferences extends BasePreferenceActivity implements SearchPrefere
             jumpToScreen(jumpTo);
         }
 
-        public static void checkReadPermission(final Activity activity) {
+        public static void checkReadPermission(final AppCompatActivity activity) {
 
             // TODO call log permission - especially for Android 9+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
