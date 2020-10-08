@@ -2,20 +2,20 @@ package com.eveningoutpost.dexdrip.utilityModels;
 
 // jamorham
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.eveningoutpost.dexdrip.G5Model.Ob1G5StateMachine;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
+import com.eveningoutpost.dexdrip.Services.ActivityRecognizedService;
+import com.eveningoutpost.dexdrip.Services.G5BaseService;
+import com.eveningoutpost.dexdrip.cgm.medtrum.MedtrumCollectionService;
 import com.eveningoutpost.dexdrip.models.BgReading;
 import com.eveningoutpost.dexdrip.models.BloodTest;
 import com.eveningoutpost.dexdrip.models.Calibration;
 import com.eveningoutpost.dexdrip.models.DesertSync;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.Sensor;
-import com.eveningoutpost.dexdrip.Services.ActivityRecognizedService;
-import com.eveningoutpost.dexdrip.Services.G5BaseService;
-import com.eveningoutpost.dexdrip.cgm.medtrum.MedtrumCollectionService;
 import com.eveningoutpost.dexdrip.ui.activities.DatabaseAdmin;
 import com.eveningoutpost.dexdrip.ui.dialog.G6CalibrationCodeDialog;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
@@ -27,7 +27,7 @@ import static com.eveningoutpost.dexdrip.Home.staticRefreshBGCharts;
 public class VoiceCommands {
 
 
-    public static void processVoiceCommand(String allWords, Activity mActivity) {
+    public static void processVoiceCommand(String allWords, AppCompatActivity mActivity) {
         if (allWords.contentEquals("delete last calibration")
                 || allWords.contentEquals("clear last calibration")) {
             Calibration.clearLastCalibration();

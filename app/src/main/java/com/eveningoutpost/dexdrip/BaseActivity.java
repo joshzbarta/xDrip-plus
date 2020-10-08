@@ -2,10 +2,10 @@ package com.eveningoutpost.dexdrip;
 
 // jamorham
 
-import android.app.Activity;
 import android.content.Context;
+import androidx.appcompat.app.AppCompatActivity;
 
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(final Context baseContext) {

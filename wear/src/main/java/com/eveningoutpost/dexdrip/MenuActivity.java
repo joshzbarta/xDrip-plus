@@ -1,19 +1,19 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.support.wearable.view.WatchViewStub;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.Tables.BgReadingTable;
 import com.eveningoutpost.dexdrip.Tables.BloodTestTable;
 import com.eveningoutpost.dexdrip.Tables.CalibrationDataTable;
 import com.eveningoutpost.dexdrip.Tables.TreatmentsTable;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 
@@ -31,7 +31,7 @@ import static com.eveningoutpost.dexdrip.ListenerService.WEARABLE_INITTREATMENTS
 
 // jamorham xdrip plus
 
-public class MenuActivity extends Activity {
+public class MenuActivity extends AppCompatActivity {
 
     private final static String TAG = "jamorham " + MenuActivity.class.getSimpleName();
     //private TextView mDialTextView;

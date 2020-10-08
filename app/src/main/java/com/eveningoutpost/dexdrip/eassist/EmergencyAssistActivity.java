@@ -1,33 +1,33 @@
 package com.eveningoutpost.dexdrip.eassist;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.databinding.ObservableArrayList;
-import android.databinding.ObservableList;
+import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableList;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.eveningoutpost.dexdrip.BR;
 import com.eveningoutpost.dexdrip.BaseAppCompatActivity;
+import com.eveningoutpost.dexdrip.R;
+import com.eveningoutpost.dexdrip.databinding.ActivityEmergencyAssistBinding;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.R;
+import com.eveningoutpost.dexdrip.ui.dialog.GenericConfirmDialog;
 import com.eveningoutpost.dexdrip.utilityModels.Constants;
 import com.eveningoutpost.dexdrip.utilityModels.Inevitable;
 import com.eveningoutpost.dexdrip.utilityModels.PrefsViewImpl;
 import com.eveningoutpost.dexdrip.utilityModels.PrefsViewString;
-import com.eveningoutpost.dexdrip.databinding.ActivityEmergencyAssistBinding;
-import com.eveningoutpost.dexdrip.ui.dialog.GenericConfirmDialog;
 import com.eveningoutpost.dexdrip.utils.LocationHelper;
 import com.eveningoutpost.dexdrip.xdrip;
 
@@ -39,7 +39,6 @@ import static android.provider.ContactsContract.CommonDataKinds.Phone;
 import static com.eveningoutpost.dexdrip.eassist.EmergencyAssist.EMERGENCY_ASSIST_PREF;
 import static com.eveningoutpost.dexdrip.eassist.EmergencyAssist.EMERGENCY_HIGH_MINS_PREF;
 import static com.eveningoutpost.dexdrip.eassist.EmergencyAssist.EMERGENCY_LOW_MINS_PREF;
-
 import static com.eveningoutpost.dexdrip.xdrip.gs;
 
 /*
@@ -101,7 +100,7 @@ public class EmergencyAssistActivity extends BaseAppCompatActivity {
             if (ContextCompat.checkSelfPermission(getApplicationContext(),
                     Manifest.permission.READ_CONTACTS)
                     != PackageManager.PERMISSION_GRANTED) {
-                final Activity activity = this;
+                final AppCompatActivity activity = this;
                 JoH.show_ok_dialog(activity, gs(R.string.please_allow_permission), gs(R.string.need_contacts_permission_to_select_message_recipients), new Runnable() {
                     @Override
                     public void run() {
@@ -124,7 +123,7 @@ public class EmergencyAssistActivity extends BaseAppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!isSMSPermissionGranted()) {
                 if (JoH.ratelimit("check-sms-permission", 2)) {
-                    final Activity activity = this;
+                    final AppCompatActivity activity = this;
                     JoH.show_ok_dialog(activity, gs(R.string.please_allow_permission), "Need SMS permission to send text messages to your emergency contacts."
                             + "\n\n"
                             + "Warning this can cost money at normal telecoms rates!", () -> ActivityCompat.requestPermissions(activity,
@@ -282,19 +281,19 @@ public class EmergencyAssistActivity extends BaseAppCompatActivity {
     public class ContactModel {
         public final ObservableList<EmergencyContact> items = new ObservableArrayList<>();
         public final ItemBinding<EmergencyContact> itemBinding = ItemBinding.of(BR.item, R.layout.emergency_contact_item);
-        public Activity activity;
+        public AppCompatActivity activity;
 
         {
             itemBinding.bindExtra(BR.contactModelItem, this);
         }
 
-        ContactModel(Activity activity, List<EmergencyContact> items) {
+        ContactModel(AppCompatActivity activity, List<EmergencyContact> items) {
             this.activity = activity;
             itemBinding.bindExtra(BR.activityItem, activity);
             this.items.addAll(items);
         }
 
-        ContactModel(Activity activity) {
+        ContactModel(AppCompatActivity activity) {
             this(activity, EmergencyContact.load());
         }
 

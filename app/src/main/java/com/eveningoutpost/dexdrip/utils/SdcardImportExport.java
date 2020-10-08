@@ -1,15 +1,15 @@
 package com.eveningoutpost.dexdrip.utils;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -17,9 +17,9 @@ import android.widget.Toast;
 import com.eveningoutpost.dexdrip.BaseAppCompatActivity;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
+import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.models.AlertType;
 import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.xdrip;
 
@@ -32,8 +32,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.eveningoutpost.dexdrip.utils.FileUtils.getExternalDir;
-
-
 import static com.eveningoutpost.dexdrip.xdrip.gs;
 public class SdcardImportExport extends BaseAppCompatActivity {
 
@@ -88,7 +86,7 @@ public class SdcardImportExport extends BaseAppCompatActivity {
     }
 
     // TODO refactor to own class
-    public static boolean checkPermissions(Activity context, boolean ask, int request_code) {
+    public static boolean checkPermissions(AppCompatActivity context, boolean ask, int request_code) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(context,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -253,7 +251,7 @@ public class SdcardImportExport extends BaseAppCompatActivity {
     }
 
     // restore settings backup if there is one, produce dialogs for prompting and permissions as required
-    public static boolean handleBackup(final Activity activity) {
+    public static boolean handleBackup(final AppCompatActivity activity) {
         final List<String> results = findAnyBackups(activity);
         if (!backupDismissed && (results != null) && (results.size() > 0)) {
             Log.e(TAG, "Found: " + results.size() + " backup files");
@@ -285,7 +283,7 @@ public class SdcardImportExport extends BaseAppCompatActivity {
         }
     }
 
-    public static void restoreSettingsNow(Activity activity) {
+    public static void restoreSettingsNow(AppCompatActivity activity) {
         final List<String> results = findAnyBackups(activity);
         if ((results != null) && (results.size() > 0)) {
             JoH.static_toast_long("Restoring Settings");

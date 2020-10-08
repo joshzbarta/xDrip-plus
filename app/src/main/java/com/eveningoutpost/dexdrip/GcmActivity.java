@@ -1,8 +1,6 @@
 package com.eveningoutpost.dexdrip;
 
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,9 +11,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.eveningoutpost.dexdrip.Services.PlusSyncService;
 import com.eveningoutpost.dexdrip.models.BgReading;
 import com.eveningoutpost.dexdrip.models.BloodTest;
 import com.eveningoutpost.dexdrip.models.Calibration;
@@ -26,7 +27,6 @@ import com.eveningoutpost.dexdrip.models.Sensor;
 import com.eveningoutpost.dexdrip.models.Treatments;
 import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.models.UserError.Log;
-import com.eveningoutpost.dexdrip.Services.PlusSyncService;
 import com.eveningoutpost.dexdrip.utilityModels.Constants;
 import com.eveningoutpost.dexdrip.utilityModels.InstalledApps;
 import com.eveningoutpost.dexdrip.utilityModels.PersistentStore;
@@ -978,7 +978,7 @@ public class GcmActivity extends FauxActivity {
         return checkPlayServices(xdrip.getAppContext(), null);
     }
 
-    static Boolean checkPlayServices(Context context, Activity activity) {
+    static Boolean checkPlayServices(Context context, AppCompatActivity activity) {
         checkCease();
         if (cease_all_activity) return false;
         final GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();

@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.dagger;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.eveningoutpost.dexdrip.SystemStatusFragment;
 import com.eveningoutpost.dexdrip.ui.MicroStatusModule;
@@ -22,7 +22,7 @@ import dagger.Component;
 public interface MicroStatusComponent {
 
     void inject(SystemStatusFragment target);
-    void inject(Activity target);
+    void inject(AppCompatActivity target);
     void inject(WebServicePebble target);
 
 }

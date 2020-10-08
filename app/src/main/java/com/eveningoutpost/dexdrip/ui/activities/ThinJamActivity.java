@@ -1,19 +1,18 @@
 package com.eveningoutpost.dexdrip.ui.activities;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.databinding.Observable;
-import android.databinding.ObservableArrayList;
-import android.databinding.ObservableField;
-import android.databinding.ObservableList;
+import androidx.databinding.Observable;
+import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableField;
+import androidx.databinding.ObservableList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.ParcelUuid;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.InputType;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -24,15 +23,15 @@ import android.widget.TextView;
 
 import com.eveningoutpost.dexdrip.BR;
 import com.eveningoutpost.dexdrip.MegaStatus;
+import com.eveningoutpost.dexdrip.R;
+import com.eveningoutpost.dexdrip.databinding.ActivityThinJamBinding;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.R;
+import com.eveningoutpost.dexdrip.ui.dialog.GenericConfirmDialog;
+import com.eveningoutpost.dexdrip.ui.dialog.QuickSettingsDialogs;
 import com.eveningoutpost.dexdrip.utilityModels.Inevitable;
 import com.eveningoutpost.dexdrip.utilityModels.PersistentStore;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
-import com.eveningoutpost.dexdrip.databinding.ActivityThinJamBinding;
-import com.eveningoutpost.dexdrip.ui.dialog.GenericConfirmDialog;
-import com.eveningoutpost.dexdrip.ui.dialog.QuickSettingsDialogs;
 import com.eveningoutpost.dexdrip.utils.AndroidBarcode;
 import com.eveningoutpost.dexdrip.utils.LocationHelper;
 import com.eveningoutpost.dexdrip.utils.Preferences;
@@ -208,7 +207,7 @@ public class ThinJamActivity extends AppCompatActivity implements BtCallBack2 {
     // bound view model
     @RequiredArgsConstructor
     public class ViewModel {
-        Activity activity;
+        AppCompatActivity activity;
 
         public final ObservableField<String> connectedDevice = new ObservableField<>();
         public final ObservableField<String> status = new ObservableField<>();
@@ -221,7 +220,7 @@ public class ThinJamActivity extends AppCompatActivity implements BtCallBack2 {
         private String mac = null;
 
 
-        ViewModel(Activity activity) {
+        ViewModel(AppCompatActivity activity) {
             this.activity = activity;
             loadLastConnectedDevice();
         }

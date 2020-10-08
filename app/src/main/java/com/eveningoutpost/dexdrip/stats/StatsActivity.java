@@ -2,20 +2,20 @@ package com.eveningoutpost.dexdrip.stats;
 
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,9 +25,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.eveningoutpost.dexdrip.Home;
+import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError.Log;
-import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilityModels.JamorhamShowcaseDrawer;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.utilityModels.ShotStateStore;
@@ -37,8 +37,8 @@ import com.github.amlcurran.showcaseview.targets.ViewTarget;
 
 import java.io.File;
 
-import static com.eveningoutpost.dexdrip.models.JoH.goFullScreen;
 import static com.eveningoutpost.dexdrip.R.id.pager;
+import static com.eveningoutpost.dexdrip.models.JoH.goFullScreen;
 
 public class StatsActivity extends ActivityWithMenu {
 
@@ -98,7 +98,7 @@ public class StatsActivity extends ActivityWithMenu {
         final String title = "Swipe for Different Reports";
         final String message = "Swipe left and right to see different report tabs.\n\nChoose time period for Today, Yesterday, 7 Days etc.\n\nFull screen mode, print colors and Sharing are supported from the butttons and 3 dot menu.";
         final ViewTarget target = new ViewTarget(R.id.button_stats_7d, this);
-        final Activity activity = this;
+        final AppCompatActivity activity = this;
 
 
         JoH.runOnUiThreadDelayed(new Runnable() {
@@ -322,7 +322,7 @@ public class StatsActivity extends ActivityWithMenu {
     {
         try {
         if (checkPermissions()) {
-            final Activity context = this;
+            final AppCompatActivity context = this;
             JoH.runOnUiThreadDelayed(new Runnable() {
                 @Override
                 public void run() {

@@ -2,8 +2,6 @@ package com.eveningoutpost.dexdrip;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
@@ -26,13 +24,15 @@ import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.speech.RecognizerIntent;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.text.InputType;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -56,6 +56,23 @@ import android.widget.Toast;
 import com.crashlytics.android.Crashlytics;
 import com.eveningoutpost.dexdrip.G5Model.Ob1G5StateMachine;
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
+import com.eveningoutpost.dexdrip.Services.ActivityRecognizedService;
+import com.eveningoutpost.dexdrip.Services.DexCollectionService;
+import com.eveningoutpost.dexdrip.Services.Ob1G5CollectionService;
+import com.eveningoutpost.dexdrip.Services.PlusSyncService;
+import com.eveningoutpost.dexdrip.Services.WixelReader;
+import com.eveningoutpost.dexdrip.calibrations.NativeCalibrationPipe;
+import com.eveningoutpost.dexdrip.calibrations.PluggableCalibration;
+import com.eveningoutpost.dexdrip.dagger.Injectors;
+import com.eveningoutpost.dexdrip.databinding.ActivityHomeBinding;
+import com.eveningoutpost.dexdrip.databinding.ActivityHomeShelfSettingsBinding;
+import com.eveningoutpost.dexdrip.databinding.PopupInitialStatusHelperBinding;
+import com.eveningoutpost.dexdrip.eassist.EmergencyAssistActivity;
+import com.eveningoutpost.dexdrip.insulin.Insulin;
+import com.eveningoutpost.dexdrip.insulin.InsulinManager;
+import com.eveningoutpost.dexdrip.insulin.MultipleInsulins;
+import com.eveningoutpost.dexdrip.insulin.inpen.InPenEntry;
+import com.eveningoutpost.dexdrip.insulin.pendiq.Pendiq;
 import com.eveningoutpost.dexdrip.models.ActiveBgAlert;
 import com.eveningoutpost.dexdrip.models.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.models.BgReading;
@@ -70,11 +87,18 @@ import com.eveningoutpost.dexdrip.models.Sensor;
 import com.eveningoutpost.dexdrip.models.StepCounter;
 import com.eveningoutpost.dexdrip.models.Treatments;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.Services.ActivityRecognizedService;
-import com.eveningoutpost.dexdrip.Services.DexCollectionService;
-import com.eveningoutpost.dexdrip.Services.Ob1G5CollectionService;
-import com.eveningoutpost.dexdrip.Services.PlusSyncService;
-import com.eveningoutpost.dexdrip.Services.WixelReader;
+import com.eveningoutpost.dexdrip.profileeditor.DatePickerFragment;
+import com.eveningoutpost.dexdrip.profileeditor.ProfileAdapter;
+import com.eveningoutpost.dexdrip.ui.BaseShelf;
+import com.eveningoutpost.dexdrip.ui.MicroStatus;
+import com.eveningoutpost.dexdrip.ui.MicroStatusImpl;
+import com.eveningoutpost.dexdrip.ui.NumberGraphic;
+import com.eveningoutpost.dexdrip.ui.UiPing;
+import com.eveningoutpost.dexdrip.ui.dialog.DidYouCancelAlarm;
+import com.eveningoutpost.dexdrip.ui.dialog.HeyFamUpdateOptInDialog;
+import com.eveningoutpost.dexdrip.ui.dialog.QuickSettingsDialogs;
+import com.eveningoutpost.dexdrip.ui.graphic.ITrendArrow;
+import com.eveningoutpost.dexdrip.ui.graphic.TrendArrowFactory;
 import com.eveningoutpost.dexdrip.utilityModels.AlertPlayer;
 import com.eveningoutpost.dexdrip.utilityModels.BgGraphBuilder;
 import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
@@ -97,30 +121,6 @@ import com.eveningoutpost.dexdrip.utilityModels.StatusLine;
 import com.eveningoutpost.dexdrip.utilityModels.UndoRedo;
 import com.eveningoutpost.dexdrip.utilityModels.UpdateActivity;
 import com.eveningoutpost.dexdrip.utilityModels.VoiceCommands;
-import com.eveningoutpost.dexdrip.calibrations.NativeCalibrationPipe;
-import com.eveningoutpost.dexdrip.calibrations.PluggableCalibration;
-import com.eveningoutpost.dexdrip.dagger.Injectors;
-import com.eveningoutpost.dexdrip.databinding.ActivityHomeBinding;
-import com.eveningoutpost.dexdrip.databinding.ActivityHomeShelfSettingsBinding;
-import com.eveningoutpost.dexdrip.databinding.PopupInitialStatusHelperBinding;
-import com.eveningoutpost.dexdrip.eassist.EmergencyAssistActivity;
-import com.eveningoutpost.dexdrip.insulin.Insulin;
-import com.eveningoutpost.dexdrip.insulin.InsulinManager;
-import com.eveningoutpost.dexdrip.insulin.MultipleInsulins;
-import com.eveningoutpost.dexdrip.insulin.inpen.InPenEntry;
-import com.eveningoutpost.dexdrip.insulin.pendiq.Pendiq;
-import com.eveningoutpost.dexdrip.profileeditor.DatePickerFragment;
-import com.eveningoutpost.dexdrip.profileeditor.ProfileAdapter;
-import com.eveningoutpost.dexdrip.ui.BaseShelf;
-import com.eveningoutpost.dexdrip.ui.MicroStatus;
-import com.eveningoutpost.dexdrip.ui.MicroStatusImpl;
-import com.eveningoutpost.dexdrip.ui.NumberGraphic;
-import com.eveningoutpost.dexdrip.ui.UiPing;
-import com.eveningoutpost.dexdrip.ui.dialog.DidYouCancelAlarm;
-import com.eveningoutpost.dexdrip.ui.dialog.HeyFamUpdateOptInDialog;
-import com.eveningoutpost.dexdrip.ui.dialog.QuickSettingsDialogs;
-import com.eveningoutpost.dexdrip.ui.graphic.ITrendArrow;
-import com.eveningoutpost.dexdrip.ui.graphic.TrendArrowFactory;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 import com.eveningoutpost.dexdrip.utils.BgToSpeech;
 import com.eveningoutpost.dexdrip.utils.DatabaseUtil;
@@ -135,6 +135,7 @@ import com.eveningoutpost.dexdrip.wearintegration.WatchUpdaterService;
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.Target;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.bind.DateTypeAdapter;
@@ -310,7 +311,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
     private static final boolean oneshot = true;
     private static ShowcaseView myShowcase;
-    private static Activity mActivity;
+    private static AppCompatActivity mActivity;
 
     @Getter
     private static String statusIOB = "";
@@ -2376,7 +2377,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
             notificationText.append("\n DATA SOURCE DISABLED");
             if (!Experience.gotData()) {
                 // TODO should this move to Experience::processSteps ?
-                final Activity activity = this;
+                final AppCompatActivity activity = this;
                 JoH.runOnUiThreadDelayed(() -> {
                     if ((dialog == null || !dialog.isShowing())) {
                         if (JoH.ratelimit("start_source_wizard", 30)) {
@@ -2400,7 +2401,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         } else if (Pref.getLong("high_alerts_disabled_until", 0) > new Date().getTime()) {
             notificationText.append("\n " + getString(R.string.high_alerts_currently_disabled));
         }
-        NavigationDrawerFragment navigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        NavigationDrawerFragment navigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
         // DEBUG ONLY
         if ((BgGraphBuilder.last_noise > 0) && (Pref.getBoolean("show_noise_workings", false))) {
@@ -3502,7 +3503,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                     }.execute();
                 }
             });
-            datePickerFragment.show(getFragmentManager(), "DatePicker");
+            datePickerFragment.show(getSupportFragmentManager(), "DatePicker");
             return true;
         }
 
@@ -3539,18 +3540,18 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         }
     }
 
-    public static void snackBar(int buttonString, String message, View.OnClickListener mOnClickListener, Activity activity) {
+    public static void snackBar(int buttonString, String message, View.OnClickListener mOnClickListener, AppCompatActivity activity) {
 
-        android.support.design.widget.Snackbar.make(
+        Snackbar.make(
 
                 activity.findViewById(android.R.id.content),
-                message, android.support.design.widget.Snackbar.LENGTH_LONG)
+                message, Snackbar.LENGTH_LONG)
                 .setAction(buttonString, mOnClickListener)
                 //.setActionTextColor(Color.RED)
                 .show();
     }
 
-    public static void staticBlockUI(Activity context, boolean state) {
+    public static void staticBlockUI(AppCompatActivity context, boolean state) {
         blockTouches = state;
         if (state) {
             JoH.lockOrientation(context);

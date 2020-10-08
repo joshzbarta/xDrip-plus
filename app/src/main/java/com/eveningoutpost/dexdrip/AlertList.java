@@ -1,7 +1,5 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,8 +12,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -285,7 +285,7 @@ public class AlertList extends ActivityWithMenu {
             if (ContextCompat.checkSelfPermission(getApplicationContext(),
                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     != PackageManager.PERMISSION_GRANTED) {
-                final Activity activity = this;
+                final AppCompatActivity activity = this;
                 JoH.show_ok_dialog(activity, gs(R.string.please_allow_permission), msg, () -> ActivityCompat.requestPermissions(activity,
                         new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSIONS_REQUEST_STORAGE));
                 return false;

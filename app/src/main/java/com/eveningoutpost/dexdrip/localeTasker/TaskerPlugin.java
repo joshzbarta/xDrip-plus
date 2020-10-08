@@ -30,18 +30,18 @@ package com.eveningoutpost.dexdrip.localeTasker;
 // added Setting.getHintTimeoutMS()
 // added Host.addHintTimeoutMS()
 
-import java.net.URISyntaxException;
-import java.security.SecureRandom;
-import java.util.regex.Pattern;
-
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
+
+import java.net.URISyntaxException;
+import java.security.SecureRandom;
+import java.util.regex.Pattern;
  
 public class TaskerPlugin {
 
@@ -291,11 +291,11 @@ public class TaskerPlugin {
         *  @see Host#getSettingResultCode(Intent)
         */
         
-        public final static int	RESULT_CODE_OK = Activity.RESULT_OK; 
-        public final static int	RESULT_CODE_OK_MINOR_FAILURES = Activity.RESULT_FIRST_USER;
-        public final static int	RESULT_CODE_FAILED = Activity.RESULT_FIRST_USER + 1;
-        public final static int	RESULT_CODE_PENDING = Activity.RESULT_FIRST_USER + 2;
-        public final static int	RESULT_CODE_UNKNOWN = Activity.RESULT_FIRST_USER + 3;  
+        public final static int	RESULT_CODE_OK = AppCompatActivity.RESULT_OK;
+        public final static int	RESULT_CODE_OK_MINOR_FAILURES = AppCompatActivity.RESULT_FIRST_USER;
+        public final static int	RESULT_CODE_FAILED = AppCompatActivity.RESULT_FIRST_USER + 1;
+        public final static int	RESULT_CODE_PENDING = AppCompatActivity.RESULT_FIRST_USER + 2;
+        public final static int	RESULT_CODE_UNKNOWN = AppCompatActivity.RESULT_FIRST_USER + 3;
         
         /**
         * If a plugin wants to define it's own error codes, start numbering them here.
@@ -303,7 +303,7 @@ public class TaskerPlugin {
         * the user to process after the plugin action.
         */
         
-        public final static int	RESULT_CODE_FAILED_PLUGIN_FIRST = Activity.RESULT_FIRST_USER + 9;  
+        public final static int	RESULT_CODE_FAILED_PLUGIN_FIRST = AppCompatActivity.RESULT_FIRST_USER + 9;
 		
         /**
 		 * Used by: plugin EditActivity.
@@ -332,7 +332,7 @@ public class TaskerPlugin {
 		 * @see #setVariableReplaceKeys(Bundle, String[])
 		*/
 
-		public static boolean hostSupportsOnFireVariableReplacement( Activity editActivity ) {
+		public static boolean hostSupportsOnFireVariableReplacement( AppCompatActivity editActivity ) {
 			
 			boolean supportedFlag = hostSupportsOnFireVariableReplacement( editActivity.getIntent().getExtras() );
 			

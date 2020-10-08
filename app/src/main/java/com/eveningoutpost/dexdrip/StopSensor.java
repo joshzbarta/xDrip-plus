@@ -1,13 +1,14 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.appcompat.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 
 import com.eveningoutpost.dexdrip.G5Model.Ob1G5StateMachine;
+import com.eveningoutpost.dexdrip.calibrations.PluggableCalibration;
 import com.eveningoutpost.dexdrip.models.Calibration;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.Sensor;
@@ -15,8 +16,8 @@ import com.eveningoutpost.dexdrip.utilityModels.AlertPlayer;
 import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
 import com.eveningoutpost.dexdrip.utilityModels.Inevitable;
 import com.eveningoutpost.dexdrip.utilityModels.NanoStatus;
-import com.eveningoutpost.dexdrip.calibrations.PluggableCalibration;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
+
 import static com.eveningoutpost.dexdrip.xdrip.gs;
 
 public class StopSensor extends ActivityWithMenu {

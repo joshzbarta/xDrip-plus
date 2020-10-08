@@ -1,30 +1,29 @@
 package com.eveningoutpost.dexdrip.ui.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.eveningoutpost.dexdrip.BestGlucose;
+import com.eveningoutpost.dexdrip.adapters.ObservableBackground;
+import com.eveningoutpost.dexdrip.databinding.ActivityNumberWallPreviewBinding;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError;
+import com.eveningoutpost.dexdrip.ui.LockScreenWallPaper;
+import com.eveningoutpost.dexdrip.ui.NumberGraphic;
+import com.eveningoutpost.dexdrip.ui.dialog.ColorPreferenceDialog;
+import com.eveningoutpost.dexdrip.ui.helpers.BitmapUtil;
 import com.eveningoutpost.dexdrip.utilityModels.ColorCache;
 import com.eveningoutpost.dexdrip.utilityModels.Inevitable;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.utilityModels.PrefsViewImpl;
 import com.eveningoutpost.dexdrip.utilityModels.PrefsViewString;
 import com.eveningoutpost.dexdrip.utilityModels.Unitized;
-import com.eveningoutpost.dexdrip.adapters.ObservableBackground;
-import com.eveningoutpost.dexdrip.databinding.ActivityNumberWallPreviewBinding;
-import com.eveningoutpost.dexdrip.ui.LockScreenWallPaper;
-import com.eveningoutpost.dexdrip.ui.NumberGraphic;
-import com.eveningoutpost.dexdrip.ui.dialog.ColorPreferenceDialog;
-import com.eveningoutpost.dexdrip.ui.helpers.BitmapUtil;
 import com.eveningoutpost.dexdrip.utils.SdcardImportExport;
 
 import lombok.AllArgsConstructor;
@@ -104,7 +103,7 @@ public class NumberWallPreview extends AppCompatActivity {
         public static final String PREF_numberwall_multi_param = "numberwall_multi_param";
         public static final String PREF_numberwall_background = "numberwall_background";
 
-        private final Activity activity;
+        private final AppCompatActivity activity;
         public ObservableBackground background = new ObservableBackground();
 
         {

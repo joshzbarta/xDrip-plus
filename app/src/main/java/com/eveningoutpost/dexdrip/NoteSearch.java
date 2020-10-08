@@ -1,7 +1,6 @@
 package com.eveningoutpost.dexdrip;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -10,6 +9,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import androidx.appcompat.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.TypedValue;

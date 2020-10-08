@@ -3,7 +3,6 @@ package com.eveningoutpost.dexdrip.utils.framework;
 // jamorham
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -13,7 +12,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.ContactsContract;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
 
@@ -40,7 +40,7 @@ public class IncomingCallsReceiver extends BroadcastReceiver {
     @Getter
     private static volatile boolean ringingNow = false;
 
-    public static void checkPermission(final Activity activity) {
+    public static void checkPermission(final AppCompatActivity activity) {
 
         // TODO call log permission - especially for Android 9+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

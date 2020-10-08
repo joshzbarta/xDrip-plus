@@ -1,17 +1,17 @@
 package com.eveningoutpost.dexdrip.utils;
 
-import android.app.Activity;
 import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.InputType;
 
 import com.eveningoutpost.dexdrip.BluetoothScan;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.models.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.Services.Ob1G5CollectionService;
+import com.eveningoutpost.dexdrip.cgm.sharefollow.ShareFollowService;
+import com.eveningoutpost.dexdrip.models.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
-import com.eveningoutpost.dexdrip.cgm.sharefollow.ShareFollowService;
 import com.eveningoutpost.dexdrip.xdrip;
 
 import static com.eveningoutpost.dexdrip.ui.dialog.QuickSettingsDialogs.booleanSettingDialog;
@@ -26,7 +26,7 @@ public class DexCollectionHelper {
     private static final String TAG = DexCollectionHelper.class.getSimpleName();
 
 
-    public static void assistance(Activity activity, DexCollectionType type) {
+    public static void assistance(AppCompatActivity activity, DexCollectionType type) {
 
         switch (type) {
 

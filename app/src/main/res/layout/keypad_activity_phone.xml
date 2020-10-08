@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/keypad_layout"
     android:layout_width="match_parent"
@@ -198,7 +199,7 @@
                 android:paddingEnd="5dp"
                 android:paddingStart="5dp"
                 android:scaleType="center"
-                android:src="@android:drawable/ic_btn_speak_now"
+                app:srcCompat="@android:drawable/ic_btn_speak_now"
                 android:visibility="invisible" />
         </LinearLayout>
 
@@ -217,7 +218,7 @@
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_touch_app_white_48dp" />
+                app:srcCompat="@drawable/ic_touch_app_white_48dp" />
 
             <ImageButton
                 android:id="@+id/carbstabbutton"
@@ -226,7 +227,7 @@
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_local_dining_white_48dp" />
+                app:srcCompat="@drawable/ic_local_dining_white_48dp" />
 
             <ImageButton
                 android:id="@+id/insulintabbutton"
@@ -235,7 +236,7 @@
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_colorize_white_48dp" />
+                app:srcCompat="@drawable/ic_colorize_white_48dp" />
 
             <ImageButton
                 android:id="@+id/timetabbutton"
@@ -244,7 +245,7 @@
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_av_timer_white_36dp" />
+                app:srcCompat="@drawable/ic_av_timer_white_36dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -265,7 +266,7 @@
                 android:paddingEnd="5dp"
                 android:paddingStart="5dp"
                 android:scaleType="center"
-                android:src="@android:drawable/ic_btn_speak_now" />
+                app:srcCompat="@android:drawable/ic_btn_speak_now" />
 
         </LinearLayout>
 

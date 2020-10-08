@@ -1,11 +1,11 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import androidx.appcompat.app.AlertDialog;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.CheckBox;
@@ -15,8 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import com.eveningoutpost.dexdrip.models.AlertType;
 import com.eveningoutpost.dexdrip.Services.MissedReadingService;
+import com.eveningoutpost.dexdrip.models.AlertType;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 
 

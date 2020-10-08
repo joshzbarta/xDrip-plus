@@ -1,13 +1,13 @@
 package com.eveningoutpost.dexdrip.utilityModels;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.util.Pair;
@@ -17,6 +17,10 @@ import android.widget.Toast;
 import com.eveningoutpost.dexdrip.AddCalibration;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
+import com.eveningoutpost.dexdrip.R;
+import com.eveningoutpost.dexdrip.Services.ActivityRecognizedService;
+import com.eveningoutpost.dexdrip.calibrations.CalibrationAbstract;
+import com.eveningoutpost.dexdrip.calibrations.PluggableCalibration;
 import com.eveningoutpost.dexdrip.models.APStatus;
 import com.eveningoutpost.dexdrip.models.BgReading;
 import com.eveningoutpost.dexdrip.models.BloodTest;
@@ -33,10 +37,6 @@ import com.eveningoutpost.dexdrip.models.Profile;
 import com.eveningoutpost.dexdrip.models.StepCounter;
 import com.eveningoutpost.dexdrip.models.Treatments;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.Services.ActivityRecognizedService;
-import com.eveningoutpost.dexdrip.calibrations.CalibrationAbstract;
-import com.eveningoutpost.dexdrip.calibrations.PluggableCalibration;
 import com.eveningoutpost.dexdrip.store.FastStore;
 import com.eveningoutpost.dexdrip.store.KeyStore;
 import com.eveningoutpost.dexdrip.ui.classifier.NoteClassifier;
@@ -2258,16 +2258,16 @@ public class BgGraphBuilder {
         }
     }
 
-    public OnValueSelectTooltipListener getOnValueSelectTooltipListener(Activity callerActivity) {
+    public OnValueSelectTooltipListener getOnValueSelectTooltipListener(AppCompatActivity callerActivity) {
         return new OnValueSelectTooltipListener(callerActivity);
     }
 
     public class OnValueSelectTooltipListener implements LineChartOnValueSelectListener {
 
         private Toast tooltip;
-        private Activity callerActivity;
+        private AppCompatActivity callerActivity;
 
-        public OnValueSelectTooltipListener(Activity callerActivity) {
+        public OnValueSelectTooltipListener(AppCompatActivity callerActivity) {
             this.callerActivity = callerActivity;
         }
 

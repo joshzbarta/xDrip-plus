@@ -28,7 +28,7 @@
         <import type="android.view.View" />
     </data>
 
-    <android.support.v4.widget.DrawerLayout
+    <androidx.drawerlayout.widget.DrawerLayout
 
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
@@ -45,7 +45,7 @@
             android:orientation="vertical"
             android:padding="0dp">
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/my_toolbar"
                 android:layout_width="match_parent"
 
@@ -203,7 +203,7 @@
                     android:paddingTop="2dp"
                     android:paddingRight="4dp"
                     android:paddingBottom="1dp"
-                    android:src="@drawable/ic_eyedropper_variant_grey600_24dp" />
+                    app:srcCompat="@drawable/ic_eyedropper_variant_grey600_24dp" />
 
                 <ImageButton
                     android:id="@+id/btnNote"
@@ -221,7 +221,7 @@
                     android:paddingLeft="2dp"
                     android:paddingRight="6dp"
                     android:paddingTop="2dp"
-                    android:src="@drawable/ic_note_plus_grey600_24dp" />
+                    app:srcCompat="@drawable/ic_note_plus_grey600_24dp" />
 
 
                 <ImageButton
@@ -239,7 +239,7 @@
                     android:paddingLeft="1dp"
                     android:paddingRight="3dp"
                     android:paddingTop="2dp"
-                    android:src="@drawable/ic_undo_variant_grey600_24dp" />
+                    app:srcCompat="@drawable/ic_undo_variant_grey600_24dp" />
 
 
                 <ImageButton
@@ -256,7 +256,7 @@
                     android:paddingLeft="1dp"
                     android:paddingRight="3dp"
                     android:paddingTop="1dp"
-                    android:src="@drawable/ic_redo_variant_grey600_24dp" />
+                    app:srcCompat="@drawable/ic_redo_variant_grey600_24dp" />
 
 
                 <TextView
@@ -286,7 +286,7 @@
                     android:layout_below="@+id/btnTreatment"
                     android:layout_marginStart="29dp"
                     android:contentDescription="Confirm Treatment"
-                    android:src="@android:drawable/ic_input_add" />
+                    app:srcCompat="@android:drawable/ic_input_add" />
 
                 <ImageButton
                     android:id="@+id/cancelTreatment"
@@ -294,7 +294,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@+id/approveTreatment"
                     android:layout_toEndOf="@+id/approveTreatment"
-                    android:src="@android:drawable/ic_delete" />
+                    app:srcCompat="@android:drawable/ic_delete" />
 
                 <ImageButton
                     android:id="@+id/bloodTestButton"
@@ -304,7 +304,7 @@
                     android:layout_alignBottom="@+id/cancelTreatment"
                     android:layout_marginStart="29dp"
                     android:layout_toEndOf="@+id/cancelTreatment"
-                    android:src="@drawable/ic_touch_app_white_48dp" />
+                    app:srcCompat="@drawable/ic_touch_app_white_48dp" />
 
                 <TextView
                     android:id="@+id/textBloodGlucose"
@@ -325,7 +325,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/bloodTestButton"
                     android:layout_below="@+id/bloodTestButton"
-                    android:src="@drawable/ic_local_dining_white_48dp" />
+                    app:srcCompat="@drawable/ic_local_dining_white_48dp" />
 
                 <TextView
                     android:id="@+id/textCarbohydrate"
@@ -346,7 +346,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textCarbohydrate"
                     android:layout_alignLeft="@+id/buttonCarbs"
-                    android:src="@drawable/ic_colorize_white_48dp" />
+                    app:srcCompat="@drawable/ic_colorize_white_48dp" />
 
 
                 <TextView
@@ -367,7 +367,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textInsulinSumUnits"
                     android:layout_alignLeft="@+id/buttonCarbs"
-                    android:src="@drawable/ic_colorize_white_48dp" />
+                    app:srcCompat="@drawable/ic_colorize_white_48dp" />
 
                 <TextView
                     android:id="@+id/textInsulin1Units"
@@ -389,7 +389,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/buttonInsulin1"
                     android:layout_alignLeft="@+id/buttonInsulin1"
-                    android:src="@drawable/ic_colorize_white_48dp" />
+                    app:srcCompat="@drawable/ic_colorize_white_48dp" />
 
                 <TextView
                     android:id="@+id/textInsulin2Units"
@@ -411,7 +411,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/buttonInsulin2"
                     android:layout_alignLeft="@+id/buttonInsulin2"
-                    android:src="@drawable/ic_colorize_white_48dp" />
+                    app:srcCompat="@drawable/ic_colorize_white_48dp" />
 
                 <TextView
                     android:id="@+id/textInsulin3Units"
@@ -433,7 +433,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/approveTreatment"
                     android:layout_below="@+id/bloodTestButton"
-                    android:src="@drawable/ic_av_timer_white_36dp" />
+                    app:srcCompat="@drawable/ic_av_timer_white_36dp" />
 
                 <TextView
                     android:id="@+id/textTimeButton"
@@ -487,7 +487,7 @@
                     android:background="@android:color/transparent"
                     android:paddingBottom="2dp"
                     android:paddingRight="4dp"
-                    android:src="@drawable/ic_car_grey600_24dp" />
+                    app:srcCompat="@drawable/ic_car_grey600_24dp" />
 
                 <Button
                     android:id="@+id/bpmButton"
@@ -661,6 +661,6 @@
             android:layout_gravity="start"
             android:layout_marginTop="?attr/actionBarSize"
             tools:layout="@layout/fragment_navigation_drawer" />
-    </android.support.v4.widget.DrawerLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </layout>

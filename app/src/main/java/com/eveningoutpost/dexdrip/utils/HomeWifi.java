@@ -1,11 +1,11 @@
 package com.eveningoutpost.dexdrip.utils;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.R;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
 
 import static com.eveningoutpost.dexdrip.models.JoH.isLANConnected;
@@ -33,7 +33,7 @@ public class HomeWifi {
 
     // ui methods
 
-    public static void ask(final Activity activity) {
+    public static void ask(final AppCompatActivity activity) {
 
         if (isConnectedToAnything()) {
             final String ssid = getSSID();

@@ -5,8 +5,6 @@ package com.eveningoutpost.dexdrip;
 
 
 import android.animation.ValueAnimator;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -23,12 +21,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -59,6 +59,9 @@ import android.widget.TextView;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.Reminder;
 import com.eveningoutpost.dexdrip.models.UserError;
+import com.eveningoutpost.dexdrip.profileeditor.DatePickerFragment;
+import com.eveningoutpost.dexdrip.profileeditor.ProfileAdapter;
+import com.eveningoutpost.dexdrip.profileeditor.TimePickerFragment;
 import com.eveningoutpost.dexdrip.utilityModels.Constants;
 import com.eveningoutpost.dexdrip.utilityModels.JamorhamShowcaseDrawer;
 import com.eveningoutpost.dexdrip.utilityModels.NotificationChannels;
@@ -66,9 +69,6 @@ import com.eveningoutpost.dexdrip.utilityModels.PersistentStore;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.utilityModels.ShotStateStore;
 import com.eveningoutpost.dexdrip.utilityModels.SpeechUtil;
-import com.eveningoutpost.dexdrip.profileeditor.DatePickerFragment;
-import com.eveningoutpost.dexdrip.profileeditor.ProfileAdapter;
-import com.eveningoutpost.dexdrip.profileeditor.TimePickerFragment;
 import com.eveningoutpost.dexdrip.utils.HomeWifi;
 import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
 import com.github.amlcurran.showcaseview.ShowcaseView;
@@ -557,7 +557,7 @@ public class Reminders extends ActivityWithRecycler implements SensorEventListen
             if (ContextCompat.checkSelfPermission(getApplicationContext(),
                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     != PackageManager.PERMISSION_GRANTED) {
-                final Activity activity = this;
+                final AppCompatActivity activity = this;
                 JoH.show_ok_dialog(activity, xdrip.getAppContext().getString(R.string.Please_Allow_Permission), xdrip.getAppContext().getString(R.string.need_storage_permission), new Runnable() {
                     @Override
                     public void run() {
@@ -805,7 +805,7 @@ public class Reminders extends ActivityWithRecycler implements SensorEventListen
 
         if ((dialog != null) && (dialog.isShowing())) return;
 
-        final Activity activity = this;
+        final AppCompatActivity activity = this;
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
         dialogView = inflater.inflate(R.layout.reminder_new_dialog, null);
@@ -1159,7 +1159,7 @@ public class Reminders extends ActivityWithRecycler implements SensorEventListen
                 freshen(reminder);
             }
         });
-        timePickerFragment.show(this.getFragmentManager(), "TimePicker");
+        timePickerFragment.show(this.getSupportFragmentManager(), "TimePicker");
 
         // appears on top
         if (JoH.msTill(reminder.next_due) > Constants.DAY_IN_MS) {
@@ -1175,7 +1175,7 @@ public class Reminders extends ActivityWithRecycler implements SensorEventListen
 
                 }
             });
-            datePickerFragment.show(this.getFragmentManager(), "DatePicker");
+            datePickerFragment.show(this.getSupportFragmentManager(), "DatePicker");
         }
     }
 
@@ -1287,7 +1287,7 @@ public class Reminders extends ActivityWithRecycler implements SensorEventListen
     private void hideKeyboard(View v) {
         if (v == null) return;
         InputMethodManager inputMethodManager = (InputMethodManager) this
-                .getSystemService(Activity.INPUT_METHOD_SERVICE);
+                .getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
     }
 
@@ -1335,7 +1335,7 @@ public class Reminders extends ActivityWithRecycler implements SensorEventListen
         }
     }
 
-    private static void showcase(final Activity activity, final int which) {
+    private static void showcase(final AppCompatActivity activity, final int which) {
 
         final ViewTarget target;
         final String title;

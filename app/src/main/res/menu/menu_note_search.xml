@@ -5,10 +5,10 @@
         android:title="@string/note_search_button"
         android:checkable="false"
         android:orderInCategory="1"
-        android:showAsAction="ifRoom|withText"/>
+        xdrip:showAsAction="ifRoom|withText"/>
     <item android:id="@+id/menu_allnote"
         android:checkable="false"
         android:title="@string/all_note_button"
         android:orderInCategory="100"
-        android:showAsAction="ifRoom|withText"/>
+        xdrip:showAsAction="ifRoom|withText"/>
 </menu>

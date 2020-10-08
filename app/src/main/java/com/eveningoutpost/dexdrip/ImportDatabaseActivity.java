@@ -1,8 +1,6 @@
 package com.eveningoutpost.dexdrip;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -12,9 +10,11 @@ import android.database.sqlite.SQLiteException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -226,7 +226,7 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
         importDB(databases.get(position), this);
     }
 
-    private void importDB(File the_file, Activity activity) {
+    private void importDB(File the_file, AppCompatActivity activity) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle("Importing, please wait");
         builder.setMessage("Importing, please wait");

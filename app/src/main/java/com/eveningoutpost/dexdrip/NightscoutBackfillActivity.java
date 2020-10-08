@@ -2,25 +2,26 @@ package com.eveningoutpost.dexdrip;
 
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.eveningoutpost.dexdrip.Services.SyncService;
 import com.eveningoutpost.dexdrip.models.BgReading;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.Treatments;
-import com.eveningoutpost.dexdrip.Services.SyncService;
-import com.eveningoutpost.dexdrip.utilityModels.Constants;
-import com.eveningoutpost.dexdrip.utilityModels.UploaderTask;
-import com.eveningoutpost.dexdrip.utilityModels.PersistentStore;
-import com.eveningoutpost.dexdrip.utilityModels.UploaderQueue;
 import com.eveningoutpost.dexdrip.profileeditor.DatePickerFragment;
 import com.eveningoutpost.dexdrip.profileeditor.ProfileAdapter;
+import com.eveningoutpost.dexdrip.utilityModels.Constants;
+import com.eveningoutpost.dexdrip.utilityModels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilityModels.UploaderQueue;
+import com.eveningoutpost.dexdrip.utilityModels.UploaderTask;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+
 import static com.eveningoutpost.dexdrip.xdrip.gs;
 
 /**
@@ -61,7 +62,7 @@ public class NightscoutBackfillActivity extends AppCompatActivity implements Nav
         xdrip.checkForcedEnglish(this);
         setTitle("Nightscout Backfill");
         super.onResume();
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), "Nightscout Backfill", this);
 
         if (JoH.msSince(locked) < Constants.HOUR_IN_MS) {
@@ -92,7 +93,7 @@ public class NightscoutBackfillActivity extends AppCompatActivity implements Nav
                 updateDateButton();
             }
         });
-        datePickerFragment.show(this.getFragmentManager(), "DatePicker");
+        datePickerFragment.show(this.getSupportFragmentManager(), "DatePicker");
     }
 
     public synchronized void backfillRun(View v) {

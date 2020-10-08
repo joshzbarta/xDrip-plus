@@ -1,17 +1,17 @@
 package com.eveningoutpost.dexdrip;
 
 import android.content.Intent;
-import android.databinding.ObservableArrayList;
-import android.databinding.ObservableBoolean;
-import android.databinding.ObservableList;
-import android.databinding.ViewDataBinding;
+import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableBoolean;
+import androidx.databinding.ObservableList;
+import androidx.databinding.ViewDataBinding;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
+import androidx.annotation.LayoutRes;
+import androidx.core.view.MenuItemCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.SearchView;
 import android.util.SparseBooleanArray;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -26,14 +26,14 @@ import android.view.animation.AnimationUtils;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import com.eveningoutpost.dexdrip.databinding.ActivityEventLogBinding;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError;
+import com.eveningoutpost.dexdrip.ui.helpers.BitmapUtil;
 import com.eveningoutpost.dexdrip.utilityModels.Inevitable;
 import com.eveningoutpost.dexdrip.utilityModels.PersistentStore;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.utilityModels.SendFeedBack;
-import com.eveningoutpost.dexdrip.databinding.ActivityEventLogBinding;
-import com.eveningoutpost.dexdrip.ui.helpers.BitmapUtil;
 import com.eveningoutpost.dexdrip.utils.ExtensionMethods;
 import com.eveningoutpost.dexdrip.wearintegration.WatchUpdaterService;
 
@@ -257,7 +257,7 @@ public class EventLogActivity extends BaseAppCompatActivity {
     // push a query in to search box
     private void pushSearch(String query, boolean submit) {
         if (searchItem != null && searchView != null) {
-            searchItem.expandActionView();
+            MenuItemCompat.expandActionView(searchItem);
             searchView.setQuery(query, submit);
             searchView.clearFocus();
         } else {

@@ -1,9 +1,8 @@
 package com.eveningoutpost.dexdrip.utils;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.eveningoutpost.dexdrip.BaseListActivity;
 import com.eveningoutpost.dexdrip.NavDrawerBuilder;
@@ -33,7 +32,7 @@ public abstract class ListActivityWithMenu extends BaseListActivity implements N
         List<String> menu_option_list = navDrawerBuilder.nav_drawer_options;
         menu_position = menu_option_list.indexOf(menu_name);
 
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, this);
     }
 

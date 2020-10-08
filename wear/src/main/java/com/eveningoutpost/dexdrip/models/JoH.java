@@ -2,7 +2,6 @@ package com.eveningoutpost.dexdrip.models;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.Notification;
@@ -16,16 +15,12 @@ import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
-//KS import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-//KS import android.graphics.Canvas;
-//KS import android.graphics.Color;
-//KS import android.graphics.Paint;
 import android.graphics.Point;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -42,10 +37,7 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.os.Vibrator;
 import android.provider.Settings;
-//KS import android.support.v7.app.AlertDialog;
-//KS import android.support.v4.app.NotificationCompat;
-//KS import android.support.v7.app.AppCompatActivity;
-//KS import android.support.v7.view.ContextThemeWrapper;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.InputType;
 import android.text.method.DigitsKeyListener;
 import android.util.Base64;
@@ -61,7 +53,6 @@ import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilityModels.Constants;
 import com.eveningoutpost.dexdrip.utilityModels.PersistentStore;
 import com.eveningoutpost.dexdrip.utils.BestGZIPOutputStream;
-//KS import com.eveningoutpost.dexdrip.utils.CipherUtils;
 import com.eveningoutpost.dexdrip.xdrip;
 import com.google.common.primitives.Bytes;
 import com.google.common.primitives.UnsignedInts;
@@ -100,6 +91,16 @@ import java.util.zip.Inflater;
 import static android.bluetooth.BluetoothDevice.PAIRING_VARIANT_PIN;
 import static android.content.Context.ALARM_SERVICE;
 import static android.content.Context.VIBRATOR_SERVICE;
+
+//KS import android.content.DialogInterface;
+//KS import android.graphics.Canvas;
+//KS import android.graphics.Color;
+//KS import android.graphics.Paint;
+//KS import android.support.v7.app.AlertDialog;
+//KS import android.support.v4.app.NotificationCompat;
+//KS import android.support.v7.app.AppCompatActivity;
+//KS import android.support.v7.view.ContextThemeWrapper;
+//KS import com.eveningoutpost.dexdrip.utils.CipherUtils;
 //KS import static com.eveningoutpost.dexdrip.stats.StatsActivity.SHOW_STATISTICS_PRINT_COLOR;
 
 /**
@@ -1173,13 +1174,13 @@ public class JoH {
     }
 
 
-    public static void releaseOrientation(Activity activity) {
+    public static void releaseOrientation(AppCompatActivity activity) {
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
     }
 
     @SuppressWarnings("deprecation")
     @SuppressLint("NewApi")
-    public static void lockOrientation(Activity activity) {
+    public static void lockOrientation(AppCompatActivity activity) {
         Display display = activity.getWindowManager().getDefaultDisplay();
         int rotation = display.getRotation();
         int height;

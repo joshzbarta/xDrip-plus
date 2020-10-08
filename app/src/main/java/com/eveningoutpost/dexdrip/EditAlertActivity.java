@@ -1,7 +1,5 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
@@ -18,9 +16,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.InputType;
 import android.text.format.DateFormat;
 import android.text.method.DigitsKeyListener;
@@ -881,7 +881,7 @@ public class EditAlertActivity extends ActivityWithMenu {
             if (ContextCompat.checkSelfPermission(getApplicationContext(),
                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     != PackageManager.PERMISSION_GRANTED) {
-                final Activity activity = this;
+                final AppCompatActivity activity = this;
                 JoH.show_ok_dialog(activity, gs(R.string.please_allow_permission), gs(R.string.need_storage_permission_to_access_all_ringtones), new Runnable() {
                     @Override
                     public void run() {

@@ -1,11 +1,11 @@
 package com.eveningoutpost.dexdrip.Tables;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +14,10 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.eveningoutpost.dexdrip.BaseListActivity;
-import com.eveningoutpost.dexdrip.models.BgReading;
-import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.NavigationDrawerFragment;
 import com.eveningoutpost.dexdrip.R;
+import com.eveningoutpost.dexdrip.models.BgReading;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.utilityModels.BgGraphBuilder;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
 
@@ -40,7 +40,7 @@ public class BgReadingTable extends BaseListActivity implements NavigationDrawer
     @Override
     protected void onResume() {
         super.onResume();
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, this);
 
         getData();

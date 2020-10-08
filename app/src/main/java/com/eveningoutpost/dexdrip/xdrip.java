@@ -7,8 +7,8 @@ import android.content.ContextWrapper;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.preference.PreferenceManager;
-import android.support.annotation.StringRes;
-import android.support.multidex.MultiDexApplication;
+import androidx.annotation.StringRes;
+import androidx.multidex.MultiDexApplication;
 import android.util.Log;
 
 import com.crashlytics.android.Crashlytics;

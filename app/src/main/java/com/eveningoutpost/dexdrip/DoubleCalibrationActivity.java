@@ -1,29 +1,25 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
-
-import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.models.Sensor;
-import com.eveningoutpost.dexdrip.models.UserError.Log;
-
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.eveningoutpost.dexdrip.databinding.ActivityDoubleCalibrationBinding;
 import com.eveningoutpost.dexdrip.models.Calibration;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.Sensor;
+import com.eveningoutpost.dexdrip.models.UserError.Log;
 import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
 import com.eveningoutpost.dexdrip.utilityModels.Constants;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.utilityModels.PrefsViewImpl;
-import com.eveningoutpost.dexdrip.databinding.ActivityDoubleCalibrationBinding;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
-
-import static com.eveningoutpost.dexdrip.Home.startWatchUpdaterService;
 
 
 public class DoubleCalibrationActivity extends ActivityWithMenu {
@@ -59,7 +55,7 @@ public class DoubleCalibrationActivity extends ActivityWithMenu {
     public void addListenerOnButton() {
 
         button = findViewById(R.id.save_calibration_button);
-        final Activity activity = this;
+        final AppCompatActivity activity = this;
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 

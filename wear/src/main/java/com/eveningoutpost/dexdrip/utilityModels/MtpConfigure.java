@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.utilityModels;
 
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 
 // jamorham
 

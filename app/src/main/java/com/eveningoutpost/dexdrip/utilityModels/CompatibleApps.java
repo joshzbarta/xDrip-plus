@@ -1,6 +1,5 @@
 package com.eveningoutpost.dexdrip.utilityModels;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,14 +8,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
-import android.support.v7.app.AlertDialog;
+import androidx.core.app.NotificationCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.eveningoutpost.dexdrip.BuildConfig;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.Services.G5BaseService;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 import com.eveningoutpost.dexdrip.webservices.XdripWebService;
 import com.eveningoutpost.dexdrip.xdrip;
@@ -196,7 +196,7 @@ public class CompatibleApps extends BroadcastReceiver {
                 PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
-    public static void showChoiceDialog(Activity activity, final Intent intent) {
+    public static void showChoiceDialog(AppCompatActivity activity, final Intent intent) {
         if (intent == null) return;
         try {
             AlertDialog.Builder builder = new AlertDialog.Builder(activity);

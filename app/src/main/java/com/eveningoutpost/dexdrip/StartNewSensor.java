@@ -1,31 +1,31 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.eveningoutpost.dexdrip.G5Model.Ob1G5StateMachine;
+import com.eveningoutpost.dexdrip.Services.Ob1G5CollectionService;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.Sensor;
 import com.eveningoutpost.dexdrip.models.Treatments;
 import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.models.UserError.Log;
-import com.eveningoutpost.dexdrip.Services.Ob1G5CollectionService;
-import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
-import com.eveningoutpost.dexdrip.utilityModels.Experience;
-import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.profileeditor.DatePickerFragment;
 import com.eveningoutpost.dexdrip.profileeditor.ProfileAdapter;
 import com.eveningoutpost.dexdrip.profileeditor.TimePickerFragment;
 import com.eveningoutpost.dexdrip.ui.dialog.G6CalibrationCodeDialog;
+import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
+import com.eveningoutpost.dexdrip.utilityModels.Experience;
+import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 import com.eveningoutpost.dexdrip.utils.LocationHelper;
@@ -36,7 +36,6 @@ import java.util.Date;
 
 import static com.eveningoutpost.dexdrip.Home.startWatchUpdaterService;
 import static com.eveningoutpost.dexdrip.models.BgReading.AGE_ADJUSTMENT_TIME;
-
 import static com.eveningoutpost.dexdrip.xdrip.gs;
 
 public class StartNewSensor extends ActivityWithMenu {
@@ -45,7 +44,7 @@ public class StartNewSensor extends ActivityWithMenu {
     private Button button;
     //private DatePicker dp;
     // private TimePicker tp;
-    final Activity activity = this;
+    final AppCompatActivity activity = this;
     Calendar ucalendar = Calendar.getInstance();
 
     @Override
@@ -129,7 +128,7 @@ public class StartNewSensor extends ActivityWithMenu {
                         }
                     });
 
-                    datePickerFragment.show(activity.getFragmentManager(), "DatePicker");
+                    datePickerFragment.show(activity.getSupportFragmentManager(), "DatePicker");
                 }
             }
         });
@@ -155,7 +154,7 @@ public class StartNewSensor extends ActivityWithMenu {
                 realStartSensor();
             }
         });
-        timePickerFragment.show(activity.getFragmentManager(), "TimePicker");
+        timePickerFragment.show(activity.getSupportFragmentManager(), "TimePicker");
     }
 
     private void realStartSensor() {

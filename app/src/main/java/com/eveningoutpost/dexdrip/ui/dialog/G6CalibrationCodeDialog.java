@@ -1,16 +1,16 @@
 package com.eveningoutpost.dexdrip.ui.dialog;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 
 import com.eveningoutpost.dexdrip.G5Model.G6CalibrationParameters;
-import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.R;
+import com.eveningoutpost.dexdrip.models.JoH;
 
 // jamorham
 
@@ -18,7 +18,7 @@ public class G6CalibrationCodeDialog {
 
 
     // ask the user for the code, check if its valid, only start sensor if it is
-    public static void ask(Activity activity, Runnable runnable) {
+    public static void ask(AppCompatActivity activity, Runnable runnable) {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle(R.string.g6_sensor_code);
