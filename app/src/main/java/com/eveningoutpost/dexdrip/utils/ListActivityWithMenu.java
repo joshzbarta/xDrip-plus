@@ -1,9 +1,12 @@
 package com.eveningoutpost.dexdrip.utils;
 
-import android.app.ListActivity;
+import lombok.var;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.*;
+
 
 import com.eveningoutpost.dexdrip.BaseListActivity;
 import com.eveningoutpost.dexdrip.NavDrawerBuilder;
@@ -21,30 +24,34 @@ public abstract class ListActivityWithMenu extends BaseListActivity implements N
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    protected void onResume(){
+    public void onResume(){
         super.onResume();
         menu_name = getMenuName();
-        NavDrawerBuilder  navDrawerBuilder = new NavDrawerBuilder(getApplicationContext());
+        var context = getActivity().getApplicationContext();
+        NavDrawerBuilder  navDrawerBuilder = new NavDrawerBuilder(context);
         List<String> menu_option_list = navDrawerBuilder.nav_drawer_options;
         menu_position = menu_option_list.indexOf(menu_name);
 
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, this);
+        androidx.fragment.app.FragmentManager fm = getParentFragmentManager();
+        mNavigationDrawerFragment = (NavigationDrawerFragment)fm.findFragmentById(R.id.navigation_drawer);
+
+        //mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) getView().findViewById(R.id.drawer_layout), menu_name, context);
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) getActivity().findViewById(R.id.drawer_layout), menu_name, context);
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        NavDrawerBuilder navDrawerBuilder = new NavDrawerBuilder(getApplicationContext());
+        NavDrawerBuilder navDrawerBuilder = new NavDrawerBuilder(getActivity().getApplicationContext());
         List<String> menu_option_list = navDrawerBuilder.nav_drawer_options;
         List<Intent> intent_list = navDrawerBuilder.nav_drawer_intents;
         if (position != menu_position) {
             startActivity(intent_list.get(position));
-            finish();
+            //finish();
         }
     }
 

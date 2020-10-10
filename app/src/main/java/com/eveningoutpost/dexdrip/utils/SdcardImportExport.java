@@ -6,9 +6,9 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -256,7 +256,7 @@ public class SdcardImportExport extends BaseAppCompatActivity {
         if (!backupDismissed && (results != null) && (results.size() > 0)) {
             Log.e(TAG, "Found: " + results.size() + " backup files");
 
-            final AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(activity);
+            final AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(activity);
             builder.setTitle(gs(R.string.backup_detected));
             builder.setMessage(gs(R.string.it_looks_like_you_maybe_have_a_settings_backup_shall_we_try_to_restore_it));
 

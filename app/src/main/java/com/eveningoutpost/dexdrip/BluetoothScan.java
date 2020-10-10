@@ -1,6 +1,9 @@
 package com.eveningoutpost.dexdrip;
 
+import lombok.var;
+
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.Dialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -79,7 +82,7 @@ public class BluetoothScan extends ListActivityWithMenu {
 
                 @Override
                 public void onLeScan(final BluetoothDevice device, int rssi, final byte[] scanRecord) {
-                    runOnUiThread(new Runnable() {
+                    getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             if (device.getName() != null && device.getName().length() > 0) {
@@ -95,35 +98,36 @@ public class BluetoothScan extends ListActivityWithMenu {
     private ScanCallback mScanCallback;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.OldAppTheme); // or null actionbar
+    public void onCreate(Bundle savedInstanceState) {
+        var activity = getActivity();
+        activity.setTheme(R.style.OldAppTheme); // or null actionbar
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bluetooth_scan);
-        final BluetoothManager bluetooth_manager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+        activity.setContentView(R.layout.activity_bluetooth_scan);
+        final BluetoothManager bluetooth_manager = (BluetoothManager) activity.getSystemService(Context.BLUETOOTH_SERVICE);
 
         bluetooth_adapter = bluetooth_manager.getAdapter();
         mHandler = new Handler();
 
 
         if (bluetooth_adapter == null) {
-            Toast.makeText(this, R.string.error_bluetooth_not_supported, Toast.LENGTH_LONG).show();
-            finish();
+            Toast.makeText(activity, R.string.error_bluetooth_not_supported, Toast.LENGTH_LONG).show();
+            activity.finish();
             return;
         }
         if (!bluetooth_manager.getAdapter().isEnabled()) {
             if (Pref.getBoolean("automatically_turn_bluetooth_on", true)) {
-                JoH.setBluetoothEnabled(getApplicationContext(), true);
-                Toast.makeText(this, "Trying to turn Bluetooth on", Toast.LENGTH_LONG).show();
+                JoH.setBluetoothEnabled(activity.getApplicationContext(), true);
+                Toast.makeText(activity, "Trying to turn Bluetooth on", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(this, "Please turn Bluetooth on!", Toast.LENGTH_LONG).show();
+                Toast.makeText(activity, "Please turn Bluetooth on!", Toast.LENGTH_LONG).show();
             }
         } else {
             if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                Toast.makeText(this, "The android version of this device is not compatible with Bluetooth Low Energy", Toast.LENGTH_LONG).show();
+                Toast.makeText(activity, "The android version of this device is not compatible with Bluetooth Low Energy", Toast.LENGTH_LONG).show();
             }
         }
         // Will request that GPS be enabled for devices running Marshmallow or newer.
-        LocationHelper.requestLocationForBluetooth(this);
+        LocationHelper.requestLocationForBluetooth(activity);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             initializeScannerCallback();
 
@@ -132,7 +136,7 @@ public class BluetoothScan extends ListActivityWithMenu {
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         scanLeDevice(false);
         mLeDeviceListAdapter.clear();
@@ -146,7 +150,8 @@ public class BluetoothScan extends ListActivityWithMenu {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_bluetooth_scan, menu);
+        Activity currentActivity = getActivity();
+        currentActivity.getMenuInflater().inflate(R.menu.menu_bluetooth_scan, menu);
         if (!is_scanning) {
             menu.findItem(R.id.menu_stop).setVisible(false);
             menu.findItem(R.id.menu_scan).setVisible(true);
@@ -158,18 +163,19 @@ public class BluetoothScan extends ListActivityWithMenu {
     }
 
     private boolean doScan() {
-        BluetoothManager bluetooth_manager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
-        Toast.makeText(this, gs(R.string.scanning), Toast.LENGTH_LONG).show();
+        Activity currentActivity = getActivity();
+        BluetoothManager bluetooth_manager = (BluetoothManager) currentActivity.getSystemService(Context.BLUETOOTH_SERVICE);
+        Toast.makeText(currentActivity, gs(R.string.scanning), Toast.LENGTH_LONG).show();
         if (bluetooth_manager == null) {
-            Toast.makeText(this, "This device does not seem to support bluetooth", Toast.LENGTH_LONG).show();
+            Toast.makeText(currentActivity, "This device does not seem to support bluetooth", Toast.LENGTH_LONG).show();
             return true;
         } else {
             if (!bluetooth_manager.getAdapter().isEnabled()) {
-                Toast.makeText(this, "Bluetooth is turned off on this device currently", Toast.LENGTH_LONG).show();
+                Toast.makeText(currentActivity, "Bluetooth is turned off on this device currently", Toast.LENGTH_LONG).show();
                 return true;
             } else {
                 if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                    Toast.makeText(this, "The android version of this device is not compatible with Bluetooth Low Energy", Toast.LENGTH_LONG).show();
+                    Toast.makeText(currentActivity, "The android version of this device is not compatible with Bluetooth Low Energy", Toast.LENGTH_LONG).show();
                     return true;
                 }
             }
@@ -185,7 +191,7 @@ public class BluetoothScan extends ListActivityWithMenu {
     @Override
     protected void onResume() {
         super.onResume();
-        if (LocationHelper.isLocationPermissionOk(this) && (JoH.ratelimit("auto-start-bt-scan", 20))) {
+        if (LocationHelper.isLocationPermissionOk(getActivity()) && (JoH.ratelimit("auto-start-bt-scan", 20))) {
             doScan();
         }
     }

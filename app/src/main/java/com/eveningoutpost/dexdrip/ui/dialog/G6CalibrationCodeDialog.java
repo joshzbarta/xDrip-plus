@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.ui.dialog;
 
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.View;
@@ -20,7 +20,7 @@ public class G6CalibrationCodeDialog {
     // ask the user for the code, check if its valid, only start sensor if it is
     public static void ask(AppCompatActivity activity, Runnable runnable) {
 
-        final AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(activity);
+        final AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(activity);
         builder.setTitle(R.string.g6_sensor_code);
         builder.setMessage(R.string.please_enter_printed_calibration_code);
 
@@ -49,7 +49,7 @@ public class G6CalibrationCodeDialog {
             }
         });
 
-        final android.support.v7.app.AlertDialog dialog = builder.create();
+        final androidx.appcompat.app.AlertDialog dialog = builder.create();
         input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {

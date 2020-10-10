@@ -15,7 +15,7 @@ package com.eveningoutpost.dexdrip.localeTasker;
 import android.annotation.TargetApi;
 import android.app.Application;
 import android.os.Build;
-import android.support.v4.app.FragmentManager;
+import androidx.fragment.app.FragmentManager;
 import android.util.Log;
 
 import com.eveningoutpost.dexdrip.BuildConfig;

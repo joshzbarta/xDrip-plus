@@ -6,7 +6,7 @@ package com.eveningoutpost.dexdrip;
 
 import android.animation.ValueAnimator;
 import androidx.appcompat.app.AppCompatActivity;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -23,13 +23,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import androidx.appcompat.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -1176,7 +1176,7 @@ public class Reminders extends ActivityWithRecycler implements SensorEventListen
 
                 }
             });
-            datePickerFragment.show(this.getSupportFragmentManager(), "DatePicker");
+            datePickerFragment.show(this.getFragmentManager(), "DatePicker");
         }
     }
 

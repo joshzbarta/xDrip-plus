@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.utilityModels;
 
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
@@ -783,7 +783,7 @@ private static final int POSITION_OF_SENSOR_STATUS_BYTE = 17;
                 dialog.cancel();
             }
         });
-        final android.support.v7.app.AlertDialog dialog = builder.create();
+        final androidx.appcompat.app.AlertDialog dialog = builder.create();
         try {
             dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         } catch (NullPointerException e) {

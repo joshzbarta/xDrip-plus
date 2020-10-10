@@ -3,6 +3,7 @@ package com.eveningoutpost.dexdrip.models;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.NotificationManager;
@@ -40,9 +41,9 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.provider.Settings;
-import android.support.v4.app.NotificationCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.view.ContextThemeWrapper;
+import androidx.core.app.NotificationCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.view.ContextThemeWrapper;
 import android.text.InputType;
 import android.text.method.DigitsKeyListener;
 import android.util.Base64;
@@ -984,7 +985,7 @@ public class JoH {
         static_toast(context, msg, Toast.LENGTH_LONG);
     }
 
-    public static void show_ok_dialog(final AppCompatActivity activity, final String title, final String message, final Runnable runnable) {
+    public static void show_ok_dialog(final Activity activity, final String title, final String message, final Runnable runnable) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

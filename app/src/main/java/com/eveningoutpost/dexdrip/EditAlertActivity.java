@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
@@ -18,10 +18,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import android.text.InputType;
 import android.text.format.DateFormat;
 import android.text.method.DigitsKeyListener;
@@ -589,7 +589,7 @@ public class EditAlertActivity extends ActivityWithMenu {
 
         buttonalertMp3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(mContext);
+                AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(mContext);
                 builder.setTitle("What type of Alert?")
                         .setItems(R.array.alertType, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
@@ -611,7 +611,7 @@ public class EditAlertActivity extends ActivityWithMenu {
                                 }
                             }
                         });
-                android.support.v7.app.AlertDialog dialog = builder.create();
+                androidx.appcompat.app.AlertDialog dialog = builder.create();
                 dialog.show();
             }
        }); //- See more at: http://blog.kerul.net/2011/12/pick-file-using-intentactiongetcontent.html#sthash.c8xtIr1Y.dpuf
@@ -644,7 +644,7 @@ public class EditAlertActivity extends ActivityWithMenu {
 
             @Override
             public void onClick(View v) {
-                TimePickerDialog mTimePicker = new TimePickerDialog(mContext, android.support.v7.app.AlertDialog.THEME_HOLO_DARK, new TimePickerDialog.OnTimeSetListener() {
+                TimePickerDialog mTimePicker = new TimePickerDialog(mContext, R.style.Theme_AppCompat_Dialog_Alert, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         startHour = selectedHour;
@@ -662,7 +662,7 @@ public class EditAlertActivity extends ActivityWithMenu {
 
             @Override
             public void onClick(View v) {
-                TimePickerDialog mTimePicker = new TimePickerDialog(mContext, AlertDialog.THEME_HOLO_DARK, new TimePickerDialog.OnTimeSetListener() {
+                TimePickerDialog mTimePicker = new TimePickerDialog(mContext, R.style.Theme_AppCompat_Dialog_Alert, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         endHour = selectedHour;

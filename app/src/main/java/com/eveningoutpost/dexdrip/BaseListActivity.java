@@ -2,15 +2,23 @@ package com.eveningoutpost.dexdrip;
 
 // jamorham
 
-import android.app.ListActivity;
+import androidx.fragment.app.ListFragment;
 import android.content.Context;
 
-public abstract class BaseListActivity extends ListActivity {
+import androidx.annotation.NonNull;
 
+public abstract class BaseListActivity extends
+        //androidx.fragment.app.ListFragment
+        androidx.fragment.app.ListFragment
+        //androidx.recyclerview.widget.RecyclerView
+{
+
+
+/*
     @Override
     protected void attachBaseContext(final Context baseContext) {
         final Context context = xdrip.getLangContext(baseContext);
         super.attachBaseContext(context);
     }
-
+*/
 }

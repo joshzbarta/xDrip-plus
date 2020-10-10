@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.ui.dialog;
 
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.eveningoutpost.dexdrip.R;
@@ -44,7 +44,7 @@ public class HeyFamUpdateOptInDialog {
     // inform the user about this message
     private static void ask1(AppCompatActivity activity, Runnable runnable) {
 
-        final android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(activity);
+        final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(activity);
         builder.setTitle(R.string.hey_fam);
         builder.setMessage(R.string.you_have_update_checks_off);
 
@@ -55,7 +55,7 @@ public class HeyFamUpdateOptInDialog {
             }
         });
 
-        final android.support.v7.app.AlertDialog dialog = builder.create();
+        final androidx.appcompat.app.AlertDialog dialog = builder.create();
         dialog.show();
 
     }
@@ -63,7 +63,7 @@ public class HeyFamUpdateOptInDialog {
     // ask the user if they would like to enable updates
     private static void ask2(AppCompatActivity activity, Runnable runnable) {
 
-        final AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(activity);
+        final AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(activity);
         builder.setTitle(R.string.enable_update_checks);
         builder.setMessage(R.string.you_can_easily_roll_back_dialog_msg);
 
@@ -81,7 +81,7 @@ public class HeyFamUpdateOptInDialog {
             }
         });
 
-        final android.support.v7.app.AlertDialog dialog = builder.create();
+        final androidx.appcompat.app.AlertDialog dialog = builder.create();
         dialog.show();
 
     }

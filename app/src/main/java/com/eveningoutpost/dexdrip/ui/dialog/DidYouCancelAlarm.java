@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.ui.dialog;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.content.DialogInterface;
 
 import com.eveningoutpost.dexdrip.R;
@@ -14,7 +14,7 @@ public class DidYouCancelAlarm {
 
     public static synchronized void dialog(final AppCompatActivity activity, Runnable runnable) {
 
-        final AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(activity);
+        final AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(activity);
         builder.setTitle(R.string.cancel_alarm);
         builder.setMessage(R.string.please_confirm_to_cancel_the_alert);
 

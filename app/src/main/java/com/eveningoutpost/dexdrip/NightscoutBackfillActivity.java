@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip;
 
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.support.v4.widget.DrawerLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;

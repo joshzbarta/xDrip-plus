@@ -12,8 +12,8 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AlertDialog;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -117,7 +117,7 @@ public class BTGlucoseMeterActivity extends ListActivityWithMenu {
 
                     final MyBluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
                     if (device != null) {
-                        final AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(adapterView.getContext());
+                        final AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(adapterView.getContext());
                         builder.setTitle("Choose Action");
                         builder.setMessage("You can disconnect from this device or forget its pairing here");
 

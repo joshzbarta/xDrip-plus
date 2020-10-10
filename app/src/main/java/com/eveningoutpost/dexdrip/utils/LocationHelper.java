@@ -8,10 +8,13 @@ import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Looper;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.app.Activity;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.models.JoH;
@@ -51,7 +54,7 @@ public class LocationHelper {
 
         // Shamelessly borrowed from http://stackoverflow.com/a/10311877/868533
 
-        AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(parent);
+        AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(parent);
         builder.setTitle(R.string.location_not_found_title);
         builder.setMessage(R.string.location_not_found_message);
         builder.setPositiveButton(R.string.location_yes, new DialogInterface.OnClickListener() {
@@ -78,7 +81,7 @@ public class LocationHelper {
      *
      * @param activity The currently visible activity.
      */
-    public static void requestLocationForBluetooth(final AppCompatActivity activity) {
+    public static void requestLocationForBluetooth(final Activity activity) {
         // Location needs to be enabled for Bluetooth discovery on Marshmallow.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 

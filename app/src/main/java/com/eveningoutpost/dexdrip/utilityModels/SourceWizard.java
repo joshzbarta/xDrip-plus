@@ -2,10 +2,10 @@ package com.eveningoutpost.dexdrip.utilityModels;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
-import android.databinding.ObservableArrayList;
-import android.databinding.ObservableList;
-import android.support.annotation.StringRes;
-import android.support.v7.app.AlertDialog;
+import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableList;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
@@ -32,7 +32,7 @@ public class SourceWizard {
     @SuppressLint("StaticFieldLeak")
     private static final String TAG = "SourceWizard";
     private static volatile SourceWizard sw;
-    private android.support.v7.app.AlertDialog dialog;
+    private androidx.appcompat.app.AlertDialog dialog;
     private AppCompatActivity activity;
     // Create the dialog decision tree
     private Tree<Item> root = new Tree<>(new Item(gs(R.string.choose_data_source), gs(R.string.which_system_do_you_use)));
@@ -126,7 +126,7 @@ public class SourceWizard {
     public void getTreeDialog(Tree<Item> branch) {
         if (branch == null) branch = root;
 
-        final android.support.v7.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        final androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         // family node
         if (!branch.data.isCollectionType()) {
 

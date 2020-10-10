@@ -13,11 +13,13 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v13.app.FragmentStatePagerAdapter;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v4.view.ViewPager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+//import androidx.legacy.app.FragmentStatePagerAdapter;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -465,7 +467,7 @@ public class MegaStatus extends ActivityWithMenu {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends android.support.v4.app.Fragment {
+    public static class PlaceholderFragment extends androidx.fragment.app.Fragment {
 
         private static final String ARG_SECTION_NUMBER = "section_number";
 

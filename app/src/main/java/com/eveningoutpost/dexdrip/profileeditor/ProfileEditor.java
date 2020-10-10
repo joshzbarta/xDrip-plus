@@ -7,11 +7,11 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -190,7 +190,7 @@ public class ProfileEditor extends BaseAppCompatActivity {
                             if ((screen_width < 720) || (screen_height < 720) || ((Build.VERSION.SDK_INT < Build.VERSION_CODES.M)))
                                 small_screen = true;
 
-                            android.support.v7.app.AlertDialog.Builder alertDialogBuilder = new android.support.v7.app.AlertDialog.Builder(mContext);
+                            androidx.appcompat.app.AlertDialog.Builder alertDialogBuilder = new androidx.appcompat.app.AlertDialog.Builder(mContext);
                             alertDialogBuilder.setMessage(R.string.split_delete_or_do_nothing);
 
                             alertDialogBuilder.setPositiveButton(small_screen ? getString(R.string.split) : getString(R.string.split_this_block_in_two), new DialogInterface.OnClickListener() {

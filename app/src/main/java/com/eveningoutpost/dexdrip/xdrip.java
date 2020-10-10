@@ -7,8 +7,8 @@ import android.content.ContextWrapper;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.preference.PreferenceManager;
-import android.support.annotation.StringRes;
-import android.support.multidex.MultiDexApplication;
+import androidx.annotation.StringRes;
+
 import android.util.Log;
 
 import com.crashlytics.android.Crashlytics;
@@ -39,7 +39,7 @@ import java.util.Locale;
 import io.fabric.sdk.android.Fabric;
 
 import net.danlew.android.joda.JodaTimeAndroid;;
-
+import androidx.multidex.MultiDexApplication;
 //import com.bugfender.sdk.Bugfender;
 
 /**

@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.utils;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.content.DialogInterface;
 
 import com.eveningoutpost.dexdrip.models.JoH;
@@ -37,7 +37,7 @@ public class HomeWifi {
 
         if (isConnectedToAnything()) {
             final String ssid = getSSID();
-            final AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(activity);
+            final AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(activity);
             builder.setTitle("Set Home Network");
             builder.setMessage(String.format("My Home WiFi Network name is:\n\n%s", ssid));
 

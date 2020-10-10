@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.ui.dialog;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.content.DialogInterface;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,7 +16,7 @@ public class GenericConfirmDialog {
 
     public static void show(final AppCompatActivity activity, String title, String message, Runnable runnable) {
 
-        final android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(activity)
+        final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(activity)
                 .setTitle(title)
                 .setMessage(message);
 
