@@ -1,18 +1,11 @@
 package com.eveningoutpost.dexdrip;
 
-import java.text.DateFormat;
-import java.util.Date;
-
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-
-import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.models.UserError.Log;
-
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
@@ -21,14 +14,20 @@ import android.widget.TextView;
 
 import com.eveningoutpost.dexdrip.models.ActiveBgAlert;
 import com.eveningoutpost.dexdrip.models.AlertType;
-//KS import com.eveningoutpost.dexdrip.Services.MissedReadingService;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.UserError.Log;
 import com.eveningoutpost.dexdrip.utilityModels.AlertPlayer;
 import com.eveningoutpost.dexdrip.utilityModels.BgGraphBuilder;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
+
+import java.text.DateFormat;
+import java.util.Date;
+
+//KS import com.eveningoutpost.dexdrip.Services.MissedReadingService;
 //KS import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 
 
-public class SnoozeActivity extends Activity {//ActivityWithMenu {
+public class SnoozeActivity extends AppCompatActivity {//ActivityWithMenu {
     //public static String menu_name = "Snooze Alert";
     private static String status;
 

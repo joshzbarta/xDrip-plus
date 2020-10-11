@@ -1,7 +1,6 @@
 package com.eveningoutpost.dexdrip;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
@@ -18,6 +17,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.os.Vibrator;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
@@ -38,6 +38,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+
 import static com.eveningoutpost.dexdrip.xdrip.gs;
 
 // From LibreAlarm et al
@@ -61,7 +62,7 @@ public class NFCReaderX {
     private static final boolean useReaderMode = true;
     private static boolean nfc_enabled = false;
 
-    public static void stopNFC(Activity context) {
+    public static void stopNFC(AppCompatActivity context) {
         if (foreground_enabled) {
             try {
                 NfcAdapter.getDefaultAdapter(context).disableForegroundDispatch(context);
@@ -77,7 +78,7 @@ public class NFCReaderX {
     }
 
     @SuppressLint("NewApi")
-    public static void disableNFC(final Activity context) {
+    public static void disableNFC(final AppCompatActivity context) {
         if (nfc_enabled) {
             try {
                 if ((Build.VERSION.SDK_INT >= 19) && (useReaderMode)) {
@@ -93,7 +94,7 @@ public class NFCReaderX {
     }
 
     @SuppressLint("NewApi")
-    public static void doNFC(final Activity context) {
+    public static void doNFC(final AppCompatActivity context) {
 
         if (!useNFC()) return;
 
@@ -174,7 +175,7 @@ public class NFCReaderX {
 
     }
 
-    private static synchronized void doTheScan(final Activity context, Tag tag, boolean showui) {
+    private static synchronized void doTheScan(final AppCompatActivity context, Tag tag, boolean showui) {
         synchronized (tag_lock) {
             if (!tag_discovered) {
                 if (!useNFC()) return;
@@ -207,7 +208,7 @@ public class NFCReaderX {
 
 
     // via intents
-    public static void tagFound(Activity context, Intent data) {
+    public static void tagFound(AppCompatActivity context, Intent data) {
 
         if (NfcAdapter.ACTION_TECH_DISCOVERED.equals(data.getAction())) {
             Tag tag = data.getParcelableExtra(NfcAdapter.EXTRA_TAG);
@@ -286,10 +287,10 @@ public class NFCReaderX {
 
     private static class NfcVReaderTask extends AsyncTask<Tag, Void, Tag> {
 
-        Activity context;
+        AppCompatActivity context;
         boolean succeeded = false;
 
-        public NfcVReaderTask(Activity context) {
+        public NfcVReaderTask(AppCompatActivity context) {
             this.context = context;
             last_read_succeeded = false;
             JoH.ratelimit("nfc-debounce", 1); // ping the timer
@@ -649,7 +650,7 @@ public class NFCReaderX {
         }
     }
 
-    public static synchronized void scanFromActivity(final Activity context, final Intent intent) {
+    public static synchronized void scanFromActivity(final AppCompatActivity context, final Intent intent) {
         if (NFCReaderX.useNFC()) {
             // sanity checking is in onward function
             final Handler handler = new Handler();
@@ -675,7 +676,7 @@ public class NFCReaderX {
         }
     }
 
-    public static void windowFocusChange(final Activity context, boolean hasFocus, View decorView) {
+    public static void windowFocusChange(final AppCompatActivity context, boolean hasFocus, View decorView) {
         if (hasFocus) {
             if (Build.VERSION.SDK_INT >= 19) {
                 decorView.setSystemUiVisibility(

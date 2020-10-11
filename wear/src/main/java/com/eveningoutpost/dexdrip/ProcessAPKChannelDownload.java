@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip;
 
 import android.content.Intent;
 import android.os.PowerManager;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import androidx.core.app.JobIntentService;
 
 import com.eveningoutpost.dexdrip.models.JoH;

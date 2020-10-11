@@ -2,7 +2,8 @@ package com.eveningoutpost.dexdrip.utilityModels;
 
 // jamorham
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.eveningoutpost.dexdrip.G5Model.Ob1G5StateMachine;
 import com.eveningoutpost.dexdrip.GcmActivity;
@@ -27,7 +28,7 @@ import static com.eveningoutpost.dexdrip.Home.staticRefreshBGCharts;
 public class VoiceCommands {
 
 
-    public static void processVoiceCommand(String allWords, Activity mActivity) {
+    public static void processVoiceCommand(String allWords, AppCompatActivity mActivity) {
         if (allWords.contentEquals("delete last calibration")
                 || allWords.contentEquals("clear last calibration")) {
             Calibration.clearLastCalibration();

@@ -2,6 +2,7 @@ package com.eveningoutpost.dexdrip.models;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
@@ -41,9 +42,9 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.provider.Settings;
 import androidx.core.app.NotificationCompat;
-import android.support.v7.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import android.support.v7.view.ContextThemeWrapper;
+import androidx.appcompat.app.AlertDialog;
+
+import androidx.appcompat.view.ContextThemeWrapper;
 import android.text.InputType;
 import android.text.method.DigitsKeyListener;
 import android.util.Base64;
@@ -1312,13 +1313,13 @@ public class JoH {
     }
 
 
-    public static void releaseOrientation(Activity activity) {
+    public static void releaseOrientation(AppCompatActivity activity) {
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
     }
 
     @SuppressWarnings("deprecation")
     @SuppressLint("NewApi")
-    public static void lockOrientation(Activity activity) {
+    public static void lockOrientation(AppCompatActivity activity) {
         Display display = activity.getWindowManager().getDefaultDisplay();
         int rotation = display.getRotation();
         int height;

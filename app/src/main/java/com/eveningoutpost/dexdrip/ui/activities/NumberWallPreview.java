@@ -1,12 +1,12 @@
 package com.eveningoutpost.dexdrip.ui.activities;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
@@ -104,7 +104,7 @@ public class NumberWallPreview extends AppCompatActivity {
         public static final String PREF_numberwall_multi_param = "numberwall_multi_param";
         public static final String PREF_numberwall_background = "numberwall_background";
 
-        private final Activity activity;
+        private final AppCompatActivity activity;
         public ObservableBackground background = new ObservableBackground();
 
         {

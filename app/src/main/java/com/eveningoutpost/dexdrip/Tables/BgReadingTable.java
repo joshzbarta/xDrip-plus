@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.Tables;
 
 import lombok.var;
-import android.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -42,7 +42,7 @@ public class BgReadingTable extends BaseListActivity implements NavigationDrawer
     @Override
     public void onResume() {
         super.onResume();
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, this.getContext());
 
         getData();

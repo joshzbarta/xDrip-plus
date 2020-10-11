@@ -15,7 +15,7 @@
 
         tools:context=".languageeditor.LanguageEditor">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/language_toolbar"
             app:theme="@style/Toolbar"
 
@@ -36,7 +36,7 @@
             android:layout_below="@+id/language_toolbar">
 
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/language_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

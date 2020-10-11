@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.profileeditor;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;

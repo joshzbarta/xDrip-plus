@@ -13,10 +13,11 @@
 package com.eveningoutpost.dexdrip.localeTasker.ui;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,7 +31,7 @@ import com.eveningoutpost.dexdrip.R;
  * Superclass for plug-in Activities. This class takes care of initializing aspects of the plug-in's UI to
  * look more integrated with the plug-in host.
  */
-public abstract class AbstractPluginActivity extends Activity
+public abstract class AbstractPluginActivity extends AppCompatActivity
 {
     /**
      * Flag boolean that can only be set to true via the "Don't Save"
@@ -104,14 +105,14 @@ public abstract class AbstractPluginActivity extends Activity
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void setupActionBarApi11()
     {
-        getActionBar().setSubtitle(BreadCrumber.generateBreadcrumb(getApplicationContext(), getIntent(),
+        getSupportActionBar().setSubtitle(BreadCrumber.generateBreadcrumb(getApplicationContext(), getIntent(),
                                                                    getString(R.string.plugin_name)));
     }
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     private void setupActionBarApi14()
     {
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         /*
          * Note: There is a small TOCTOU error here, in that the host could be uninstalled right after
@@ -123,7 +124,7 @@ public abstract class AbstractPluginActivity extends Activity
          */
         try
         {
-            getActionBar().setIcon(getPackageManager().getApplicationIcon(getCallingPackage()));
+            getSupportActionBar().setIcon(getPackageManager().getApplicationIcon(getCallingPackage()));
         }
         catch (final NameNotFoundException e)
         {

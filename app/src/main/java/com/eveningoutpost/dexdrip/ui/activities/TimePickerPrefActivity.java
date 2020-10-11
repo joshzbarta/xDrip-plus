@@ -67,6 +67,6 @@ public class TimePickerPrefActivity extends AppCompatActivity {
             Pref.setString(prefName, String.format(Locale.US, "%d", newmins * 60));
             finish();
         });
-        timePickerFragment.show(this.getFragmentManager(), "TimePicker");
+        timePickerFragment.show(this.getSupportFragmentManager(), "TimePicker");
     }
 }

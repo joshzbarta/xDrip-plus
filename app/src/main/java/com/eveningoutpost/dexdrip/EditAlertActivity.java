@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.Activity;
-import android.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
@@ -18,9 +18,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
 import android.text.InputType;
 import android.text.format.DateFormat;
 import android.text.method.DigitsKeyListener;
@@ -588,7 +589,7 @@ public class EditAlertActivity extends ActivityWithMenu {
 
         buttonalertMp3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(mContext);
                 builder.setTitle("What type of Alert?")
                         .setItems(R.array.alertType, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
@@ -610,7 +611,7 @@ public class EditAlertActivity extends ActivityWithMenu {
                                 }
                             }
                         });
-                AlertDialog dialog = builder.create();
+                androidx.appcompat.app.AlertDialog dialog = builder.create();
                 dialog.show();
             }
        }); //- See more at: http://blog.kerul.net/2011/12/pick-file-using-intentactiongetcontent.html#sthash.c8xtIr1Y.dpuf
@@ -643,7 +644,7 @@ public class EditAlertActivity extends ActivityWithMenu {
 
             @Override
             public void onClick(View v) {
-                TimePickerDialog mTimePicker = new TimePickerDialog(mContext, AlertDialog.THEME_HOLO_DARK, new TimePickerDialog.OnTimeSetListener() {
+                TimePickerDialog mTimePicker = new TimePickerDialog(mContext, R.style.Theme_AppCompat_Dialog_Alert, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         startHour = selectedHour;
@@ -661,7 +662,7 @@ public class EditAlertActivity extends ActivityWithMenu {
 
             @Override
             public void onClick(View v) {
-                TimePickerDialog mTimePicker = new TimePickerDialog(mContext, AlertDialog.THEME_HOLO_DARK, new TimePickerDialog.OnTimeSetListener() {
+                TimePickerDialog mTimePicker = new TimePickerDialog(mContext, R.style.Theme_AppCompat_Dialog_Alert, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         endHour = selectedHour;
@@ -881,7 +882,7 @@ public class EditAlertActivity extends ActivityWithMenu {
             if (ContextCompat.checkSelfPermission(getApplicationContext(),
                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     != PackageManager.PERMISSION_GRANTED) {
-                final Activity activity = this;
+                final AppCompatActivity activity = this;
                 JoH.show_ok_dialog(activity, gs(R.string.please_allow_permission), gs(R.string.need_storage_permission_to_access_all_ringtones), new Runnable() {
                     @Override
                     public void run() {

@@ -1,7 +1,5 @@
 package com.eveningoutpost.dexdrip.profileeditor;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,9 +7,11 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -22,10 +22,10 @@ import android.widget.TextView;
 import com.eveningoutpost.dexdrip.BaseAppCompatActivity;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.Dex_Constants;
+import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.Profile;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilityModels.JamorhamShowcaseDrawer;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.utilityModels.ShotStateStore;
@@ -190,7 +190,7 @@ public class ProfileEditor extends BaseAppCompatActivity {
                             if ((screen_width < 720) || (screen_height < 720) || ((Build.VERSION.SDK_INT < Build.VERSION_CODES.M)))
                                 small_screen = true;
 
-                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
+                            androidx.appcompat.app.AlertDialog.Builder alertDialogBuilder = new androidx.appcompat.app.AlertDialog.Builder(mContext);
                             alertDialogBuilder.setMessage(R.string.split_delete_or_do_nothing);
 
                             alertDialogBuilder.setPositiveButton(small_screen ? getString(R.string.split) : getString(R.string.split_this_block_in_two), new DialogInterface.OnClickListener() {
@@ -539,11 +539,11 @@ public class ProfileEditor extends BaseAppCompatActivity {
             mView = view;
         }
 
-        public ProfileViewTarget(int viewId, Activity activity) {
+        public ProfileViewTarget(int viewId, AppCompatActivity activity) {
             mView = activity.findViewById(viewId);
         }
 
-        public ProfileViewTarget(int viewId, Activity activity, int offsetX, int offsetY) {
+        public ProfileViewTarget(int viewId, AppCompatActivity activity, int offsetX, int offsetY) {
             mView = activity.findViewById(viewId);
             this.offsetX = offsetX;
             this.offsetY = offsetY;

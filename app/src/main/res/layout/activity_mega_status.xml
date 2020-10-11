@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.eveningoutpost.dexdrip.Home">
 
-    <androidx.core.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.viewpager.widget.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -20,7 +20,7 @@
             android:paddingTop="4dp"
             android:textColor="#fff" />
 
-    </androidx.core.view.ViewPager>
+    </androidx.viewpager.widget.ViewPager>
 
     <fragment
         android:id="@+id/navigation_drawer"

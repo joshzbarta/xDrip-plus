@@ -1,9 +1,9 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.appcompat.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 
@@ -75,7 +75,7 @@ public class StopSensor extends ActivityWithMenu {
 
     public void resetAllCalibrations(View v) {
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(gs(R.string.are_you_sure));
         builder.setMessage(gs(R.string.do_you_want_to_delete_and_reset_the_calibrations_for_this_sensor));
 

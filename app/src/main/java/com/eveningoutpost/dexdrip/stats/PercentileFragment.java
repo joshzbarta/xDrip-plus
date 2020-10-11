@@ -3,6 +3,8 @@ package com.eveningoutpost.dexdrip.stats;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import androidx.core.app.Fragment;
+import androidx.fragment.app.Fragment;
+import androidx.core.app.Fragment;
 import com.eveningoutpost.dexdrip.models.UserError.Log;
 import android.view.LayoutInflater;
 import android.view.View;

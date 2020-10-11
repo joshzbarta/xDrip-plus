@@ -1,11 +1,11 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import androidx.appcompat.app.AlertDialog;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.CheckBox;
@@ -206,7 +206,7 @@ public class MissedReadingActivity extends ActivityWithMenu {
 
             @Override
             public void onClick(View v) {
-                TimePickerDialog mTimePicker = new TimePickerDialog(mContext, AlertDialog.THEME_HOLO_DARK, new TimePickerDialog.OnTimeSetListener() {
+                TimePickerDialog mTimePicker = new TimePickerDialog(mContext, androidx.appcompat.app.AlertDialog.THEME_HOLO_DARK, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         endHour = selectedHour;

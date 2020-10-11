@@ -1,7 +1,9 @@
 package com.eveningoutpost.dexdrip;
 
 import lombok.var;
+
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.Dialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;

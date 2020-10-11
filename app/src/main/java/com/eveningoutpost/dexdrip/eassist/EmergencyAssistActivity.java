@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.eassist;
 
 import android.Manifest;
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,9 +12,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
 import android.view.View;
 
 import com.eveningoutpost.dexdrip.BR;
@@ -101,7 +102,7 @@ public class EmergencyAssistActivity extends BaseAppCompatActivity {
             if (ContextCompat.checkSelfPermission(getApplicationContext(),
                     Manifest.permission.READ_CONTACTS)
                     != PackageManager.PERMISSION_GRANTED) {
-                final Activity activity = this;
+                final AppCompatActivity activity = this;
                 JoH.show_ok_dialog(activity, gs(R.string.please_allow_permission), gs(R.string.need_contacts_permission_to_select_message_recipients), new Runnable() {
                     @Override
                     public void run() {
@@ -124,7 +125,7 @@ public class EmergencyAssistActivity extends BaseAppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!isSMSPermissionGranted()) {
                 if (JoH.ratelimit("check-sms-permission", 2)) {
-                    final Activity activity = this;
+                    final AppCompatActivity activity = this;
                     JoH.show_ok_dialog(activity, gs(R.string.please_allow_permission), "Need SMS permission to send text messages to your emergency contacts."
                             + "\n\n"
                             + "Warning this can cost money at normal telecoms rates!", () -> ActivityCompat.requestPermissions(activity,
@@ -282,19 +283,19 @@ public class EmergencyAssistActivity extends BaseAppCompatActivity {
     public class ContactModel {
         public final ObservableList<EmergencyContact> items = new ObservableArrayList<>();
         public final ItemBinding<EmergencyContact> itemBinding = ItemBinding.of(BR.item, R.layout.emergency_contact_item);
-        public Activity activity;
+        public AppCompatActivity activity;
 
         {
             itemBinding.bindExtra(BR.contactModelItem, this);
         }
 
-        ContactModel(Activity activity, List<EmergencyContact> items) {
+        ContactModel(AppCompatActivity activity, List<EmergencyContact> items) {
             this.activity = activity;
             itemBinding.bindExtra(BR.activityItem, activity);
             this.items.addAll(items);
         }
 
-        ContactModel(Activity activity) {
+        ContactModel(AppCompatActivity activity) {
             this(activity, EmergencyContact.load());
         }
 

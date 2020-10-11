@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.utils;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.text.InputType;
 
@@ -26,7 +26,7 @@ public class DexCollectionHelper {
     private static final String TAG = DexCollectionHelper.class.getSimpleName();
 
 
-    public static void assistance(Activity activity, DexCollectionType type) {
+    public static void assistance(AppCompatActivity activity, DexCollectionType type) {
 
         switch (type) {
 

@@ -58,7 +58,7 @@ public class AddBloodTest extends AppCompatActivity implements NavigationDrawerF
     protected void onResume() {
         xdrip.checkForcedEnglish(this);
         super.onResume();
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), getString(R.string.add_calibration), this);
         automatedCalibration();
     }

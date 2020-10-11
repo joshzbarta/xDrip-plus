@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -59,7 +59,7 @@ public class DoubleCalibrationActivity extends ActivityWithMenu {
     public void addListenerOnButton() {
 
         button = findViewById(R.id.save_calibration_button);
-        final Activity activity = this;
+        final AppCompatActivity activity = this;
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 

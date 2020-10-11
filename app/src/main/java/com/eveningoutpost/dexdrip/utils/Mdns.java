@@ -1,19 +1,19 @@
 package com.eveningoutpost.dexdrip.utils;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.net.nsd.NsdManager;
 import android.net.nsd.NsdServiceInfo;
 import android.os.PowerManager;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.MegaStatus;
+import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilityModels.Constants;
 import com.eveningoutpost.dexdrip.utilityModels.JamorhamShowcaseDrawer;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
@@ -407,7 +407,7 @@ public class Mdns {
             final String title = "Tap to add or remove";
             final String message = "Devices discovered on the local network can be added or removed as collectors by tapping on them.";
             final ViewTarget target = new ViewTarget(MegaStatus.runnableView);
-            final Activity activity = (Activity) context;
+            final AppCompatActivity activity = (AppCompatActivity) context;
 
             JoH.runOnUiThreadDelayed(new Runnable() {
                                          @Override

@@ -17,7 +17,7 @@ package com.eveningoutpost.dexdrip.adapters;
 
 import androidx.databinding.MapChangeRegistry;
 import androidx.databinding.ObservableMap;
-import androidx.core.util.ArrayMap;
+import 	androidx.collection.ArrayMap;
 
 import java.util.Collection;
 

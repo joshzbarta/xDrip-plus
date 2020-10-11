@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.core.content.LocalBroadcastManager;
 import android.util.Log;
 import android.widget.Toast;

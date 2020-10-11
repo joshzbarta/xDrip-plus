@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.eveningoutpost.dexdrip.models.JoH;
@@ -10,7 +10,7 @@ import com.eveningoutpost.dexdrip.utilityModels.AlertPlayer;
 
 // Send a snooze request to silence any alarm. Designed to be bound to a button for fast access
 
-public class QuickSnooze extends Activity {
+public class QuickSnooze extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -4,7 +4,7 @@ package com.eveningoutpost.dexdrip;
 
 import android.app.Activity;
 import android.app.ListActivity;
-import android.app.ListFragment;
+import androidx.fragment.app.ListFragment;
 //import androidx.fragment.app.ListFragment;
 
 
@@ -26,7 +26,7 @@ public abstract class BaseListActivity extends ListFragment {
     {
         return this.getApplicationContext();
     }
-
+*/
 
 
     public View findViewById(int id)

@@ -1,13 +1,13 @@
 package com.eveningoutpost.dexdrip;
 
-import android.app.Activity;
-import android.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -45,7 +45,7 @@ public class StartNewSensor extends ActivityWithMenu {
     private Button button;
     //private DatePicker dp;
     // private TimePicker tp;
-    final Activity activity = this;
+    final AppCompatActivity activity = this;
     Calendar ucalendar = Calendar.getInstance();
 
     @Override
@@ -94,7 +94,7 @@ public class StartNewSensor extends ActivityWithMenu {
 
 
         ucalendar = Calendar.getInstance();
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        final AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(activity);
         builder.setTitle(gs(R.string.did_you_insert_it_today));
         builder.setMessage(gs(R.string.we_need_to_know_when_the_sensor_was_inserted_to_improve_calculation_accuracy__was_it_inserted_today));
         builder.setPositiveButton(gs(R.string.yes_today), new DialogInterface.OnClickListener() {
@@ -129,7 +129,7 @@ public class StartNewSensor extends ActivityWithMenu {
                         }
                     });
 
-                    datePickerFragment.show(activity.getFragmentManager(), "DatePicker");
+                    datePickerFragment.show(activity.getSupportFragmentManager(), "DatePicker");
                 }
             }
         });
@@ -155,7 +155,7 @@ public class StartNewSensor extends ActivityWithMenu {
                 realStartSensor();
             }
         });
-        timePickerFragment.show(activity.getFragmentManager(), "TimePicker");
+        timePickerFragment.show(activity.getSupportFragmentManager(), "TimePicker");
     }
 
     private void realStartSensor() {

@@ -16,9 +16,14 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v13.app.FragmentStatePagerAdapter;
-import androidx.core.content.LocalBroadcastManager;
-import androidx.core.view.ViewPager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+//import androidx.legacy.app.FragmentStatePagerAdapter;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -30,26 +35,26 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.eveningoutpost.dexdrip.models.DesertSync;
-import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.models.RollCall;
-import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.Services.DexCollectionService;
 import com.eveningoutpost.dexdrip.Services.DoNothingService;
 import com.eveningoutpost.dexdrip.Services.G5CollectionService;
 import com.eveningoutpost.dexdrip.Services.Ob1G5CollectionService;
 import com.eveningoutpost.dexdrip.Services.WifiCollectionService;
+import com.eveningoutpost.dexdrip.cgm.medtrum.MedtrumCollectionService;
+import com.eveningoutpost.dexdrip.cgm.nsfollow.NightscoutFollowService;
+import com.eveningoutpost.dexdrip.cgm.sharefollow.ShareFollowService;
+import com.eveningoutpost.dexdrip.insulin.inpen.InPenEntry;
+import com.eveningoutpost.dexdrip.insulin.inpen.InPenService;
+import com.eveningoutpost.dexdrip.models.DesertSync;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.RollCall;
+import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.utilityModels.JamorhamShowcaseDrawer;
 import com.eveningoutpost.dexdrip.utilityModels.PersistentStore;
 import com.eveningoutpost.dexdrip.utilityModels.Pref;
 import com.eveningoutpost.dexdrip.utilityModels.ShotStateStore;
 import com.eveningoutpost.dexdrip.utilityModels.StatusItem;
 import com.eveningoutpost.dexdrip.utilityModels.UploaderQueue;
-import com.eveningoutpost.dexdrip.cgm.medtrum.MedtrumCollectionService;
-import com.eveningoutpost.dexdrip.cgm.nsfollow.NightscoutFollowService;
-import com.eveningoutpost.dexdrip.cgm.sharefollow.ShareFollowService;
-import com.eveningoutpost.dexdrip.insulin.inpen.InPenEntry;
-import com.eveningoutpost.dexdrip.insulin.inpen.InPenService;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 import com.eveningoutpost.dexdrip.watch.lefun.LeFunEntry;
@@ -75,7 +80,7 @@ import static com.eveningoutpost.dexdrip.utils.DexCollectionType.SHFollow;
 public class MegaStatus extends ActivityWithMenu {
 
 
-    private static Activity mActivity;
+    private static AppCompatActivity mActivity;
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     private static final String menu_name = "Mega Status";
@@ -268,7 +273,7 @@ public class MegaStatus extends ActivityWithMenu {
         sectionTitles.clear();
         populateSectionList();
 
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -415,7 +420,7 @@ public class MegaStatus extends ActivityWithMenu {
         final String title = "Swipe for Different Pages";
         final String message = "Swipe left and right to see different status tabs.\n\n";
         final ViewTarget target = new ViewTarget(R.id.pager_title_strip, this);
-        final Activity activity = this;
+        final AppCompatActivity activity = this;
 
         JoH.runOnUiThreadDelayed(new Runnable() {
                                      @Override
@@ -465,7 +470,7 @@ public class MegaStatus extends ActivityWithMenu {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class PlaceholderFragment extends androidx.fragment.app.Fragment {
 
         private static final String ARG_SECTION_NUMBER = "section_number";
 

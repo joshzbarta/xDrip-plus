@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true">
 
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reminder_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,7 +24,7 @@
         android:src="@drawable/ic_add_black_36dp"
         app:borderWidth="0dp" />
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|left"
@@ -216,7 +216,7 @@
 
         </GridLayout>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 
 </android.support.design.widget.CoordinatorLayout>

@@ -14,9 +14,11 @@ import android.database.sqlite.SQLiteException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -174,7 +176,7 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
     @Override
     public void onListItemClick(ListView l, View v, final int position, long id) {
         var currentActivity = this.getActivity();
-        AlertDialog.Builder builder = new AlertDialog.Builder(currentActivity);
+    	androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 importDB(position);
@@ -233,11 +235,11 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
         importDB(databases.get(position), this.getActivity());
     }
 
-    private void importDB(File the_file, Activity activity) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+    private void importDB(File the_file, AppCompatActivity activity) {
+        AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(activity);
         builder.setTitle("Importing, please wait");
         builder.setMessage("Importing, please wait");
-        AlertDialog dialog = builder.create();
+        androidx.appcompat.app.AlertDialog dialog = builder.create();
         dialog.show();
         dialog.setMessage("Step 1: checking prerequisites");
         dialog.setCancelable(false);
@@ -246,9 +248,10 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
     }
 
     protected void postImportDB(String result) {
-        startWatchUpdaterService(this.getContext(), WatchUpdaterService.ACTION_RESET_DB, TAG);
+        
+		startWatchUpdaterService(this.getContext(), WatchUpdaterService.ACTION_RESET_DB, TAG);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
+        androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 returnToHome();
@@ -272,7 +275,7 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
         private final AlertDialog statusDialog;
         private File dbFile;
 
-        LoadTask(AlertDialog statusDialog, File dbFile) {
+        LoadTask(androidx.appcompat.app.AlertDialog statusDialog, File dbFile) {
             super();
             this.statusDialog = statusDialog;
             this.dbFile = dbFile;

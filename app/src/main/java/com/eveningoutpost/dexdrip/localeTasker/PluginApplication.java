@@ -15,6 +15,7 @@ package com.eveningoutpost.dexdrip.localeTasker;
 import android.annotation.TargetApi;
 import android.app.Application;
 import android.os.Build;
+import androidx.fragment.app.FragmentManager;
 import android.util.Log;
 
 import com.eveningoutpost.dexdrip.BuildConfig;
@@ -67,6 +68,6 @@ public final class PluginApplication extends Application
     private static void enableApiLevel11Debugging()
     {
         android.app.LoaderManager.enableDebugLogging(true);
-        android.app.FragmentManager.enableDebugLogging(true);
+        FragmentManager.enableDebugLogging(true);
     }
 }

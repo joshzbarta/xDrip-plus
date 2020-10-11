@@ -59,7 +59,7 @@
 -keep class com.eveningoutpost.dexdrip.models.** { *; }
 -keep class com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.** { *; }
 -keep class ar.com.hjg.pngj.** { *; }
--keep class android.support.v7.widget.SearchView { *; }
+-keep class androidx.appcompat.widget.SearchView { *; }
 
 
 -dontwarn java.util.concurrent.**

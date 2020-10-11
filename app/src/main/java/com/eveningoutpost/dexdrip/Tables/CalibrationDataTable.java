@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.Tables;
 
 import lombok.var;
 
-import android.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -41,7 +41,7 @@ public class CalibrationDataTable extends BaseListActivity implements Navigation
     @Override
     public void onResume(){
         super.onResume();
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, this.getContext());
         getData();
     }
@@ -132,7 +132,7 @@ public class CalibrationDataTable extends BaseListActivity implements Navigation
                         }
                     };
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(context);
                     builder.setMessage("Disable this calibration?\nFlagged calibrations will no longer have an effect.").setPositiveButton("Yes", dialogClickListener)
                             .setNegativeButton("No", dialogClickListener).show();
                     return true;

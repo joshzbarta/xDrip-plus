@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.profileeditor;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -276,7 +276,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.MyViewHo
                             notifyItemChanged(holder.position, "time start updated");
                         }
                     });
-                    newFragment.show(((Activity) context).getFragmentManager(), "TimePicker");
+                    newFragment.show(((Activity) context).getSupportFragmentManager(), "TimePicker");
                 }
             });
             holder.endTime.setOnClickListener(new View.OnClickListener() {
@@ -296,7 +296,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.MyViewHo
                             ProfileAdapter.this.notifyItemChanged(holder.position, "time end updated");
                         }
                     });
-                    newFragment.show(((Activity) context).getFragmentManager(), "TimePicker");
+                    newFragment.show(((Activity) context).getSupportFragmentManager(), "TimePicker");
                 }
             });
 

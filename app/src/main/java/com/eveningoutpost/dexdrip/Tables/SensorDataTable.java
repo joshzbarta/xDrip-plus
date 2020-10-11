@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.Tables;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.database.Cursor;
 import android.os.Bundle;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -34,7 +34,7 @@ public class SensorDataTable extends BaseListActivity implements NavigationDrawe
     @Override
     public void onResume(){
         super.onResume();
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, this.getContext());
         getData();
     }

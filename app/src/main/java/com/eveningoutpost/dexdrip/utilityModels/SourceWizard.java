@@ -1,18 +1,18 @@
 package com.eveningoutpost.dexdrip.utilityModels;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.eveningoutpost.dexdrip.BR;
-import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.databinding.DialogTreeSelectorBinding;
+import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.utils.DexCollectionHelper;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 import com.eveningoutpost.dexdrip.xdrip;
@@ -25,18 +25,15 @@ import static com.eveningoutpost.dexdrip.ui.helpers.UiHelper.convertDpToPixel;
 
 /**
  * Created by jamorham on 20/12/2017.
- *
+ * <p>
  * Guides the user through the process of selecting a source from a hierarchical menu.
- *
  */
-
-import static com.eveningoutpost.dexdrip.xdrip.gs;
 public class SourceWizard {
     @SuppressLint("StaticFieldLeak")
     private static final String TAG = "SourceWizard";
     private static volatile SourceWizard sw;
-    private AlertDialog dialog;
-    private Activity activity;
+    private androidx.appcompat.app.AlertDialog dialog;
+    private AppCompatActivity activity;
     // Create the dialog decision tree
     private Tree<Item> root = new Tree<>(new Item(gs(R.string.choose_data_source), gs(R.string.which_system_do_you_use)));
 
@@ -77,15 +74,15 @@ public class SourceWizard {
     }
 
 
-    public SourceWizard(Activity activity) {
+    public SourceWizard(AppCompatActivity activity) {
         this.activity = activity;
     }
 
-    public static void start(Activity activity) {
+    public static void start(AppCompatActivity activity) {
         start(activity, false);
     }
 
-    public synchronized static void start(Activity activity, boolean force) {
+    public synchronized static void start(AppCompatActivity activity, boolean force) {
         if (sw == null) sw = new SourceWizard(activity);
         if (force) {
             if (sw.showing()) sw.dismiss();
@@ -129,7 +126,7 @@ public class SourceWizard {
     public void getTreeDialog(Tree<Item> branch) {
         if (branch == null) branch = root;
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        final androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         // family node
         if (!branch.data.isCollectionType()) {
 

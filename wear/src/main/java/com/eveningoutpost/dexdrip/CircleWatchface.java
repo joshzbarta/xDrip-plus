@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import androidx.core.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.support.wearable.watchface.WatchFaceStyle;
 import android.util.Log;
 import android.util.TypedValue;

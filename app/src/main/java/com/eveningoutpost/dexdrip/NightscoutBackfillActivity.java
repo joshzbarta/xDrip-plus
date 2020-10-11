@@ -61,7 +61,7 @@ public class NightscoutBackfillActivity extends AppCompatActivity implements Nav
         xdrip.checkForcedEnglish(this);
         setTitle("Nightscout Backfill");
         super.onResume();
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), "Nightscout Backfill", this);
 
         if (JoH.msSince(locked) < Constants.HOUR_IN_MS) {
@@ -92,7 +92,7 @@ public class NightscoutBackfillActivity extends AppCompatActivity implements Nav
                 updateDateButton();
             }
         });
-        datePickerFragment.show(this.getFragmentManager(), "DatePicker");
+        datePickerFragment.show(this.getSupportFragmentManager(), "DatePicker");
     }
 
     public synchronized void backfillRun(View v) {

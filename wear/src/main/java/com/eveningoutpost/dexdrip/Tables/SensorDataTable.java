@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.Tables;
 
-import android.app.ListActivity;
+import androidx.fragment.app.ListFragment;
 import android.database.Cursor;
 import android.os.Bundle;
 import androidx.drawerlayout.widget.DrawerLayout;

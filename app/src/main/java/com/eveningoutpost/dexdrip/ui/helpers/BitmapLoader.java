@@ -9,7 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import androidx.core.graphics.drawable.DrawableCompat;
-import android.support.v7.content.res.AppCompatResources;
+import androidx.appcompat.content.res.AppCompatResources;
 import android.util.LruCache;
 
 import com.eveningoutpost.dexdrip.models.UserError;

@@ -2,20 +2,22 @@ package com.eveningoutpost.dexdrip.stats;
 
 
 import android.Manifest;
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
-import androidx.core.app.Fragment;
-import androidx.core.app.FragmentManager;
-import androidx.core.app.FragmentStatePagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import androidx.core.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import androidx.core.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -98,7 +100,7 @@ public class StatsActivity extends ActivityWithMenu {
         final String title = "Swipe for Different Reports";
         final String message = "Swipe left and right to see different report tabs.\n\nChoose time period for Today, Yesterday, 7 Days etc.\n\nFull screen mode, print colors and Sharing are supported from the butttons and 3 dot menu.";
         final ViewTarget target = new ViewTarget(R.id.button_stats_7d, this);
-        final Activity activity = this;
+        final AppCompatActivity activity = this;
 
 
         JoH.runOnUiThreadDelayed(new Runnable() {
@@ -322,7 +324,7 @@ public class StatsActivity extends ActivityWithMenu {
     {
         try {
         if (checkPermissions()) {
-            final Activity context = this;
+            final AppCompatActivity context = this;
             JoH.runOnUiThreadDelayed(new Runnable() {
                 @Override
                 public void run() {

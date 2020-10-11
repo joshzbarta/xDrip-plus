@@ -1,6 +1,5 @@
 package com.eveningoutpost.dexdrip.ui.activities;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -208,7 +207,7 @@ public class ThinJamActivity extends AppCompatActivity implements BtCallBack2 {
     // bound view model
     @RequiredArgsConstructor
     public class ViewModel {
-        Activity activity;
+        AppCompatActivity activity;
 
         public final ObservableField<String> connectedDevice = new ObservableField<>();
         public final ObservableField<String> status = new ObservableField<>();
@@ -221,7 +220,7 @@ public class ThinJamActivity extends AppCompatActivity implements BtCallBack2 {
         private String mac = null;
 
 
-        ViewModel(Activity activity) {
+        ViewModel(AppCompatActivity activity) {
             this.activity = activity;
             loadLastConnectedDevice();
         }
