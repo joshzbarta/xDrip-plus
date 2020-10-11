@@ -9,7 +9,7 @@ import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.core.content.LocalBroadcastManager;
 
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;

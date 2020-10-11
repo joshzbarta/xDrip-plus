@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
-import android.databinding.BindingAdapter;
+import androidx.databinding.BindingAdapter;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.view.View;

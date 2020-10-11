@@ -16,7 +16,7 @@ package com.eveningoutpost.dexdrip;
  */
 
 import android.graphics.Canvas;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;

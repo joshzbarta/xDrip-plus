@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.wearintegration;
 import android.app.IntentService;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v4.content.WakefulBroadcastReceiver;
+import androidx.core.content.WakefulBroadcastReceiver;
 
 import com.eveningoutpost.dexdrip.models.APStatus;
 import com.eveningoutpost.dexdrip.models.JoH;
