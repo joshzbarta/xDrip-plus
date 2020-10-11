@@ -1,5 +1,7 @@
 package com.eveningoutpost.dexdrip.GlucoseMeter;
 
+import lombok.var;
+
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -60,33 +62,34 @@ public class BTGlucoseMeterActivity extends ListActivityWithMenu {
     private boolean first_run = true;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.OldAppTheme); // or null actionbar
+    public void onCreate(Bundle savedInstanceState) {
+        var currentActivity = this.getActivity();
+        currentActivity.setTheme(R.style.OldAppTheme); // or null actionbar
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_btglucose_meter);
+        currentActivity.setContentView(R.layout.activity_btglucose_meter);
 
         statusText = (TextView) findViewById(R.id.btg_scan_status);
         statusText.setText("Starting up");
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
             JoH.static_toast_long("The android version of this device is not compatible with Bluetooth Low Energy");
-            finish();
+            currentActivity.finish();
         } else {
 
-            bluetooth_manager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+            bluetooth_manager = (BluetoothManager) currentActivity.getSystemService(Context.BLUETOOTH_SERVICE);
 
             bluetooth_adapter = bluetooth_manager.getAdapter();
 
 
             if (bluetooth_adapter == null) {
-                Toast.makeText(this, R.string.error_bluetooth_not_supported, Toast.LENGTH_LONG).show();
-                finish();
+                Toast.makeText(currentActivity, R.string.error_bluetooth_not_supported, Toast.LENGTH_LONG).show();
+                currentActivity.finish();
                 return;
             }
 
             // get bluetooth ready
             check_and_enable_bluetooth();
-            LocationHelper.requestLocationForBluetooth(this);
+            LocationHelper.requestLocationForBluetooth(currentActivity);
 
             serviceDataReceiver = new BroadcastReceiver() {
                 @Override
@@ -163,12 +166,12 @@ public class BTGlucoseMeterActivity extends ListActivityWithMenu {
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         final IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(BluetoothGlucoseMeter.ACTION_BLUETOOTH_GLUCOSE_METER_NEW_SCAN_DEVICE);
         intentFilter.addAction(BluetoothGlucoseMeter.ACTION_BLUETOOTH_GLUCOSE_METER_SERVICE_UPDATE);
-        LocalBroadcastManager.getInstance(this).registerReceiver(serviceDataReceiver, intentFilter);
+        LocalBroadcastManager.getInstance(this.getContext()).registerReceiver(serviceDataReceiver, intentFilter);
         if (first_run) {
             BluetoothGlucoseMeter.start_service(null);
             first_run = false;
@@ -176,11 +179,11 @@ public class BTGlucoseMeterActivity extends ListActivityWithMenu {
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         if (serviceDataReceiver != null) {
             try {
-                LocalBroadcastManager.getInstance(this).unregisterReceiver(serviceDataReceiver);
+                LocalBroadcastManager.getInstance(this.getContext()).unregisterReceiver(serviceDataReceiver);
             } catch (IllegalArgumentException e) {
                 UserError.Log.e(TAG, "broadcast receiver not registered", e);
             }
@@ -191,9 +194,9 @@ public class BTGlucoseMeterActivity extends ListActivityWithMenu {
         if (!bluetooth_manager.getAdapter().isEnabled()) {
             if (Pref.getBoolean("automatically_turn_bluetooth_on", true)) {
                 JoH.setBluetoothEnabled(getApplicationContext(), true);
-                Toast.makeText(this, "Trying to turn Bluetooth on", Toast.LENGTH_LONG).show();
+                Toast.makeText(this.getContext(), "Trying to turn Bluetooth on", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(this, "Please turn Bluetooth on!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this.getContext(), "Please turn Bluetooth on!", Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -219,9 +222,10 @@ public class BTGlucoseMeterActivity extends ListActivityWithMenu {
     }
 
 
-    @Override
+    //@Override  //TODO: nothing to override, lets fix
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_bluetooth_scan, menu);
+        var currentActivity  = this.getActivity();
+        currentActivity.getMenuInflater().inflate(R.menu.menu_bluetooth_scan, menu);
         menu.findItem(R.id.menu_refresh).setVisible(false); // not used
         if (!is_scanning) {
             menu.findItem(R.id.menu_stop).setVisible(false);
@@ -240,7 +244,7 @@ public class BTGlucoseMeterActivity extends ListActivityWithMenu {
 
 
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
+    public void onListItemClick(ListView l, View v, int position, long id) {
         final MyBluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
         if (device != null) {
             if (JoH.ratelimit("bt-meter-item-clicked", 7)) {

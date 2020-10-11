@@ -1,5 +1,7 @@
 package com.eveningoutpost.dexdrip.Tables;
 
+import lombok.var;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -29,16 +31,18 @@ public class CalibrationDataTable extends BaseListActivity implements Navigation
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.OldAppTheme); // or null actionbar
+        var currentActivity = getActivity();
+
+        currentActivity.setTheme(R.style.OldAppTheme); // or null actionbar
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.raw_data_list);
+        currentActivity.setContentView(R.layout.raw_data_list);
     }
 
     @Override
-    protected void onResume(){
+    public void onResume(){
         super.onResume();
         mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, this);
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, this.getContext());
         getData();
     }
 
@@ -50,7 +54,7 @@ public class CalibrationDataTable extends BaseListActivity implements Navigation
     private void getData() {
         final List<Calibration> latest = Calibration.latest(50);
 
-        CalibrationDataCursorAdapter adapter = new CalibrationDataCursorAdapter(this, latest);
+        CalibrationDataCursorAdapter adapter = new CalibrationDataCursorAdapter(this.getContext() , latest);
 
         this.setListAdapter(adapter);
     }

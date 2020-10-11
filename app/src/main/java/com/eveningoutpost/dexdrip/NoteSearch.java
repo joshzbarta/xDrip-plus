@@ -41,6 +41,7 @@ import java.util.Locale;
 import java.util.Vector;
 
 import lecho.lib.hellocharts.util.ChartUtils;
+import lombok.var;
 
 /**
  * Created by adrian on 04/10/16.
@@ -72,10 +73,11 @@ public class NoteSearch extends ListActivityWithMenu {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.OldAppTheme); // or null actionbar
+    public void onCreate(Bundle savedInstanceState) {
+        var currentActivity = getActivity();
+        currentActivity.setTheme(R.style.OldAppTheme); // or null actionbar
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notesearch);
+        currentActivity.setContentView(R.layout.activity_notesearch);
 
         date1 = new GregorianCalendar();
         date1.set(Calendar.HOUR_OF_DAY, 0);
@@ -94,7 +96,7 @@ public class NoteSearch extends ListActivityWithMenu {
         resultListAdapter = new SearchResultAdapter();
         setListAdapter(resultListAdapter);
 
-        final Activity activity = this;
+        final Activity activity = getActivity();
 
         this.getListView().setLongClickable(true);
         this.getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -133,9 +135,9 @@ public class NoteSearch extends ListActivityWithMenu {
 
     }
 
-    @Override
+    //@Override  //TODO:Activity to fragment problems
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_note_search, menu);
+        getActivity().getMenuInflater().inflate(R.menu.menu_note_search, menu);
         return true;
     }
 
@@ -260,14 +262,13 @@ public class NoteSearch extends ListActivityWithMenu {
     }
 
     private void hideKeyboard() {
-        InputMethodManager inputMethodManager = (InputMethodManager) this
-                .getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
+        InputMethodManager inputMethodManager = (InputMethodManager) this.getContext().getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(searchTextField.getWindowToken(), 0);
     }
 
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         if (dbCursor != null && !dbCursor.isClosed()) {
             dbCursor.close();
         }
@@ -320,7 +321,7 @@ public class NoteSearch extends ListActivityWithMenu {
         dateButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialog = new DatePickerDialog(NoteSearch.this, new DatePickerDialog.OnDateSetListener() {
+                Dialog dialog = new DatePickerDialog(NoteSearch.this.getContext(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         date1.set(year, monthOfYear, dayOfMonth);
@@ -334,7 +335,7 @@ public class NoteSearch extends ListActivityWithMenu {
         dateButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialog = new DatePickerDialog(NoteSearch.this, new DatePickerDialog.OnDateSetListener() {
+                Dialog dialog = new DatePickerDialog(NoteSearch.this.getContext(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         date2.set(year, monthOfYear, dayOfMonth);
@@ -352,14 +353,16 @@ public class NoteSearch extends ListActivityWithMenu {
     }
 
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        var currentActivity = this.getActivity();
+
         SearchResult sResult = (SearchResult) resultListAdapter.getItem(position);
 
         if (!sResult.isLoadMoreAction) {
-            Intent myIntent = new Intent(this, BGHistory.class);
+            Intent myIntent = new Intent(currentActivity, BGHistory.class);
             myIntent.putExtra(BGHistory.OPEN_ON_TIME_KEY, sResult.timestamp);
             startActivity(myIntent);
-            finish();
+            currentActivity.finish();
         } else {
             loadMore();
         }

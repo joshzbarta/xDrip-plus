@@ -1,5 +1,7 @@
 package com.eveningoutpost.dexdrip;
 
+import lombok.var;
+
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -51,28 +53,31 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
     private final static int MY_PERMISSIONS_REQUEST_STORAGE = 132;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.OldAppTheme); // or null actionbar
+    public void onCreate(Bundle savedInstanceState) {
+        var currentActivity = this.getActivity();
+        currentActivity.setTheme(R.style.OldAppTheme); // or null actionbar
         super.onCreate(savedInstanceState);
         mHandler = new Handler();
-        setContentView(R.layout.activity_import_db);
-        final String importit = getIntent().getStringExtra("importit");
+        currentActivity.setContentView(R.layout.activity_import_db);
+        final String importit = currentActivity.getIntent().getStringExtra("importit");
         if ((importit != null) && (importit.length() > 0)) {
-            importDB(new File(importit), this);
+            importDB(new File(importit), currentActivity);
         } else {
             showWarningAndInstructions();
         }
     }
 
     private void generateDBGui() {
-        int permissionCheck = ContextCompat.checkSelfPermission(this,
+        var currentActivity = this.getActivity();
+
+        int permissionCheck = ContextCompat.checkSelfPermission(getContext(),
                 Manifest.permission.READ_EXTERNAL_STORAGE);
         if (permissionCheck == PackageManager.PERMISSION_GRANTED && findAllDatabases()) {
             sortDatabasesAlphabetically();
             showDatabasesInList();
         } else if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
             JoH.static_toast_long("Need permission for saved files");
-            ActivityCompat.requestPermissions(this,
+            ActivityCompat.requestPermissions(currentActivity,
                     new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                     MY_PERMISSIONS_REQUEST_STORAGE);
         } else {
@@ -81,9 +86,10 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
     }
 
     private void showWarningAndInstructions() {
-        LayoutInflater inflater= LayoutInflater.from(this);
+        var currentContext = this.getApplicationContext();
+        LayoutInflater inflater= LayoutInflater.from(currentContext);
         View view=inflater.inflate(R.layout.import_db_warning, null);
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(currentContext);
         alertDialog.setTitle("Import Instructions");
         alertDialog.setView(view);
         alertDialog.setCancelable(false);
@@ -136,6 +142,7 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
     }
 
     private void showDatabasesInList() {
+        var currentActivity = this.getActivity();
         databaseNames = new ArrayList<>();
 
         //show found databases in List
@@ -143,7 +150,7 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
             databaseNames.add(db.getName());
         }
 
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(currentActivity,
                 android.R.layout.simple_list_item_1, databaseNames);
         setListAdapter(adapter);
 
@@ -165,9 +172,9 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
     }
 
     @Override
-    protected void onListItemClick(ListView l, View v, final int position, long id) {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    public void onListItemClick(ListView l, View v, final int position, long id) {
+        var currentActivity = this.getActivity();
+        AlertDialog.Builder builder = new AlertDialog.Builder(currentActivity);
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 importDB(position);
@@ -187,7 +194,7 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
     }
 
@@ -203,16 +210,16 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 generateDBGui();
             } else {
-                finish();
+                getActivity().finish();
             }
         }
     }
 
     public int getDBVersion() {
-
+        var currentContext = this.getContext();
         int version = -1;
         try {
-            ApplicationInfo ai = getPackageManager().getApplicationInfo(this.getPackageName(), PackageManager.GET_META_DATA);
+            ApplicationInfo ai = currentContext.getPackageManager().getApplicationInfo(currentContext.getPackageName(), PackageManager.GET_META_DATA);
             Bundle bundle = ai.metaData;
             version = bundle.getInt("AA_DB_VERSION");
         } catch (PackageManager.NameNotFoundException e) {
@@ -223,7 +230,7 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
 
 
     private void importDB(int position) {
-        importDB(databases.get(position), this);
+        importDB(databases.get(position), this.getActivity());
     }
 
     private void importDB(File the_file, Activity activity) {
@@ -239,10 +246,9 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
     }
 
     protected void postImportDB(String result) {
+        startWatchUpdaterService(this.getContext(), WatchUpdaterService.ACTION_RESET_DB, TAG);
 
-        startWatchUpdaterService(this, WatchUpdaterService.ACTION_RESET_DB, TAG);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 returnToHome();
@@ -252,15 +258,13 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
         builder.setMessage(result);
         AlertDialog dialog = builder.create();
         dialog.show();
-
-
     }
 
     private void returnToHome() {
-        Intent intent = new Intent(this, Home.class);
+        Intent intent = new Intent(this.getContext(), Home.class);
         CollectionServiceStarter.restartCollectionService(getApplicationContext());
         startActivity(intent);
-        finish();
+        this.getActivity().finish();
     }
 
     private class LoadTask extends AsyncTask<Void, Void, String> {

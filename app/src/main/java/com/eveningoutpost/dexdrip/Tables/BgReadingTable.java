@@ -1,5 +1,6 @@
 package com.eveningoutpost.dexdrip.Tables;
 
+import lombok.var;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -32,16 +33,17 @@ public class BgReadingTable extends BaseListActivity implements NavigationDrawer
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.OldAppTheme); // or null actionbar
+        var currentActivity = getActivity();
+        currentActivity.setTheme(R.style.OldAppTheme); // or null actionbar
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.raw_data_list);
+        currentActivity.setContentView(R.layout.raw_data_list);
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, this);
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, this.getContext());
 
         getData();
     }
@@ -53,7 +55,7 @@ public class BgReadingTable extends BaseListActivity implements NavigationDrawer
 
     private void getData() {
         final List<BgReading> latest = BgReading.latest(5000);
-        ListAdapter adapter = new BgReadingAdapter(this, latest);
+        ListAdapter adapter = new BgReadingAdapter(this.getContext(), latest);
 
         this.setListAdapter(adapter);
     }

@@ -21,12 +21,12 @@ public abstract class ListActivityWithMenu extends BaseListActivity implements N
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    protected void onResume(){
+    public void onResume(){
         super.onResume();
         menu_name = getMenuName();
         NavDrawerBuilder  navDrawerBuilder = new NavDrawerBuilder(getApplicationContext());
@@ -34,7 +34,7 @@ public abstract class ListActivityWithMenu extends BaseListActivity implements N
         menu_position = menu_option_list.indexOf(menu_name);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, this);
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, getActivity());
     }
 
     @Override
@@ -44,7 +44,9 @@ public abstract class ListActivityWithMenu extends BaseListActivity implements N
         List<Intent> intent_list = navDrawerBuilder.nav_drawer_intents;
         if (position != menu_position) {
             startActivity(intent_list.get(position));
-            finish();
+
+            //finish();
+            getActivity().finish();
         }
     }
 

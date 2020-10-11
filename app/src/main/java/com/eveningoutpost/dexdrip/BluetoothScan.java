@@ -1,5 +1,6 @@
 package com.eveningoutpost.dexdrip;
 
+import lombok.var;
 import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.bluetooth.BluetoothAdapter;
@@ -79,7 +80,7 @@ public class BluetoothScan extends ListActivityWithMenu {
 
                 @Override
                 public void onLeScan(final BluetoothDevice device, int rssi, final byte[] scanRecord) {
-                    runOnUiThread(new Runnable() {
+                    getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             if (device.getName() != null && device.getName().length() > 0) {
@@ -95,35 +96,36 @@ public class BluetoothScan extends ListActivityWithMenu {
     private ScanCallback mScanCallback;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.OldAppTheme); // or null actionbar
+    public void onCreate(Bundle savedInstanceState) {
+        var currentActivity = this.getActivity();
+        currentActivity.setTheme(R.style.OldAppTheme); // or null actionbar
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bluetooth_scan);
-        final BluetoothManager bluetooth_manager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+        currentActivity.setContentView(R.layout.activity_bluetooth_scan);
+        final BluetoothManager bluetooth_manager = (BluetoothManager) currentActivity.getSystemService(Context.BLUETOOTH_SERVICE);
 
         bluetooth_adapter = bluetooth_manager.getAdapter();
         mHandler = new Handler();
 
 
         if (bluetooth_adapter == null) {
-            Toast.makeText(this, R.string.error_bluetooth_not_supported, Toast.LENGTH_LONG).show();
-            finish();
+            Toast.makeText(currentActivity, R.string.error_bluetooth_not_supported, Toast.LENGTH_LONG).show();
+            currentActivity.finish();
             return;
         }
         if (!bluetooth_manager.getAdapter().isEnabled()) {
             if (Pref.getBoolean("automatically_turn_bluetooth_on", true)) {
                 JoH.setBluetoothEnabled(getApplicationContext(), true);
-                Toast.makeText(this, "Trying to turn Bluetooth on", Toast.LENGTH_LONG).show();
+                Toast.makeText(currentActivity, "Trying to turn Bluetooth on", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(this, "Please turn Bluetooth on!", Toast.LENGTH_LONG).show();
+                Toast.makeText(currentActivity, "Please turn Bluetooth on!", Toast.LENGTH_LONG).show();
             }
         } else {
             if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                Toast.makeText(this, "The android version of this device is not compatible with Bluetooth Low Energy", Toast.LENGTH_LONG).show();
+                Toast.makeText(currentActivity, "The android version of this device is not compatible with Bluetooth Low Energy", Toast.LENGTH_LONG).show();
             }
         }
         // Will request that GPS be enabled for devices running Marshmallow or newer.
-        LocationHelper.requestLocationForBluetooth(this);
+        LocationHelper.requestLocationForBluetooth(currentActivity);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             initializeScannerCallback();
 
@@ -132,7 +134,7 @@ public class BluetoothScan extends ListActivityWithMenu {
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         scanLeDevice(false);
         mLeDeviceListAdapter.clear();
@@ -144,9 +146,10 @@ public class BluetoothScan extends ListActivityWithMenu {
         return getString(R.string.bluetooth_scan);
     }
 
-    @Override
+    //@Override  //!!! Refactoring from Activity to Fragment
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_bluetooth_scan, menu);
+        var currentActivity = this.getActivity();
+        currentActivity.getMenuInflater().inflate(R.menu.menu_bluetooth_scan, menu);
         if (!is_scanning) {
             menu.findItem(R.id.menu_stop).setVisible(false);
             menu.findItem(R.id.menu_scan).setVisible(true);
@@ -158,18 +161,19 @@ public class BluetoothScan extends ListActivityWithMenu {
     }
 
     private boolean doScan() {
-        BluetoothManager bluetooth_manager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
-        Toast.makeText(this, gs(R.string.scanning), Toast.LENGTH_LONG).show();
+        var currentActivity = this.getActivity();
+        BluetoothManager bluetooth_manager = (BluetoothManager) currentActivity.getSystemService(Context.BLUETOOTH_SERVICE);
+        Toast.makeText(currentActivity, gs(R.string.scanning), Toast.LENGTH_LONG).show();
         if (bluetooth_manager == null) {
-            Toast.makeText(this, "This device does not seem to support bluetooth", Toast.LENGTH_LONG).show();
+            Toast.makeText(currentActivity, "This device does not seem to support bluetooth", Toast.LENGTH_LONG).show();
             return true;
         } else {
             if (!bluetooth_manager.getAdapter().isEnabled()) {
-                Toast.makeText(this, "Bluetooth is turned off on this device currently", Toast.LENGTH_LONG).show();
+                Toast.makeText(currentActivity, "Bluetooth is turned off on this device currently", Toast.LENGTH_LONG).show();
                 return true;
             } else {
                 if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                    Toast.makeText(this, "The android version of this device is not compatible with Bluetooth Low Energy", Toast.LENGTH_LONG).show();
+                    Toast.makeText(currentActivity, "The android version of this device is not compatible with Bluetooth Low Energy", Toast.LENGTH_LONG).show();
                     return true;
                 }
             }
@@ -183,9 +187,9 @@ public class BluetoothScan extends ListActivityWithMenu {
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
-        if (LocationHelper.isLocationPermissionOk(this) && (JoH.ratelimit("auto-start-bt-scan", 20))) {
+        if (LocationHelper.isLocationPermissionOk(this.getContext()) && (JoH.ratelimit("auto-start-bt-scan", 20))) {
             doScan();
         }
     }
@@ -217,7 +221,7 @@ public class BluetoothScan extends ListActivityWithMenu {
                     } catch (NullPointerException e) {
                         // concurrency pain
                     }
-                    invalidateOptionsMenu();
+                    getActivity().invalidateOptionsMenu();
                 }
             }, SCAN_PERIOD);
 
@@ -233,7 +237,7 @@ public class BluetoothScan extends ListActivityWithMenu {
                 }
             }
         }
-        invalidateOptionsMenu();
+        getActivity().invalidateOptionsMenu();
     }
 
     @TargetApi(21)
@@ -242,7 +246,7 @@ public class BluetoothScan extends ListActivityWithMenu {
         mScanCallback = new ScanCallback() {
             @Override
             public void onBatchScanResults(final List<ScanResult> results) {
-                runOnUiThread(new Runnable() {
+                getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         for (ScanResult result : results) {
@@ -265,7 +269,7 @@ public class BluetoothScan extends ListActivityWithMenu {
             @Override
             public void onScanResult(int callbackType, final ScanResult result) {
                 final BluetoothDevice device = result.getDevice();
-                runOnUiThread(new Runnable() {
+                getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         final String deviceName = device.getName();
@@ -287,6 +291,7 @@ public class BluetoothScan extends ListActivityWithMenu {
 
     @TargetApi(21)
     private synchronized void scanLeDeviceLollipop(final boolean enable) {
+        var currentActivity = getActivity();
         if (enable) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 lollipopScanner = bluetooth_adapter.getBluetoothLeScanner();
@@ -306,7 +311,7 @@ public class BluetoothScan extends ListActivityWithMenu {
                                 UserError.Log.e(TAG, "error stopping scan: " + e.toString());
                             }
                         }
-                        invalidateOptionsMenu();
+                        currentActivity.invalidateOptionsMenu();
                     }
                 }, SCAN_PERIOD);
                 ScanSettings settings = new ScanSettings.Builder()
@@ -329,13 +334,13 @@ public class BluetoothScan extends ListActivityWithMenu {
                 lollipopScanner.stopScan(mScanCallback);
             }
         }
-        invalidateOptionsMenu();
+        currentActivity.invalidateOptionsMenu();
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
         if (scanResult == null || scanResult.getContents() == null) {
             return;
         }
@@ -347,11 +352,13 @@ public class BluetoothScan extends ListActivityWithMenu {
     }
 
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        //var currentContext = this.getContext();
+        var currentActivity = this.getActivity();
         Log.d(TAG, "Item Clicked");
         final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
         if (device == null || device.getName() == null) return;
-        Toast.makeText(this, R.string.connecting_to_device, Toast.LENGTH_LONG).show();
+        Toast.makeText(currentActivity, R.string.connecting_to_device, Toast.LENGTH_LONG).show();
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         synchronized (ActiveBluetoothDevice.table_lock) {
@@ -372,7 +379,7 @@ public class BluetoothScan extends ListActivityWithMenu {
                 btDevice.save();
             }
 
-            startWatchUpdaterService(this, WatchUpdaterService.ACTION_SYNC_ACTIVEBTDEVICE, TAG);
+            startWatchUpdaterService(currentActivity, WatchUpdaterService.ACTION_SYNC_ACTIVEBTDEVICE, TAG);
         }
 
         // automatically set or unset the option for "Transmiter" device
@@ -453,7 +460,7 @@ public class BluetoothScan extends ListActivityWithMenu {
                 returnToHome();
             } else if (device.getName().matches("^BLU[0-9][0-9][0-9][0-9][0-9].*$")) {
 
-                Blukon.doPinDialog(this,
+                Blukon.doPinDialog(currentActivity,
                         new Runnable() {
                             @Override
                             public void run() {
@@ -482,6 +489,8 @@ public class BluetoothScan extends ListActivityWithMenu {
     }
 
     public void returnToHome() {
+        var currentContext = this.getContext();
+        var currentActivity = this.getActivity();
         try {
             if (is_scanning) {
                 is_scanning = false;
@@ -491,13 +500,13 @@ public class BluetoothScan extends ListActivityWithMenu {
             // meh
         }
         Inevitable.task("restart-collector", 2000, () -> CollectionServiceStarter.restartCollectionService(getApplicationContext()));
-        final Intent intent = new Intent(this, Home.class);
+        final Intent intent = new Intent(currentActivity, Home.class);
         startActivity(intent);
-        finish();
+        currentActivity.finish();
     }
 
     private void requestSerialNumber(final SharedPreferences prefs) {
-        final Dialog dialog = new Dialog(BluetoothScan.this);
+        final Dialog dialog = new Dialog(BluetoothScan.this.getActivity());
         dialog.setContentView(R.layout.dialog_single_text_field);
         Button saveButton = (Button) dialog.findViewById(R.id.saveButton);
         Button cancelButton = (Button) dialog.findViewById(R.id.cancelButton);
@@ -508,7 +517,7 @@ public class BluetoothScan extends ListActivityWithMenu {
         dialog.findViewById(R.id.scannerButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AndroidBarcode(BluetoothScan.this).scan();
+                new AndroidBarcode(BluetoothScan.this.getActivity()).scan(); //Look At Later
                 dialog.dismiss();
             }
         });
@@ -532,7 +541,7 @@ public class BluetoothScan extends ListActivityWithMenu {
     }
 
     private void requestTransmitterId(final SharedPreferences prefs) {
-        final Dialog dialog = new Dialog(BluetoothScan.this);
+        final Dialog dialog = new Dialog(BluetoothScan.this.getApplicationContext());
         dialog.setContentView(R.layout.dialog_single_text_field);
         Button saveButton = (Button) dialog.findViewById(R.id.saveButton);
         Button cancelButton = (Button) dialog.findViewById(R.id.cancelButton);
