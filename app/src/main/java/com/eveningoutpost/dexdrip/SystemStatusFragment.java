@@ -18,7 +18,7 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import androidx.fragment.app.Fragment;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;

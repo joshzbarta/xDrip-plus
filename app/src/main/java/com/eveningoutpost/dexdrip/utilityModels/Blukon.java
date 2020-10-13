@@ -2,6 +2,8 @@ package com.eveningoutpost.dexdrip.utilityModels;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
+
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.view.View;
 import android.view.WindowManager;
@@ -816,7 +818,7 @@ private static final String GET_TREND_HISTORY_BLOCK_COMMAND = READ_SINGLE_BLOCK_
         return sensorAge;
     }
 
-    public static void doPinDialog(final AppCompatActivity activity, final Runnable runnable) {
+    public static void doPinDialog(final Activity activity, final Runnable runnable) {
         final androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle("Please enter " + activity.getString(R.string.blukon) + " device PIN number");
         final View input = activity.getLayoutInflater().inflate(R.layout.dialog_pin_entry, null);

@@ -1,11 +1,14 @@
 package com.eveningoutpost.dexdrip.utils;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+
 import android.widget.Toast;
 
 import com.google.zxing.client.android.Intents;
@@ -15,11 +18,11 @@ import com.google.zxing.integration.android.IntentIntegrator;
 public class AndroidBarcode extends AppCompatActivity
         implements ActivityCompat.OnRequestPermissionsResultCallback {
     public static final String SCAN_INTENT = Intents.Scan.ACTION;
-    AppCompatActivity activity;
+    Activity activity;
     final static int MY_PERMISSIONS_REQUEST_CAMERA = 1003;
     final static String TAG = "jamorham barcode";
 
-    public AndroidBarcode(AppCompatActivity activity) {
+    public AndroidBarcode(Activity activity) {
         this.activity = activity;
     }
 

@@ -4,7 +4,7 @@ import lombok.var;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.AlertDialog;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -19,6 +19,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -176,7 +178,7 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
     @Override
     public void onListItemClick(ListView l, View v, final int position, long id) {
         var currentActivity = this.getActivity();
-    	androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    	androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(currentActivity);
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 importDB(position);
@@ -235,7 +237,7 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
         importDB(databases.get(position), this.getActivity());
     }
 
-    private void importDB(File the_file, AppCompatActivity activity) {
+    private void importDB(File the_file, FragmentActivity activity) {
         AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(activity);
         builder.setTitle("Importing, please wait");
         builder.setMessage("Importing, please wait");
@@ -251,7 +253,7 @@ public class ImportDatabaseActivity extends ListActivityWithMenu {
         
 		startWatchUpdaterService(this.getContext(), WatchUpdaterService.ACTION_RESET_DB, TAG);
 
-        androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 returnToHome();

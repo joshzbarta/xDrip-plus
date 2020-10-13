@@ -31,8 +31,11 @@ public abstract class ListActivityWithMenu extends BaseListActivity implements N
     public void onResume(){
         super.onResume();
         menu_name = getMenuName();
-        var context = getActivity().getApplicationContext();
-        NavDrawerBuilder  navDrawerBuilder = new NavDrawerBuilder(context);
+
+
+        var currentActivity = getActivity();
+        var currentContext = getApplicationContext();
+        NavDrawerBuilder  navDrawerBuilder = new NavDrawerBuilder(currentContext);
         List<String> menu_option_list = navDrawerBuilder.nav_drawer_options;
         menu_position = menu_option_list.indexOf(menu_name);
 
@@ -40,7 +43,7 @@ public abstract class ListActivityWithMenu extends BaseListActivity implements N
         mNavigationDrawerFragment = (NavigationDrawerFragment)fm.findFragmentById(R.id.navigation_drawer);
 
         //mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) getView().findViewById(R.id.drawer_layout), menu_name, context);
-        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, this);
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, currentContext);
     }
 
     @Override

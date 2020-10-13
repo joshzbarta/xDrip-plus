@@ -4,6 +4,8 @@ package com.eveningoutpost.dexdrip.utils.framework;
 
 import android.Manifest;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -41,7 +43,7 @@ public class IncomingCallsReceiver extends BroadcastReceiver {
     @Getter
     private static volatile boolean ringingNow = false;
 
-    public static void checkPermission(final AppCompatActivity activity) {
+    public static void checkPermission(final Activity activity) {
 
         // TODO call log permission - especially for Android 9+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

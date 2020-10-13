@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -136,7 +136,7 @@ public abstract class AbstractPluginActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onMenuItemSelected(final int featureId, final MenuItem item)
+    public boolean onOptionsItemSelected(final MenuItem item)
     {
         final int id = item.getItemId();
 

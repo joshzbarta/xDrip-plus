@@ -34,7 +34,7 @@ import android.preference.SwitchPreference;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.LocalBroadcastManager; //???
+import androidx.fragment.app.FragmentActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -158,7 +158,7 @@ public class Preferences extends BasePreferenceActivity implements SearchPrefere
         this.preferenceFragment = new AllPrefsFragment(jumpTo);
         this.preferenceFragment.setParent(this);
         pFragment = this.preferenceFragment;
-        getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
+        getFragmentManager().beginTransaction().replace(android.R.id.content,
                 this.preferenceFragment).commit();
     }
 
@@ -963,7 +963,7 @@ public class Preferences extends BasePreferenceActivity implements SearchPrefere
             });
 
             try {
-                final Activity activity = this.getActivity();
+                final AppCompatActivity activity = (AppCompatActivity)this.getActivity();
                 findPreference("lefun_option_call_notifications").setOnPreferenceChangeListener((preference, newValue) -> {
                     prefs.edit().putBoolean("lefun_option_call_notifications", (Boolean) newValue).apply();
                     IncomingCallsReceiver.checkPermission(activity);
@@ -2204,7 +2204,7 @@ public class Preferences extends BasePreferenceActivity implements SearchPrefere
             jumpToScreen(jumpTo);
         }
 
-        public static void checkReadPermission(final AppCompatActivity activity) {
+        public static void checkReadPermission(final Activity activity) {
 
             // TODO call log permission - especially for Android 9+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

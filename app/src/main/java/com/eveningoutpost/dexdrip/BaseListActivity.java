@@ -26,8 +26,6 @@ public abstract class BaseListActivity extends ListFragment {
     {
         return this.getApplicationContext();
     }
-*/
-
 
     public View findViewById(int id)
     {

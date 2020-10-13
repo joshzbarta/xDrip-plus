@@ -12,8 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
-import androidx.core.content.LocalBroadcastManager;
-//import androidx.localbroadcastmanager.content.LocalBroadcastManager; Or this?
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Toast;
 

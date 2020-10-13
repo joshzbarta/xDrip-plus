@@ -47,7 +47,7 @@ public class LocationHelper {
      *
      * @param parent The currently visible activity.
      */
-    public static void requestLocation(final AppCompatActivity parent) {
+    public static void requestLocation(final Activity parent) {
         if (LocationHelper.isLocationEnabled(parent)) {
             return;
         }

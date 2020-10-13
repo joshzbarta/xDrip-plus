@@ -188,7 +188,8 @@ public class MissedReadingActivity extends ActivityWithMenu {
 
             @Override
             public void onClick(View v) {
-                TimePickerDialog mTimePicker = new TimePickerDialog(mContext, AlertDialog.THEME_HOLO_DARK, new TimePickerDialog.OnTimeSetListener() {
+                int themeColor = 16974374; //TODO: make this work using R.style.Theme_Material_Dialog_Alert, Replaces AlertDialog.THEME_HOLO_DARK
+                TimePickerDialog mTimePicker = new TimePickerDialog(mContext, themeColor, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         startHour = selectedHour;
@@ -206,7 +207,8 @@ public class MissedReadingActivity extends ActivityWithMenu {
 
             @Override
             public void onClick(View v) {
-                TimePickerDialog mTimePicker = new TimePickerDialog(mContext, androidx.appcompat.app.AlertDialog.THEME_HOLO_DARK, new TimePickerDialog.OnTimeSetListener() {
+                int themeColor = 16974374; //TODO: make this work using R.style.Theme_Material_Dialog_Alert, Replaces AlertDialog.THEME_HOLO_DARK
+                TimePickerDialog mTimePicker = new TimePickerDialog(mContext, themeColor, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         endHour = selectedHour;

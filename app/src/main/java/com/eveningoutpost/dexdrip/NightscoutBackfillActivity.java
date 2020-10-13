@@ -92,7 +92,7 @@ public class NightscoutBackfillActivity extends AppCompatActivity implements Nav
                 updateDateButton();
             }
         });
-        datePickerFragment.show(this.getSupportFragmentManager(), "DatePicker");
+        datePickerFragment.show(this.getFragmentManager(), "DatePicker");
     }
 
     public synchronized void backfillRun(View v) {

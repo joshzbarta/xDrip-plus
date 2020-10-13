@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import androidx.core.app.Fragment;
+
 import androidx.fragment.app.Fragment;
+
 import com.eveningoutpost.dexdrip.models.UserError.Log;
 import android.view.LayoutInflater;
 import android.view.View;

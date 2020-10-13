@@ -6,9 +6,9 @@ package com.eveningoutpost.dexdrip;
  * Multi-page plugin style status entry lists
  */
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -16,11 +16,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-//import androidx.legacy.app.FragmentStatePagerAdapter;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+
+import androidx.fragment.app.FragmentStatePagerAdapter;
+
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
@@ -511,7 +510,7 @@ public class MegaStatus extends ActivityWithMenu {
      * A {@link FragmentStatePagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
+    public class SectionsPagerAdapter extends androidx.fragment.app.FragmentStatePagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);

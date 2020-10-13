@@ -1,9 +1,11 @@
 package com.eveningoutpost.dexdrip.profileeditor;
 
 
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.app.Activity;
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -19,6 +21,8 @@ import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.R;
 
 import java.util.List;
+
+import lombok.var;
 
 /**
  * Created by jamorham on 21/06/2016.
@@ -276,7 +280,8 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.MyViewHo
                             notifyItemChanged(holder.position, "time start updated");
                         }
                     });
-                    newFragment.show(((Activity) context).getSupportFragmentManager(), "TimePicker");
+                    androidx.fragment.app.FragmentManager fm = ((androidx.fragment.app.FragmentActivity) context).getSupportFragmentManager();
+                    newFragment.show(fm ,"TimePicker");
                 }
             });
             holder.endTime.setOnClickListener(new View.OnClickListener() {
@@ -296,7 +301,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.MyViewHo
                             ProfileAdapter.this.notifyItemChanged(holder.position, "time end updated");
                         }
                     });
-                    newFragment.show(((Activity) context).getSupportFragmentManager(), "TimePicker");
+                    newFragment.show(((androidx.fragment.app.FragmentActivity) context).getSupportFragmentManager(), "TimePicker");
                 }
             });
 

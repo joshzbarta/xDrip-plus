@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.Preference;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.core.content.LocalBroadcastManager;
-
 
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError;
