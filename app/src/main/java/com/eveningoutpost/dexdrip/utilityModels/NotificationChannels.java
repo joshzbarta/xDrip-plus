@@ -176,13 +176,16 @@ public class NotificationChannels {
 
         // mirror the notification parameters in the channel
         template.setGroup(temp.getChannelId());
+
+        //TODO: Fix notification vibration JZB 2020-10-13
+        /*
         template.setVibrationPattern(wip.mNotification.vibrate);
         template.setSound(wip.mNotification.sound, generic_audio);
         template.setLightColor(wip.mNotification.ledARGB);
         if ((wip.mNotification.ledOnMS != 0) && (wip.mNotification.ledOffMS != 0))
             template.enableLights(true); // weird how this doesn't work like vibration pattern
         template.setDescription(temp.getChannelId() + " " + wip.hashCode());
-
+        */
         // get a nice string to identify the hash
         final String mhash = my_text_hash(template);
 
@@ -201,9 +204,13 @@ public class NotificationChannels {
         }
         channel.setDescription(template.getDescription());
         channel.setVibrationPattern(template.getVibrationPattern());
+
+        //TODO: Fix notification vibrations -JZB 2020-10-13
+        /*
         template.setLightColor(wip.mNotification.ledARGB);
         if ((wip.mNotification.ledOnMS != 0) && (wip.mNotification.ledOffMS != 0))
             template.enableLights(true); // weird how this doesn't work like vibration pattern
+        */
         template.setDescription(temp.getChannelId() + " " + wip.hashCode());
 
         // create a group to hold this channel if one doesn't exist or update text
