@@ -98,7 +98,7 @@ android {
         applicationId "com.eveningoutpost.dexdrip"
         minSdkVersion 26
         //noinspection ExpiredTargetSdkVersion
-        targetSdkVersion 23
+        targetSdkVersion 26
         versionCode 1
         versionName generateVersionName()
         buildConfigField "int", "buildVersion", generateVersionNumberString()
