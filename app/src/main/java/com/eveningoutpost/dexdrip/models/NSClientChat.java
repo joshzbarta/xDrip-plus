@@ -26,7 +26,7 @@ public class NSClientChat {
         Thread testAddTreatment = new Thread() {
             @Override
             public void run() {
-
+                 /*
                 try {
                     Context context = xdrip.getAppContext();
                     JSONObject data = new JSONObject();
@@ -75,7 +75,9 @@ public class NSClientChat {
                 } catch (JSONException e) {
                     Log.e(TAG, "Got exception with parsing: " + e.toString());
                 }
-            }
+
+                */
+            };
         };
         testAddTreatment.start();
     }

@@ -253,7 +253,10 @@ public class Treatments extends Model {
                         ? " " + "uuid: " + suggested_uuid
                         : ""));
 
-        if ((carbs == 0) && (insulinSum == 0)) return null;
+        if ((carbs == 0) && (insulinSum == 0))
+        {
+            return null;
+        }
 
         if (timestamp == 0) {
             timestamp = new Date().getTime();
