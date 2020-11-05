@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.utilityModels;
+package com.eveningoutpost.dexdrip.utilitymodels;
 
 import android.graphics.Color;
 import androidx.annotation.ColorInt;
@@ -7,11 +7,11 @@ import com.google.common.base.MoreObjects;
 
 import java.util.HashMap;
 
-import static com.eveningoutpost.dexdrip.utilityModels.StatusItem.Highlight.BAD;
-import static com.eveningoutpost.dexdrip.utilityModels.StatusItem.Highlight.CRITICAL;
-import static com.eveningoutpost.dexdrip.utilityModels.StatusItem.Highlight.GOOD;
-import static com.eveningoutpost.dexdrip.utilityModels.StatusItem.Highlight.NORMAL;
-import static com.eveningoutpost.dexdrip.utilityModels.StatusItem.Highlight.NOTICE;
+import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.BAD;
+import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.CRITICAL;
+import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.GOOD;
+import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.NORMAL;
+import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.NOTICE;
 
 /**
  * Created by jamorham on 14/01/2017.

@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.eveningoutpost.dexdrip.models.Sensor;
-import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
-import com.eveningoutpost.dexdrip.utilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.CollectionServiceStarter;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
 // jamorham
 

@@ -1,5 +1,5 @@
 
-package com.eveningoutpost.dexdrip.utilityModels.pebble.watchface;
+package com.eveningoutpost.dexdrip.utilitymodels.pebble.watchface;
 
 import com.eveningoutpost.dexdrip.R;
 

@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.utilityModels;
+package com.eveningoutpost.dexdrip.utilitymodels;
 
 import android.database.Cursor;
 import android.provider.BaseColumns;

@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.utilityModels;
+package com.eveningoutpost.dexdrip.utilitymodels;
 
 import android.app.Service;
 import android.content.Context;

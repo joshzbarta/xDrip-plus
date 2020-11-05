@@ -4,8 +4,8 @@ package com.eveningoutpost.dexdrip.watch.thinjam;
 
 import android.content.Intent;
 
-import com.eveningoutpost.dexdrip.utilityModels.Intents;
-import com.eveningoutpost.dexdrip.utilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.Intents;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
 import lombok.val;
 

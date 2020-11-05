@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.insulin;
 import android.util.Log;
 
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.utilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.eveningoutpost.dexdrip.xdrip;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

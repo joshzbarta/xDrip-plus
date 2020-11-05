@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.watch.thinjam;
 
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.utilityModels.Inevitable;
+import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
 import com.eveningoutpost.dexdrip.watch.thinjam.io.GetURL;
 
 import lombok.RequiredArgsConstructor;

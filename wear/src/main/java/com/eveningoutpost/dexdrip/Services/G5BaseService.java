@@ -7,10 +7,10 @@ import android.os.PowerManager;
 
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.utilityModels.ForegroundServiceStarter;
-import com.eveningoutpost.dexdrip.utilityModels.Inevitable;
-import com.eveningoutpost.dexdrip.utilityModels.PersistentStore;
-import com.eveningoutpost.dexdrip.utilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.ForegroundServiceStarter;
+import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.google.android.gms.wearable.DataMap;
 
 /**

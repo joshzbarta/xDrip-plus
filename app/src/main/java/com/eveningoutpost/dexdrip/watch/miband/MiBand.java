@@ -1,9 +1,9 @@
 package com.eveningoutpost.dexdrip.watch.miband;
 
 import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.utilityModels.Inevitable;
-import com.eveningoutpost.dexdrip.utilityModels.PersistentStore;
-import com.eveningoutpost.dexdrip.utilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
 import static com.eveningoutpost.dexdrip.watch.miband.Const.MIBAND_NAME_2;
 import static com.eveningoutpost.dexdrip.watch.miband.Const.MIBAND_NAME_3;

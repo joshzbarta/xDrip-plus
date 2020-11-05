@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.utilityModels;
+package com.eveningoutpost.dexdrip.utilitymodels;
 
 import android.app.IntentService;
 import android.app.Notification;
@@ -53,8 +53,8 @@ import com.eveningoutpost.dexdrip.xdrip;
 import java.util.Date;
 import java.util.List;
 
-import static com.eveningoutpost.dexdrip.utilityModels.ColorCache.X;
-import static com.eveningoutpost.dexdrip.utilityModels.ColorCache.getCol;
+import static com.eveningoutpost.dexdrip.utilitymodels.ColorCache.X;
+import static com.eveningoutpost.dexdrip.utilitymodels.ColorCache.getCol;
 
 /**
  * Created by Emma Black on 11/28/14.

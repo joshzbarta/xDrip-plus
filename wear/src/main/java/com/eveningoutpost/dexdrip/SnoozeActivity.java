@@ -22,9 +22,9 @@ import android.widget.TextView;
 import com.eveningoutpost.dexdrip.models.ActiveBgAlert;
 import com.eveningoutpost.dexdrip.models.AlertType;
 //KS import com.eveningoutpost.dexdrip.Services.MissedReadingService;
-import com.eveningoutpost.dexdrip.utilityModels.AlertPlayer;
-import com.eveningoutpost.dexdrip.utilityModels.BgGraphBuilder;
-import com.eveningoutpost.dexdrip.utilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.AlertPlayer;
+import com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 //KS import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 
 

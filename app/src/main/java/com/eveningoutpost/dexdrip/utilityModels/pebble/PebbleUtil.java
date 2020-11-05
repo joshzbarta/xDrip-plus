@@ -1,7 +1,7 @@
-package com.eveningoutpost.dexdrip.utilityModels.pebble;
+package com.eveningoutpost.dexdrip.utilitymodels.pebble;
 
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.utilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
 
 /**

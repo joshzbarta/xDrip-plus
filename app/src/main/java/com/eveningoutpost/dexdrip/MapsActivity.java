@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.util.Log;
 import android.view.WindowManager;
 
-import com.eveningoutpost.dexdrip.utilityModels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.utilityModels.pebble;
+package com.eveningoutpost.dexdrip.utilitymodels.pebble;
 
 import android.content.Intent;
 

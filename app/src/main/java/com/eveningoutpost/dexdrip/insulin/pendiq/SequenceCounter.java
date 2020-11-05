@@ -1,8 +1,8 @@
 package com.eveningoutpost.dexdrip.insulin.pendiq;
 
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.utilityModels.Inevitable;
-import com.eveningoutpost.dexdrip.utilityModels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

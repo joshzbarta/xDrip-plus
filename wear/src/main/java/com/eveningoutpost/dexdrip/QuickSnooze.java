@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.utilityModels.AlertPlayer;
+import com.eveningoutpost.dexdrip.utilitymodels.AlertPlayer;
 
 // jamorham
 

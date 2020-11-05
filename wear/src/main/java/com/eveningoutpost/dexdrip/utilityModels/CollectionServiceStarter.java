@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.utilityModels;
+package com.eveningoutpost.dexdrip.utilitymodels;
 
 //KS import android.app.AlarmManager;
 //KS import android.app.PendingIntent;

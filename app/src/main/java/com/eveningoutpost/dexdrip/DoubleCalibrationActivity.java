@@ -16,10 +16,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.eveningoutpost.dexdrip.models.Calibration;
-import com.eveningoutpost.dexdrip.utilityModels.CollectionServiceStarter;
-import com.eveningoutpost.dexdrip.utilityModels.Constants;
-import com.eveningoutpost.dexdrip.utilityModels.Pref;
-import com.eveningoutpost.dexdrip.utilityModels.PrefsViewImpl;
+import com.eveningoutpost.dexdrip.utilitymodels.CollectionServiceStarter;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.PrefsViewImpl;
 import com.eveningoutpost.dexdrip.databinding.ActivityDoubleCalibrationBinding;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 

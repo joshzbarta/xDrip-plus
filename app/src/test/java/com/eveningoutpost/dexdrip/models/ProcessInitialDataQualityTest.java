@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.models;
 
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
-import com.eveningoutpost.dexdrip.utilityModels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 
 import org.junit.Test;
 

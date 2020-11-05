@@ -30,9 +30,9 @@ import com.eveningoutpost.dexdrip.models.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.models.BgReading;
 import com.eveningoutpost.dexdrip.models.Calibration;
 import com.eveningoutpost.dexdrip.models.UserError.Log;
-import com.eveningoutpost.dexdrip.utilityModels.DexShareAttributes;
-import com.eveningoutpost.dexdrip.utilityModels.ForegroundServiceStarter;
-import com.eveningoutpost.dexdrip.utilityModels.HM10Attributes;
+import com.eveningoutpost.dexdrip.utilitymodels.DexShareAttributes;
+import com.eveningoutpost.dexdrip.utilitymodels.ForegroundServiceStarter;
+import com.eveningoutpost.dexdrip.utilitymodels.HM10Attributes;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;

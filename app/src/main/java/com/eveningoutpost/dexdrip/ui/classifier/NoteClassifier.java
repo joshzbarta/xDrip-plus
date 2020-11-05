@@ -7,7 +7,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.utilityModels.PointValueExtended;
+import com.eveningoutpost.dexdrip.utilitymodels.PointValueExtended;
 import com.eveningoutpost.dexdrip.ui.helpers.BitmapLoader;
 import com.eveningoutpost.dexdrip.ui.helpers.ColorUtil;
 

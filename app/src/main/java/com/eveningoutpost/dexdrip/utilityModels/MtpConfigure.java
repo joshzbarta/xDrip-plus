@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.utilityModels;
+package com.eveningoutpost.dexdrip.utilitymodels;
 
 import android.content.Intent;
 import android.hardware.usb.UsbDevice;
@@ -18,9 +18,9 @@ import com.google.gson.GsonBuilder;
 
 import java.nio.charset.Charset;
 
-import static com.eveningoutpost.dexdrip.utilityModels.StatusItem.Highlight.BAD;
-import static com.eveningoutpost.dexdrip.utilityModels.StatusItem.Highlight.GOOD;
-import static com.eveningoutpost.dexdrip.utilityModels.StatusItem.Highlight.NORMAL;
+import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.BAD;
+import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.GOOD;
+import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.NORMAL;
 import static com.eveningoutpost.dexdrip.utils.DexCollectionType.DEX_COLLECTION_METHOD;
 import static com.eveningoutpost.dexdrip.utils.GetWearApk.getBytes;
 

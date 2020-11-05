@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.utilityModels;
+package com.eveningoutpost.dexdrip.utilitymodels;
 
 import androidx.annotation.NonNull;
 
@@ -16,7 +16,7 @@ import com.eveningoutpost.dexdrip.wearintegration.ExternalStatusService;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static com.eveningoutpost.dexdrip.utilityModels.Constants.DAY_IN_MS;
+import static com.eveningoutpost.dexdrip.utilitymodels.Constants.DAY_IN_MS;
 import static com.eveningoutpost.dexdrip.calibrations.PluggableCalibration.getCalibrationPlugin;
 import static com.eveningoutpost.dexdrip.calibrations.PluggableCalibration.getCalibrationPluginFromPreferences;
 

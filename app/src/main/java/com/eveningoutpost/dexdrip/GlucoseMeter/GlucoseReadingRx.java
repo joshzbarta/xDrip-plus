@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.GlucoseMeter;
 
-import com.eveningoutpost.dexdrip.utilityModels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

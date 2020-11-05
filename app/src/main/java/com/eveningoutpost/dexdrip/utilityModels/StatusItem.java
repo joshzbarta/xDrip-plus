@@ -1,9 +1,9 @@
-package com.eveningoutpost.dexdrip.utilityModels;
+package com.eveningoutpost.dexdrip.utilitymodels;
 
 import android.graphics.Color;
 import androidx.annotation.ColorInt;
 
-import static com.eveningoutpost.dexdrip.utilityModels.StatusItem.Highlight.NORMAL;
+import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.NORMAL;
 
 /**
  * Created by jamorham on 14/01/2017.

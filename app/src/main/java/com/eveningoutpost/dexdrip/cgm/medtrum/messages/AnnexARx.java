@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.cgm.medtrum.messages;
 
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.UserError;
-import com.eveningoutpost.dexdrip.utilityModels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.cgm.medtrum.SensorState;
 import com.eveningoutpost.dexdrip.cgm.medtrum.TimeKeeper;
 import com.google.gson.annotations.Expose;

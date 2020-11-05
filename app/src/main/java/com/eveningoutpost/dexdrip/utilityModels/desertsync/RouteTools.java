@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.utilityModels.desertsync;
+package com.eveningoutpost.dexdrip.utilitymodels.desertsync;
 
 // jamorham
 
