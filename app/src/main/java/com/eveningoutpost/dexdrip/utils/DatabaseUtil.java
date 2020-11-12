@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 import com.activeandroid.Cache;
 import com.activeandroid.Configuration;
-import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.UserError.Log;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 
 import java.io.BufferedInputStream;
@@ -27,6 +27,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+
+import lombok.var;
 
 import static com.eveningoutpost.dexdrip.utils.FileUtils.getExternalDir;
 import static com.eveningoutpost.dexdrip.utils.FileUtils.makeSureDirectoryExists;
@@ -328,7 +330,11 @@ public class DatabaseUtil {
         String returnString = "";
 
         try {
-            String databaseName = new Configuration.Builder(context).create().getDatabaseName();
+            var configurationBuilder =  new Configuration.Builder(context);
+            //configurationBuilder.addModelClass(com.eveningoutpost.dexdrip.models.UserError.class);
+            //configurationBuilder.addModelClass(com.eveningoutpost.dexdrip.models.BgReading.class);
+            String databaseName = configurationBuilder.create().getDatabaseName();
+
             File currentDB = context.getDatabasePath(databaseName);
             File currentDBold = context.getDatabasePath(databaseName + ".old");
             File currentDBtmp = context.getDatabasePath(databaseName + ".tmp");

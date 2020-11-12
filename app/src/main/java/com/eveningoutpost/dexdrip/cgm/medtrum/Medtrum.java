@@ -8,8 +8,8 @@ package com.eveningoutpost.dexdrip.cgm.medtrum;
 
 import android.util.Pair;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
 import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
@@ -22,7 +22,7 @@ import com.polidea.rxandroidble2.scan.ScanRecord;
 
 import lombok.Getter;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.msSince;
 import static com.eveningoutpost.dexdrip.cgm.medtrum.Const.MANUFACTURER_ID;
 import static com.eveningoutpost.dexdrip.cgm.medtrum.Const.SUPPORTED_DEVICES;
 

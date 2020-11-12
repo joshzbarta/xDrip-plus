@@ -1,8 +1,6 @@
 package com.eveningoutpost.dexdrip.UtilityModels.pebble;
 
-import android.content.SharedPreferences;
-
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 
 

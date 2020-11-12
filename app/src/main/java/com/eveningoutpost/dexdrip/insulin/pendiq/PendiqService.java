@@ -6,9 +6,9 @@ import android.os.PowerManager;
 
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
-import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.Treatments;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.Treatments;
+import com.eveningoutpost.dexdrip.models.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.Services.JamBaseBluetoothService;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
@@ -45,13 +45,10 @@ import lombok.RequiredArgsConstructor;
 import rx.Subscription;
 import rx.schedulers.Schedulers;
 */
-import io.reactivex.Observable;
-import io.reactivex.Scheduler;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
-import static com.eveningoutpost.dexdrip.Models.JoH.ratelimit;
+import static com.eveningoutpost.dexdrip.models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.ratelimit;
 import static com.eveningoutpost.dexdrip.insulin.pendiq.Const.INCOMING_CHAR;
 import static com.eveningoutpost.dexdrip.insulin.pendiq.Const.INSULIN_CLASSIFIER;
 import static com.eveningoutpost.dexdrip.insulin.pendiq.Const.OUTGOING_CHAR;

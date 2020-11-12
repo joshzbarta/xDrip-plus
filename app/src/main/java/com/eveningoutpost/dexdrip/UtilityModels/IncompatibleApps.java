@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.UtilityModels;
 
 import android.content.Context;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.xdrip;
 

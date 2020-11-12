@@ -1,15 +1,13 @@
 package com.eveningoutpost.dexdrip.UtilityModels;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Matrix;
-import android.util.DisplayMetrics;
 import android.view.View;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.UserError.Log;
 
 import java.util.ArrayList;
 import java.util.Date;

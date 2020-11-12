@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.watch.thinjam;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
 import com.eveningoutpost.dexdrip.watch.thinjam.messages.BaseTx;
@@ -13,7 +13,7 @@ import java.nio.ByteOrder;
 import java.util.HashMap;
 import java.util.Locale;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.msSince;
 
 
 public class BlueJayInfo extends BaseTx {
