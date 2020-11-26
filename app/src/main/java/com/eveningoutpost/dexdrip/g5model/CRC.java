@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.g5models;
+package com.eveningoutpost.dexdrip.g5model;
 
 import com.eveningoutpost.dexdrip.importedlibraries.dexcom.CRC16;
 

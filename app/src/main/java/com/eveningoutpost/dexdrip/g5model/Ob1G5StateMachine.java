@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.g5models;
+package com.eveningoutpost.dexdrip.g5model;
 
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothGatt;
@@ -57,9 +57,9 @@ import javax.crypto.spec.SecretKeySpec;
 
 //import rx.schedulers.Schedulers;
 
-import static com.eveningoutpost.dexdrip.g5models.BluetoothServices.Authentication;
-import static com.eveningoutpost.dexdrip.g5models.BluetoothServices.Control;
-import static com.eveningoutpost.dexdrip.g5models.BluetoothServices.ProbablyBackfill;
+import static com.eveningoutpost.dexdrip.g5model.BluetoothServices.Authentication;
+import static com.eveningoutpost.dexdrip.g5model.BluetoothServices.Control;
+import static com.eveningoutpost.dexdrip.g5model.BluetoothServices.ProbablyBackfill;
 import static com.eveningoutpost.dexdrip.models.JoH.msSince;
 import static com.eveningoutpost.dexdrip.models.JoH.pratelimit;
 import static com.eveningoutpost.dexdrip.models.JoH.tsl;

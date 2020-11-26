@@ -1,7 +1,5 @@
 package com.eveningoutpost.dexdrip.g5model;
 
-import com.eveningoutpost.dexdrip.g5models.RawScaling;
-
 import org.junit.Test;
 
 import static com.google.common.truth.Truth.assertWithMessage;

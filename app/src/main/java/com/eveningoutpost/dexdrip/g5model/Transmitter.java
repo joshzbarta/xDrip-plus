@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.g5models;
+package com.eveningoutpost.dexdrip.g5model;
 
 /**
  * Created by joeginley on 3/19/16.

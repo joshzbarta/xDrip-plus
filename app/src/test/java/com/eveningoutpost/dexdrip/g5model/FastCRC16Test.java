@@ -4,7 +4,7 @@ import com.eveningoutpost.dexdrip.HexTestTools;
 
 import org.junit.Test;
 
-import static com.eveningoutpost.dexdrip.g5models.FastCRC16.calculate;
+import static com.eveningoutpost.dexdrip.g5model.FastCRC16.calculate;
 import static com.google.common.truth.Truth.assertWithMessage;
 
 // jamorham

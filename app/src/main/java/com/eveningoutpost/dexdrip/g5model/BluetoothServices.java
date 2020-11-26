@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.g5models;
+package com.eveningoutpost.dexdrip.g5model;
 
 import java.util.HashMap;
 import java.util.UUID;
