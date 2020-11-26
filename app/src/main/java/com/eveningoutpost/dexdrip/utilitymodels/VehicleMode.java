@@ -11,7 +11,7 @@ package com.eveningoutpost.dexdrip.utilitymodels;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.eveningoutpost.dexdrip.Services.ActivityRecognizedService;
+import com.eveningoutpost.dexdrip.services.ActivityRecognizedService;
 
 import static com.eveningoutpost.dexdrip.utilitymodels.Intents.ACTION_VEHICLE_MODE;
 import static com.eveningoutpost.dexdrip.utilitymodels.Intents.EXTRA_VEHICLE_MODE_ENABLED;

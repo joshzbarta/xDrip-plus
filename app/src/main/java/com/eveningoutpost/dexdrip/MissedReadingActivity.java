@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.eveningoutpost.dexdrip.models.AlertType;
-import com.eveningoutpost.dexdrip.Services.MissedReadingService;
+import com.eveningoutpost.dexdrip.services.MissedReadingService;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 
 
