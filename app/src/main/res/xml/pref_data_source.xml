@@ -220,8 +220,9 @@
                 <CheckBoxPreference
                     android:defaultValue="false"
                     android:dependency="ob1_minimize_scanning"
+                    android:enabled="false"
                     android:key="ob1_avoid_scanning"
-                    android:summary="Avoid scanning as much as possible"
+                    android:summary="Avoid scanning as much as possible (not used in this version)"
                     android:title="Avoid Scanning" />
             <CheckBoxPreference
                 android:defaultValue="false"
@@ -248,7 +249,8 @@
                     android:defaultValue="false"
                     android:dependency="use_ob1_g5_collector_service"
                     android:key="ob1_android10workaround"
-                    android:summary="Some devices need to constantly rebond to the transmitter on others this will make a pop-up every 5 minutes"
+                    android:enabled="false"
+                    android:summary="Some devices need to constantly rebond to the transmitter on others this will make a pop-up every 5 minutes (not used on this version)"
                     android:title="Android 10 workaround" />
             </PreferenceCategory>
             <PreferenceCategory
