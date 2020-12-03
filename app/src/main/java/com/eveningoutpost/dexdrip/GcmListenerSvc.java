@@ -1,7 +1,5 @@
 package com.eveningoutpost.dexdrip;
 
-import android.R.integer;
-
 /**
  * Created by jamorham on 11/01/16.
  */
@@ -21,7 +19,7 @@ import android.util.Base64;
 import com.eveningoutpost.dexdrip.Models.BgReading;
 import com.eveningoutpost.dexdrip.Models.BloodTest;
 import com.eveningoutpost.dexdrip.Models.Calibration;
-import com.eveningoutpost.dexdrip.Models.DesertSync;
+import com.eveningoutpost.dexdrip.data.DesertSync;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.Models.LibreBlock;
 import com.eveningoutpost.dexdrip.Models.RollCall;
