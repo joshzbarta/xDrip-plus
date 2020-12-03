@@ -1,21 +1,22 @@
-package com.eveningoutpost.dexdrip.Models;
+package com.eveningoutpost.dexdrip.data;
 
 import android.provider.BaseColumns;
 
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
+import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.Models.UserError;
 import com.eveningoutpost.dexdrip.Models.UserError.Log;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 import com.eveningoutpost.dexdrip.UtilityModels.UploaderQueue;
 import com.google.gson.annotations.Expose;
-import java.text.DecimalFormat;
+
 import java.util.List;
 import java.util.UUID;
 
-import org.json.JSONObject;
 /**
  * Created by jamorham on 19/10/2017.
  */
@@ -103,7 +104,7 @@ public class LibreBlock  extends PlusModel {
     }
 
     public static LibreBlock create(String reference, long timestamp, byte[] blocks, int byte_start, byte[] patchUid, byte[] patchInfo) {
-        UserError.Log.e(TAG,"Backtrack: "+JoH.backTrace());
+        UserError.Log.e(TAG,"Backtrack: "+ JoH.backTrace());
         if (reference == null) {
             UserError.Log.e(TAG, "Cannot save block with null reference");
             return null;

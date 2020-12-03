@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.eveningoutpost.dexdrip.NFCReaderX;
 import com.eveningoutpost.dexdrip.Models.GlucoseData;
-import com.eveningoutpost.dexdrip.Models.LibreBlock;
+import com.eveningoutpost.dexdrip.data.LibreBlock;
 import com.eveningoutpost.dexdrip.Models.ReadingData;
 
 import com.eveningoutpost.dexdrip.Models.UserError.Log;
