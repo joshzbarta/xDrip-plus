@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static com.eveningoutpost.dexdrip.Home.get_engineering_mode;
-import static com.eveningoutpost.dexdrip.Models.Libre2Sensor.Libre2Sensors;
+import static com.eveningoutpost.dexdrip.data.Libre2Sensor.Libre2Sensors;
 
 /**
  * Created by jamorham on 14/11/2016.

@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.Models;
+package com.eveningoutpost.dexdrip.data;
 
 import android.provider.BaseColumns;
 import android.text.format.DateFormat;
@@ -6,8 +6,8 @@ import android.text.format.DateFormat;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
+import com.eveningoutpost.dexdrip.Models.JoH;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @Table(name = "Libre2Sensors", id = BaseColumns._ID)
