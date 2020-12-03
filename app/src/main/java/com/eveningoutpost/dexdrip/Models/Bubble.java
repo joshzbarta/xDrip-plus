@@ -8,6 +8,7 @@ import com.eveningoutpost.dexdrip.UtilityModels.BridgeResponse;
 import com.eveningoutpost.dexdrip.UtilityModels.LibreUtils;
 import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 
 import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;

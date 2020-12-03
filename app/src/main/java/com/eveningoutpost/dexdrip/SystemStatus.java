@@ -21,7 +21,7 @@ import android.widget.TextView;
 import com.eveningoutpost.dexdrip.G5Model.Extensions;
 import com.eveningoutpost.dexdrip.G5Model.Transmitter;
 import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.Dex_Constants;
-import com.eveningoutpost.dexdrip.Models.ActiveBluetoothDevice;
+import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.Models.BgReading;
 import com.eveningoutpost.dexdrip.Models.Calibration;
 import com.eveningoutpost.dexdrip.Models.JoH;

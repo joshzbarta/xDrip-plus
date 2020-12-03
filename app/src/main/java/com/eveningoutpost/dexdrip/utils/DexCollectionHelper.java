@@ -6,7 +6,7 @@ import android.text.InputType;
 
 import com.eveningoutpost.dexdrip.BluetoothScan;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.Models.ActiveBluetoothDevice;
+import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.Services.Ob1G5CollectionService;
 import com.eveningoutpost.dexdrip.UtilityModels.CollectionServiceStarter;
