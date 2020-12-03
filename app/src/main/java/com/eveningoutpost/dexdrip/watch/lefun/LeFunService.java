@@ -43,7 +43,7 @@ import java.util.concurrent.TimeoutException;
 
 import io.reactivex.schedulers.Schedulers;
 
-import static com.eveningoutpost.dexdrip.Models.ActiveBgAlert.currentlyAlerting;
+import static com.eveningoutpost.dexdrip.data.ActiveBgAlert.currentlyAlerting;
 import static com.eveningoutpost.dexdrip.Models.JoH.bytesToHex;
 import static com.eveningoutpost.dexdrip.Models.JoH.emptyString;
 import static com.eveningoutpost.dexdrip.Models.JoH.msTill;

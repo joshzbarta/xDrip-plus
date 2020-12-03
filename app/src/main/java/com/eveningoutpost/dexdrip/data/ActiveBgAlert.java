@@ -1,8 +1,10 @@
-package com.eveningoutpost.dexdrip.Models;
+package com.eveningoutpost.dexdrip.data;
 
 import android.provider.BaseColumns;
 
 import com.activeandroid.util.SQLiteUtils;
+import com.eveningoutpost.dexdrip.Models.AlertType;
+import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.Models.UserError.Log;
 
 import com.activeandroid.Model;
@@ -66,7 +68,7 @@ public class ActiveBgAlert extends Model {
     public void snooze(int minutes) {
         next_alert_at = new Date().getTime() + minutes * 60000;
         is_snoozed = true;
-        Log.ueh("Snoozed Alert","Snoozed until: "+JoH.dateTimeText(next_alert_at));
+        Log.ueh("Snoozed Alert","Snoozed until: "+ JoH.dateTimeText(next_alert_at));
         save();
     }
 
