@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.tidepool;
 
 
-import com.eveningoutpost.dexdrip.Models.APStatus;
+import com.eveningoutpost.dexdrip.data.APStatus;
 import com.eveningoutpost.dexdrip.Models.BgReading;
 import com.eveningoutpost.dexdrip.Models.BloodTest;
 import com.eveningoutpost.dexdrip.Models.JoH;

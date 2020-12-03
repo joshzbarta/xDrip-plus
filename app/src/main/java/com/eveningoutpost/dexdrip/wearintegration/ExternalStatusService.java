@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.content.WakefulBroadcastReceiver;
 
-import com.eveningoutpost.dexdrip.Models.APStatus;
+import com.eveningoutpost.dexdrip.data.APStatus;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.Models.UserError;
 import com.eveningoutpost.dexdrip.NewDataObserver;

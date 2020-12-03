@@ -7,7 +7,7 @@ import android.preference.PreferenceManager;
 
 import com.eveningoutpost.dexdrip.Models.Libre2RawValue;
 import com.eveningoutpost.dexdrip.Models.Libre2Sensor;
-import com.eveningoutpost.dexdrip.Models.APStatus;
+import com.eveningoutpost.dexdrip.data.APStatus;
 import com.eveningoutpost.dexdrip.Models.BgReading;
 //import com.eveningoutpost.dexdrip.Models.BgReadingArchive;
 import com.eveningoutpost.dexdrip.Models.DesertSync;
