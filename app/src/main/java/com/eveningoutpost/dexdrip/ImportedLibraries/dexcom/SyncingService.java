@@ -22,7 +22,7 @@ import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.driver.CdcAcmSeria
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.driver.ProbeTable;
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.driver.UsbSerialDriver;
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.driver.UsbSerialProber;
-import com.eveningoutpost.dexdrip.Models.Calibration;
+import com.eveningoutpost.dexdrip.data.Calibration;
 
 import org.json.JSONArray;
 

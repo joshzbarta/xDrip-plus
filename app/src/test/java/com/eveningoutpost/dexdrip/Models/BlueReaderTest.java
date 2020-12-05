@@ -8,6 +8,7 @@ import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.data.BgReading;
+import com.eveningoutpost.dexdrip.data.Calibration;
 import com.eveningoutpost.dexdrip.xdrip;
 
 import org.junit.Before;

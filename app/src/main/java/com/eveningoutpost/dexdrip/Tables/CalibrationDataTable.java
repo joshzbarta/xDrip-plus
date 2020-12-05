@@ -1,7 +1,6 @@
 package com.eveningoutpost.dexdrip.Tables;
 
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -14,7 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.eveningoutpost.dexdrip.BaseListActivity;
-import com.eveningoutpost.dexdrip.Models.Calibration;
+import com.eveningoutpost.dexdrip.data.Calibration;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.NavigationDrawerFragment;
 import com.eveningoutpost.dexdrip.R;
