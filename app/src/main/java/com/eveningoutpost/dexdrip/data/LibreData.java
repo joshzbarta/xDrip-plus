@@ -1,9 +1,10 @@
-package com.eveningoutpost.dexdrip.Models;
+package com.eveningoutpost.dexdrip.data;
 
 import android.provider.BaseColumns;
 
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.eveningoutpost.dexdrip.Models.JoH;
 import com.google.gson.annotations.Expose;
 
 /**

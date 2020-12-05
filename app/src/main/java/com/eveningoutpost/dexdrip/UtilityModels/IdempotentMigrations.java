@@ -13,7 +13,7 @@ import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.DesertSync;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.LibreBlock;
-import com.eveningoutpost.dexdrip.Models.LibreData;
+import com.eveningoutpost.dexdrip.data.LibreData;
 import com.eveningoutpost.dexdrip.Models.PenData;
 import com.eveningoutpost.dexdrip.Models.Prediction;
 import com.eveningoutpost.dexdrip.R;
