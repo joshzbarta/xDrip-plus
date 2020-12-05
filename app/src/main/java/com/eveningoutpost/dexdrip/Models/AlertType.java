@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.eveningoutpost.dexdrip.data.ActiveBgAlert;
+import com.eveningoutpost.dexdrip.data.BgReading;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;

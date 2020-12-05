@@ -4,7 +4,7 @@ package com.eveningoutpost.dexdrip.UtilityModels;
 
 import android.util.Pair;
 
-import com.eveningoutpost.dexdrip.Models.BgReading;
+import com.eveningoutpost.dexdrip.data.BgReading;
 
 import java.util.List;
 

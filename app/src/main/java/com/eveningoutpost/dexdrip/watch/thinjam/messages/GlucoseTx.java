@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.watch.thinjam.messages;
 
 import com.eveningoutpost.dexdrip.BestGlucose;
 import com.eveningoutpost.dexdrip.G5Model.CalibrationState;
-import com.eveningoutpost.dexdrip.Models.BgReading;
+import com.eveningoutpost.dexdrip.data.BgReading;
 
 import lombok.Getter;
 import lombok.val;

@@ -12,7 +12,7 @@ import android.widget.TimePicker;
 
 import com.eveningoutpost.dexdrip.data.ActiveBgAlert;
 import com.eveningoutpost.dexdrip.Models.AlertType;
-import com.eveningoutpost.dexdrip.Models.BgReading;
+import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 
 public class FakeNumbers extends ActivityWithMenu {

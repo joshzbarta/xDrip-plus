@@ -11,7 +11,7 @@ import android.util.Pair;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
-import com.eveningoutpost.dexdrip.Models.BgReading;
+import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.Models.Prediction;
 import com.eveningoutpost.dexdrip.Models.TransmitterData;
@@ -59,13 +59,10 @@ import java.util.concurrent.TimeUnit;
 //import rx.Subscription;
 //import rx.schedulers.Schedulers;
 
-import io.reactivex.Observable;
-import io.reactivex.Scheduler;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 
-import static com.eveningoutpost.dexdrip.Models.BgReading.bgReadingInsertMedtrum;
+import static com.eveningoutpost.dexdrip.data.BgReading.bgReadingInsertMedtrum;
 import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
 import static com.eveningoutpost.dexdrip.Models.JoH.msTill;
 import static com.eveningoutpost.dexdrip.Models.JoH.quietratelimit;

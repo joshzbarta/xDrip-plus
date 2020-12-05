@@ -2,8 +2,7 @@ package com.eveningoutpost.dexdrip.tidepool;
 
 // jamorham
 
-import com.eveningoutpost.dexdrip.Models.BloodTest;
-import com.eveningoutpost.dexdrip.Models.Treatments;
+import com.eveningoutpost.dexdrip.data.BloodTest;
 import com.eveningoutpost.dexdrip.Models.UserError;
 import com.google.gson.annotations.Expose;
 

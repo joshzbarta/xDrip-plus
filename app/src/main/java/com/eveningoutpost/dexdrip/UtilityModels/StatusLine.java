@@ -3,8 +3,8 @@ package com.eveningoutpost.dexdrip.UtilityModels;
 import android.support.annotation.NonNull;
 
 import com.eveningoutpost.dexdrip.data.Accuracy;
-import com.eveningoutpost.dexdrip.Models.BgReading;
-import com.eveningoutpost.dexdrip.Models.BloodTest;
+import com.eveningoutpost.dexdrip.data.BgReading;
+import com.eveningoutpost.dexdrip.data.BloodTest;
 import com.eveningoutpost.dexdrip.Models.Calibration;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.Models.UserError;

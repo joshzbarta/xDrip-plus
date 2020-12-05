@@ -1,6 +1,7 @@
 package com.eveningoutpost.dexdrip.Models;
 
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
+import com.eveningoutpost.dexdrip.data.BgReading;
 
 import org.junit.Test;
 import org.robolectric.RuntimeEnvironment;

@@ -10,7 +10,7 @@ import android.os.PowerManager;
 import android.util.Pair;
 
 import com.eveningoutpost.dexdrip.data.ActiveBgAlert;
-import com.eveningoutpost.dexdrip.Models.BgReading;
+import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.HeartRate;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.Models.UserError;

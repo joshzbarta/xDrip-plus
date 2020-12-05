@@ -35,7 +35,7 @@ import com.eveningoutpost.dexdrip.GlucoseMeter.VerioHelper;
 import com.eveningoutpost.dexdrip.GlucoseMeter.caresens.ContextRx;
 import com.eveningoutpost.dexdrip.GlucoseMeter.caresens.TimeTx;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.Models.BloodTest;
+import com.eveningoutpost.dexdrip.data.BloodTest;
 import com.eveningoutpost.dexdrip.Models.Calibration;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.Models.UserError;

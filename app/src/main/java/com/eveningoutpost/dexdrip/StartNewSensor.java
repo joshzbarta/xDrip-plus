@@ -36,7 +36,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import static com.eveningoutpost.dexdrip.Home.startWatchUpdaterService;
-import static com.eveningoutpost.dexdrip.Models.BgReading.AGE_ADJUSTMENT_TIME;
+import static com.eveningoutpost.dexdrip.data.BgReading.AGE_ADJUSTMENT_TIME;
 import static com.eveningoutpost.dexdrip.xdrip.gs;
 
 public class StartNewSensor extends ActivityWithMenu {

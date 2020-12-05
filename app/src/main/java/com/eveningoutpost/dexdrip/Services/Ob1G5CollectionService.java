@@ -35,7 +35,7 @@ import com.eveningoutpost.dexdrip.G5Model.VersionRequest1RxMessage;
 import com.eveningoutpost.dexdrip.G5Model.VersionRequest2RxMessage;
 import com.eveningoutpost.dexdrip.G5Model.VersionRequestRxMessage;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.Models.BgReading;
+import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.Models.Sensor;
 import com.eveningoutpost.dexdrip.Models.UserError;

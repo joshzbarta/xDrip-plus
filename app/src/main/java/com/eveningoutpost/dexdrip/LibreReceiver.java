@@ -9,7 +9,7 @@ import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.text.format.DateFormat;
 
-import com.eveningoutpost.dexdrip.Models.BgReading;
+import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.Libre2RawValue;
 import com.eveningoutpost.dexdrip.Models.Sensor;

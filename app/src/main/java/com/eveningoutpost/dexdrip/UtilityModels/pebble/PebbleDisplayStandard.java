@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.UtilityModels.pebble;
 import android.content.Intent;
 
 import com.eveningoutpost.dexdrip.BestGlucose;
-import com.eveningoutpost.dexdrip.Models.BgReading;
+import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.Models.UserError.Log;
 import com.getpebble.android.kit.PebbleKit;

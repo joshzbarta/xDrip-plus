@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.cgm.nsfollow;
 
-import com.eveningoutpost.dexdrip.Models.BgReading;
+import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.Sensor;
 import com.eveningoutpost.dexdrip.Models.UserError;
 import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
@@ -9,7 +9,7 @@ import com.eveningoutpost.dexdrip.cgm.nsfollow.messages.Entry;
 
 import java.util.List;
 
-import static com.eveningoutpost.dexdrip.Models.BgReading.SPECIAL_FOLLOWER_PLACEHOLDER;
+import static com.eveningoutpost.dexdrip.data.BgReading.SPECIAL_FOLLOWER_PLACEHOLDER;
 
 /**
  * jamorham
