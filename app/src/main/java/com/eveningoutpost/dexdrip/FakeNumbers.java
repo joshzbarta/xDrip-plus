@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 
 import com.eveningoutpost.dexdrip.data.ActiveBgAlert;
-import com.eveningoutpost.dexdrip.Models.AlertType;
+import com.eveningoutpost.dexdrip.data.AlertType;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 

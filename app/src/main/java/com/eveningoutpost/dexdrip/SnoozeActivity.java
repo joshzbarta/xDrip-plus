@@ -19,7 +19,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.eveningoutpost.dexdrip.data.ActiveBgAlert;
-import com.eveningoutpost.dexdrip.Models.AlertType;
+import com.eveningoutpost.dexdrip.data.AlertType;
 import com.eveningoutpost.dexdrip.Services.MissedReadingService;
 import com.eveningoutpost.dexdrip.UtilityModels.AlertPlayer;
 import com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder;
