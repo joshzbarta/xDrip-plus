@@ -57,7 +57,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import static com.eveningoutpost.dexdrip.GlucoseMeter.VerioHelper.VERIO_F7A1_SERVICE;
 import static com.eveningoutpost.dexdrip.GlucoseMeter.VerioHelper.VERIO_F7A2_WRITE;
 import static com.eveningoutpost.dexdrip.GlucoseMeter.VerioHelper.VERIO_F7A3_NOTIFICATION;
-import static com.eveningoutpost.dexdrip.Models.CalibrationRequest.isSlopeFlatEnough;
+import static com.eveningoutpost.dexdrip.data.CalibrationRequest.isSlopeFlatEnough;
 import static com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder.unitized_string_with_units_static;
 
 /**
