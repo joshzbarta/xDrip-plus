@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.UtilityModels;
 
-import com.eveningoutpost.dexdrip.Models.Sensor;
+import com.eveningoutpost.dexdrip.data.Sensor;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

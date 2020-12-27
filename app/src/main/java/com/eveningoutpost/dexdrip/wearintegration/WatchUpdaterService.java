@@ -26,7 +26,7 @@ import com.eveningoutpost.dexdrip.data.BloodTest;
 import com.eveningoutpost.dexdrip.data.Calibration;
 import com.eveningoutpost.dexdrip.data.HeartRate;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.Sensor;
+import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.Models.StepCounter;
 import com.eveningoutpost.dexdrip.Models.TransmitterData;
 import com.eveningoutpost.dexdrip.Models.Treatments;

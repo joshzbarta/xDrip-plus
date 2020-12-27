@@ -22,7 +22,7 @@ import com.eveningoutpost.dexdrip.data.Calibration;
 import com.eveningoutpost.dexdrip.data.DesertSync;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.RollCall;
-import com.eveningoutpost.dexdrip.Models.Sensor;
+import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.Models.Treatments;
 import com.eveningoutpost.dexdrip.Models.UserError;
 import com.eveningoutpost.dexdrip.Models.UserError.Log;

@@ -37,7 +37,7 @@ import com.eveningoutpost.dexdrip.G5Model.VersionRequestRxMessage;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.Sensor;
+import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.Models.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.UtilityModels.BroadcastGlucose;

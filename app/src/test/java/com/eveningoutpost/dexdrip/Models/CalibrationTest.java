@@ -3,6 +3,7 @@ package com.eveningoutpost.dexdrip.Models;
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.Calibration;
+import com.eveningoutpost.dexdrip.data.Sensor;
 
 import org.junit.Test;
 import org.robolectric.RuntimeEnvironment;

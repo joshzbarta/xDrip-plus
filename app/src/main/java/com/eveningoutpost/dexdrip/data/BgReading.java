@@ -20,7 +20,6 @@ import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.EGVRecord;
 import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.SensorRecord;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.Models.ProcessInitialDataQuality;
-import com.eveningoutpost.dexdrip.Models.Sensor;
 import com.eveningoutpost.dexdrip.Models.SensorSanity;
 import com.eveningoutpost.dexdrip.Models.UserError;
 import com.eveningoutpost.dexdrip.Models.UserError.Log;

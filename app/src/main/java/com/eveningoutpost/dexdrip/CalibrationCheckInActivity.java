@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.SyncingService;
-import com.eveningoutpost.dexdrip.Models.Sensor;
+import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 
 public class CalibrationCheckInActivity extends ActivityWithMenu {
