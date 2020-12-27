@@ -37,7 +37,7 @@ import com.eveningoutpost.dexdrip.data.Calibration;
 import com.eveningoutpost.dexdrip.data.CalibrationRequest;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.Sensor;
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.Models.UserNotification;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.Services.ActivityRecognizedService;

@@ -12,7 +12,7 @@ import android.preference.PreferenceManager;
 
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.Calibration;
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 import org.influxdb.InfluxDB;
 import org.influxdb.InfluxDBFactory;

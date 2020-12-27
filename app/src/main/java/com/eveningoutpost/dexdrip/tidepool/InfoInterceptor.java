@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.tidepool;
 
 import android.support.annotation.NonNull;
 
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import java.io.IOException;
 

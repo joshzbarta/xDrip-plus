@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.google.android.gms.common.GoogleApiAvailability;
 
 

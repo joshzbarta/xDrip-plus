@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records;
 
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.Utils;
 

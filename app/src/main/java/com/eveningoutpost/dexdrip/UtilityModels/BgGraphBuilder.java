@@ -32,7 +32,7 @@ import com.eveningoutpost.dexdrip.data.Prediction;
 import com.eveningoutpost.dexdrip.Models.Profile;
 import com.eveningoutpost.dexdrip.data.StepCounter;
 import com.eveningoutpost.dexdrip.data.Treatments;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.Services.ActivityRecognizedService;
 import com.eveningoutpost.dexdrip.calibrations.CalibrationAbstract;

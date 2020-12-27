@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.watch.lefun;
 // jamorham
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import java.util.Calendar;
 

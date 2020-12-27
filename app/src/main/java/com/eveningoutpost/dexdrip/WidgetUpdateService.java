@@ -12,7 +12,7 @@ import android.os.IBinder;
 import android.os.PowerManager;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 public class WidgetUpdateService extends Service {
     private static final String TAG = "WidgetUpdateService";

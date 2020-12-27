@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.G5Model;
 // created by jamorham
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 
 import java.nio.ByteBuffer;

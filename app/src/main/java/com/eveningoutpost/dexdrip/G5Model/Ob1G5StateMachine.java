@@ -14,7 +14,7 @@ import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.Models.SensorSanity;
 import com.eveningoutpost.dexdrip.data.TransmitterData;
 import com.eveningoutpost.dexdrip.data.Treatments;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.Services.Ob1G5CollectionService;
 import com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder;

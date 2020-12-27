@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.watch.thinjam.firmware;
 // jamorham
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.Expose;
 import com.google.gson.reflect.TypeToken;

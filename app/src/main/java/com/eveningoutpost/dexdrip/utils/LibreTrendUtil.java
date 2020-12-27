@@ -10,7 +10,7 @@ import com.eveningoutpost.dexdrip.Models.GlucoseData;
 import com.eveningoutpost.dexdrip.data.LibreBlock;
 import com.eveningoutpost.dexdrip.Models.ReadingData;
 
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 /* 
     This class helps to retrieve the latest libre trend points. It holds data of one sensor only.

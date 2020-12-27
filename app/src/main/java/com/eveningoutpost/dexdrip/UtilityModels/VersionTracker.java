@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.UtilityModels;
 
 import com.eveningoutpost.dexdrip.BuildConfig;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.xdrip;
 

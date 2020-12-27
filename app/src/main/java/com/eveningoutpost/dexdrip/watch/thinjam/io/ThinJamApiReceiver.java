@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.os.PowerManager;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.watch.thinjam.BlueJayAPI;
 
 import lombok.val;

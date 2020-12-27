@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.cgm.nsfollow;
 
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.Sensor;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
 import com.eveningoutpost.dexdrip.UtilityModels.Unitized;
 import com.eveningoutpost.dexdrip.cgm.nsfollow.messages.Entry;

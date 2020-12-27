@@ -4,7 +4,7 @@ import android.provider.BaseColumns;
 
 import com.activeandroid.util.SQLiteUtils;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;

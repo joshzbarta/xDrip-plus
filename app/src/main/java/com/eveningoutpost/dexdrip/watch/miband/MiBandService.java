@@ -13,7 +13,7 @@ import com.eveningoutpost.dexdrip.data.ActiveBgAlert;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.HeartRate;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.Services.JamBaseBluetoothSequencer;
 import com.eveningoutpost.dexdrip.UtilityModels.AlertPlayer;

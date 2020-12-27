@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 import android.util.TypedValue;
 import android.view.View;

@@ -8,7 +8,7 @@ import android.text.TextUtils;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.Sensor;
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;

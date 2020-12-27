@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.webservices;
 
 import com.eveningoutpost.dexdrip.data.DesertSync;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import java.net.InetAddress;
 import java.util.List;

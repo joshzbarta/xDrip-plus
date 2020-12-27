@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.webservices;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.StepCounter;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import java.util.List;
 

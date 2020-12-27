@@ -11,7 +11,7 @@ import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
 import com.eveningoutpost.dexdrip.xdrip;
 import com.google.android.gms.common.api.GoogleApiClient;

@@ -6,8 +6,8 @@ import android.os.Build;
 
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 import static android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION;
 import static com.eveningoutpost.dexdrip.UtilityModels.Notifications.ongoingNotificationId;

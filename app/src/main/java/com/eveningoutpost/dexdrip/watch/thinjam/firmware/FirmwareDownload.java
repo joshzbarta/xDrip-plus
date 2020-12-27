@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.watch.thinjam.firmware;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.watch.thinjam.BlueJay;
 import com.eveningoutpost.dexdrip.watch.thinjam.BlueJayInfo;

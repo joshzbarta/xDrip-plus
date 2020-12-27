@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.tidepool;
 // jamorham
 
 import com.eveningoutpost.dexdrip.data.BloodTest;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.google.gson.annotations.Expose;
 
 import java.util.LinkedList;

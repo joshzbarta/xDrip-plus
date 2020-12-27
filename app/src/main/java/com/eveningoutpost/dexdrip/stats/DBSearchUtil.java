@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.preference.PreferenceManager;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 import com.activeandroid.Cache;
 import com.activeandroid.query.Select;

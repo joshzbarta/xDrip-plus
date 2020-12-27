@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.UtilityModels;
 import android.annotation.SuppressLint;
 import android.os.Build;
 
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import java.util.ArrayList;
 import java.util.List;

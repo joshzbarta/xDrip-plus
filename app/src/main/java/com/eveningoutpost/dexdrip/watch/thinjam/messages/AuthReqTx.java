@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.watch.thinjam.messages;
 import android.annotation.SuppressLint;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.watch.thinjam.BlueJay;
 
 import java.util.Arrays;

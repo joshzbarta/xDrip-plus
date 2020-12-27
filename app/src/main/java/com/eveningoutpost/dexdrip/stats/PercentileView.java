@@ -12,7 +12,7 @@ import android.graphics.Path;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 import android.view.View;
 
 import com.eveningoutpost.dexdrip.R;

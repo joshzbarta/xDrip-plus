@@ -4,7 +4,7 @@ import android.content.Intent;
 
 import com.eveningoutpost.dexdrip.BuildConfig;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import static com.eveningoutpost.dexdrip.xdrip.getAppContext;
 

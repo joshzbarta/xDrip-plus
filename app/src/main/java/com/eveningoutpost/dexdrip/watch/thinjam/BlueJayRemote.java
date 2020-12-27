@@ -5,7 +5,7 @@ package com.eveningoutpost.dexdrip.watch.thinjam;
 import android.content.Intent;
 
 import com.eveningoutpost.dexdrip.BestGlucose;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.UtilityModels.Intents;
 import com.eveningoutpost.dexdrip.watch.thinjam.io.ThinJamApiReceiver;
 

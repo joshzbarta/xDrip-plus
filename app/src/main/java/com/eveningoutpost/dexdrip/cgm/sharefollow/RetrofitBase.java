@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.cgm.sharefollow;
 
 import android.support.annotation.NonNull;
 
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.cgm.nsfollow.GzipRequestInterceptor;
 import com.eveningoutpost.dexdrip.tidepool.InfoInterceptor;
 

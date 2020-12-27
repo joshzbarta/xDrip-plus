@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.utils.jobs;
 import android.support.annotation.NonNull;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.Services.DailyIntentService;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.evernote.android.job.Job;

@@ -7,7 +7,7 @@ import android.support.v4.content.WakefulBroadcastReceiver;
 
 import com.eveningoutpost.dexdrip.data.APStatus;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.NewDataObserver;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;

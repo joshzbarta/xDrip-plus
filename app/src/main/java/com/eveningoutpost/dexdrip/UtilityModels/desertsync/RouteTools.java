@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.UtilityModels.desertsync;
 // jamorham
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import java.net.InetAddress;
 import java.net.InterfaceAddress;

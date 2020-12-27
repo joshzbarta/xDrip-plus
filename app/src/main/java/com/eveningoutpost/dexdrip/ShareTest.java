@@ -29,7 +29,7 @@ import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.SensorRecord;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.Calibration;
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.UtilityModels.DexShareAttributes;
 import com.eveningoutpost.dexdrip.UtilityModels.ForegroundServiceStarter;
 import com.eveningoutpost.dexdrip.UtilityModels.HM10Attributes;

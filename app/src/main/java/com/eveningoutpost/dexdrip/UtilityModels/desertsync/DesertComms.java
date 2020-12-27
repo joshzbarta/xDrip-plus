@@ -5,7 +5,7 @@ import android.os.PowerManager;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.DesertSync;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;

@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.Models;
 
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.NFCReaderX;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.UtilityModels.BridgeResponse;
@@ -9,6 +9,7 @@ import com.eveningoutpost.dexdrip.UtilityModels.LibreUtils;
 import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
@@ -85,7 +86,7 @@ public class Bubble {
             PersistentStore.setString("LibreSN", SensorSn);
             
             if (SensorSanity.checkLibreSensorChangeIfEnabled(SensorSn)) {
-                Log.e(TAG, "Problem with Libre Serial Number - not processing");
+                UserError.Log.e(TAG, "Problem with Libre Serial Number - not processing");
             }
             
             return reply;

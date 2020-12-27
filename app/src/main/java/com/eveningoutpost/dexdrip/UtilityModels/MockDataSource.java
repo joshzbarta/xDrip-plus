@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.UtilityModels;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import org.json.JSONException;
 import org.json.JSONObject;

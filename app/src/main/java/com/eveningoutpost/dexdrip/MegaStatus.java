@@ -34,7 +34,7 @@ import android.widget.TextView;
 import com.eveningoutpost.dexdrip.data.DesertSync;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.RollCall;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.Services.DexCollectionService;
 import com.eveningoutpost.dexdrip.Services.DoNothingService;
 import com.eveningoutpost.dexdrip.Services.G5CollectionService;

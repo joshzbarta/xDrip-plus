@@ -9,7 +9,7 @@ import android.support.annotation.StringRes;
 import android.text.SpannableString;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.ui.helpers.Span;
 import com.eveningoutpost.dexdrip.utils.usb.MtpTools.MtpDeviceHelper;
 import com.eveningoutpost.dexdrip.utils.usb.UsbTools;

@@ -15,7 +15,7 @@ import android.support.v7.app.AlertDialog;
 import com.eveningoutpost.dexdrip.BuildConfig;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.Services.G5BaseService;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
