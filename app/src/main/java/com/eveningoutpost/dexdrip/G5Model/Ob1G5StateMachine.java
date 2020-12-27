@@ -9,7 +9,7 @@ import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.Prediction;
+import com.eveningoutpost.dexdrip.data.Prediction;
 import com.eveningoutpost.dexdrip.Models.Sensor;
 import com.eveningoutpost.dexdrip.Models.SensorSanity;
 import com.eveningoutpost.dexdrip.Models.TransmitterData;

@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.Models;
+package com.eveningoutpost.dexdrip.data;
 
 import android.provider.BaseColumns;
 
@@ -6,7 +6,7 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
-import com.eveningoutpost.dexdrip.data.PlusModel;
+import com.eveningoutpost.dexdrip.Models.JoH;
 import com.google.gson.annotations.Expose;
 
 import java.util.ArrayList;

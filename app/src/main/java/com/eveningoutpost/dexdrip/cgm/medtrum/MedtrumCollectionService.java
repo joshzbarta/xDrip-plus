@@ -13,7 +13,7 @@ import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.Prediction;
+import com.eveningoutpost.dexdrip.data.Prediction;
 import com.eveningoutpost.dexdrip.Models.TransmitterData;
 import com.eveningoutpost.dexdrip.Models.UserError;
 import com.eveningoutpost.dexdrip.R;

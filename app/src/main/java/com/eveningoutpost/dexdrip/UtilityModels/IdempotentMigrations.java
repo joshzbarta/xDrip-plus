@@ -15,7 +15,7 @@ import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.LibreBlock;
 import com.eveningoutpost.dexdrip.data.LibreData;
 import com.eveningoutpost.dexdrip.data.PenData;
-import com.eveningoutpost.dexdrip.Models.Prediction;
+import com.eveningoutpost.dexdrip.data.Prediction;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.SnoozeActivity;
 import com.eveningoutpost.dexdrip.data.AlertType;
