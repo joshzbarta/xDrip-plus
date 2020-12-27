@@ -57,7 +57,7 @@ import com.eveningoutpost.dexdrip.Models.Profile;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.ExtraLogTags;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.Models.UserNotification;
+import com.eveningoutpost.dexdrip.data.UserNotification;
 import com.eveningoutpost.dexdrip.NFCReaderX;
 import com.eveningoutpost.dexdrip.ParakeetHelper;
 import com.eveningoutpost.dexdrip.R;

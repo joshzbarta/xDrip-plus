@@ -11,7 +11,7 @@ import com.eveningoutpost.dexdrip.data.AlertType;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.Models.UserNotification;
+import com.eveningoutpost.dexdrip.data.UserNotification;
 import com.eveningoutpost.dexdrip.SnoozeActivity;
 import com.eveningoutpost.dexdrip.UtilityModels.AlertPlayer;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
