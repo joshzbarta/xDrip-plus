@@ -12,7 +12,7 @@ import com.activeandroid.query.Select;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 import com.google.gson.annotations.Expose;
-
+import com.eveningoutpost.dexdrip.Models.UserError;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
