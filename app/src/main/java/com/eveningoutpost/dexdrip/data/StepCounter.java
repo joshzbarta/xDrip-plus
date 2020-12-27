@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.Models;
+package com.eveningoutpost.dexdrip.data;
 
 import android.provider.BaseColumns;
 
@@ -8,6 +8,8 @@ import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.activeandroid.util.SQLiteUtils;
+import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.Models.UserError;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
@@ -62,7 +64,7 @@ public class StepCounter extends Model {
         if ((pm == null) || (data < pm.metric) || ((timestamp_ms - pm.timestamp) > (1000 * 30 * 5))) {
             pm = new StepCounter();
             pm.timestamp = timestamp_ms;
-            if (d) UserError.Log.d(TAG,"Creating new record for timestamp: "+JoH.dateTimeText(timestamp_ms));
+            if (d) UserError.Log.d(TAG,"Creating new record for timestamp: "+ JoH.dateTimeText(timestamp_ms));
         } else {
             if (d) UserError.Log.d(TAG,"Merging pebble movement record: "+JoH.dateTimeText(timestamp_ms)+" vs old "+JoH.dateTimeText(pm.timestamp));
         }
