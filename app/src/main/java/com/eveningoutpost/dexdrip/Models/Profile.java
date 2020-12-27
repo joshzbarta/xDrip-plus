@@ -58,7 +58,7 @@ public class Profile {
         stored_default_insulin_action_time = value;
     }
 
-    static double getCarbAbsorptionRate(double when) {
+    public static double getCarbAbsorptionRate(double when) {
         return stored_default_absorption_rate; // carbs per hour
     }
 
@@ -68,15 +68,15 @@ public class Profile {
         stored_default_absorption_rate = value;
     }
 
-    static double insulinActionTime(double when) {
+    public static double insulinActionTime(double when) {
         return stored_default_insulin_action_time;
     }
 
-    static double carbDelayMinutes(double when) {
+    public static double carbDelayMinutes(double when) {
         return stored_default_carb_delay_minutes;
     }
 
-    static double maxLiverImpactRatio(double when) {
+    public static double maxLiverImpactRatio(double when) {
         return 0.3; // how much can the liver block carbs going in to blood stream?
     }
 
@@ -133,7 +133,7 @@ public class Profile {
         the_carb_ratio = value; // g per unit
     }
 
-    static double getLiverSensRatio(double when) {
+    public static double getLiverSensRatio(double when) {
         return 2.0;
     }
 

@@ -1,6 +1,7 @@
 package com.eveningoutpost.dexdrip.Models;
 
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
+import com.eveningoutpost.dexdrip.data.Treatments;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 

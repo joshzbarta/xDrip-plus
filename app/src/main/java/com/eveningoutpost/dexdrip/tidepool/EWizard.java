@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.tidepool;
 
 import com.eveningoutpost.dexdrip.Models.Profile;
-import com.eveningoutpost.dexdrip.Models.Treatments;
+import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.Models.UserError;
 import com.google.gson.annotations.Expose;
 

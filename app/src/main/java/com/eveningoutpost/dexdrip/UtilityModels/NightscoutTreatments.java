@@ -5,7 +5,7 @@ import com.eveningoutpost.dexdrip.data.BloodTest;
 import com.eveningoutpost.dexdrip.Models.DateUtil;
 import com.eveningoutpost.dexdrip.Models.InsulinInjection;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.Treatments;
+import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.Models.UserError;
 
 import org.json.JSONArray;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.UUID;
 
-import static com.eveningoutpost.dexdrip.Models.Treatments.pushTreatmentSyncToWatch;
+import static com.eveningoutpost.dexdrip.data.Treatments.pushTreatmentSyncToWatch;
 
 // jamorham
 
