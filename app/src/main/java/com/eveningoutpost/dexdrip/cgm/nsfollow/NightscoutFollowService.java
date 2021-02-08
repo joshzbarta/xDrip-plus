@@ -10,6 +10,7 @@ import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;
+import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
 import com.eveningoutpost.dexdrip.UtilityModels.StatusItem;
@@ -28,6 +29,7 @@ import java.util.List;
 
 import static com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder.DEXCOM_PERIOD;
 import static com.eveningoutpost.dexdrip.utils.DexCollectionType.NSFollow;
+import static com.eveningoutpost.dexdrip.xdrip.gs;
 
 /**
  * jamorham
@@ -205,8 +207,8 @@ public class NightscoutFollowService extends ForegroundService {
         }
         statuses.add(new StatusItem("Next poll time", JoH.dateTimeText(wakeup_time)));
         statuses.add(new StatusItem());
-        statuses.add(new StatusItem("Buggy Samsung", JoH.buggy_samsung ? "Yes" : "No"));
-        statuses.add(new StatusItem("Download treatments", NightscoutFollow.treatmentDownloadEnabled() ? "Yes" : "No"));
+        statuses.add(new StatusItem("Buggy Samsung", JoH.buggy_samsung ? gs(R.string.yes) : gs(R.string.no)));
+        statuses.add(new StatusItem("Download treatments", NightscoutFollow.treatmentDownloadEnabled() ? gs(R.string.yes) : gs(R.string.no)));
 
         if (StringUtils.isNotBlank(lastState)) {
             statuses.add(new StatusItem());

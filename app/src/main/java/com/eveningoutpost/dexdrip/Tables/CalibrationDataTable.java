@@ -22,6 +22,8 @@ import com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.eveningoutpost.dexdrip.xdrip.gs;
+
 
 public class CalibrationDataTable extends BaseListActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
     private static final String menu_name = "Calibration Data Table";
@@ -129,8 +131,8 @@ public class CalibrationDataTable extends BaseListActivity implements Navigation
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Disable this calibration?\nFlagged calibrations will no longer have an effect.").setPositiveButton("Yes", dialogClickListener)
-                            .setNegativeButton("No", dialogClickListener).show();
+                    builder.setMessage("Disable this calibration?\nFlagged calibrations will no longer have an effect.").setPositiveButton(gs(R.string.yes), dialogClickListener)
+                            .setNegativeButton(gs(R.string.no), dialogClickListener).show();
                     return true;
                 }
             });
