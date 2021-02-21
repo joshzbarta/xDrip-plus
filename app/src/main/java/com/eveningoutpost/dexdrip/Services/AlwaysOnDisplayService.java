@@ -19,7 +19,7 @@ import android.widget.FrameLayout;
 import android.widget.RemoteViews;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
 import com.eveningoutpost.dexdrip.utils.math.BlockFinder;
 import com.eveningoutpost.dexdrip.xDripWidget;
