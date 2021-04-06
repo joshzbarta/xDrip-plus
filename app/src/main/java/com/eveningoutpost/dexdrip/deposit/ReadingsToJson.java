@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.deposit;
 
-import com.eveningoutpost.dexdrip.Models.BgReading;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.BgReading;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import org.json.JSONArray;
 import org.json.JSONException;
