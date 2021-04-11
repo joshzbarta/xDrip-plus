@@ -322,7 +322,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mActivity = this;
-
+        Log.v(TAG, "f");
         if (!xdrip.checkAppContext(getApplicationContext())) {
             toast(gs(R.string.unusual_internal_context_problem__please_report));
             Log.wtf(TAG, "xdrip.checkAppContext FAILED!");
