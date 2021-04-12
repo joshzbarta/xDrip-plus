@@ -11,11 +11,10 @@ import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 import com.eveningoutpost.dexdrip.tidepool.InfoInterceptor;
 
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
 
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import lombok.val;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;

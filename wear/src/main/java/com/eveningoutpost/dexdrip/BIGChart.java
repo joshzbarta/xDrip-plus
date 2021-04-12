@@ -18,11 +18,10 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 //import android.support.v4.app.NotificationCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.core.content.ContextCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.support.wearable.view.WatchViewStub;
 import android.support.wearable.watchface.WatchFaceStyle;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -49,7 +48,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-import lecho.lib.hellocharts.util.ChartUtils;
 import lecho.lib.hellocharts.view.LineChartView;
 
 /**
