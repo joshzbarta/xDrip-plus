@@ -86,9 +86,11 @@ import java.nio.charset.Charset;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -647,6 +649,11 @@ public class JoH {
 
     public static HashMap<String, Object> JsonStringtoMap(String json) {
         return new Gson().fromJson(json, new TypeToken<HashMap<String, Object>>() {
+        }.getType());
+    }
+
+    public static List<Float> JsonStringToFloatList(String json) {
+        return new Gson().fromJson(json, new TypeToken<ArrayList<Float>>() {
         }.getType());
     }
 
@@ -1512,6 +1519,16 @@ public class JoH {
         return false;
     }
 
+    public static boolean isBluetoothEnabled(final Context context) {
+        try {
+            final BluetoothManager bluetoothManager = (BluetoothManager) context.getSystemService(Context.BLUETOOTH_SERVICE);
+            final BluetoothAdapter mBluetoothAdapter = bluetoothManager.getAdapter(); // local scope only
+            return mBluetoothAdapter.isEnabled();
+        } catch (Exception e) {
+            UserError.Log.d(TAG, "isBluetoothEnabled() exception: " + e);
+        }
+        return false;
+    }
 
     public synchronized static void setBluetoothEnabled(Context context, boolean state) {
         try {
