@@ -1,13 +1,13 @@
 package com.eveningoutpost.dexdrip.Models;
 
-// class from LibreAlarm
-
-import com.eveningoutpost.dexdrip.data.UserError.Log;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
+import com.eveningoutpost.dexdrip.data.UserError.Log;
+import com.eveningoutpost.dexdrip.utils.LibreTrendPoint;
+import com.eveningoutpost.dexdrip.Models.GlucoseData;
 
 public class ReadingData {
 

@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.webservices;
 
 import android.util.Log;
 
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import javax.inject.Named;
 import javax.inject.Singleton;

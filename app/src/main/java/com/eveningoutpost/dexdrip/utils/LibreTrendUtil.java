@@ -11,6 +11,7 @@ import com.eveningoutpost.dexdrip.NFCReaderX;
 import com.eveningoutpost.dexdrip.Models.GlucoseData;
 import com.eveningoutpost.dexdrip.data.LibreBlock;
 import com.eveningoutpost.dexdrip.Models.ReadingData;
+import com.eveningoutpost.dexdrip.utils.LibreTrendPoint;
 
 import com.eveningoutpost.dexdrip.utils.LibreTrendPoint;
 
@@ -27,14 +28,7 @@ import com.eveningoutpost.dexdrip.data.UserError.Log;
     If we missed more than 3 readings we might not have data for some time.
     
     If we identify a change in sensor id, we clear all existing points and start calculating again.
-    
-
 */
-// This class represents a per minute data from the libre.
-class LibreTrendPoint {
-    long sensorTime; // The number of minutes from sensor start.
-    long rawSensorValue; // The raw value of the sensor 
-}
 
 // Represents the last point that we have data on.
 class LibreTrendLatest {
