@@ -1671,36 +1671,6 @@ public class WatchUpdaterService extends WearableListenerService implements
         }
     }
 
-    private void sendBlob(String path, final byte[] blob) {
-        forceGoogleApiConnect();
-        if (googleApiClient.isConnected()) {
-            final Asset asset = Asset.createFromBytes(blob);
-            Log.d(TAG, "sendBlob asset size: " + asset.getData().length);
-            final PutDataMapRequest request = PutDataMapRequest.create(path);
-            request.getDataMap().putLong("time", new Date().getTime());
-            request.getDataMap().putByteArray("asset", blob);
-            request.setUrgent();
-
-            final PendingResult result = Wearable.DataApi.putDataItem(googleApiClient, request.asPutDataRequest());
-
-            result.setResultCallback(new ResultCallback<DataApi.DataItemResult>() {
-                @Override
-                public void onResult(DataApi.DataItemResult sendMessageResult) {
-                    if (!sendMessageResult.getStatus().isSuccess()) {
-                        UserError.Log.e(TAG, "ERROR: failed to sendblob Status=" + sendMessageResult.getStatus().getStatusMessage());
-                    } else {
-                        UserError.Log.i(TAG, "Sendblob  Status=: " + sendMessageResult.getStatus().getStatusMessage());
-                    }
-                }
-            });
-
-            Log.d(TAG, "sendBlob: Sending asset of size " + blob.length);
-
-        } else {
-            Log.e(TAG, "sendBlob: No connection to wearable available!");
-        }
-    }
-
 
     // sending to watch - beware we munge the calculated value and replace with display glucose
     private DataMap dataMap(BgReading bg, SharedPreferences sPrefs, BgGraphBuilder bgGraphBuilder, int battery) {

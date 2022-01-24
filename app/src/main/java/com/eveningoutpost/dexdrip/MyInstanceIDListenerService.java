@@ -6,9 +6,9 @@ package com.eveningoutpost.dexdrip;
 
 import android.content.Intent;
 
-import com.google.firebase.iid.FirebaseInstanceIdService;
+import com.google.firebase.messaging.FirebaseMessagingService;
 
-public class MyInstanceIDListenerService extends FirebaseInstanceIdService {
+public class MyInstanceIDListenerService extends FirebaseMessagingService {
     private static final String TAG = "jamorham MyInstanceIDLS";
 
     /**
@@ -17,10 +17,11 @@ public class MyInstanceIDListenerService extends FirebaseInstanceIdService {
      * InstanceID provider.
      */
     @Override
-    public void onTokenRefresh() {
+    public void onNewToken(String s) {
+        super.onNewToken(s);
+
         // Fetch updated Instance ID token and notify our app's server of any changes (if applicable).
         Intent intent = new Intent(this, RegistrationIntentService.class);
         startService(intent);
-        super.onTokenRefresh();
     }
 }

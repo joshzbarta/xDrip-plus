@@ -17,7 +17,7 @@ import com.eveningoutpost.dexdrip.Services.PlusSyncService;
 import com.google.android.gms.gcm.GcmNetworkManager;
 import com.google.android.gms.gcm.PeriodicTask;
 import com.google.android.gms.gcm.Task;
-import com.google.firebase.iid.FirebaseInstanceId;
+
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONObject;
@@ -38,7 +38,9 @@ public class RegistrationIntentService extends IntentService {
         final PowerManager.WakeLock wl = JoH.getWakeLock("registration-intent", 120000);
         try {
             GcmActivity.senderid = getString(R.string.gcm_defaultSenderId);
-            String token = FirebaseInstanceId.getInstance().getToken();
+
+            //TODO Refactor to be handled via token listeners
+            String token = FirebaseMessaging.getInstance().getToken().getResult();
             try {
                 final JSONObject json = new JSONObject(token);
                 final String json_token = json.getString("token");

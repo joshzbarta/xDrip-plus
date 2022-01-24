@@ -77,6 +77,7 @@ public class GcmListenerSvc extends JamListenerSvc {
         return l;
     }
 
+    /*
     @Override
     protected Intent zzD(Intent inteceptedIntent) {
         // intercept and fix google play services wakelocking bug
@@ -91,6 +92,7 @@ public class GcmListenerSvc extends JamListenerSvc {
         }
         return super.zzD(inteceptedIntent);
     }
+     */
 
     @Override
     public void onSendError(String msgID, Exception exception) {

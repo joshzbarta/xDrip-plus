@@ -56,22 +56,22 @@ public class LicenseAgreementActivity extends BaseAppCompatActivity {
     public void viewGoogleLicenses(View myview) {
         try {
             if (!appended) {
-                final String googleLicense = GoogleApiAvailability.getInstance().getOpenSourceSoftwareLicenseInfo(getApplicationContext());
-                if (googleLicense != null) {
+                //final String googleLicense = GoogleApiAvailability.getInstance().getOpenSourceSoftwareLicenseInfo(getApplicationContext());
+                //if (googleLicense != null) {
                     String whiteheader = "<font size=-2 color=white><pre>";
                     String whitefooter = "</font></pre>";
                     WebView textview = (WebView) findViewById(R.id.webView);
                     textview.setBackgroundColor(Color.TRANSPARENT);
                     textview.getSettings().setJavaScriptEnabled(false);
-                    textview.loadDataWithBaseURL("", whiteheader + googleLicense + whitefooter, "text/html", "UTF-8", "");
+                    textview.loadDataWithBaseURL("", whiteheader + "SEE Setings > Google > Open Source for more license info" + whitefooter, "text/html", "UTF-8", "");
                     appended = true;
                     findViewById(R.id.googlelicenses).setVisibility(View.INVISIBLE);
                     findViewById(R.id.webView).setVisibility(View.VISIBLE);
 
-                } else {
-                    UserError.Log.d(TAG, "Nullpointer getting Google License: errorcode:" + GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(getApplicationContext()));
-                    findViewById(R.id.googlelicenses).setVisibility(View.INVISIBLE);
-                }
+                //} else {
+                //    UserError.Log.d(TAG, "Nullpointer getting Google License: errorcode:" + GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(getApplicationContext()));
+                //    findViewById(R.id.googlelicenses).setVisibility(View.INVISIBLE);
+                //}
             }
         } catch (Exception e) {
             // meh
