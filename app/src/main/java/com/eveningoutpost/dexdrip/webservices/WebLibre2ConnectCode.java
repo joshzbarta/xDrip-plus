@@ -3,9 +3,9 @@ package com.eveningoutpost.dexdrip.webservices;
 import android.util.Base64;
 import android.util.Log;
 
-import com.eveningoutpost.dexdrip.Models.ActiveBluetoothDevice;
+import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.Models.LibreOOPAlgorithm;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.UtilityModels.Intents;
 
 import org.json.JSONException;

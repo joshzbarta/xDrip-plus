@@ -9,6 +9,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import com.eveningoutpost.dexdrip.Home;
+import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.MapsActivity;
 import com.eveningoutpost.dexdrip.Models.LibreBluetooth;
 import com.eveningoutpost.dexdrip.NFCReaderX;
@@ -40,6 +41,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 // Important note, this class is based on the fact that android will always run it one thread, which means it does not
 // need synchronization
