@@ -211,15 +211,12 @@ android {
             includeAndroidResources = true
         }
     }
-
-    lintOptions {
-        disable 'MissingTranslation'
-        disable 'ExtraTranslation'
-    }
-
     packagingOptions {
-        exclude 'META-INF/INDEX.LIST'
+        resources {
+            excludes += ['META-INF/INDEX.LIST']
+        }
     }
+
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -252,7 +249,6 @@ android {
         dev {
             minifyEnabled false
             shrinkResources false
-            useProguard false
             ext.enableCrashlytics = false
             ext.alwaysUpdateBuildId = false
             versionNameSuffix "-debug"
@@ -276,7 +272,7 @@ android {
             buildConfigField "int", "buildVersion", "2021010100"
             buildConfigField "String", "buildUUID", "\"0f79a60a-5616-99be-8eb1-a430edcfd9fd\""
             buildConfigField "long", "buildTimestamp", "1609459200L"
-            resConfigs "en", "xxhdpi"
+            resConfigs 'en', 'xxhdpi'
             targetSdkVersion 26
         }
 
@@ -289,6 +285,9 @@ android {
             // the defaultConfig block instead. You still need to create this flavor.
             // Otherwise, all variants use the "dev" flavor configurations.
         }
+    }
+    lint {
+        disable 'MissingTranslation', 'ExtraTranslation'
     }
 
 }

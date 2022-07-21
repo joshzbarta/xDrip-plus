@@ -475,6 +475,16 @@
                 android:key="plus_show_reminders"
                 android:summary="@string/show_reminder_features"
                 android:title="@string/enable_reminder_features" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="show_setup_wizard_prompt"
+                android:summary="@string/show_setup_wizard_prompt"
+                android:title="@string/show_setup_wizard_prompt" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="show_start_sensor_prompt"
+                android:summary="@string/show_start_sensor_prompt"
+                android:title="@string/show_start_sensor_prompt" />
             <Preference
                 android:key="show_accessibility_settings"
                 android:summary="If your phone has Always On Display you can enable the xDrip widget there by enabling the xDrip accessibility service from the Android System Settings page."

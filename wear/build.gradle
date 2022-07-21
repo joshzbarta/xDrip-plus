@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.1'
+        classpath 'com.android.tools.build:gradle:7.1.1'
     }
 
 }
@@ -89,10 +89,6 @@ apply from: '../app/token-replace.gradle'
 
 android {
     compileSdkVersion 29
-    lintOptions {
-        checkReleaseBuilds false
-//        abortOnError false
-    }
     defaultConfig {
         applicationId "com.eveningoutpost.dexdrip"
         minSdkVersion 26
@@ -138,10 +134,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     packagingOptions {
-        exclude 'META-INF/INDEX.LIST'
+        resources {
+            excludes += ['META-INF/INDEX.LIST']
+        }
     }
+
 
     dataBinding {
         enabled = true
@@ -169,7 +167,7 @@ android {
             buildConfigField "int", "buildVersion", "2021010100"
             buildConfigField "String", "buildUUID", "\"0f79a60a-5616-99be-8eb1-a430edcfd9fe\""
             buildConfigField "long", "buildTimestamp", "1609459200L"
-            resConfigs "en", "xxhdpi"
+            resConfigs 'en', 'xxhdpi'
             targetSdkVersion 26
         }
 
@@ -182,6 +180,9 @@ android {
             // the defaultConfig block instead. You still need to create this flavor.
             // Otherwise, all variants use the "dev" flavor configurations.
         }
+    }
+    lint {
+        checkReleaseBuilds false
     }
 }
 

@@ -1612,4 +1612,6 @@
     <string name="title_lower_fuzzer">Lower FUZZER</string>
     <string name="summary_lower_fuzzer">Lower the FUZZER value from 2.5 minutes to 37.5 seconds</string>
     <string name="without_camera_permission_cannot_scan_barcode">Without camera permission we cannot scan a barcode</string>
+    <string name="show_start_sensor_prompt">Show Start Sensor Prompt</string>
+    <string name="show_setup_wizard_prompt">Show Setup Wizard Prompt</string>
 </resources>
