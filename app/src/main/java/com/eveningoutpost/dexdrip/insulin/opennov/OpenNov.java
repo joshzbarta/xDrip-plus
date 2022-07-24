@@ -13,7 +13,7 @@ import androidx.annotation.RequiresApi;
 
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.buffer.MyByteBuffer;
 import com.eveningoutpost.dexdrip.insulin.opennov.data.ICompleted;

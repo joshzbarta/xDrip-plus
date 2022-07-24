@@ -223,7 +223,7 @@ public class AddCalibration extends AppCompatActivity implements NavigationDrawe
                                     final Calibration Calibration = new Calibration();
                                     final Sensor sensor = Sensor.currentSensor();
                                     JoH.static_toast_long("Sending Blood Test to Transmitter");
-                                    BloodTest.create( (long)(JoH.tsl() - (Constants.SECOND_IN_MS * 30)), bg, true,  "Add Calibration");
+                                    BloodTest.create( (long)(JoH.tsl() - (Constants.SECOND_IN_MS * 30)), bg, "Add Calibration");
                                     if (!Pref.getBooleanDefaultFalse("bluetooth_meter_for_calibrations_auto")) {
                                         NativeCalibrationPipe.addCalibration((int) bg, JoH.tsl() - (Constants.SECOND_IN_MS * 30));
                                     }

@@ -5,7 +5,7 @@ import static com.eveningoutpost.dexdrip.insulin.opennov.BaseMessage.d;
 import static com.eveningoutpost.dexdrip.insulin.opennov.BaseMessage.log;
 
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import lombok.RequiredArgsConstructor;
 import lombok.val;

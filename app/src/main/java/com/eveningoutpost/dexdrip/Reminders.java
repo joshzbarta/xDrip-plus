@@ -67,7 +67,7 @@ import android.widget.TextView;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.Reminder;
-import com.eveningoutpost.dexdrip.Models.Treatments;
+import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.UtilityModels.JamorhamShowcaseDrawer;

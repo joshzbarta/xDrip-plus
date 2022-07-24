@@ -6,7 +6,7 @@ import static com.google.common.truth.Truth.assertWithMessage;
 import android.util.SparseArray;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.Treatments;
+import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
 
 import org.junit.After;

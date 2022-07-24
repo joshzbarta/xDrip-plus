@@ -145,6 +145,7 @@ public class InsulinManager {
     }
 
     public static ArrayList<Insulin> getAllProfiles() {
+        checkInitialized();
         return profiles;
     }
 

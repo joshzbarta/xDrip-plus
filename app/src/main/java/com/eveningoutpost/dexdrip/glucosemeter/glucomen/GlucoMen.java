@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.GlucoseMeter.glucomen;
+package com.eveningoutpost.dexdrip.glucosemeter.glucomen;
 
 import android.nfc.Tag;
 

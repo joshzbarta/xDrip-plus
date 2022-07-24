@@ -203,7 +203,7 @@ public class MegaStatus extends ActivityWithMenu {
                 addSection(SHARE_FOLLOW, "Dex Share Follow Status");
             }
             if(dexCollectionType.equals(WebFollow)) {
-                addAsection(WEB_FOLLOW, "Web Follower Status");
+                addSection(WEB_FOLLOW, "Web Follower Status");
             }
 
             //addAsection("Misc", "Currently Empty");

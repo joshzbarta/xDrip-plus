@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.GlucoseMeter.glucomen.devices;
+package com.eveningoutpost.dexdrip.glucosemeter.glucomen.devices;
 
 import android.nfc.Tag;
 
@@ -21,7 +21,7 @@ public class Identify {
     private static final byte AERO2K_PRODUCT_CODE = 0x26;
 
     public static BaseDevice getDevice(final Tag tag) {
-        val id = tag.getId();
+        byte[] id = tag.getId();
         UserError.Log.d(TAG, "Tag ID bytes: " + HexDump.dumpHexString(id));
         if (id.length == 8) {
             if (id[7] == ISO_15693_ID

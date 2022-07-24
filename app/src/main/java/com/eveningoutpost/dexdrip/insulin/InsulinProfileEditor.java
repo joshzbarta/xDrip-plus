@@ -14,7 +14,7 @@ import com.eveningoutpost.dexdrip.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import lombok.var;
 /**
  * Created by gruoner on 28/07/2019.
  */
@@ -50,34 +50,39 @@ public class InsulinProfileEditor extends BaseAppCompatActivity {
         basalSpinner = (Spinner) findViewById(R.id.basalSpinner);
         bolusSpinner = (Spinner) findViewById(R.id.bolusSpinner);
 
-        for (Insulin i : InsulinManager.getAllProfiles()) {
-            LinearLayout v = new LinearLayout(this);
-            v.setOrientation(LinearLayout.HORIZONTAL);
-            CheckBox cb = new CheckBox(this);
-            if (InsulinManager.isProfileEnabled(i))
-                cb.setChecked(true);
-            else
-                cb.setChecked(false);
-            cb.setText(i.getDisplayName());
-            cb.setTextSize(20);
-            checkboxes.put(i, cb);
-            cb.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (InsulinManager.isProfileEnabled(i))
-                        InsulinManager.disableProfile(i);
-                    else
-                        InsulinManager.enableProfile(i);
-                    if (InsulinManager.isProfileEnabled(i))
-                        cb.setChecked(true);
-                    else
-                        cb.setChecked(false);
-                }
-            });
-            v.addView(cb);
-            linearLayout.addView(v);
-            profiles.put(i.getDisplayName(), i);
+        ArrayList<Insulin> allProfiles = InsulinManager.getAllProfiles();
+
+        if(allProfiles!=null) {
+            for (Insulin i : allProfiles) {
+                LinearLayout v = new LinearLayout(this);
+                v.setOrientation(LinearLayout.HORIZONTAL);
+                CheckBox cb = new CheckBox(this);
+                if (InsulinManager.isProfileEnabled(i))
+                    cb.setChecked(true);
+                else
+                    cb.setChecked(false);
+                cb.setText(i.getDisplayName());
+                cb.setTextSize(20);
+                checkboxes.put(i, cb);
+                cb.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (InsulinManager.isProfileEnabled(i))
+                            InsulinManager.disableProfile(i);
+                        else
+                            InsulinManager.enableProfile(i);
+                        if (InsulinManager.isProfileEnabled(i))
+                            cb.setChecked(true);
+                        else
+                            cb.setChecked(false);
+                    }
+                });
+                v.addView(cb);
+                linearLayout.addView(v);
+                profiles.put(i.getDisplayName(), i);
+            }
         }
+
         ArrayList<String> p = new ArrayList<String>(profiles.keySet());
         ArrayAdapter<String> profilesAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, p);
         profilesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

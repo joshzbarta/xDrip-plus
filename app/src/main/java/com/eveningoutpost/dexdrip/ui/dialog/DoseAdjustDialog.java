@@ -5,7 +5,7 @@ import android.app.AlertDialog;
 
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.Treatments;
+import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.Services.SyncService;
 import com.eveningoutpost.dexdrip.UtilityModels.UploaderQueue;

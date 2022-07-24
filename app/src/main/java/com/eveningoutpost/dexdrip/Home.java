@@ -39,7 +39,7 @@ import android.provider.Settings;
 import android.speech.RecognizerIntent;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import android.support.design.widget.Snackbar;
+import com.google.android.material.snackbar.Snackbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -784,92 +784,76 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
     }
 
     // handle sending the intent
-    private void processCalibrationNoUI(final double bg, final double timeOffset) {
-        if (timeOffset < 0) {
-            toaststaticnext(gs(R.string.got_calibration_in_the_future__cannot_process));
-            return;
-        }
+    private void processCalibrationNoUI(final double glucosenumber, final double timeoffset) {
+        if (glucosenumber > 0) {
 
-        if(bg <=40 || bg>=400)
-        {
-            if(bg>0 && bg <=800)
-            {
-                //we still want to RECORD very low or very high bgs, but we can't calibrate with them
-                BloodTest.create(bg, timeOffset, false, "Manual Entry");
+            if (timeoffset < 0) {
+                toaststaticnext(gs(R.string.got_calibration_in_the_future__cannot_process));
+                return;
             }
 
-            toaststaticnext(gs(R.string.got_calibration_out_of_range__cannot_process));
-            return;
-        }
+            final Intent calintent = new Intent(getApplicationContext(), AddCalibration.class);
 
-        final Intent calIntent = new Intent(getApplicationContext(), AddCalibration.class);
-        calIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        calIntent.putExtra("timestamp", JoH.tsl());
-        calIntent.putExtra("bg_string", JoH.qs(bg));
-        calIntent.putExtra("bg_age", Long.toString((long) (timeOffset / 1000)));
-        calIntent.putExtra("allow_undo", "true");
-        calIntent.putExtra("cal_source", "processCalibrationNoUi");
-        Log.d(TAG, "ProcessCalibrationNoUI number: " + bg + " offset: " + timeOffset);
+            calintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            calintent.putExtra("timestamp", tsl());
+            calintent.putExtra("bg_string", JoH.qs(glucosenumber));
+            calintent.putExtra("bg_age", Long.toString((long) (timeoffset / 1000)));
+            calintent.putExtra("allow_undo", "true");
+            calintent.putExtra("cal_source", "processCalibrationNoUi");
+            Log.d(TAG, "ProcessCalibrationNoUI number: " + glucosenumber + " offset: " + timeoffset);
 
-        final String calibration_type = Pref.getString("treatment_fingerstick_calibration_usage", "ask");
+            final String calibration_type = Pref.getString("treatment_fingerstick_calibration_usage", "ask");
             Log.d(TAG, "Creating blood test record from input data");
             BloodTest.createFromCal(glucosenumber, timeoffset, "Manual Entry");
             GcmActivity.syncBloodTests();
             if (!Pref.getBooleanDefaultFalse("bluetooth_meter_for_calibrations_auto")) { // If automatic calibration is disabled
-            if (calibration_type.equals("ask")) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(gs(R.string.use_bg_for_calibration));
-                builder.setMessage(gs(R.string.do_you_want_to_use_this_entered_fingerstick_blood_glucose_test_to_calibrate_with__you_can_change_when_this_dialog_is_displayed_in_settings));
+                if (calibration_type.equals("ask")) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setTitle(gs(R.string.use_bg_for_calibration));
+                    builder.setMessage(gs(R.string.do_you_want_to_use_this_entered_fingerstick_blood_glucose_test_to_calibrate_with__you_can_change_when_this_dialog_is_displayed_in_settings));
 
-                builder.setPositiveButton(gs(R.string.yes_calibrate), (dialog, which) -> {
-                calIntent.putExtra("note_only", "false");
-                calIntent.putExtra("from_interactive", "true");
-                startIntentThreadWithDelayedRefresh(calIntent);
-                    dialog.dismiss();
-                });
-
-                    builder.setNegativeButton(gs(R.string.no), (dialog, which) -> {
-                    // TODO make this a blood test entry xx
-                BloodTest.create(JoH.tsl(), bg, false, "Manual Entry" );
-
-                    calintent.putExtra("note_only", "true");
-                    startIntentThreadWithDelayedRefresh(calintent);
-
-                    dialog.dismiss();
-                });
-
-                AlertDialog alert = builder.create();
-                alert.show();
-
-            } else if (calibration_type.equals("auto")) {
-                BloodTest.createFromCal(glucosenumber, timeoffset, "Manual Entry");
-                if ((!Pref.getBooleanDefaultFalse("bluetooth_meter_for_calibrations_auto"))
-                        && (DexCollectionType.getDexCollectionType() != DexCollectionType.Follower)
-                        && (JoH.pratelimit("ask_about_auto_calibration", 86400 * 30))) {
-                    final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setTitle(gs(R.string.enable_automatic_calibration));
-                    builder.setMessage(gs(R.string.entered_blood_tests_which_occur_during_flat_trend_periods_can_automatically_be_used_to_recalibrate_after_20_minutes_this_should_provide_the_most_accurate_method_to_calibrate_with__do_you_want_to_enable_this_feature));
-
-                    builder.setPositiveButton(gs(R.string.yes_enable), (dialog, which) -> {
-                        Pref.setBoolean("bluetooth_meter_for_calibrations_auto", true);
-                        JoH.static_toast_long(gs(R.string.automated_calibration_enabled));
+                    builder.setPositiveButton(gs(R.string.yes_calibrate), (dialog, which) -> {
+                        calintent.putExtra("note_only", "false");
+                        calintent.putExtra("from_interactive", "true");
+                        startIntentThreadWithDelayedRefresh(calintent);
                         dialog.dismiss();
                     });
 
+                    builder.setNegativeButton(gs(R.string.no), (dialog, which) -> {
+                        dialog.dismiss();
+                    });
+
+                    AlertDialog alert = builder.create();
+                    alert.show();
+
+                } else if (calibration_type.equals("auto")) {
+                    if ((!Pref.getBooleanDefaultFalse("bluetooth_meter_for_calibrations_auto"))
+                            && (DexCollectionType.getDexCollectionType() != DexCollectionType.Follower)
+                            && (JoH.pratelimit("ask_about_auto_calibration", 86400 * 30))) {
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                        builder.setTitle(gs(R.string.enable_automatic_calibration));
+                        builder.setMessage(gs(R.string.entered_blood_tests_which_occur_during_flat_trend_periods_can_automatically_be_used_to_recalibrate_after_20_minutes_this_should_provide_the_most_accurate_method_to_calibrate_with__do_you_want_to_enable_this_feature));
+
+                        builder.setPositiveButton(gs(R.string.yes_enable), (dialog, which) -> {
+                            Pref.setBoolean("bluetooth_meter_for_calibrations_auto", true);
+                            JoH.static_toast_long(gs(R.string.automated_calibration_enabled));
+                            dialog.dismiss();
+                        });
+
                         builder.setNegativeButton(gs(R.string.no), (dialog, which) -> dialog.dismiss());
 
-                    final AlertDialog alert = builder.create();
-                    alert.show();
-                }
-                // offer choice to enable auto-calibration mode if not already enabled on pratelimit
+                        final AlertDialog alert = builder.create();
+                        alert.show();
+                    }
+                    // offer choice to enable auto-calibration mode if not already enabled on pratelimit
                 } else if (calibration_type.equals("never")) {
-            } else {
-                // if use for calibration == "no" then this is a "note_only" type, otherwise it isn't
-            calIntent.putExtra("note_only", calibration_type.equals("never") ? "true" : "false");
-            startIntentThreadWithDelayedRefresh(calIntent);
+                } else {
+                    // if use for calibration == "no" then this is a "note_only" type, otherwise it isn't
+                    calintent.putExtra("note_only", calibration_type.equals("never") ? "true" : "false");
+                    startIntentThreadWithDelayedRefresh(calintent);
                 }
+            }
         }
-
     }
 
     static void startIntentThreadWithDelayedRefresh(final Intent intent) {
@@ -965,17 +949,14 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                 if ((mytimeoffset > (DAY_IN_MS * 3)) || (mytimeoffset < -HOUR_IN_MS * 3)) {
                     Log.e(TAG, "Treatment bloodtest timestamp out of range: " + mytimeoffset);
                 } else {
-                    BloodTest.create(myglucosenumber, mytimeoffset, false, "Manual Entry", thisuuid);
+                    BloodTest.createFromCal(myglucosenumber, mytimeoffset, "Manual Entry", thisuuid);
                 }
             }
             watchkeypad = false;
             watchkeypadset = false;
             watchkeypad_timestamp = -1;
-        }
-        else {
+        } else
             processCalibrationNoUI(myglucosenumber, mytimeoffset);
-        }
-
         staticRefreshBGCharts();
     }
 

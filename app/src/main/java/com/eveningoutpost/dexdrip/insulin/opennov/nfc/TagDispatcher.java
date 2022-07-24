@@ -6,7 +6,7 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.insulin.opennov.OpenNov;
 import com.eveningoutpost.dexdrip.insulin.opennov.data.ICompleted;
