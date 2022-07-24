@@ -7,6 +7,7 @@ import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 import com.eveningoutpost.dexdrip.xdrip;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
@@ -20,22 +21,23 @@ public class InsulinManager {
     private static ArrayList<Insulin> profiles;
     private static volatile Insulin basalProfile, bolusProfile;
 
-    class insulinDataWrapper {
-        public ArrayList<insulinData> profiles;
+    class InsulinDataWrapper {
+        public ArrayList<InsulinData> profiles;
 
-        insulinDataWrapper() {
-            profiles = new ArrayList<insulinData>();
+        public InsulinDataWrapper() {
+            profiles = new ArrayList<InsulinData>();
         }
 
         public ArrayList<Insulin> getInsulinProfiles() {
             if (!checkUniquenessPPN())
                 return null;
             ArrayList<Insulin> ret = new ArrayList<Insulin>();
-            for (insulinData d : profiles) {
+            for (InsulinData d : profiles) {
                 Insulin insulin;
                 switch (d.Curve.type.toLowerCase()) {
                     case "linear trapezoid":
-                        insulin = new LinearTrapezoidInsulin(d.name, d.displayName, d.PPN, d.concentration, d.Curve.data);
+                        JsonObject curveDataJson = new Gson().fromJson(d.Curve.data, JsonObject.class);
+                        insulin = new LinearTrapezoidInsulin(d.name, d.displayName, d.PPN, d.concentration, curveDataJson);
                         Log.d(TAG, "initialized linear trapezoid insulin " + d.displayName);
                         break;
                     default:
@@ -50,7 +52,7 @@ public class InsulinManager {
         private Boolean checkUniquenessPPN() {
             Log.d(TAG, "checking for uniqueness");
             ArrayList<String> PPNs = new ArrayList<String>();
-            for (insulinData d : profiles)
+            for (InsulinData d : profiles)
                 for (String ppn : d.PPN)
                     if (PPNs.contains(ppn)) {
                         Log.d(TAG, "pharmacy product number dupplicated " + ppn + ". that's not allowed!");
@@ -59,19 +61,6 @@ public class InsulinManager {
             Log.d(TAG, "pharmacy product numbers uniquee");
             return true;
         }
-    }
-
-    class insulinCurve {
-        public String type;
-        public JsonObject data;
-    }
-
-    class insulinData {
-        public String displayName;
-        public String name;
-        public ArrayList<String> PPN;
-        public String concentration;
-        public insulinCurve Curve;
     }
 
     private static String readTextFile(InputStream inputStream) {
@@ -94,12 +83,47 @@ public class InsulinManager {
 
     private static void initializeInsulinManager(InputStream in_s) {
         Log.d(TAG, "Initialize insulin profiles");
-        insulinDataWrapper iDW;
+        InsulinDataWrapper iDW;
         try {
             String input = readTextFile(in_s);
             Gson gson = new Gson();
-            iDW = gson.fromJson(input, insulinDataWrapper.class);
-            profiles = iDW.getInsulinProfiles();
+
+            //iDW = gson.fromJson(input, InsulinDataWrapper.class);
+            //profiles = iDW.getInsulinProfiles();
+
+            JsonObject jsonObject = gson.fromJson(input, JsonObject.class);
+            JsonArray jsonProfiles = jsonObject.getAsJsonArray("profiles");
+
+            profiles = new ArrayList<>();
+            for (JsonElement prof: jsonProfiles) {
+                JsonObject jsonObj = prof.getAsJsonObject();
+                String name = jsonObj.get("name").getAsString();
+                String displayName = jsonObj.get("displayName").getAsString();
+                String concentration = jsonObj.get("concentration").getAsString();
+                JsonArray jsonPPNs = jsonObj.get("PPN").getAsJsonArray();
+                ArrayList<String> ppns = new ArrayList<>();
+                for(JsonElement ppnElem : jsonPPNs)
+                {
+                    String ppn = ppnElem.getAsString();
+                    ppns.add(ppn);
+                }
+                JsonObject curve = jsonObj.get("Curve").getAsJsonObject();
+                String curveType = curve.get("type").getAsString();
+                Insulin insulin;
+                switch (curveType){
+                    case "linear trapezoid":
+                        JsonObject curveDataJson = curve.get("data").getAsJsonObject();
+                        insulin = new LinearTrapezoidInsulin(name, displayName, ppns, concentration, curveDataJson);
+                        profiles.add(insulin);
+                        Log.d(TAG, "initialized linear trapezoid insulin " + displayName);
+                        break;
+                    default:
+                        Log.d(TAG, "UNKNOWN Curve-Type " + curveType);
+                        break;
+                }
+            }
+
+
             Log.d(TAG, "Loaded Insulin Profiles: " + Integer.toString(profiles.size()));
             LoadDisabledProfilesFromPrefs();
             Log.d(TAG, "InsulinManager initialized from config file and Prefs");

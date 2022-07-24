@@ -20,6 +20,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Set;
@@ -28,19 +29,13 @@ import java.util.TreeSet;
 import lombok.val;
 
 public class InsulinManagerTest extends RobolectricTestWithConfig {
-
-    /**
-     * Check that MessageFormat strings are still working after resource translation
-     */
-
-
     @Test
     public void testLoadStuff() throws IOException {
-        int x = 3;
-        int y = 5;
-        int z = x+y;
+        ArrayList<Insulin> profiles = InsulinManager.getAllProfiles();
 
-        Assert.assertEquals(z, 8);
+        for (Insulin p: profiles) {
+            String x = p.toString();
+        }
     }
 
 }
