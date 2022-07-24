@@ -8,6 +8,7 @@ import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 import com.eveningoutpost.dexdrip.data.UserError;
+import com.eveningoutpost.dexdrip.profileeditor.BasalRepository;
 import com.eveningoutpost.dexdrip.profileeditor.ProfileEditor;
 import com.eveningoutpost.dexdrip.profileeditor.ProfileItem;
 import com.eveningoutpost.dexdrip.xdrip;
@@ -40,7 +41,7 @@ public class Profile {
     private static boolean preferences_loaded = false;
     private static List<ProfileItem> profileItemList;
 
-    public static double getSensitivity(double when) {
+    public static double getSensitivity(long when) {
         final double sensitivity = findItemListElementForTime(when).sensitivity;
         // Log.d(TAG,"sensitivity: "+sensitivity);
         return sensitivity;
@@ -59,7 +60,7 @@ public class Profile {
         stored_default_insulin_action_time = value;
     }
 
-    public static double getCarbAbsorptionRate(double when) {
+    public static double getCarbAbsorptionRate(long when) {
         return stored_default_absorption_rate; // carbs per hour
     }
 
@@ -69,19 +70,19 @@ public class Profile {
         stored_default_absorption_rate = value;
     }
 
-    public static double insulinActionTime(double when) {
+    public static double insulinActionTime(long when) {
         return stored_default_insulin_action_time;
     }
 
-    public static double carbDelayMinutes(double when) {
+    public static double carbDelayMinutes(long when) {
         return stored_default_carb_delay_minutes;
     }
 
-    public static double maxLiverImpactRatio(double when) {
+    public static double maxLiverImpactRatio(long when) {
         return 0.3; // how much can the liver block carbs going in to blood stream?
     }
 
-    public static double getCarbRatio(double when) {
+    public static double getCarbRatio(long when) {
         return findItemListElementForTime(when).carb_ratio;
         //return the_carb_ratio; // g per unit
     }
@@ -98,11 +99,12 @@ public class Profile {
         profileItemList = null;
     }
 
-    private static ProfileItem findItemListElementForTime(double when) {
+    private static ProfileItem findItemListElementForTime(long when) {
         populateProfile();
         // TODO does this want/need a hash table lookup cache?
-        if (profileItemList.size() == 1)
-            profileItemList.get(0); // always will be first/only element.
+        if (profileItemList.size() == 1) {
+            return profileItemList.get(0); // always will be first/only element.
+        }
         // get time of day
         final int min = ProfileItem.timeStampToMin(when);
         // find element
@@ -134,7 +136,7 @@ public class Profile {
         the_carb_ratio = value; // g per unit
     }
 
-    public static double getLiverSensRatio(double when) {
+    public static double getLiverSensRatio(long when) {
         return 2.0;
     }
 
@@ -146,7 +148,7 @@ public class Profile {
         }
     }
 
-    static double getTargetRangeInMmol(double when) {
+    static double getTargetRangeInMmol(long when) {
         // return tolerantParseDouble(Home.getString("plus_target_range",Double.toString(5.5 / scale_factor)));
         return getTargetRangeInUnits(when) / scale_factor;
     }
@@ -156,32 +158,30 @@ public class Profile {
         //return getTargetRangeInMmol(when) * scale_factor; // TODO deal with rounding errors here? (3 decimal places?)
     }
 
-    static double getCarbSensitivity(double when) {
+    static double getCarbSensitivity(long when) {
         return getCarbRatio(when) / getSensitivity(when);
     }
 
-    static double getCarbsToRaiseByMmol(double mmol, double when) {
-
-        double result = getCarbSensitivity(when) * mmol;
-        return result;
+    static double getCarbsToRaiseByMmol(double mmol, long when) {
+        return getCarbSensitivity(when) * mmol;
     }
 
-    static double getInsulinToLowerByMmol(double mmol, double when) {
+    static double getInsulinToLowerByMmol(double mmol, long when) {
         return mmol / getSensitivity(when);
     }
 
     // take an average of carb suggestions when our scope is between two times
-    static double getCarbsToRaiseByMmolBetweenTwoTimes(double mmol, double whennow, double whenthen) {
+    static double getCarbsToRaiseByMmolBetweenTwoTimes(double mmol, long whennow, long whenthen) {
         double result = (getCarbsToRaiseByMmol(mmol, whennow) + getCarbsToRaiseByMmol(mmol, whenthen)) / 2;
         UserError.Log.d(TAG, "GetCarbsToRaiseByMmolBetweenTwoTimes: " + JoH.qs(mmol) + " result: " + JoH.qs(result));
         return result;
     }
 
-    static double getInsulinToLowerByMmolBetweenTwoTimes(double mmol, double whennow, double whenthen) {
+    static double getInsulinToLowerByMmolBetweenTwoTimes(double mmol, long whennow, long whenthen) {
         return (getInsulinToLowerByMmol(mmol, whennow) + getInsulinToLowerByMmol(mmol, whenthen)) / 2;
     }
 
-    public static double[] evaluateEndGameMmol(double mmol, double endGameTime, double timeNow) {
+    public static double[] evaluateEndGameMmol(double mmol, long endGameTime, long timeNow) {
         double addcarbs = 0;
         double addinsulin = 0;
         final double target_mmol = getTargetRangeInMmol(endGameTime) * scale_factor;
@@ -240,12 +240,17 @@ public class Profile {
 
     private static double tolerantParseDouble(String str) throws NumberFormatException {
         return Double.parseDouble(str.replace(",", "."));
-
     }
 
-    // TODO placeholder
     public static double getBasalRate(final long when) {
-        return 0d;
+        return BasalRepository.getActiveRate(when);
+    }
+
+    public static double getBasalRateAbsoluteFromPercent(final long when, int basal_percent) {
+        return getBasalRate(when) * basal_percent / 100d;
+    }
+    public static int getBasalRatePercentFromAbsolute(final long when, double basal_absolute) {
+        return (int) Math.round((basal_absolute / getBasalRate(when)) * 100d);
     }
 
 }

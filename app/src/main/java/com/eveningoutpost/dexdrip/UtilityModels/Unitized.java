@@ -21,6 +21,10 @@ public class Unitized {
         return mgdl * Constants.MGDL_TO_MMOLL;
     }
 
+    public static double mgdlConvert(double mmol) {
+        return mmol * Constants.MMOLL_TO_MGDL;
+    }
+
     public static double unitized(double value, boolean doMgdl) {
         if (doMgdl) {
             return value;
