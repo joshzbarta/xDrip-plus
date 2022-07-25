@@ -305,6 +305,7 @@
     <string name="high_glucose_values">Высокие значения глюкозы</string>
     <string name="in_range_glucose_values">Значения глюкозы в диапазоне</string>
     <string name="default_color_selected">Цвет по-умолчанию</string>
+    <string name="color_bg_values">Цвета показания ГК и стрелки тренда</string>
     <string name="xdrip_plus_extra_settings">Дополнительные настройки xDrip+</string>
     <string name="example_chart">Пример графика</string>
     <string name="treatments_prediction_curves">Введённые значения / Прогнозные кривые</string>
@@ -1642,4 +1643,5 @@
     <string name="source_wizard_button">Кнопка мастера настройки источника</string>
     <string name="please_wait_seconds_before_trying_to_start_sensor">Подождите %d секунд перед попыткой запустить сенсор</string>
     <string name="please_update_OOP2_or_move_to_calibrate_based_on_raw_mode">пожалуйста, обновите OOP2 или переключитесь на калибровку, основанную на raw-режиме</string>
+    <string name="special_pairing_workaround">Специальный обходной путь сопряжения</string>
 </resources>
