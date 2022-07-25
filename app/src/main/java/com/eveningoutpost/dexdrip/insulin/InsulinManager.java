@@ -97,28 +97,33 @@ public class InsulinManager {
             profiles = new ArrayList<>();
             for (JsonElement prof: jsonProfiles) {
                 JsonObject jsonObj = prof.getAsJsonObject();
-                String name = jsonObj.get("name").getAsString();
-                String displayName = jsonObj.get("displayName").getAsString();
-                String concentration = jsonObj.get("concentration").getAsString();
+                InsulinData insulinData = new InsulinData();
+                insulinData.name = jsonObj.get("name").getAsString();
+                insulinData.displayName = jsonObj.get("displayName").getAsString();
+                insulinData.concentration = jsonObj.get("concentration").getAsString();
                 JsonArray jsonPPNs = jsonObj.get("PPN").getAsJsonArray();
-                ArrayList<String> ppns = new ArrayList<>();
+                insulinData.PPN = new ArrayList<>();
                 for(JsonElement ppnElem : jsonPPNs)
                 {
                     String ppn = ppnElem.getAsString();
-                    ppns.add(ppn);
+                    insulinData.PPN.add(ppn);
                 }
                 JsonObject curve = jsonObj.get("Curve").getAsJsonObject();
-                String curveType = curve.get("type").getAsString();
+
+                insulinData.Curve=new InsulinCurve();
+                insulinData.Curve.type = curve.get("type").getAsString();
+                insulinData.Curve.data = curve.get("data").getAsJsonObject();
+
                 Insulin insulin;
-                switch (curveType){
+                switch(insulinData.Curve.type){
                     case "linear trapezoid":
                         JsonObject curveDataJson = curve.get("data").getAsJsonObject();
-                        insulin = new LinearTrapezoidInsulin(name, displayName, ppns, concentration, curveDataJson);
+                        insulin = new LinearTrapezoidInsulin(insulinData.name, insulinData.displayName, insulinData.PPN, insulinData.concentration, insulinData.Curve.data);
                         profiles.add(insulin);
-                        Log.d(TAG, "initialized linear trapezoid insulin " + displayName);
+                        Log.d(TAG, "initialized linear trapezoid insulin " + insulinData.displayName);
                         break;
                     default:
-                        Log.d(TAG, "UNKNOWN Curve-Type " + curveType);
+                        Log.d(TAG, "UNKNOWN Curve-Type " + insulinData.Curve.type);
                         break;
                 }
             }
