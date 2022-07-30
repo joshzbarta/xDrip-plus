@@ -88,7 +88,7 @@ apply from: '../app/token-replace.gradle'
 //apply plugin: 'io.fabric'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     defaultConfig {
         applicationId "com.eveningoutpost.dexdrip"
         minSdkVersion 26
