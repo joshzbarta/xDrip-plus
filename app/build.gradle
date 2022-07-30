@@ -291,12 +291,12 @@ dependencies {
     implementation(name: 'search-preference', ext: 'aar')
     implementation 'org.apache.commons:commons-text:1.9'
     implementation 'com.google.dagger:dagger:2.43.1'
-    implementation 'com.evernote:android-job:1.4.2'
+    implementation 'com.evernote:android-job:1.4.3'
     implementation 'androidx.multidex:multidex:2.0.1'
     //implementation 'com.google.dagger:dagger-android-support:2.x' // if you use the support libraries
     annotationProcessor 'com.google.dagger:dagger-compiler:2.43.1'
     implementation 'net.danlew:android.joda:2.10.9.1'
-    testImplementation 'joda-time:joda-time:2.10.7'
+    testImplementation 'joda-time:joda-time:2.10.14'
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.objenesis:objenesis:2.5.1'
