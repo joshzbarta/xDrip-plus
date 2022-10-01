@@ -1,10 +1,10 @@
 package com.eveningoutpost.dexdrip.UtilityModels;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.eveningoutpost.dexdrip.BaseAppCompatActivity;
 import com.eveningoutpost.dexdrip.databinding.ActivityXdripDreamSettingsBinding;
+import com.eveningoutpost.dexdrip.xutilitymodels.PrefsViewImpl;
 
 public class XDripDreamSettingsActivity extends BaseAppCompatActivity {
 

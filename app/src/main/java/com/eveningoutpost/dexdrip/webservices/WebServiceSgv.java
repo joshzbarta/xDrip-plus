@@ -1,14 +1,12 @@
 package com.eveningoutpost.dexdrip.webservices;
 
-import android.util.Log;
-
 import androidx.annotation.VisibleForTesting;
 
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.DateUtil;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.NanoStatus;
+import com.eveningoutpost.dexdrip.xutilitymodels.NanoStatus;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 import com.eveningoutpost.dexdrip.UtilityModels.SensorStatus;
 import com.eveningoutpost.dexdrip.dagger.Singleton;
@@ -20,7 +18,6 @@ import org.json.JSONObject;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;

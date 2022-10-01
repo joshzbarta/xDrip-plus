@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Tree<T> {
 
-    T data;
+    public T data;
     private Tree<T> parent;
     private List<Tree<T>> children;
 

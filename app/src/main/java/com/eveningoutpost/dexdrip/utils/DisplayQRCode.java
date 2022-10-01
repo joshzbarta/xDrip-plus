@@ -14,7 +14,7 @@ import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
-import com.eveningoutpost.dexdrip.UtilityModels.PrefsViewImpl;
+import com.eveningoutpost.dexdrip.xutilitymodels.PrefsViewImpl;
 import com.eveningoutpost.dexdrip.UtilityModels.desertsync.RouteTools;
 import com.eveningoutpost.dexdrip.databinding.ActivityDisplayQrcodeBinding;
 import com.eveningoutpost.dexdrip.xdrip;

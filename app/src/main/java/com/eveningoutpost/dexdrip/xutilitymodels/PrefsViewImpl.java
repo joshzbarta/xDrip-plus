@@ -1,7 +1,8 @@
-package com.eveningoutpost.dexdrip.UtilityModels;
+package com.eveningoutpost.dexdrip.xutilitymodels;
 
 import androidx.annotation.NonNull;
 
+import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 import com.eveningoutpost.dexdrip.adapters.ObservableArrayMapNoNotify;
 
 /**

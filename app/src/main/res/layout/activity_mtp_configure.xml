@@ -6,7 +6,7 @@
     <data>
         <variable
             name="nano"
-            type="com.eveningoutpost.dexdrip.UtilityModels.NanoStatus" />
+            type="com.eveningoutpost.dexdrip.xutilitymodels.NanoStatus" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

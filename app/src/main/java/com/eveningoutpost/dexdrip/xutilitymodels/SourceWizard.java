@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.UtilityModels;
+package com.eveningoutpost.dexdrip.xutilitymodels;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -10,6 +10,7 @@ import androidx.annotation.StringRes;
 import android.view.View;
 
 import com.eveningoutpost.dexdrip.BR;
+import com.eveningoutpost.dexdrip.UtilityModels.Tree;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.databinding.DialogTreeSelectorBinding;

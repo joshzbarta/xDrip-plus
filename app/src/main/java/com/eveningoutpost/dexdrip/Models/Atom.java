@@ -114,7 +114,7 @@ public class Atom {
 
         if (first == 0xBF) {
             Log.e(TAG, "No sensor has been found");
-            reply.setError_message(gs(R.string.no_sensor_found));
+            //reply.setError_message(gs(R.string.no_sensor_found));
             s_full_data = null;
             errorCount++;
             if (errorCount <= 2) {

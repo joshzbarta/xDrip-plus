@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.databinding.ActivityMtpConfigureBinding;
 import com.eveningoutpost.dexdrip.utils.usb.UsbTools;
+import com.eveningoutpost.dexdrip.xutilitymodels.NanoStatus;
 
 // jamorham
 

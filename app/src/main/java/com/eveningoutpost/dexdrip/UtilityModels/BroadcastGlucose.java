@@ -16,7 +16,7 @@ import com.eveningoutpost.dexdrip.Models.Noise;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
-import com.eveningoutpost.dexdrip.utils.PowerStateReceiver;
+import com.eveningoutpost.dexdrip.xutilitymodels.NanoStatus;
 
 import lombok.val;
 

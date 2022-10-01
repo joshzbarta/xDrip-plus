@@ -3,6 +3,7 @@ package com.eveningoutpost.dexdrip.Models;
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.data.BgReading;
+import com.eveningoutpost.dexdrip.xmodels.ProcessInitialDataQuality;
 
 import org.junit.Test;
 
