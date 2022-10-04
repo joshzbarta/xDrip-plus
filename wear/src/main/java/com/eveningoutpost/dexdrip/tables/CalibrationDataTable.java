@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.Tables;
+package com.eveningoutpost.dexdrip.tables;
 
 import android.app.ListActivity;
 import android.content.Context;
@@ -8,75 +8,59 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.eveningoutpost.dexdrip.Models.BgReading;
+import com.eveningoutpost.dexdrip.Models.Calibration;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
 import com.eveningoutpost.dexdrip.R;
+import com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder;
 import com.eveningoutpost.dexdrip.xdrip;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//import com.eveningoutpost.dexdrip.NavigationDrawerFragment;
 
-
-public class BgReadingTable extends ListActivity {//implements NavigationDrawerFragment.NavigationDrawerCallbacks {
-    private final static String TAG = "jamorham " + BgReadingTable.class.getSimpleName();
-    //private String menu_name = "BG Data Table";
-    //private NavigationDrawerFragment mNavigationDrawerFragment;
+public class CalibrationDataTable extends ListActivity {//implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+    private static final String menu_name = "Calibration Data Table";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        //setTheme(R.style.OldAppTheme); // or null actionbar
-        UserError.Log.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.raw_data_list);
     }
 
     @Override
-    protected void onResume() {
-        UserError.Log.d(TAG, "onResume");
+    protected void onResume(){
         super.onResume();
-        //mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        //mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), menu_name, this);
-
         getData();
     }
 
-    /*@Override
-    public void onNavigationDrawerItemSelected(int position) {
-        mNavigationDrawerFragment.swapContext(position);
-    }*/
-
     private void getData() {
         final long startTime = new Date().getTime() - (60000 * 60 * 24 * 3);//3 days
-        final List<BgReading> latest = BgReading.latestForGraph(216, startTime);
+        final List<Calibration> latest = Calibration.latestForGraph(60, startTime);
 
-        ListAdapter adapter = new BgReadingAdapter(this, latest);
+        CalibrationDataCursorAdapter adapter = new CalibrationDataCursorAdapter(this, latest);
         this.setListAdapter(adapter);
 
         String msg = "";
         int size = 0;
         if (latest != null) size = latest.size();
         if (size == 0) {
-            msg = getResources().getString(R.string.notify_table_size, "BgReading", size);
+            msg = getResources().getString(R.string.notify_table_size, "Calibration", size);
             JoH.static_toast(xdrip.getAppContext(), msg, Toast.LENGTH_SHORT);
         }
     }
 
-    public static class BgReadingCursorAdapterViewHolder {
+
+    public static class CalibrationDataCursorAdapterViewHolder {
         TextView raw_data_id;
         TextView raw_data_value;
         TextView raw_data_slope;
         TextView raw_data_timestamp;
 
-        public BgReadingCursorAdapterViewHolder(View root) {
-            UserError.Log.d(TAG, "BgReadingCursorAdapterViewHolder");
+        public CalibrationDataCursorAdapterViewHolder(View root) {
             raw_data_id = (TextView) root.findViewById(R.id.raw_data_id);
             raw_data_value = (TextView) root.findViewById(R.id.raw_data_value);
             raw_data_slope = (TextView) root.findViewById(R.id.raw_data_slope);
@@ -84,39 +68,38 @@ public class BgReadingTable extends ListActivity {//implements NavigationDrawerF
         }
     }
 
-    public static class BgReadingAdapter extends BaseAdapter {
-        private final Context         context;
-        private final List<BgReading> readings;
+    public static class CalibrationDataCursorAdapter extends BaseAdapter {
+        private final Context           context;
+        private final List<Calibration> calibrations;
 
-        public BgReadingAdapter(Context context, List<BgReading> readings) {
-            UserError.Log.d(TAG, "BgReadingAdapter");
+        CalibrationDataCursorAdapter(Context context, List<Calibration> calibrations) {
             this.context = context;
-            if(readings == null)
-                readings = new ArrayList<>();
+            if(calibrations == null)
+                calibrations = new ArrayList<>();
 
-            this.readings = readings;
-            UserError.Log.d(TAG, "BgReadingAdapter readings.size()=" + readings.size());
+            this.calibrations = calibrations;
         }
 
-        public View newView(Context context, ViewGroup parent) {
-            UserError.Log.d(TAG, "newView");
+        View newView(Context context, ViewGroup parent) {
             final View view = LayoutInflater.from(context).inflate(R.layout.raw_data_list_item, parent, false);
 
-            final BgReadingCursorAdapterViewHolder holder = new BgReadingCursorAdapterViewHolder(view);
+            final CalibrationDataCursorAdapterViewHolder holder = new CalibrationDataCursorAdapterViewHolder(view);
             view.setTag(holder);
 
             return view;
         }
 
-        public void bindView(View view, final Context context, final BgReading bgReading) {
-            UserError.Log.d(TAG, "bindView");
-            final BgReadingCursorAdapterViewHolder tag = (BgReadingCursorAdapterViewHolder) view.getTag();
-            tag.raw_data_id.setText(JoH.qs(bgReading.calculated_value, 4));
-            tag.raw_data_value.setText(Double.toString(bgReading.age_adjusted_raw_value));
-            tag.raw_data_slope.setText(Double.toString(bgReading.raw_data));
-            tag.raw_data_timestamp.setText(new Date(bgReading.timestamp).toString());
+        void bindView(View view, final Context context, final Calibration calibration) {
+            final CalibrationDataCursorAdapterViewHolder tag = (CalibrationDataCursorAdapterViewHolder) view.getTag();
+            tag.raw_data_id.setText(JoH.qs(calibration.bg, 4) + "    "+ BgGraphBuilder.unitized_string_static(calibration.bg));
+            tag.raw_data_value.setText("raw: " + JoH.qs(calibration.estimate_raw_at_time_of_calibration, 4));
+            tag.raw_data_slope.setText("slope: " + JoH.qs(calibration.slope, 4) + " intercept: " + JoH.qs(calibration.intercept, 4));
+            tag.raw_data_timestamp.setText(JoH.dateTimeText(calibration.timestamp) + "  (" + JoH.dateTimeText(calibration.raw_timestamp) + ")");
 
-            if (bgReading.ignoreForStats) {
+            if (calibration.isNote()) {
+                // green note
+                view.setBackgroundColor(Color.parseColor("#004400"));
+            } else if (!calibration.isValid()) {
                 // red invalid/cancelled/overridden
                 view.setBackgroundColor(Color.parseColor("#660000"));
             } else {
@@ -133,35 +116,34 @@ public class BgReadingTable extends ListActivity {//implements NavigationDrawerF
                         public void onClick(DialogInterface dialog, int which) {
                             switch (which){
                                 case DialogInterface.BUTTON_POSITIVE:
-                                    bgReading.ignoreForStats = true;
-                                    bgReading.save();
+                                    calibration.invalidate();
+                                    notifyDataSetChanged();
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    bgReading.ignoreForStats = false;
-                                    bgReading.save();
                                     break;
                             }
                         }
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Flag reading as \"bad\".\nFlagged readings have no impact on the statistics.").setPositiveButton(gs(R.string.yes), dialogClickListener)
+                    builder.setMessage("Disable this calibration?\nFlagged calibrations will no longer have an effect.").setPositiveButton(gs(R.string.yes), dialogClickListener)
                             .setNegativeButton(gs(R.string.no), dialogClickListener).show();
                     return true;
                 }
             });*/
 
+
         }
 
         @Override
         public int getCount() {
-            return readings.size();
+            return calibrations.size();
         }
 
         @Override
-        public BgReading getItem(int position) {
-            return readings.get(position);
+        public Calibration getItem(int position) {
+            return calibrations.get(position);
         }
 
         @Override
@@ -171,7 +153,6 @@ public class BgReadingTable extends ListActivity {//implements NavigationDrawerF
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            UserError.Log.d(TAG, "getView");
             if (convertView == null)
                 convertView = newView(context, parent);
 
