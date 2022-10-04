@@ -742,9 +742,9 @@ public class EditAlertActivity extends ActivityWithMenu {
     }
 
     private static String getDisplayNameFromURI(final Uri contentUri) {
-        val title = getFieldFromURI(MediaStore.Audio.Media.TITLE, contentUri);
+        String title = JoH.getFieldFromURI(MediaStore.Audio.Media.TITLE, contentUri);
         if (title == null || contentUri.toString().endsWith(title)) {
-            return getFieldFromURI(MediaStore.Audio.Media.DISPLAY_NAME, contentUri);
+            return JoH.getFieldFromURI(MediaStore.Audio.Media.DISPLAY_NAME, contentUri);
         }
         return title;
     }
