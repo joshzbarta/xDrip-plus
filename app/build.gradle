@@ -24,6 +24,7 @@ if (getGradle().getStartParameter().getTaskRequests().toString().contains("Relea
         variantMapsEnabled false
         uploadMapsForVariant ''
     }*/
+    apply plugin: 'com.google.android.gms.oss-licenses-plugin'
 }
 
 repositories {
@@ -132,13 +133,27 @@ android {
             returnDefaultValues = true
         }
     }
-    packagingOptions {
-        resources {
-            excludes += ['META-INF/INDEX.LIST', 'META-INF/NOTICE.md', 'META-INF/LICENSE.md']
+   
+    configurations {
+        all {
+            exclude group: 'commons-logging', module: 'commons-logging'
+            exclude group: 'org.apache.httpcomponents'
         }
     }
 
-
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/NOTICE.md'
+        exclude 'META-INF/LICENSE.md'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'org/apache/http/version.properties'
+        exclude 'org/apache/http/client/version.properties'
+        exclude 'META-INF/ASL2.0'
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
