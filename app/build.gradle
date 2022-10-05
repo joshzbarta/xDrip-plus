@@ -259,11 +259,17 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.preference:preference:1.2.0'
     //implementation 'com.google.android.gms:play-services-drive:9.4.0'
+    implementation ('com.google.apis:google-api-services-drive:v3-rev20220815-2.0.0') {
+        exclude group: 'org.apache.httpcomponents'
+    }
+    implementation 'com.google.api-client:google-api-client-android:1.26.0'
+    implementation 'com.google.android.gms:play-services-auth:15.0.0'
     implementation 'com.google.firebase:firebase-messaging:23.0.6'
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
     implementation 'com.google.android.gms:play-services-wearable:17.1.0'
     implementation 'com.google.android.gms:play-services-location:20.0.0'
     implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+    implementation "com.google.android.gms:play-services-oss-licenses:15.0.0"
     implementation 'com.squareup.wire:wire-runtime:4.4.0'
     implementation 'com.squareup.okhttp:okhttp:2.7.5'
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
