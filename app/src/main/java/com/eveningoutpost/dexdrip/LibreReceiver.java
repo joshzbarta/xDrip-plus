@@ -11,10 +11,12 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.text.format.DateFormat;
 
+import com.eveningoutpost.dexdrip.Models.GlucoseData;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.Libre2RawValue;
 import com.eveningoutpost.dexdrip.data.Sensor;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.UtilityModels.Intents;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
@@ -26,9 +28,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import static com.eveningoutpost.dexdrip.Home.get_engineering_mode;
-import static com.eveningoutpost.dexdrip.data.Libre2Sensor.Libre2Sensors;
 
 import lombok.val;
 
@@ -80,12 +79,12 @@ public class LibreReceiver extends BroadcastReceiver {
                                 Sensor.createDefaultIfMissing();
 
                                 try {
-                                    val timeslice = DexCollectionType.getCurrentDeduplicationPeriod();
-                                    val data = intent.getBundleExtra("sas").getBundle("realTimeGlucoseReadings");
+                                    long timeslice = DexCollectionType.getCurrentDeduplicationPeriod();
+                                    Bundle data = intent.getBundleExtra("sas").getBundle("realTimeGlucoseReadings");
                                     for (String key : data.keySet()) {
-                                        val item = data.getBundle(key);
-                                        val glucose = item.getDouble("glucoseValue");
-                                        val timestamp = item.getLong("timestamp");
+                                        Bundle item = data.getBundle(key);
+                                        double glucose = item.getDouble("glucoseValue");
+                                        long timestamp = item.getLong("timestamp");
                                         if (d) UserError.Log.d(TAG, "Real time item: " + JoH.dateTimeText(timestamp) + " value: " + Unitized.unitized_string_static(glucose));
                                         BgReading.bgReadingInsertFromInt((int) Math.round(glucose), timestamp, timeslice, false);
                                     }
@@ -95,14 +94,14 @@ public class LibreReceiver extends BroadcastReceiver {
                                 }
 
                                 try {
-                                    val data = intent.getBundleExtra("sas").getBundle("historicGlucoseReadings");
-                                    val gd = new ArrayList<GlucoseData>(data.size());
+                                    Bundle data = intent.getBundleExtra("sas").getBundle("historicGlucoseReadings");
+                                    ArrayList<GlucoseData> gd = new ArrayList<GlucoseData>(data.size());
                                     for (String key : data.keySet()) {
-                                        val item = data.getBundle(key);
-                                        val glucose = item.getDouble("glucoseValue");
-                                        val timestamp = item.getLong("timestamp");
+                                        Bundle item = data.getBundle(key);
+                                        double glucose = item.getDouble("glucoseValue");
+                                        long timestamp = item.getLong("timestamp");
                                         if (d) UserError.Log.d(TAG, "Historical item: " + JoH.dateTimeText(timestamp) + " value: " + Unitized.unitized_string_static(glucose));
-                                        val g = new GlucoseData((int) Math.round(glucose), timestamp);
+                                        GlucoseData g = new GlucoseData((int) Math.round(glucose), timestamp);
                                         g.glucoseLevel = g.glucoseLevelRaw;
                                         gd.add(g);
                                     }
@@ -161,7 +160,7 @@ public class LibreReceiver extends BroadcastReceiver {
     }
 
     private static void clearNFCsensorAge() {
-        val PREF_KEY = "nfc_sensor_age";
+        String PREF_KEY = "nfc_sensor_age";
         if (Pref.getInt(PREF_KEY, 0) != 0) {
             Pref.setInt(PREF_KEY, 0); // clear any nfc related sensor age cached from another collector
         }
