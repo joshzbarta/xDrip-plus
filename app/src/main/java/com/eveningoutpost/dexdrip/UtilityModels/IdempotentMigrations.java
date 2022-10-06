@@ -10,7 +10,7 @@ import com.eveningoutpost.dexdrip.data.Libre2Sensor;
 import com.eveningoutpost.dexdrip.data.APStatus;
 import com.eveningoutpost.dexdrip.data.AlertType;
 import com.eveningoutpost.dexdrip.data.BgReading;
-//import com.eveningoutpost.dexdrip.Models.BgReadingArchive;
+//import com.eveningoutpost.dexdrip.data.BgReadingArchive;
 import com.eveningoutpost.dexdrip.data.DesertSync;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.Libre2RawValue;

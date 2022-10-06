@@ -23,7 +23,7 @@ import org.json.JSONObject;
 
 import java.util.UUID;
 
-import static com.eveningoutpost.dexdrip.Models.BgReading.bgReadingInsertFromJson;
+import static com.eveningoutpost.dexdrip.data.BgReading.bgReadingInsertFromJson;
 
 /**
  * Created by jamorham on 14/11/2016.

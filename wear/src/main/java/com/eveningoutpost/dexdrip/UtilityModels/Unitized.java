@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.UtilityModels;
 // jamorham
 
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.Models.BgReading;
+import com.eveningoutpost.dexdrip.data.BgReading;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;

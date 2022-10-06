@@ -9,7 +9,7 @@ import androidx.annotation.StringRes;
 import android.util.Log;
 
 import com.activeandroid.ActiveAndroid;
-import com.eveningoutpost.dexdrip.Models.BgReading;
+import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.Models.LibreBlock;
 import com.eveningoutpost.dexdrip.Models.LibreData;
