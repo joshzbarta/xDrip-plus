@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.UtilityModels;
 import android.os.PowerManager;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import java.util.concurrent.ConcurrentHashMap;
 

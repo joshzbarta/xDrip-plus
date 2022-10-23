@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 
 import lecho.lib.hellocharts.formatter.LineChartValueFormatter;

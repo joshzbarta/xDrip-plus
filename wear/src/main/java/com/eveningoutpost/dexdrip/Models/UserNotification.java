@@ -12,7 +12,7 @@ import com.eveningoutpost.dexdrip.Home;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.UtilityModels.AlertPlayer;
 import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
 
