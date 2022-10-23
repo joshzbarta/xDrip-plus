@@ -14,9 +14,12 @@ import com.newrelic.agent.android.AndroidAgentImpl;
 import com.newrelic.agent.android.FeatureFlag;
 import com.newrelic.agent.android.background.ApplicationStateMonitor;
 import com.newrelic.agent.android.harvest.Harvest;
+import com.newrelic.agent.android.harvest.HarvestConfiguration;
 import com.newrelic.agent.android.logging.AgentLog;
 import com.newrelic.agent.android.logging.AgentLogManager;
 import com.newrelic.agent.android.logging.NullAgentLog;
+
+import java.lang.reflect.Field;
 
 import lombok.val;
 
@@ -50,12 +53,12 @@ public class NewRelicCrashReporting {
             try {
                 if (!com.newrelic.agent.android.NewRelic.isStarted()) {
                     AgentLogManager.setAgentLog(new NullAgentLog());
-                    val remoteConfiguration
+                    Field remoteConfiguration
                             = com.newrelic.agent.android.NewRelic.class.getDeclaredField(CONFIGURATION);
                     remoteConfiguration.setAccessible(true);
-                    val agentConfiguration = (AgentConfiguration) remoteConfiguration.get(null);
+                    AgentConfiguration agentConfiguration = (AgentConfiguration) remoteConfiguration.get(null);
                     AndroidAgentImpl.init(xdrip.getAppContext(), agentConfiguration);
-                    val remoteStarted
+                    Field remoteStarted
                             = com.newrelic.agent.android.NewRelic.class.getDeclaredField(STARTED);
                     remoteStarted.setAccessible(true);
                     remoteStarted.set(null, true);
@@ -104,7 +107,7 @@ public class NewRelicCrashReporting {
         com.newrelic.agent.android.NewRelic.disableFeature(FeatureFlag.NetworkErrorRequests);
         com.newrelic.agent.android.NewRelic.disableFeature(FeatureFlag.NetworkRequests);
         com.newrelic.agent.android.NewRelic.disableFeature(FeatureFlag.DefaultInteractions);
-        com.newrelic.agent.android.NewRelic.disableFeature(FeatureFlag.GestureInstrumentation);
+        //com.newrelic.agent.android.NewRelic.disableFeature(FeatureFlag.GestureInstrumentation);
         com.newrelic.agent.android.NewRelic.disableFeature(FeatureFlag.HttpResponseBodyCapture);
         com.newrelic.agent.android.NewRelic.disableFeature(FeatureFlag.DistributedTracing);
         try {
@@ -134,9 +137,9 @@ public class NewRelicCrashReporting {
         }
 
         public static void checkReportingInterval() {
-            val harvest = Harvest.getInstance();
+            Harvest harvest = Harvest.getInstance();
             if (harvest != null) {
-                val config = harvest.getConfiguration();
+                HarvestConfiguration config = harvest.getConfiguration();
                 if (config != null) {
                     if (config.getData_report_period() != REPORTING_INTERVAL) {
                         config.setData_report_period(REPORTING_INTERVAL);
