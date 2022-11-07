@@ -251,7 +251,7 @@ public class Sensor extends Model {
         }
         Log.d("wearSENSOR", "getByUuid xDrip_sensor_uuid is " + xDrip_sensor_uuid);
 
-        //if (TableExists("Sensor")) {//com.eveningoutpost.dexdrip.Models.Sensor
+        //if (TableExists("Sensor")) {//com.eveningoutpost.dexdrip.data.Sensor
             try {//KS
                 Sensor sensor = new Select()
                         .from(Sensor.class)
