@@ -8,7 +8,6 @@ import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.activeandroid.util.SQLiteUtils;
-import com.eveningoutpost.dexdrip.Models.JoH;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
@@ -42,6 +41,7 @@ public class HeartRate extends Model {
         try {
             return new Select()
                     .from(HeartRate.class)
+                    .where("timestamp >= " + (JoH.tsl() - Constants.DAY_IN_MS))
                     .orderBy("timestamp desc")
                     .executeSingle();
         } catch (android.database.sqlite.SQLiteException e) {
