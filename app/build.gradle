@@ -69,7 +69,7 @@ def getLocalProperty(String propertyName) {
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     dexOptions {
         javaMaxHeapSize "3g"

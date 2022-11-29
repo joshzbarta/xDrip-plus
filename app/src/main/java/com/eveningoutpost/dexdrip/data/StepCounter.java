@@ -8,6 +8,8 @@ import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.activeandroid.util.SQLiteUtils;
+import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -78,7 +80,7 @@ public class StepCounter extends Model {
 
     public static synchronized StepCounter createUniqueRecord(final long timestamp_ms, final int data, final boolean absolute) {
         if (getForTimestamp(timestamp_ms) == null) {
-            val pm = new StepCounter();
+            StepCounter pm = new StepCounter();
             pm.timestamp = timestamp_ms;
             pm.metric = data;
             if (absolute) {
@@ -123,14 +125,14 @@ public class StepCounter extends Model {
 
     public static int getDailyTotal() {
         int accumulator = 0;
-        val list = latestForGraph(5000, JoH.tsl() - Constants.DAY_IN_MS, JoH.tsl()); // TODO since midnight vs 24 hours?
-        for (val item : list) {
+        List<StepCounter> list = latestForGraph(5000, JoH.tsl() - Constants.DAY_IN_MS, JoH.tsl()); // TODO since midnight vs 24 hours?
+        for (StepCounter item : list) {
             if (item.isAbsolute()) {
                 accumulator += item.metric;
             }
         }
         if (accumulator == 0) {
-            val last = last();
+            StepCounter last = last();
             if (last != null) {
                 return last.metric;
             } else {
