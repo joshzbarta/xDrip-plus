@@ -2,6 +2,9 @@ package com.eveningoutpost.dexdrip.Models;
 
 import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.data.BgReading;
+import com.eveningoutpost.dexdrip.data.Sensor;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 
 /**

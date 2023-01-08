@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.Models;
+package com.eveningoutpost.dexdrip.data;
 
 import android.os.AsyncTask;
 import android.provider.BaseColumns;
@@ -6,7 +6,8 @@ import android.provider.BaseColumns;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
-import com.eveningoutpost.dexdrip.Home;
+import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.Models.PlusModel;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -58,7 +59,7 @@ public class UserError extends PlusModel {
 
     public String toString()
     {
-        return severity+" ^ "+JoH.dateTimeText((long)timestamp)+" ^ "+shortError+" ^ "+message;
+        return severity+" ^ "+ JoH.dateTimeText((long)timestamp)+" ^ "+shortError+" ^ "+message;
     }
 
     public UserError() { super (); }

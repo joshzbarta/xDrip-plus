@@ -7,6 +7,8 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
 import com.eveningoutpost.dexdrip.Home;
+import com.eveningoutpost.dexdrip.data.BgReading;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import java.util.List;
 

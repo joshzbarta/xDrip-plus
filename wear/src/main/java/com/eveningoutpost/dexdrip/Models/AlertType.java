@@ -10,6 +10,7 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
 import com.activeandroid.util.SQLiteUtils;
+import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.UtilityModels.AlertPlayer;
 import com.eveningoutpost.dexdrip.UtilityModels.Notifications;

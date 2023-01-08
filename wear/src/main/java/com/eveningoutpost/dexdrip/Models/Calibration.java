@@ -20,6 +20,8 @@ import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.CalRecord;
 import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.CalSubrecord;
 import com.eveningoutpost.dexdrip.ListenerService;
+import com.eveningoutpost.dexdrip.data.BgReading;
+import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.UtilityModels.BgSendQueue;
 import com.eveningoutpost.dexdrip.UtilityModels.CalibrationSendQueue;

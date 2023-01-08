@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.Models;
+package com.eveningoutpost.dexdrip.data;
 
 import android.provider.BaseColumns;
 import android.util.Log;
@@ -13,6 +13,7 @@ import com.activeandroid.util.SQLiteUtils;
 //KS import com.eveningoutpost.dexdrip.GlucoseMeter.GlucoseReadingRx;
 import com.eveningoutpost.dexdrip.Home;
 //KS import com.eveningoutpost.dexdrip.Services.SyncService;
+import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 //KS import com.eveningoutpost.dexdrip.UtilityModels.UploaderQueue;
 //KS import com.eveningoutpost.dexdrip.calibrations.CalibrationAbstract;

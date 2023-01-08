@@ -5,12 +5,12 @@ import android.provider.BaseColumns;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.UtilityModels.UploaderQueue;
 import com.google.gson.annotations.Expose;
 
-import java.text.DecimalFormat;
 import java.util.List;
 import java.util.UUID;
 /**

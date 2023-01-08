@@ -3,9 +3,9 @@ package com.eveningoutpost.dexdrip.Models;
 import android.os.AsyncTask;
 import android.provider.BaseColumns;
 
-import com.eveningoutpost.dexdrip.G5Model.Transmitter;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
+import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 import com.activeandroid.Model;

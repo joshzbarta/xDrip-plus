@@ -51,6 +51,7 @@ import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utils.BestGZIPOutputStream;
 import com.eveningoutpost.dexdrip.xdrip;
 import com.google.common.primitives.Bytes;

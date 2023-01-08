@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.Models;
+package com.eveningoutpost.dexdrip.data;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -18,6 +18,11 @@ import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.EGVRecord;
 import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.SensorRecord;
+import com.eveningoutpost.dexdrip.Models.Calibration;
+import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.Models.ProcessInitialDataQuality;
+import com.eveningoutpost.dexdrip.Models.SensorSanity;
+import com.eveningoutpost.dexdrip.Models.UserNotification;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.Services.Ob1G5CollectionService;
@@ -634,7 +639,7 @@ public class BgReading extends Model implements ShareUploadableBg {
     }
 
 
-    static void updateCalculatedValueToWithinMinMax(BgReading bgReading) {
+    public static void updateCalculatedValueToWithinMinMax(BgReading bgReading) {
         // TODO should this really be <10 other values also special??
         if (bgReading.calculated_value < 10) {
             bgReading.calculated_value = BG_READING_ERROR_VALUE;
@@ -1702,7 +1707,7 @@ public class BgReading extends Model implements ShareUploadableBg {
         }
     }
 
-    void find_new_raw_curve() {
+    public void find_new_raw_curve() {
         JoH.clearCache();
         final List<BgReading> last_3 = BgReading.latest(3);
         if ((last_3 != null) && (last_3.size() == 3)) {

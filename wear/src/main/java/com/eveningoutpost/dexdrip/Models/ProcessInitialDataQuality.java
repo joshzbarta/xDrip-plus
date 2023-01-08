@@ -2,6 +2,7 @@ package com.eveningoutpost.dexdrip.Models;
 
 import androidx.databinding.BaseObservable;
 
+import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 import com.eveningoutpost.dexdrip.xdrip;
 
