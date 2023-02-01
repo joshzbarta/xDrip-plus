@@ -6,7 +6,7 @@ import static com.eveningoutpost.dexdrip.plugin.Consent.setGiven;
 import android.app.Activity;
 import android.app.AlertDialog;
 
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 
 import lombok.val;

@@ -3,15 +3,14 @@ package com.eveningoutpost.dexdrip.utils;
 import android.content.Context;
 import android.os.Environment;
 
-import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.xdrip;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import lombok.val;
 
 import com.eveningoutpost.dexdrip.xdrip;
 import com.eveningoutpost.dexdrip.data.UserError;

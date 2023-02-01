@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.plugin;
 
 import static com.eveningoutpost.dexdrip.Models.JoH.hexStringToByteArray;
 
-import com.eveningoutpost.dexdrip.Models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 
 import java.security.KeyFactory;
 import java.security.PublicKey;
