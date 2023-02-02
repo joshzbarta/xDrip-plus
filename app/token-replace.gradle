@@ -1,4 +1,4 @@
-
+/*
 apply plugin:  'com.github.jamorham.android.replace.token.preprocessor'
 
 replaceAndroidTokenPreprocessorSettings {
@@ -24,3 +24,4 @@ replaceAndroidTokenPreprocessorSettings {
 
 }
 
+*/
