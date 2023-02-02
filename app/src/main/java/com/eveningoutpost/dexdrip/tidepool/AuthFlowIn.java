@@ -6,9 +6,10 @@ import static com.eveningoutpost.dexdrip.tidepool.AuthFlowOut.eraseAuthState;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
 import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 
