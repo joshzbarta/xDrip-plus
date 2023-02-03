@@ -4,8 +4,6 @@
 
     <data>
 
-        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
-
         <variable
             name="prefs"
             type="com.eveningoutpost.dexdrip.xutilitymodels.PrefsViewImpl" />
@@ -118,7 +116,7 @@
                 android:scrollbars="vertical"
                 appx:itemBinding="@{contactModel.itemBinding}"
                 appx:items="@{contactModel.items}"
-                appx:layoutManager="@{LayoutManagers.linear()}" />
+                appx:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 
             <ImageButton
