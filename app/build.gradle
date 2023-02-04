@@ -283,7 +283,7 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.preference:preference:1.2.0'
     //implementation 'com.google.android.gms:play-services-drive:9.4.0'
-    implementation ('com.google.apis:google-api-services-drive:v3-rev20220815-2.0.0') {
+    implementation ('com.google.apis:google-api-services-drive:v3-rev20221219-2.0.0') {
         exclude group: 'org.apache.httpcomponents'
     }
     implementation 'com.google.api-client:google-api-client-android:1.26.0'
