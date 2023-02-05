@@ -15,7 +15,7 @@ buildscript {
         classpath 'com.google.android.gms:oss-licenses-plugin:0.10.4'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10"
 
-        apply plugin: 'java'
+        apply plugin: 'java-library'
         apply plugin: 'maven-publish'
 
         // NOTE: Do not place your application dependencies here; they belong
