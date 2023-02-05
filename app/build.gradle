@@ -239,11 +239,11 @@ dependencies {
 
     // use specific version of data binding until google resolves the bugs with mixed case package names
     //noinspection GradleDependency
-    implementation 'androidx.databinding:databinding-adapters:7.4.0'
+    implementation 'androidx.databinding:databinding-adapters:7.4.1'
     //noinspection GradleDependency
-    implementation 'androidx.databinding:databinding-runtime:7.4.0'
+    implementation 'androidx.databinding:databinding-runtime:7.4.1'
     //noinspection GradleDependency
-    implementation 'androidx.databinding:databinding-common:7.4.0'
+    implementation 'androidx.databinding:databinding-common:7.4.1'
     //////
 
     // app auth implementation
