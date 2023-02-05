@@ -6,13 +6,16 @@ import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.xdrip;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.common.Scopes;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 import com.google.api.client.http.InputStreamContent;
+import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.model.File;
+import android.accounts.Account;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,6 +23,8 @@ import java.util.Collections;
 import java.util.List;
 
 import lombok.val;
+
+//import lombok.val;
 
 /**
  * JamOrHam
@@ -47,20 +52,20 @@ public class DriveManager {
 
     public synchronized static DriveManager getInstance() {
         if (instance == null) {
-            val lastAccount = GoogleSignIn.getLastSignedInAccount(xdrip.getAppContext());
+            GoogleSignInAccount lastAccount = GoogleSignIn.getLastSignedInAccount(xdrip.getAppContext());
             if (lastAccount == null) {
                 UserError.Log.wtf(TAG, "lastAccount is null");
             } else {
-                val credential = GoogleAccountCredential.usingOAuth2(
+                GoogleAccountCredential credential = GoogleAccountCredential.usingOAuth2(
                         xdrip.getAppContext(), Collections.singletonList(Scopes.DRIVE_FILE));
-                val account = lastAccount.getAccount();
+                Account account = lastAccount.getAccount();
                 if (account == null) {
                     UserError.Log.wtf(TAG, "Account is null!!");
                 } else {
                     credential.setSelectedAccount(account);
-                    val googleDriveService =
+                    Drive googleDriveService =
                             new Drive.Builder(
-                                    AndroidHttp.newCompatibleTransport(),
+                                    new NetHttpTransport(),
                                     new GsonFactory(), credential)
                                     .setApplicationName("Nightscout xDrip+")
                                     .build();
