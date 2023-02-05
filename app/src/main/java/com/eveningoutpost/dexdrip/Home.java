@@ -3222,6 +3222,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
     @Override
     public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
         Bundle bundle = intent.getExtras();
         processIncomingBundle(bundle);
     }
@@ -3806,6 +3807,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         // automatically restore settings backup if we just approved a request coming from that
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == SdcardImportExport.TRIGGER_RESTORE_PERMISSIONS_REQUEST_STORAGE
                 && permissions.length > 0 && grantResults.length > 0
                 && permissions[0].equals(WRITE_EXTERNAL_STORAGE) && grantResults[0] == 0) {
