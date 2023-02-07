@@ -34,7 +34,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.eveningoutpost.dexdrip.Services.SyncService.startSyncService;
+import static com.eveningoutpost.dexdrip.services.SyncService.startSyncService;
 
 /**
  * Created by jamorham on 15/11/2016.
