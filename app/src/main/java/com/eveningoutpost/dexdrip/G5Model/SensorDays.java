@@ -161,7 +161,7 @@ public class SensorDays {
     }
 
     // returns 0 if invalid
-    long getRemainingSensorPeriodInMs() {
+    public long getRemainingSensorPeriodInMs() {
         //UserError.Log.d(TAG, "Get start debug returns: " + JoH.dateTimeText(getStart()));
         if (isValid()) {
             val elapsed = msSince(getStart());
