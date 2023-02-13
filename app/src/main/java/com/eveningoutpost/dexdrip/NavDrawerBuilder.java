@@ -52,6 +52,9 @@ public class NavDrawerBuilder {
         this.nav_drawer_options.add(context.getString(R.string.home_screen));
         this.nav_drawer_intents.add(new Intent(context, Home.class));
 
+        this.nav_drawer_options.add("Z Home Screen");
+        this.nav_drawer_intents.add(new Intent(context, Home.class));
+
         if ((is_active_sensor) && (last_two_calibrations != null) && (last_two_calibrations.size() > 0)) {
             this.nav_drawer_options.add(context.getString(R.string.calibration_graph));
             this.nav_drawer_intents.add(new Intent(context, CalibrationGraph.class));

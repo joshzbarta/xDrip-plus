@@ -99,7 +99,7 @@ public class HealthGamut {
             Log.e(TAG, "Needs above android 8");
             return false;
         }
-        if (HealthConnectClient.isAvailable(context)) {
+        if (HealthConnectClient.isProviderAvailable(context)) {
             client = HealthConnectClient.getOrCreate(context);
 
             client.getPermissionController().getGrantedPermissions(permissions, coroutines.getContinuation((result, throwable) -> {
@@ -279,8 +279,8 @@ public class HealthGamut {
             val list = new LinkedList<BloodGlucoseRecord>();
             val record = new BloodGlucoseRecord(Instant.ofEpochMilli(bg.timestamp),
                     null, BloodGlucose.milligramsPerDeciliter(bg.calculated_value),
-                    BloodGlucoseRecord.SpecimenSource.INTERSTITIAL_FLUID,
-                    MealType.UNKNOWN, null, new Metadata());
+                    BloodGlucoseRecord.SPECIMEN_SOURCE_INTERSTITIAL_FLUID,
+                    MealType.MEAL_TYPE_UNKNOWN, BloodGlucoseRecord.RELATION_TO_MEAL_UNKNOWN, new Metadata());
             list.add(record);
             client.insertRecords(list, coroutines.getContinuation((result, throwable) -> {
                 Log.d(TAG, "Insert result: " + result.getRecordIdsList().size());
