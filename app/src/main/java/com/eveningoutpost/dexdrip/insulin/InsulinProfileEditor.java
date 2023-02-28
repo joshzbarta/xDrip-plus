@@ -14,7 +14,7 @@ import com.eveningoutpost.dexdrip.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import lombok.var;
+
 /**
  * Created by gruoner on 28/07/2019.
  */
