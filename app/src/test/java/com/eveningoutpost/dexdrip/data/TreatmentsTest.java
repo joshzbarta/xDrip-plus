@@ -1,9 +1,12 @@
-package com.eveningoutpost.dexdrip.Models;
+package com.eveningoutpost.dexdrip.data;
 
+import com.eveningoutpost.dexdrip.Models.InsulinInjection;
+import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.insulin.Insulin;
 import com.eveningoutpost.dexdrip.insulin.InsulinManager;
+import com.google.common.truth.Truth;
 
 import org.junit.Test;
 
@@ -35,10 +38,10 @@ public class TreatmentsTest extends RobolectricTestWithConfig {
         Treatments lastTreatment = Treatments.last();
 
         // :: Verify
-        assertThat(lastTreatment.carbs).isEqualTo(55.0);
-        assertThat(lastTreatment.insulin).isEqualTo(2.0);
-        assertThat(lastTreatment.timestamp).isEqualTo(time);
-        assertThat(lastTreatment.enteredBy).startsWith(Treatments.XDRIP_TAG);
+        Truth.assertThat(lastTreatment.carbs).isEqualTo(55.0);
+        Truth.assertThat(lastTreatment.insulin).isEqualTo(2.0);
+        Truth.assertThat(lastTreatment.timestamp).isEqualTo(time);
+        Truth.assertThat(lastTreatment.enteredBy).startsWith(Treatments.XDRIP_TAG);
     }
 
 
@@ -59,10 +62,10 @@ public class TreatmentsTest extends RobolectricTestWithConfig {
         Treatments lastTreatment = Treatments.last();
 
         // :: Verify
-        assertThat(lastTreatment.carbs).isEqualTo(8.0);
-        assertThat(lastTreatment.insulin).isEqualTo(1.0);
-        assertThat(lastTreatment.timestamp).isEqualTo(time);
-        assertThat(lastTreatment.enteredBy).startsWith(Treatments.XDRIP_TAG);
+        Truth.assertThat(lastTreatment.carbs).isEqualTo(8.0);
+        Truth.assertThat(lastTreatment.insulin).isEqualTo(1.0);
+        Truth.assertThat(lastTreatment.timestamp).isEqualTo(time);
+        Truth.assertThat(lastTreatment.enteredBy).startsWith(Treatments.XDRIP_TAG);
     }
 
     @Test
@@ -82,7 +85,7 @@ public class TreatmentsTest extends RobolectricTestWithConfig {
         Treatments lastTreatment = Treatments.lastNotFromXdrip();
 
         // :: Verify
-        assertThat(lastTreatment).isNull();
+        Truth.assertThat(lastTreatment).isNull();
     }
 
     @Test
@@ -106,10 +109,10 @@ public class TreatmentsTest extends RobolectricTestWithConfig {
         Treatments lastTreatment = Treatments.lastNotFromXdrip();
 
         // :: Verify
-        assertThat(lastTreatment.carbs).isEqualTo(7.0);
-        assertThat(lastTreatment.insulin).isEqualTo(2.0);
-        assertThat(lastTreatment.timestamp).isEqualTo(time);
-        assertThat(lastTreatment.enteredBy).startsWith("SomeOtherSource");
+        Truth.assertThat(lastTreatment.carbs).isEqualTo(7.0);
+        Truth.assertThat(lastTreatment.insulin).isEqualTo(2.0);
+        Truth.assertThat(lastTreatment.timestamp).isEqualTo(time);
+        Truth.assertThat(lastTreatment.enteredBy).startsWith("SomeOtherSource");
     }
 
     @Test
@@ -128,18 +131,18 @@ public class TreatmentsTest extends RobolectricTestWithConfig {
         Treatments lastTreatment = Treatments.last();
 
         // :: Verify
-        assertThat(thisTreatment != lastTreatment).isTrue(); // check not object from cache
+        Truth.assertThat(thisTreatment != lastTreatment).isTrue(); // check not object from cache
 
-        assertThat(lastTreatment.carbs).isEqualTo(1.0d);
-        assertThat(lastTreatment.insulin).isEqualTo(1.2+2.3);
+        Truth.assertThat(lastTreatment.carbs).isEqualTo(1.0d);
+        Truth.assertThat(lastTreatment.insulin).isEqualTo(1.2+2.3);
 
         // TODO this might suffer from json sort ordering - check if that is the issue if it fails
-        assertThat(lastTreatment.getInsulinInjections()).isNotNull();
-        assertThat(lastTreatment.getInsulinInjections().size()).isEqualTo(2);
-        assertThat(lastTreatment.getInsulinInjections().get(0).getInsulin()).isEqualTo(insulins.get(0).getName());
-        assertThat(lastTreatment.getInsulinInjections().get(0).getUnits()).isEqualTo(1.2d);
-        assertThat(lastTreatment.getInsulinInjections().get(1).getInsulin()).isEqualTo(insulins.get(1).getName());
-        assertThat(lastTreatment.getInsulinInjections().get(1).getUnits()).isEqualTo(2.3d);
+        Truth.assertThat(lastTreatment.getInsulinInjections()).isNotNull();
+        Truth.assertThat(lastTreatment.getInsulinInjections().size()).isEqualTo(2);
+        Truth.assertThat(lastTreatment.getInsulinInjections().get(0).getInsulin()).isEqualTo(insulins.get(0).getName());
+        Truth.assertThat(lastTreatment.getInsulinInjections().get(0).getUnits()).isEqualTo(1.2d);
+        Truth.assertThat(lastTreatment.getInsulinInjections().get(1).getInsulin()).isEqualTo(insulins.get(1).getName());
+        Truth.assertThat(lastTreatment.getInsulinInjections().get(1).getUnits()).isEqualTo(2.3d);
 
     }
 
@@ -153,8 +156,8 @@ public class TreatmentsTest extends RobolectricTestWithConfig {
         val before = Treatments.latestForGraph(1000, 0, ts + DAY_IN_MS).size();
         Treatments.cleanup(5);
         val after = Treatments.latestForGraph(1000, 0, ts + DAY_IN_MS).size();
-        assertWithMessage("test before").that(before).isEqualTo(30);
-        assertWithMessage("test after").that(after).isEqualTo(5);
+        Truth.assertWithMessage("test before").that(before).isEqualTo(30);
+        Truth.assertWithMessage("test after").that(after).isEqualTo(5);
         Treatments.delete_all();
     }
 }

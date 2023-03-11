@@ -233,6 +233,7 @@ dependencies {
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation project(path: ':zdrip:common')
     wearApp project(':wear')
     //weapApp files('../wear/build/outputs/apk/wear_release.apk')
     //testimplementation 'com.squareup.okhttp:mockwebserver:2.5.0'
