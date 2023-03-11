@@ -9,13 +9,13 @@ import java.util.ListIterator;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.NFCReaderX;
 import com.eveningoutpost.dexdrip.Models.GlucoseData;
-import com.eveningoutpost.dexdrip.Models.LibreBlock;
+import com.eveningoutpost.dexdrip.data.LibreBlock;
 import com.eveningoutpost.dexdrip.Models.ReadingData;
 
 import com.eveningoutpost.dexdrip.UtilityModels.Constants;
 import com.eveningoutpost.dexdrip.utils.LibreTrendPoint;
 
-import com.eveningoutpost.dexdrip.Models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 /* 
     This class helps to retrieve the latest libre trend points. It holds data of one sensor only.
