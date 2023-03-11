@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.UtilityModels;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import com.eveningoutpost.dexdrip.InfluxDB.InfluxDBUploader;
+import com.eveningoutpost.dexdrip.influxdb.InfluxDBUploader;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.BloodTest;
 import com.eveningoutpost.dexdrip.data.Calibration;
