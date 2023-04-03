@@ -36,6 +36,7 @@ public class RegistrationIntentService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         final PowerManager.WakeLock wl = JoH.getWakeLock("registration-intent", 120000);
+
         try {
             GcmActivity.senderid = getString(R.string.gcm_defaultSenderId);
 
