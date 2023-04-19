@@ -5,6 +5,7 @@ buildscript {
         google()
         mavenCentral()
         maven { url "https://jitpack.io" }
+        jcenter()
     }
     dependencies {
         // Upgrading AGP to a newer version also updates the data binding library.
@@ -30,5 +31,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://jitpack.io" }
+        jcenter()
     }
 }
