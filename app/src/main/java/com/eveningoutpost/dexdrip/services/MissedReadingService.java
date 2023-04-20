@@ -20,7 +20,7 @@ import com.eveningoutpost.dexdrip.data.UserNotification;
 import com.eveningoutpost.dexdrip.utilitymodels.CollectionServiceStarter;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
-import com.eveningoutpost.dexdrip.xutilitymodels.NanoStatus;
+import com.eveningoutpost.dexdrip.utilitymodels.NanoStatus;
 import com.eveningoutpost.dexdrip.utilitymodels.Notifications;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.eveningoutpost.dexdrip.utilitymodels.pebble.PebbleUtil;

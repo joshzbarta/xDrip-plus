@@ -1,4 +1,6 @@
-package com.eveningoutpost.dexdrip.xutilitymodels;
+
+package com.eveningoutpost.dexdrip.utilitymodels;
+
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

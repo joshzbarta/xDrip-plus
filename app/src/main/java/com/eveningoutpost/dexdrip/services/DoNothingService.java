@@ -19,7 +19,7 @@ import com.eveningoutpost.dexdrip.utilitymodels.CollectionServiceStarter;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utilitymodels.ForegroundServiceStarter;
 import com.eveningoutpost.dexdrip.utilitymodels.InstalledApps;
-import com.eveningoutpost.dexdrip.xutilitymodels.NanoStatus;
+import com.eveningoutpost.dexdrip.utilitymodels.NanoStatus;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.eveningoutpost.dexdrip.utilitymodels.StatusItem;
 import com.eveningoutpost.dexdrip.ui.helpers.Span;

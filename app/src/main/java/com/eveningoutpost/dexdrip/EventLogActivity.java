@@ -28,6 +28,7 @@ import android.widget.TextView;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
+
 import com.eveningoutpost.dexdrip.databinding.ActivityEventLogBinding;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
 import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;

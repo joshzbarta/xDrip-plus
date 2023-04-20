@@ -1,4 +1,6 @@
-package com.eveningoutpost.dexdrip.xutilitymodels;
+
+package com.eveningoutpost.dexdrip.utilitymodels;
+
 
 import android.content.Context;
 import android.content.res.TypedArray;

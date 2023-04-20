@@ -1,4 +1,6 @@
-package com.eveningoutpost.dexdrip.xutilitymodels;
+
+package com.eveningoutpost.dexdrip.utilitymodels;
+
 
 /**
  * NanoStatus allows access to a static class based status interface

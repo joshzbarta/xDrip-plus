@@ -19,7 +19,7 @@ import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.databinding.ActivityBackupPickerBinding;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
-import com.eveningoutpost.dexdrip.xutilitymodels.PrefsViewImpl;
+import com.eveningoutpost.dexdrip.utilitymodels.PrefsViewImpl;
 import com.eveningoutpost.dexdrip.ui.dialog.GenericConfirmDialog;
 import com.eveningoutpost.dexdrip.xdrip;
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;

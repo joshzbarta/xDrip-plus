@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.eveningoutpost.dexdrip.xutilitymodels.SourceWizard.ViewModel" />
+            type="com.eveningoutpost.dexdrip.utilitymodels.SourceWizard.ViewModel" />
     </data>
 
     <LinearLayout

@@ -26,7 +26,7 @@ import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.databinding.ActivityDisplayQrcodeBinding;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
-import com.eveningoutpost.dexdrip.xutilitymodels.PrefsViewImpl;
+import com.eveningoutpost.dexdrip.utilitymodels.PrefsViewImpl;
 import com.eveningoutpost.dexdrip.utilitymodels.desertsync.RouteTools;
 import com.eveningoutpost.dexdrip.xdrip;
 import com.google.zxing.WriterException;

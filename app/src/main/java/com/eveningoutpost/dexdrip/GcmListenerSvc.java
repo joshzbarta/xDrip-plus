@@ -32,7 +32,7 @@ import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.services.ActivityRecognizedService;
 import com.eveningoutpost.dexdrip.utilitymodels.AlertPlayer;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
-import com.eveningoutpost.dexdrip.xutilitymodels.NanoStatus;
+import com.eveningoutpost.dexdrip.utilitymodels.NanoStatus;
 import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.eveningoutpost.dexdrip.utilitymodels.PumpStatus;

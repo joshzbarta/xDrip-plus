@@ -1,4 +1,5 @@
-package com.eveningoutpost.dexdrip.xutilitymodels;
+
+package com.eveningoutpost.dexdrip.utilitymodels;
 
 import androidx.annotation.NonNull;
 
