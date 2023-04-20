@@ -5,8 +5,8 @@ import static com.eveningoutpost.dexdrip.profileeditor.BasalProfile.consolidate;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
-import com.eveningoutpost.dexdrip.zutilitymodels.Unitized;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.Unitized;
 import com.eveningoutpost.dexdrip.utils.jobs.BackgroundQueue;
 import com.google.gson.GsonBuilder;
 

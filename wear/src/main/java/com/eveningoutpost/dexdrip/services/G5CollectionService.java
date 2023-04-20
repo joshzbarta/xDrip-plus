@@ -61,11 +61,11 @@ import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.Models.TransmitterData;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.zutilitymodels.CollectionServiceStarter;
-//KS import com.eveningoutpost.dexdrip.zutilitymodels.ForegroundServiceStarter;
-import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
-import com.eveningoutpost.dexdrip.zutilitymodels.StatusItem;
+import com.eveningoutpost.dexdrip.utilitymodels.CollectionServiceStarter;
+//KS import com.eveningoutpost.dexdrip.utilitymodels.ForegroundServiceStarter;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.StatusItem;
 //KS import com.eveningoutpost.dexdrip.utils.BgToSpeech;
 import com.eveningoutpost.dexdrip.xdrip;
 

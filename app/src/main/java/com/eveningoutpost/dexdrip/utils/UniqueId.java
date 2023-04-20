@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.utils;
 
-import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 
 /**
  * JamOrHam

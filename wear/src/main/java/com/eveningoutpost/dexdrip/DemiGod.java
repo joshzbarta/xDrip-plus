@@ -9,7 +9,7 @@ import android.content.pm.PackageManager;
 import androidx.core.content.ContextCompat;
 
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
 public class DemiGod {
 

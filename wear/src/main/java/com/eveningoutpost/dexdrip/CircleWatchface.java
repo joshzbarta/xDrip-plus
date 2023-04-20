@@ -30,7 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.zutilitymodels.BgSendQueue;
+import com.eveningoutpost.dexdrip.utilitymodels.BgSendQueue;
 import com.google.android.gms.wearable.DataMap;
 import com.ustwo.clockwise.wearable.WatchFace;
 import com.ustwo.clockwise.common.WatchFaceTime;

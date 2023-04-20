@@ -27,10 +27,10 @@ import com.eveningoutpost.dexdrip.Models.Profile;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.services.SyncService;
-import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
-import com.eveningoutpost.dexdrip.zutilitymodels.UndoRedo;
-import com.eveningoutpost.dexdrip.zutilitymodels.UploaderQueue;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.UndoRedo;
+import com.eveningoutpost.dexdrip.utilitymodels.UploaderQueue;
 import com.eveningoutpost.dexdrip.insulin.Insulin;
 import com.eveningoutpost.dexdrip.insulin.InsulinManager;
 import com.eveningoutpost.dexdrip.insulin.MultipleInsulins;
@@ -61,8 +61,8 @@ import java.util.regex.Pattern;
 import lombok.val;
 
 import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
-import static com.eveningoutpost.dexdrip.zutilitymodels.Constants.HOUR_IN_MS;
-import static com.eveningoutpost.dexdrip.zutilitymodels.Constants.MINUTE_IN_MS;
+import static com.eveningoutpost.dexdrip.utilitymodels.Constants.HOUR_IN_MS;
+import static com.eveningoutpost.dexdrip.utilitymodels.Constants.MINUTE_IN_MS;
 import static java.lang.StrictMath.abs;
 import static com.eveningoutpost.dexdrip.Models.JoH.emptyString;
 

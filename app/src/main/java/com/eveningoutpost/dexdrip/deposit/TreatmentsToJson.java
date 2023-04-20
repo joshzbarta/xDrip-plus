@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.deposit;
 import com.eveningoutpost.dexdrip.data.BloodTest;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.eveningoutpost.dexdrip.profileeditor.BasalProfile;
 
 import org.json.JSONArray;

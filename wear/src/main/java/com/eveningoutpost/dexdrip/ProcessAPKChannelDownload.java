@@ -7,8 +7,8 @@ import androidx.core.app.JobIntentService;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
-import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
 import com.eveningoutpost.dexdrip.utils.AdbInstaller;
 import com.eveningoutpost.dexdrip.utils.CipherUtils;
 import com.eveningoutpost.dexdrip.utils.VersionFixer;

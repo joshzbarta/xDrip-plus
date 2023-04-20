@@ -4,7 +4,7 @@ import android.os.Build;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

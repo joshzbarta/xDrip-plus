@@ -4,10 +4,10 @@ import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.NFCReaderX;
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.zutilitymodels.BridgeResponse;
-import com.eveningoutpost.dexdrip.zutilitymodels.LibreUtils;
-import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.BridgeResponse;
+import com.eveningoutpost.dexdrip.utilitymodels.LibreUtils;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;

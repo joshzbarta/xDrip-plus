@@ -7,8 +7,8 @@ import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.zutilitymodels.AlertPlayer;
-import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.AlertPlayer;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 
 import java.util.Arrays;
 import java.util.Date;

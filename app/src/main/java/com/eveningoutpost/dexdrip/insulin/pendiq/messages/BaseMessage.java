@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.insulin.pendiq.messages;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utils.CRC16ccitt;
 import com.google.gson.annotations.Expose;
 

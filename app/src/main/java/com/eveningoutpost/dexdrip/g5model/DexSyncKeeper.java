@@ -4,10 +4,10 @@ package com.eveningoutpost.dexdrip.g5model;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
-import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 
-import static com.eveningoutpost.dexdrip.zutilitymodels.BgGraphBuilder.DEXCOM_PERIOD;
+import static com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder.DEXCOM_PERIOD;
 
 public class DexSyncKeeper {
 

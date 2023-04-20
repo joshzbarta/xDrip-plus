@@ -9,8 +9,8 @@ import com.eveningoutpost.dexdrip.data.APStatus;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.NewDataObserver;
-import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
-import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 
 import java.util.regex.Pattern;
 

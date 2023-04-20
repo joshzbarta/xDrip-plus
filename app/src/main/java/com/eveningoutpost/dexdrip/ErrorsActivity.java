@@ -15,8 +15,8 @@ import android.widget.Toast;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
-import com.eveningoutpost.dexdrip.zutilitymodels.SendFeedBack;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.SendFeedBack;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 import com.eveningoutpost.dexdrip.wearintegration.WatchUpdaterService;
 

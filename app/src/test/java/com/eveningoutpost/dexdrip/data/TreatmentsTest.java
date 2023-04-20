@@ -13,8 +13,8 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.eveningoutpost.dexdrip.zutilitymodels.Constants.DAY_IN_MS;
-import static com.eveningoutpost.dexdrip.zutilitymodels.Constants.MONTH_IN_MS;
+import static com.eveningoutpost.dexdrip.utilitymodels.Constants.DAY_IN_MS;
+import static com.eveningoutpost.dexdrip.utilitymodels.Constants.MONTH_IN_MS;
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth.assertWithMessage;
 

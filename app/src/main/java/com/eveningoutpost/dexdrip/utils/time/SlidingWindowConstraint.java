@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.utils.time;
 
-import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

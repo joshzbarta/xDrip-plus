@@ -14,9 +14,9 @@ import android.widget.TextView;
 
 import com.eveningoutpost.dexdrip.data.Calibration;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.zutilitymodels.CalibrationSendQueue;
-import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.CalibrationSendQueue;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.eveningoutpost.dexdrip.calibrations.CalibrationAbstract;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 

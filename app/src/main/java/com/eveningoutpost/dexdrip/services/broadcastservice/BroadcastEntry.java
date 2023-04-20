@@ -1,8 +1,8 @@
 package com.eveningoutpost.dexdrip.services.broadcastservice;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
 public class BroadcastEntry {
     //a tiny class created to make sure the service class would not be loaded if service disabled

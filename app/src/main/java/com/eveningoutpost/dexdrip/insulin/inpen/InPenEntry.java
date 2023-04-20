@@ -2,8 +2,8 @@ package com.eveningoutpost.dexdrip.insulin.inpen;
 
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
 /**
  * jamorham

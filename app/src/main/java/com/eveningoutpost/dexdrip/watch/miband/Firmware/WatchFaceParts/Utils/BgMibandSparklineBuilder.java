@@ -3,8 +3,8 @@ package com.eveningoutpost.dexdrip.watch.miband.Firmware.WatchFaceParts.Utils;
 import android.content.Context;
 import android.graphics.Bitmap;
 
-import com.eveningoutpost.dexdrip.zutilitymodels.BgSparklineBuilder;
-import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.BgSparklineBuilder;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 
 import java.util.ArrayList;
 import java.util.List;

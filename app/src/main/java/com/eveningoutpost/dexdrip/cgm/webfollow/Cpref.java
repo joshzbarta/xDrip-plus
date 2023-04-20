@@ -3,8 +3,8 @@ package com.eveningoutpost.dexdrip.cgm.webfollow;
 import android.content.SharedPreferences;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
 import lombok.val;
 

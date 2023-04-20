@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.g5model;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 
 // jamorham
 

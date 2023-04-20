@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.processing;
 
-import static com.eveningoutpost.dexdrip.zutilitymodels.Unitized.unit;
-import static com.eveningoutpost.dexdrip.zutilitymodels.Unitized.usingMgDl;
+import static com.eveningoutpost.dexdrip.utilitymodels.Unitized.unit;
+import static com.eveningoutpost.dexdrip.utilitymodels.Unitized.usingMgDl;
 
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;

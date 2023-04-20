@@ -16,9 +16,9 @@ import com.eveningoutpost.dexdrip.Models.LibreOOPAlgorithm;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.zutilitymodels.Intents;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
-import com.eveningoutpost.dexdrip.zutilitymodels.PumpStatus;
+import com.eveningoutpost.dexdrip.utilitymodels.Intents;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.PumpStatus;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 
 import org.json.JSONArray;

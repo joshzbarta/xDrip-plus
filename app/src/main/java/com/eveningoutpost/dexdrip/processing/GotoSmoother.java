@@ -2,8 +2,8 @@ package com.eveningoutpost.dexdrip.processing;
 
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.zutilitymodels.BgGraphBuilder;
-import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.processing.sgfilter.ContinuousPadder;
 import com.eveningoutpost.dexdrip.processing.sgfilter.EnvelopeProcessor;
 import com.eveningoutpost.dexdrip.processing.sgfilter.LowPreserver;

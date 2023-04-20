@@ -6,8 +6,8 @@ import android.app.Service;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.zutilitymodels.ForegroundServiceStarter;
-import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.utilitymodels.ForegroundServiceStarter;
+import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
 
 public abstract class ForegroundService extends Service {
 

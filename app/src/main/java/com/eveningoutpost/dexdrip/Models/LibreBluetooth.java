@@ -3,9 +3,9 @@ package com.eveningoutpost.dexdrip.Models;
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.NFCReaderX;
-import com.eveningoutpost.dexdrip.zutilitymodels.BridgeResponse;
-import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.BridgeResponse;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 
 import static com.eveningoutpost.dexdrip.xdrip.gs;

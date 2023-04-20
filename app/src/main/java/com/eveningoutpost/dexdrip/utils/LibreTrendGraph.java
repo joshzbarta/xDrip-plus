@@ -9,9 +9,9 @@ import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.LibreBlock;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
-import com.eveningoutpost.dexdrip.zutilitymodels.HPointValue;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.HPointValue;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import lecho.lib.hellocharts.model.PointValue;
 import lecho.lib.hellocharts.util.ChartUtils;
 import lecho.lib.hellocharts.view.LineChartView;
 
-import static com.eveningoutpost.dexdrip.zutilitymodels.BgGraphBuilder.FUZZER;
+import static com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder.FUZZER;
 
 
 public class LibreTrendGraph extends BaseAppCompatActivity {

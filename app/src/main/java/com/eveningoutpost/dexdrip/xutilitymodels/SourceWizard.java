@@ -11,7 +11,7 @@ import android.view.View;
 
 import com.eveningoutpost.dexdrip.BR;
 import com.eveningoutpost.dexdrip.databinding.DialogTreeSelectorBinding;
-import com.eveningoutpost.dexdrip.zutilitymodels.Tree;
+import com.eveningoutpost.dexdrip.utilitymodels.Tree;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utils.DexCollectionHelper;

@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.plugin;
 
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
 /**
  * JamOrHam

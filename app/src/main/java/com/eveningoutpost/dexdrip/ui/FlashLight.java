@@ -13,8 +13,8 @@ import androidx.annotation.RequiresApi;
 import com.eveningoutpost.dexdrip.data.ActiveBgAlert;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
-import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
 import com.eveningoutpost.dexdrip.xdrip;
 
 import java.security.SecureRandom;

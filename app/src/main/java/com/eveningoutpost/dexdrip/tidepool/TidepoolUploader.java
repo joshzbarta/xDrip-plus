@@ -1,14 +1,14 @@
 package com.eveningoutpost.dexdrip.tidepool;
 
-import static com.eveningoutpost.dexdrip.zutilitymodels.OkHttpWrapper.enableTls12OnPreLollipop;
+import static com.eveningoutpost.dexdrip.utilitymodels.OkHttpWrapper.enableTls12OnPreLollipop;
 
 import android.os.PowerManager;
 
 import com.eveningoutpost.dexdrip.BuildConfig;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.eveningoutpost.dexdrip.store.FastStore;
 
 import java.util.List;

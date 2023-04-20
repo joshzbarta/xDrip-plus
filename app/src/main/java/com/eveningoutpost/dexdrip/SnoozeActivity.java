@@ -21,10 +21,10 @@ import android.widget.TextView;
 import com.eveningoutpost.dexdrip.data.ActiveBgAlert;
 import com.eveningoutpost.dexdrip.data.AlertType;
 import com.eveningoutpost.dexdrip.services.MissedReadingService;
-import com.eveningoutpost.dexdrip.zutilitymodels.AlertPlayer;
-import com.eveningoutpost.dexdrip.zutilitymodels.BgGraphBuilder;
-import com.eveningoutpost.dexdrip.zutilitymodels.Notifications;
-import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.utilitymodels.AlertPlayer;
+import com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder;
+import com.eveningoutpost.dexdrip.utilitymodels.Notifications;
+import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 
 import static com.eveningoutpost.dexdrip.xdrip.gs;

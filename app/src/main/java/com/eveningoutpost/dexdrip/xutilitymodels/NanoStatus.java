@@ -21,8 +21,8 @@ import com.eveningoutpost.dexdrip.g5model.SensorDays;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
-import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.adapters.SpannableSerializer;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
@@ -125,7 +125,7 @@ public class NanoStatus {
             case "collector":
                 return collectorNano(DexCollectionType.getCollectorServiceClass());
             case "mtp-configure":
-                return collectorNano(getClassByName(".zutilitymodels.MtpConfigure"));
+                return collectorNano(getClassByName(".utilitymodels.MtpConfigure"));
             case "sensor-expiry":
                 return getLocalOrRemoteSensorExpiry();
             default:

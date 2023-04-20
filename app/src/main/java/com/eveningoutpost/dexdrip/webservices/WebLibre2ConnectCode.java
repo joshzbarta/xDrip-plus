@@ -6,7 +6,7 @@ import android.util.Log;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.Models.LibreOOPAlgorithm;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.zutilitymodels.Intents;
+import com.eveningoutpost.dexdrip.utilitymodels.Intents;
 
 import org.json.JSONException;
 import org.json.JSONObject;

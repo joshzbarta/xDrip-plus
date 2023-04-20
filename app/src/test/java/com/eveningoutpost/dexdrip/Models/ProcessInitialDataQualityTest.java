@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.Models;
 
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
-import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.xmodels.ProcessInitialDataQuality;
 

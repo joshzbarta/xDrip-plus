@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.utils;
 
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.zutilitymodels.WholeHouse;
+import com.eveningoutpost.dexdrip.utilitymodels.WholeHouse;
 
 import java.io.DataOutputStream;
 import java.io.IOException;

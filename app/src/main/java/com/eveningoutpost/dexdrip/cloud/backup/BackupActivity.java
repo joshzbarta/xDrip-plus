@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.cloud.backup;
 
 import static com.eveningoutpost.dexdrip.Models.JoH.showNotification;
-import static com.eveningoutpost.dexdrip.zutilitymodels.Constants.BACKUP_ACTIVITY_ID;
+import static com.eveningoutpost.dexdrip.utilitymodels.Constants.BACKUP_ACTIVITY_ID;
 import static com.eveningoutpost.dexdrip.cloud.backup.Backup.cleanPhoneName;
 import static com.eveningoutpost.dexdrip.cloud.backup.Backup.isBackupSuitableForAutomatic;
 import static com.eveningoutpost.dexdrip.cloud.backup.DriveManager.BINARY_FILE_TYPE;
@@ -18,7 +18,7 @@ import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.databinding.ActivityBackupPickerBinding;
-import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
 import com.eveningoutpost.dexdrip.xutilitymodels.PrefsViewImpl;
 import com.eveningoutpost.dexdrip.ui.dialog.GenericConfirmDialog;
 import com.eveningoutpost.dexdrip.xdrip;

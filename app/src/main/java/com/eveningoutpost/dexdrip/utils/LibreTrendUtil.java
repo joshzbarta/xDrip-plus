@@ -11,7 +11,7 @@ import com.eveningoutpost.dexdrip.NFCReaderX;
 import com.eveningoutpost.dexdrip.Models.GlucoseData;
 import com.eveningoutpost.dexdrip.data.LibreBlock;
 
-import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 

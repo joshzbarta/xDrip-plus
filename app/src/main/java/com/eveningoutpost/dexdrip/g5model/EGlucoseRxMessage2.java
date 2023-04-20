@@ -4,7 +4,7 @@ import static com.eveningoutpost.dexdrip.Models.JoH.tsl;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

@@ -9,7 +9,7 @@ import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.SnoozeActivity;
 import com.eveningoutpost.dexdrip.Models.ActiveBgAlert;
 import com.eveningoutpost.dexdrip.Models.AlertType;
-import com.eveningoutpost.dexdrip.zutilitymodels.AlertPlayer;
+import com.eveningoutpost.dexdrip.utilitymodels.AlertPlayer;
 
 /**
  * An {@link IntentService} subclass for handling asynchronous task requests in
