@@ -10,10 +10,10 @@ import android.util.Pair;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
-import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
 import com.eveningoutpost.dexdrip.cgm.medtrum.messages.AdvertRx;
 import com.eveningoutpost.dexdrip.cgm.medtrum.messages.AnnexARx;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;

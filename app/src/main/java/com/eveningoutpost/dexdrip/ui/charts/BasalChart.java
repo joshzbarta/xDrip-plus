@@ -5,8 +5,8 @@ import androidx.annotation.NonNull;
 import android.text.format.DateFormat;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.UtilityModels.ColorCache;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.ColorCache;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
 import com.eveningoutpost.dexdrip.profileeditor.BasalProfile;
 import com.eveningoutpost.dexdrip.xdrip;
 
@@ -28,7 +28,7 @@ import lecho.lib.hellocharts.model.ColumnChartData;
 import lecho.lib.hellocharts.model.SubcolumnValue;
 import lecho.lib.hellocharts.view.ColumnChartView;
 
-import static com.eveningoutpost.dexdrip.UtilityModels.ColorCache.getCol;
+import static com.eveningoutpost.dexdrip.zutilitymodels.ColorCache.getCol;
 
 // jamorham
 

@@ -2,12 +2,12 @@ package com.eveningoutpost.dexdrip.g5model;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.CompatibleApps;
+import com.eveningoutpost.dexdrip.zutilitymodels.CompatibleApps;
 
-import static com.eveningoutpost.dexdrip.UtilityModels.CompatibleApps.createActionIntent;
-import static com.eveningoutpost.dexdrip.UtilityModels.CompatibleApps.createChoiceIntent;
-import static com.eveningoutpost.dexdrip.UtilityModels.CompatibleApps.showNotification;
-import static com.eveningoutpost.dexdrip.UtilityModels.Constants.DEX_BASE_ID;
+import static com.eveningoutpost.dexdrip.zutilitymodels.CompatibleApps.createActionIntent;
+import static com.eveningoutpost.dexdrip.zutilitymodels.CompatibleApps.createChoiceIntent;
+import static com.eveningoutpost.dexdrip.zutilitymodels.CompatibleApps.showNotification;
+import static com.eveningoutpost.dexdrip.zutilitymodels.Constants.DEX_BASE_ID;
 
 // jamorham
 

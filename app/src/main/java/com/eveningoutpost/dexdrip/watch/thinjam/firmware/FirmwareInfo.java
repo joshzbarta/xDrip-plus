@@ -3,8 +3,8 @@ package com.eveningoutpost.dexdrip.watch.thinjam.firmware;
 // jamorham
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
 import com.eveningoutpost.dexdrip.watch.thinjam.BlueJay;
 
 import java.util.List;

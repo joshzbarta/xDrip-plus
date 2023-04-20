@@ -1,7 +1,7 @@
 
 package com.eveningoutpost.dexdrip.Models;
 
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
 
 import java.text.DecimalFormat;
 

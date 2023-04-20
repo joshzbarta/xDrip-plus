@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.ui.helpers;
 
 import android.media.AudioManager;
 
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
 
 import lombok.val;
 

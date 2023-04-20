@@ -9,16 +9,13 @@ import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.activeandroid.util.SQLiteUtils;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.data.UserError;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import lombok.val;
 
 /**
  * Created by jamorham on 01/11/2016.

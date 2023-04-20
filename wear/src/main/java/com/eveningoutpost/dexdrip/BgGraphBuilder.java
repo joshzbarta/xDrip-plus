@@ -18,7 +18,7 @@ import java.util.TimeZone;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
 
 import lecho.lib.hellocharts.formatter.LineChartValueFormatter;
 import lecho.lib.hellocharts.formatter.SimpleLineChartValueFormatter;
@@ -633,7 +633,7 @@ public class BgGraphBuilder {
             JoH.static_toast(xdrip.getAppContext(), message, Toast.LENGTH_SHORT);
 
             /*switch (type) {
-                case com.eveningoutpost.dexdrip.UtilityModels.PointValueExtended.BloodTest:
+                case com.eveningoutpost.dexdrip.zutilitymodels.PointValueExtended.BloodTest:
                     final String fuuid = uuid;
                     final View.OnClickListener mBtOnClickListener = new View.OnClickListener() {
                         @Override

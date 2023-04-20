@@ -7,8 +7,8 @@ import android.os.PowerManager;
 import com.eveningoutpost.dexdrip.BuildConfig;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
 import com.eveningoutpost.dexdrip.tidepool.InfoInterceptor;
 
 import java.nio.charset.StandardCharsets;
@@ -30,7 +30,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-import static com.eveningoutpost.dexdrip.UtilityModels.OkHttpWrapper.enableTls12OnPreLollipop;
+import static com.eveningoutpost.dexdrip.zutilitymodels.OkHttpWrapper.enableTls12OnPreLollipop;
 
 
 /**

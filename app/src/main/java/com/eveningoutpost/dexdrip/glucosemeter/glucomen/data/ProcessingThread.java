@@ -4,7 +4,7 @@ package com.eveningoutpost.dexdrip.glucosemeter.glucomen.data;
 import static com.eveningoutpost.dexdrip.glucosemeter.glucomen.GlucoMen.playSounds;
 import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
 import static com.eveningoutpost.dexdrip.Models.JoH.tsl;
-import static com.eveningoutpost.dexdrip.UtilityModels.Constants.SECOND_IN_MS;
+import static com.eveningoutpost.dexdrip.zutilitymodels.Constants.SECOND_IN_MS;
 
 import com.eveningoutpost.dexdrip.glucosemeter.glucomen.GlucoMenNfc;
 import com.eveningoutpost.dexdrip.data.BloodTest;
@@ -12,9 +12,9 @@ import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.LowPriorityThread;
-import com.eveningoutpost.dexdrip.UtilityModels.Unitized;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.LowPriorityThread;
+import com.eveningoutpost.dexdrip.zutilitymodels.Unitized;
 import com.eveningoutpost.dexdrip.utils.jobs.BackgroundQueue;
 
 import lombok.Getter;

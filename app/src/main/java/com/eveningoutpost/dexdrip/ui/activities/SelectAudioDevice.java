@@ -3,13 +3,12 @@ package com.eveningoutpost.dexdrip.ui.activities;
 import androidx.databinding.ObservableField;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.eveningoutpost.dexdrip.BaseAppCompatActivity;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
 import com.eveningoutpost.dexdrip.databinding.ActivitySelectAudioDeviceBinding;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
 import com.eveningoutpost.dexdrip.utils.HeadsetStateReceiver;
 
 /**

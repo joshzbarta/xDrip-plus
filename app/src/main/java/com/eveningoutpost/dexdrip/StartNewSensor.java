@@ -27,9 +27,9 @@ import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.services.Ob1G5CollectionService;
-import com.eveningoutpost.dexdrip.UtilityModels.CollectionServiceStarter;
-import com.eveningoutpost.dexdrip.UtilityModels.Experience;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.zutilitymodels.CollectionServiceStarter;
+import com.eveningoutpost.dexdrip.zutilitymodels.Experience;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
 import com.eveningoutpost.dexdrip.profileeditor.DatePickerFragment;
 import com.eveningoutpost.dexdrip.profileeditor.ProfileAdapter;
 import com.eveningoutpost.dexdrip.profileeditor.TimePickerFragment;
@@ -45,7 +45,6 @@ import java.util.Date;
 import java.util.Locale;
 
 import lombok.val;
-import static com.eveningoutpost.dexdrip.data.BgReading.AGE_ADJUSTMENT_TIME;
 
 public class StartNewSensor extends ActivityWithMenu {
     // public static String menu_name = "Start Sensor";

@@ -15,8 +15,8 @@ import androidx.core.content.ContextCompat;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.UtilityModels.CollectionServiceStarter;
-import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
+import com.eveningoutpost.dexdrip.zutilitymodels.CollectionServiceStarter;
+import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
 
 /**
  * Helper for checking if location services are enabled on the device.

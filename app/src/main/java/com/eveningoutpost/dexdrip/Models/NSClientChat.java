@@ -6,7 +6,7 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.eveningoutpost.dexdrip.UtilityModels.Intents;
+import com.eveningoutpost.dexdrip.zutilitymodels.Intents;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.xdrip;
 

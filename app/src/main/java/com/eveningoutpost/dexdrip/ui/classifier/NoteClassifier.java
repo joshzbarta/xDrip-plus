@@ -7,12 +7,10 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.UtilityModels.HPointValue;
-import com.eveningoutpost.dexdrip.UtilityModels.PointValueExtended;
+import com.eveningoutpost.dexdrip.zutilitymodels.HPointValue;
+import com.eveningoutpost.dexdrip.zutilitymodels.PointValueExtended;
 import com.eveningoutpost.dexdrip.ui.helpers.BitmapLoader;
 import com.eveningoutpost.dexdrip.ui.helpers.ColorUtil;
-
-import lecho.lib.hellocharts.model.PointValue;
 
 public class NoteClassifier {
 

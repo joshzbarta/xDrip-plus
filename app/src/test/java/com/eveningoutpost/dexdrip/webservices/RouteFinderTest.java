@@ -7,8 +7,8 @@ import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
 import com.eveningoutpost.dexdrip.xutilitymodels.NanoStatus;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
-import com.eveningoutpost.dexdrip.UtilityModels.SensorStatus;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.zutilitymodels.SensorStatus;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 
 import org.json.JSONArray;

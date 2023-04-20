@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.UtilityModels.ColorCache;
-import com.eveningoutpost.dexdrip.UtilityModels.Notifications;
+import com.eveningoutpost.dexdrip.zutilitymodels.ColorCache;
+import com.eveningoutpost.dexdrip.zutilitymodels.Notifications;
 import com.eveningoutpost.dexdrip.WidgetUpdateService;
 import com.eveningoutpost.dexdrip.xdrip;
 import com.rarepebble.colorpicker.ColorPreference;

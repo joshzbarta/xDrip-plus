@@ -3,7 +3,6 @@ package com.eveningoutpost.dexdrip.data;
 import com.eveningoutpost.dexdrip.Models.InsulinInjection;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
-import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.insulin.Insulin;
 import com.eveningoutpost.dexdrip.insulin.InsulinManager;
 import com.google.common.truth.Truth;
@@ -14,8 +13,8 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.eveningoutpost.dexdrip.UtilityModels.Constants.DAY_IN_MS;
-import static com.eveningoutpost.dexdrip.UtilityModels.Constants.MONTH_IN_MS;
+import static com.eveningoutpost.dexdrip.zutilitymodels.Constants.DAY_IN_MS;
+import static com.eveningoutpost.dexdrip.zutilitymodels.Constants.MONTH_IN_MS;
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth.assertWithMessage;
 

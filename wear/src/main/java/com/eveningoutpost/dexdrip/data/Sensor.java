@@ -14,7 +14,7 @@ import android.database.sqlite.SQLiteDatabase;//KS
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.UtilityModels.SensorSendQueue;
+import com.eveningoutpost.dexdrip.zutilitymodels.SensorSendQueue;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.bind.DateTypeAdapter;

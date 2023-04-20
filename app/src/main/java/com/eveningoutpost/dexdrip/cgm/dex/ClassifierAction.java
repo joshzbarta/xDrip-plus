@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.cgm.dex;
 
-import static com.eveningoutpost.dexdrip.UtilityModels.Constants.HOUR_IN_MS;
+import static com.eveningoutpost.dexdrip.zutilitymodels.Constants.HOUR_IN_MS;
 
 import com.eveningoutpost.dexdrip.g5model.BackFillRxMessage;
 import com.eveningoutpost.dexdrip.g5model.BackFillStream;
@@ -10,9 +10,9 @@ import com.eveningoutpost.dexdrip.g5model.GlucoseRxMessage;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
+import com.eveningoutpost.dexdrip.zutilitymodels.BgGraphBuilder;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
 import com.eveningoutpost.dexdrip.cgm.dex.g7.BackfillControlRx;
 import com.eveningoutpost.dexdrip.cgm.dex.g7.EGlucoseRxMessage;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;

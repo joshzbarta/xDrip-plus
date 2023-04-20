@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.eveningoutpost.dexdrip.Models.Calibration;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder;
+import com.eveningoutpost.dexdrip.zutilitymodels.BgGraphBuilder;
 import com.eveningoutpost.dexdrip.xdrip;
 
 import java.util.ArrayList;

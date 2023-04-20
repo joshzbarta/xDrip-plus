@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.Models;
 
 import com.activeandroid.query.Delete;
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
-import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
+import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
 import com.eveningoutpost.dexdrip.data.UserNotification;
 
 import org.junit.After;

@@ -2,9 +2,9 @@ package com.eveningoutpost.dexdrip.watch.thinjam;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
-import com.eveningoutpost.dexdrip.UtilityModels.StatusLine;
+import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.zutilitymodels.StatusLine;
 import com.eveningoutpost.dexdrip.ui.activities.ThinJamActivity;
 
 import java.util.Arrays;

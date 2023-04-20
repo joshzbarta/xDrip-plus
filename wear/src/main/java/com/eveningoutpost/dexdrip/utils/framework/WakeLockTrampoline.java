@@ -11,7 +11,7 @@ import android.util.SparseArray;
 import com.eveningoutpost.dexdrip.BuildConfig;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.ForegroundServiceStarter;
+import com.eveningoutpost.dexdrip.zutilitymodels.ForegroundServiceStarter;
 import com.eveningoutpost.dexdrip.xdrip;
 
 import java.util.HashMap;

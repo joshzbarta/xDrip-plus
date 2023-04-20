@@ -14,8 +14,8 @@ import java.util.List;
 
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.UtilityModels.AlertPlayer;
-import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
+import com.eveningoutpost.dexdrip.zutilitymodels.AlertPlayer;
+import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
 
 /**
  * Created by Emma Black on 11/29/14.

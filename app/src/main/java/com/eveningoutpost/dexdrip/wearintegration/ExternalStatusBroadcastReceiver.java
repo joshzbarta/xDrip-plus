@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.eveningoutpost.dexdrip.data.UserError;
 import androidx.legacy.content.WakefulBroadcastReceiver;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
 
 /**
  * Created by adrian on 14/02/16.

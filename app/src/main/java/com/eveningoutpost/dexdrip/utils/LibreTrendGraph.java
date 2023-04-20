@@ -5,17 +5,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.eveningoutpost.dexdrip.BaseAppCompatActivity;
-import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.Models.GlucoseData;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.LibreBlock;
-import com.eveningoutpost.dexdrip.Models.ReadingData;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.NFCReaderX;
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.HPointValue;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.HPointValue;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -29,7 +25,7 @@ import lecho.lib.hellocharts.model.PointValue;
 import lecho.lib.hellocharts.util.ChartUtils;
 import lecho.lib.hellocharts.view.LineChartView;
 
-import static com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder.FUZZER;
+import static com.eveningoutpost.dexdrip.zutilitymodels.BgGraphBuilder.FUZZER;
 
 
 public class LibreTrendGraph extends BaseAppCompatActivity {

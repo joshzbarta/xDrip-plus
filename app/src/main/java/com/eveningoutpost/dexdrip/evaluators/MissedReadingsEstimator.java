@@ -4,9 +4,9 @@ package com.eveningoutpost.dexdrip.evaluators;
 
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
 
-import static com.eveningoutpost.dexdrip.UtilityModels.BgGraphBuilder.DEXCOM_PERIOD;
+import static com.eveningoutpost.dexdrip.zutilitymodels.BgGraphBuilder.DEXCOM_PERIOD;
 
 public class MissedReadingsEstimator {
 

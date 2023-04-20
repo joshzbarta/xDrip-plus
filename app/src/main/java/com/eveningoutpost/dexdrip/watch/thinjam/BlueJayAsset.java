@@ -2,9 +2,9 @@ package com.eveningoutpost.dexdrip.watch.thinjam;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
 import com.eveningoutpost.dexdrip.utils.bt.ReplyProcessor;
 import com.eveningoutpost.dexdrip.watch.thinjam.messages.BaseTx;
 import com.eveningoutpost.dexdrip.watch.thinjam.messages.DefineWindowTx;

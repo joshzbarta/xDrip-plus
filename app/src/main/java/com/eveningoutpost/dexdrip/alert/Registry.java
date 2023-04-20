@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.alert;
 import android.content.SharedPreferences;
 
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
 
 import java.util.ArrayList;
 import java.util.List;

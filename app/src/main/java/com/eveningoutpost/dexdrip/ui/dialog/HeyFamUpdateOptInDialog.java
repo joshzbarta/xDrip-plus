@@ -6,11 +6,11 @@ import android.content.DialogInterface;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.Experience;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.Experience;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
 
-import static com.eveningoutpost.dexdrip.UtilityModels.UpdateActivity.AUTO_UPDATE_PREFS_NAME;
+import static com.eveningoutpost.dexdrip.zutilitymodels.UpdateActivity.AUTO_UPDATE_PREFS_NAME;
 
 // jamorham
 

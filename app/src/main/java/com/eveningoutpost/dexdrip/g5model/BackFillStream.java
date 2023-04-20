@@ -6,7 +6,7 @@ import static com.eveningoutpost.dexdrip.g5model.DexTimeKeeper.fromDexTimeCached
 
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
 
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;

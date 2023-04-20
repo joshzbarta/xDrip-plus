@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.plugin;
 import static com.eveningoutpost.dexdrip.utils.FileUtils.readFromFile;
 
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
+import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
 import com.eveningoutpost.dexdrip.xdrip;
 
 import java.io.File;

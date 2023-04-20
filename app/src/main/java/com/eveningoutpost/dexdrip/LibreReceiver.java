@@ -18,18 +18,16 @@ import com.eveningoutpost.dexdrip.data.Libre2RawValue;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.UtilityModels.Intents;
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
-import com.eveningoutpost.dexdrip.UtilityModels.StatusItem;
-import com.eveningoutpost.dexdrip.UtilityModels.Unitized;
+import com.eveningoutpost.dexdrip.zutilitymodels.Intents;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
+import com.eveningoutpost.dexdrip.zutilitymodels.StatusItem;
+import com.eveningoutpost.dexdrip.zutilitymodels.Unitized;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import lombok.val;
 
 /**
  * Created by jamorham on 14/11/2016.

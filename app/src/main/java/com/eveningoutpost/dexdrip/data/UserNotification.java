@@ -2,14 +2,13 @@ package com.eveningoutpost.dexdrip.data;
 
 import android.provider.BaseColumns;
 
-import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.UtilityModels.AlertPlayer;
-import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
+import com.eveningoutpost.dexdrip.zutilitymodels.AlertPlayer;
+import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
 
 import java.util.Arrays;
 import java.util.Date;

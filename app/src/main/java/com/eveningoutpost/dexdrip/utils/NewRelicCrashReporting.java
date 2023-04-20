@@ -6,8 +6,8 @@ import static com.eveningoutpost.dexdrip.utils.NewRelicCrashReporting.StateMonit
 import com.eveningoutpost.dexdrip.BuildConfig;
 import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.Inevitable;
-import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
+import com.eveningoutpost.dexdrip.zutilitymodels.Inevitable;
+import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
 import com.eveningoutpost.dexdrip.xdrip;
 import com.newrelic.agent.android.AgentConfiguration;
 import com.newrelic.agent.android.AndroidAgentImpl;
@@ -20,8 +20,6 @@ import com.newrelic.agent.android.logging.AgentLogManager;
 import com.newrelic.agent.android.logging.NullAgentLog;
 
 import java.lang.reflect.Field;
-
-import lombok.val;
 
 public class NewRelicCrashReporting {
 

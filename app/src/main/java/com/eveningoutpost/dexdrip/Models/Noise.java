@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.Models;
 
-import com.eveningoutpost.dexdrip.UtilityModels.Pref;
+import com.eveningoutpost.dexdrip.zutilitymodels.Pref;
 import com.eveningoutpost.dexdrip.data.UserError;
 
 /**

@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.Models;
 
 import com.google.gson.annotations.Expose;
 
-import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
+import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 import java.util.ArrayList;

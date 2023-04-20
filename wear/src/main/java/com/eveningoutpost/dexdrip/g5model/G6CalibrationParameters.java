@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.g5model;
 
-import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
+import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
 
 import lombok.Getter;
 

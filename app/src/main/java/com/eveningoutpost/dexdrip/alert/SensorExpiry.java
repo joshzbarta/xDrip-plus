@@ -5,12 +5,12 @@ import static com.eveningoutpost.dexdrip.Models.JoH.niceTimeScalar;
 import static com.eveningoutpost.dexdrip.Models.JoH.niceTimeScalarNatural;
 import static com.eveningoutpost.dexdrip.Models.JoH.showNotification;
 import static com.eveningoutpost.dexdrip.Models.JoH.tsl;
-import static com.eveningoutpost.dexdrip.UtilityModels.Constants.SENSORY_EXPIRY_NOTIFICATION_ID;
+import static com.eveningoutpost.dexdrip.zutilitymodels.Constants.SENSORY_EXPIRY_NOTIFICATION_ID;
 
 import com.eveningoutpost.dexdrip.g5model.SensorDays;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
 
 import lombok.val;
 

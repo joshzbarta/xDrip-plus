@@ -8,7 +8,7 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.UtilityModels.RxBleProvider;
+import com.eveningoutpost.dexdrip.zutilitymodels.RxBleProvider;
 import com.eveningoutpost.dexdrip.utils.bt.BtCallBack2;
 import com.eveningoutpost.dexdrip.xdrip;
 import com.polidea.rxandroidble2.exceptions.BleScanException;

@@ -3,8 +3,8 @@ package com.eveningoutpost.dexdrip.watch.thinjam.messages;
 import android.util.SparseArray;
 
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.Unitized;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.Unitized;
 import com.eveningoutpost.dexdrip.watch.thinjam.Const;
 import com.google.gson.annotations.Expose;
 

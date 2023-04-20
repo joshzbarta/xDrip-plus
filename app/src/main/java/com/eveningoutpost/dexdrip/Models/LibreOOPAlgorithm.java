@@ -9,11 +9,11 @@ import com.eveningoutpost.dexdrip.LibreAlarmReceiver;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.NFCReaderX;
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.UtilityModels.CompatibleApps;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
-import com.eveningoutpost.dexdrip.UtilityModels.Intents;
-import com.eveningoutpost.dexdrip.UtilityModels.LibreUtils;
-import com.eveningoutpost.dexdrip.UtilityModels.PersistentStore;
+import com.eveningoutpost.dexdrip.zutilitymodels.CompatibleApps;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.Intents;
+import com.eveningoutpost.dexdrip.zutilitymodels.LibreUtils;
+import com.eveningoutpost.dexdrip.zutilitymodels.PersistentStore;
 import com.eveningoutpost.dexdrip.xdrip;
 
 import java.util.concurrent.ArrayBlockingQueue;

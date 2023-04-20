@@ -14,8 +14,8 @@ import com.eveningoutpost.dexdrip.Models.JoH;
 import com.eveningoutpost.dexdrip.Models.LibreBlock;
 import com.eveningoutpost.dexdrip.Models.LibreData;
 import com.eveningoutpost.dexdrip.data.Sensor;
-import com.eveningoutpost.dexdrip.UtilityModels.PlusAsyncExecutor;
-import com.eveningoutpost.dexdrip.UtilityModels.VersionTracker;
+import com.eveningoutpost.dexdrip.zutilitymodels.PlusAsyncExecutor;
+import com.eveningoutpost.dexdrip.zutilitymodels.VersionTracker;
 
 
 import static com.eveningoutpost.dexdrip.utils.VersionFixer.disableUpdates;

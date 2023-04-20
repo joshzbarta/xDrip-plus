@@ -7,9 +7,8 @@ import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.Models.Profile;
-import com.eveningoutpost.dexdrip.UtilityModels.Constants;
+import com.eveningoutpost.dexdrip.zutilitymodels.Constants;
 import com.eveningoutpost.dexdrip.wearintegration.ExternalStatusService;
 import com.google.gson.annotations.Expose;
 
