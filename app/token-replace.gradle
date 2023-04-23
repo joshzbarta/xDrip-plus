@@ -6,7 +6,7 @@ replaceAndroidTokenPreprocessorSettings {
     // Adjust package names
     replace 'com.eveningoutpost.dexdrip.Services': "com.eveningoutpost.dexdrip.services"
     replace 'com.eveningoutpost.dexdrip.utilitymodels': "com.eveningoutpost.dexdrip.utilitymodels"
-    replace 'com.eveningoutpost.dexdrip.Models': "com.eveningoutpost.dexdrip.models"
+    replace 'com.eveningoutpost.dexdrip.zmodels': "com.eveningoutpost.dexdrip.models"
     replace 'com.eveningoutpost.dexdrip.Tables': "com.eveningoutpost.dexdrip.tables"
     replace 'com.eveningoutpost.dexdrip.G5Model': "com.eveningoutpost.dexdrip.g5model"
     replace 'com.eveningoutpost.dexdrip.GlucoseMeter': "com.eveningoutpost.dexdrip.glucosemeter"
@@ -18,7 +18,7 @@ replaceAndroidTokenPreprocessorSettings {
     //replace '".localeTasker.': '".localetasker.' // existing tasker implementations use the package name
     replace '".GlucoseMeter.': '".glucosemeter.'
     replace '".Services.': '".services.'
-    replace '".Models.': '".models.'
+    replace '".zmodels.': '".models.'
     replace '".Tables.': '".tables.'
     replace '".ImportedLibraries.': '".importedlibraries.'
 

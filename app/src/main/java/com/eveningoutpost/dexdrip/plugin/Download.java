@@ -1,12 +1,12 @@
 package com.eveningoutpost.dexdrip.plugin;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.decompressBytesToBytes;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.decompressBytesToBytes;
 import static com.eveningoutpost.dexdrip.utils.DexCollectionType.Disabled;
 import static com.eveningoutpost.dexdrip.utils.DexCollectionType.setDexCollectionType;
 import static com.eveningoutpost.dexdrip.utils.FileUtils.writeToFile;
 
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.xdrip;
 

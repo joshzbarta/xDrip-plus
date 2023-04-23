@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.utils;
 
-import com.eveningoutpost.dexdrip.Models.GlucoseData;
+import com.eveningoutpost.dexdrip.zmodels.GlucoseData;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 //This class represents a per minute data from the libre.

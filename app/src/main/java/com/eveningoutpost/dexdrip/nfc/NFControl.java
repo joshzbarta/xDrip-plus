@@ -7,7 +7,7 @@ import android.nfc.NfcAdapter;
 import android.os.Bundle;
 
 import com.eveningoutpost.dexdrip.glucosemeter.glucomen.GlucoMen;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.NFCReaderX;
 import com.eveningoutpost.dexdrip.R;

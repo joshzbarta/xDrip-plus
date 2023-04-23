@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.activeandroid.Cache;
 import com.eveningoutpost.dexdrip.BaseAppCompatActivity;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.databinding.ActivityDatabaseAdminBinding;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
@@ -19,8 +19,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedSet;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.emptyString;
-import static com.eveningoutpost.dexdrip.Models.JoH.mapSortedByValue;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.mapSortedByValue;
 
 /**
  * jamorham

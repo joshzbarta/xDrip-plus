@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.eveningoutpost.dexdrip.BestGlucose;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.databinding.ActivityNumberWallPreviewBinding;
 import com.eveningoutpost.dexdrip.utilitymodels.ColorCache;

@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.g5model;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 
 // created by jamorham
 

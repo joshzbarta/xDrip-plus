@@ -2,8 +2,8 @@ package com.eveningoutpost.dexdrip.xmodels;
 
 import androidx.databinding.BaseObservable;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.SensorSanity;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.zmodels.SensorSanity;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 import com.eveningoutpost.dexdrip.xdrip;

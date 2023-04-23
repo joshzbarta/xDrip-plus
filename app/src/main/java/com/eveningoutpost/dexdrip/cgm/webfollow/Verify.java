@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.cgm.webfollow;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.hexStringToByteArray;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.hexStringToByteArray;
 
 import com.eveningoutpost.dexdrip.data.UserError;
 

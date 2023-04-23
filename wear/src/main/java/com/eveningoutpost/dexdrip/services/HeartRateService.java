@@ -14,7 +14,7 @@ import androidx.core.app.ActivityCompat;
 
 import com.eveningoutpost.dexdrip.ListenerService;
 import com.eveningoutpost.dexdrip.data.HeartRate;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.SensorPermissionActivity;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;

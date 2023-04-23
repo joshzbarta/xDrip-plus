@@ -6,10 +6,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.ListIterator;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.NFCReaderX;
-import com.eveningoutpost.dexdrip.Models.GlucoseData;
-import com.eveningoutpost.dexdrip.Models.LibreBlock;
+import com.eveningoutpost.dexdrip.zmodels.GlucoseData;
+import com.eveningoutpost.dexdrip.zmodels.LibreBlock;
 
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 

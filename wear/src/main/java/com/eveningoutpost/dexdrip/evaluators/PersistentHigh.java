@@ -10,7 +10,7 @@ package com.eveningoutpost.dexdrip.evaluators;
 
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.R;
@@ -22,8 +22,8 @@ import com.eveningoutpost.dexdrip.xdrip;
 import java.util.Date;
 import java.util.List;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
-import static com.eveningoutpost.dexdrip.Models.JoH.niceTimeScalar;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.niceTimeScalar;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.MINUTE_IN_MS;
 
 public class PersistentHigh {

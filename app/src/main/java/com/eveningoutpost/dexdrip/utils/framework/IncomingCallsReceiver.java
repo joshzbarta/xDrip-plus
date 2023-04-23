@@ -17,7 +17,7 @@ import androidx.core.app.ActivityCompat;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;

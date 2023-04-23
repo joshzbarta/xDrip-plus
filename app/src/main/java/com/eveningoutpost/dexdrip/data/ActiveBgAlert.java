@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.data;
 import android.provider.BaseColumns;
 
 import com.activeandroid.util.SQLiteUtils;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 import com.activeandroid.Model;

@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.Models;
+package com.eveningoutpost.dexdrip.zmodels;
 
 import com.activeandroid.query.Delete;
 import com.eveningoutpost.dexdrip.R;

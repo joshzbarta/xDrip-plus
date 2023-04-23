@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.utilitymodels;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.dateTimeText;
-import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.dateTimeText;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.MINUTE_IN_MS;
 
 import android.content.Intent;
@@ -9,9 +9,9 @@ import android.os.Bundle;
 
 import com.eveningoutpost.dexdrip.BestGlucose;
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.Models.Calibration;
-import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.Noise;
+import com.eveningoutpost.dexdrip.zmodels.Calibration;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.zmodels.Noise;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;

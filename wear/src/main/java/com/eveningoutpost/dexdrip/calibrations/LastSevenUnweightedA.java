@@ -2,9 +2,9 @@ package com.eveningoutpost.dexdrip.calibrations;
 
 import android.util.Log;
 
-import com.eveningoutpost.dexdrip.Models.Calibration;
-import com.eveningoutpost.dexdrip.Models.Forecast.PolyTrendLine;
-import com.eveningoutpost.dexdrip.Models.Forecast.TrendLine;
+import com.eveningoutpost.dexdrip.zmodels.Calibration;
+import com.eveningoutpost.dexdrip.zmodels.Forecast.PolyTrendLine;
+import com.eveningoutpost.dexdrip.zmodels.Forecast.TrendLine;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 
 import java.util.ArrayList;

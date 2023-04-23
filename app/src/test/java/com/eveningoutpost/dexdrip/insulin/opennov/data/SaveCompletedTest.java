@@ -1,11 +1,11 @@
 package com.eveningoutpost.dexdrip.insulin.opennov.data;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.tsl;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.tsl;
 import static com.google.common.truth.Truth.assertWithMessage;
 
 import android.util.SparseArray;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
 

@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.webservices;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.StepCounter;
 import com.eveningoutpost.dexdrip.data.UserError;
 

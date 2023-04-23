@@ -16,9 +16,9 @@ import androidx.core.app.NotificationCompat;
 
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.ListenerService;
-import com.eveningoutpost.dexdrip.Models.ActiveBgAlert;
-import com.eveningoutpost.dexdrip.Models.AlertType;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.ActiveBgAlert;
+import com.eveningoutpost.dexdrip.zmodels.AlertType;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.R;

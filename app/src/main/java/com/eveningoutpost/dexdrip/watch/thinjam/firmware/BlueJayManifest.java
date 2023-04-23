@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.watch.thinjam.firmware;
 
 // jamorham
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.Expose;
@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
 
 public class BlueJayManifest {
 

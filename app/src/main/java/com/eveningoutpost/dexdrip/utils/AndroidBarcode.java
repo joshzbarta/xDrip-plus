@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.annotation.NonNull;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.xdrip;
 import com.google.zxing.client.android.Intents;

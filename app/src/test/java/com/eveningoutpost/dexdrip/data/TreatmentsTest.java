@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.data;
 
-import com.eveningoutpost.dexdrip.Models.InsulinInjection;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.InsulinInjection;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
 import com.eveningoutpost.dexdrip.insulin.Insulin;
 import com.eveningoutpost.dexdrip.insulin.InsulinManager;

@@ -1,13 +1,7 @@
-package com.eveningoutpost.dexdrip.Models;
+package com.eveningoutpost.dexdrip.zmodels;
 
-import static org.junit.Assert.*;
-
-import android.preference.PreferenceManager;
-
-import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
 import com.eveningoutpost.dexdrip.profileeditor.BasalRepository;
-import com.eveningoutpost.dexdrip.xdrip;
 
 import org.junit.Before;
 import org.junit.Test;

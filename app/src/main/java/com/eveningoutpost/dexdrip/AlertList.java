@@ -23,7 +23,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.eveningoutpost.dexdrip.data.AlertType;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.utilitymodels.AlertPlayer;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;

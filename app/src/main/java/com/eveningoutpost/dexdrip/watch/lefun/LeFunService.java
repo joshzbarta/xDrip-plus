@@ -8,7 +8,7 @@ import android.util.Pair;
 
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.services.JamBaseBluetoothSequencer;
@@ -45,11 +45,11 @@ import java.util.concurrent.TimeoutException;
 import io.reactivex.schedulers.Schedulers;
 
 import static com.eveningoutpost.dexdrip.data.ActiveBgAlert.currentlyAlerting;
-import static com.eveningoutpost.dexdrip.Models.JoH.bytesToHex;
-import static com.eveningoutpost.dexdrip.Models.JoH.emptyString;
-import static com.eveningoutpost.dexdrip.Models.JoH.msTill;
-import static com.eveningoutpost.dexdrip.Models.JoH.niceTimeScalar;
-import static com.eveningoutpost.dexdrip.Models.JoH.roundDouble;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.bytesToHex;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.msTill;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.niceTimeScalar;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.roundDouble;
 import static com.eveningoutpost.dexdrip.services.JamBaseBluetoothSequencer.BaseState.CLOSE;
 import static com.eveningoutpost.dexdrip.services.JamBaseBluetoothSequencer.BaseState.DISCOVER;
 import static com.eveningoutpost.dexdrip.services.JamBaseBluetoothSequencer.BaseState.INIT;

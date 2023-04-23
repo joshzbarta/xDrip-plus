@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.utils.bt;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 
 import io.reactivex.disposables.Disposable;

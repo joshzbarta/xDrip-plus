@@ -8,7 +8,7 @@ import android.graphics.Matrix;
 import android.util.DisplayMetrics;
 import android.view.View;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 import java.util.ArrayList;

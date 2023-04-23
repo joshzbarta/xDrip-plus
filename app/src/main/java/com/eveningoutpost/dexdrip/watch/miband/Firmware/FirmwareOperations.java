@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.watch.miband.Firmware;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.watch.miband.Const;
 
 import java.io.ByteArrayOutputStream;

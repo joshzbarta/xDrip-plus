@@ -1,9 +1,9 @@
 package com.eveningoutpost.dexdrip.utilitymodels;
 
 import static com.eveningoutpost.dexdrip.Home.startWatchUpdaterService;
-import static com.eveningoutpost.dexdrip.Models.JoH.delayedMediaPlayerRelease;
-import static com.eveningoutpost.dexdrip.Models.JoH.setMediaDataSource;
-import static com.eveningoutpost.dexdrip.Models.JoH.stopAndReleasePlayer;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.delayedMediaPlayerRelease;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.setMediaDataSource;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.stopAndReleasePlayer;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -24,7 +24,7 @@ import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.ActiveBgAlert;
 import com.eveningoutpost.dexdrip.data.AlertType;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.R;

@@ -4,7 +4,7 @@ import android.preference.ListPreference;
 import android.util.Log;
 
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
 import java.util.HashMap;

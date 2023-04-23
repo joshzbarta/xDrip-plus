@@ -18,10 +18,10 @@ import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.eveningoutpost.dexdrip.ListenerService;
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.Models.Calibration;
+import com.eveningoutpost.dexdrip.zmodels.Calibration;
 import com.eveningoutpost.dexdrip.data.HeartRate;
-import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.Models.PebbleMovement;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.zmodels.PebbleMovement;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.services.CustomComplicationProviderService;
 import com.eveningoutpost.dexdrip.stats.StatsResult;
@@ -34,12 +34,12 @@ import java.util.List;
 
 //KS import com.eveningoutpost.dexdrip.GcmActivity;
 //KS import com.eveningoutpost.dexdrip.Home;
-//KS import com.eveningoutpost.dexdrip.Models.Calibration;
+//KS import com.eveningoutpost.dexdrip.zmodels.Calibration;
 //KS following are not used on watch
 /*
 import com.eveningoutpost.dexdrip.services.SyncService;
 import com.eveningoutpost.dexdrip.ShareModels.BgUploader;
-import com.eveningoutpost.dexdrip.ShareModels.Models.ShareUploadPayload;
+import com.eveningoutpost.dexdrip.ShareModels.zmodels.ShareUploadPayload;
 import com.eveningoutpost.dexdrip.utilitymodels.pebble.PebbleUtil;
 import com.eveningoutpost.dexdrip.utilitymodels.pebble.PebbleWatchSync;
 import com.eveningoutpost.dexdrip.WidgetUpdateService;

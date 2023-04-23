@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.cgm.medtrum;
 import android.util.Pair;
 
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 import lombok.Setter;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
 import static com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder.DEXCOM_PERIOD;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.HOUR_IN_MS;
 

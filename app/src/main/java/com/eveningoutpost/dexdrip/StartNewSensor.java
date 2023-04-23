@@ -21,7 +21,7 @@ import com.eveningoutpost.dexdrip.g5model.DexSyncKeeper;
 import com.eveningoutpost.dexdrip.g5model.DexTimeKeeper;
 import com.eveningoutpost.dexdrip.g5model.FirmwareCapability;
 import com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;

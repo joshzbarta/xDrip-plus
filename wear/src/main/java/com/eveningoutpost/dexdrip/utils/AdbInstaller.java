@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.utils;
 
 import com.eveningoutpost.dexdrip.DemiGod;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.xdrip;
 import com.tananaev.adblib.AdbBase64;

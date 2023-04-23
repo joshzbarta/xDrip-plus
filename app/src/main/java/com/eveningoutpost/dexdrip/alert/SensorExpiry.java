@@ -1,10 +1,10 @@
 package com.eveningoutpost.dexdrip.alert;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.cancelNotification;
-import static com.eveningoutpost.dexdrip.Models.JoH.niceTimeScalar;
-import static com.eveningoutpost.dexdrip.Models.JoH.niceTimeScalarNatural;
-import static com.eveningoutpost.dexdrip.Models.JoH.showNotification;
-import static com.eveningoutpost.dexdrip.Models.JoH.tsl;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.cancelNotification;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.niceTimeScalar;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.niceTimeScalarNatural;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.showNotification;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.tsl;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.SENSORY_EXPIRY_NOTIFICATION_ID;
 
 import com.eveningoutpost.dexdrip.g5model.SensorDays;

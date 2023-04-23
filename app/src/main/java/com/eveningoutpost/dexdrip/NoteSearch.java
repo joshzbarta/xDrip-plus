@@ -30,8 +30,7 @@ import android.widget.TextView;
 
 import com.activeandroid.Cache;
 import com.activeandroid.util.SQLiteUtils;
-import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.data.UserError;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.utils.ListActivityWithMenu;
 
 import java.text.DateFormat;

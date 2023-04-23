@@ -12,7 +12,7 @@ import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
 import android.database.sqlite.SQLiteDatabase;//KS
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.utilitymodels.SensorSendQueue;
 import com.google.gson.Gson;

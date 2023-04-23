@@ -7,7 +7,7 @@ import android.nfc.TagLostException;
 import android.nfc.tech.IsoDep;
 
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.buffer.MyByteBuffer;
 

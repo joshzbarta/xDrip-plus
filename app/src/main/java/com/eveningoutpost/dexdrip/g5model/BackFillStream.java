@@ -4,7 +4,7 @@ package com.eveningoutpost.dexdrip.g5model;
 
 import static com.eveningoutpost.dexdrip.g5model.DexTimeKeeper.fromDexTimeCached;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 

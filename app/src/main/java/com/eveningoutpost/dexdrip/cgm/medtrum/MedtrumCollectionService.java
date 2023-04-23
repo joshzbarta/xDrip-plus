@@ -12,7 +12,7 @@ import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.Prediction;
 import com.eveningoutpost.dexdrip.data.TransmitterData;
 import com.eveningoutpost.dexdrip.data.UserError;
@@ -63,9 +63,9 @@ import io.reactivex.schedulers.Schedulers;
 
 
 import static com.eveningoutpost.dexdrip.data.BgReading.bgReadingInsertMedtrum;
-import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
-import static com.eveningoutpost.dexdrip.Models.JoH.msTill;
-import static com.eveningoutpost.dexdrip.Models.JoH.quietratelimit;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.msTill;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.quietratelimit;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.HOUR_IN_MS;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.MEDTRUM_SERVICE_FAILOVER_ID;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.MEDTRUM_SERVICE_RETRY_ID;

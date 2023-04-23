@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.insulin.opennov.data;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.google.gson.GsonBuilder;

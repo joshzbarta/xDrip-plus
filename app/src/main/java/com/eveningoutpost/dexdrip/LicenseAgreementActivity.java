@@ -2,18 +2,13 @@ package com.eveningoutpost.dexdrip;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
-import com.eveningoutpost.dexdrip.data.UserError;
-import com.google.android.gms.common.GoogleApiAvailability;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 
 public class LicenseAgreementActivity extends BaseAppCompatActivity {

@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip;
 
 
-import com.eveningoutpost.dexdrip.Models.ReadingData;
+import com.eveningoutpost.dexdrip.zmodels.ReadingData;
 import com.eveningoutpost.dexdrip.utilitymodels.LibreUtils;
 import com.google.gson.GsonBuilder;
 

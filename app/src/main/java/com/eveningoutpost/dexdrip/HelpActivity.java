@@ -1,10 +1,9 @@
 package com.eveningoutpost.dexdrip;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.webkit.WebView;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 
 public class HelpActivity extends BaseAppCompatActivity {
 

@@ -4,7 +4,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
@@ -13,8 +13,8 @@ import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.eveningoutpost.dexdrip.xdrip;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.cancelNotification;
-import static com.eveningoutpost.dexdrip.Models.JoH.showNotification;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.cancelNotification;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.showNotification;
 
 /**
  * Created by jamorham on 26/01/2017.

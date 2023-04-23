@@ -12,7 +12,7 @@ import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.text.SpannableString;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;

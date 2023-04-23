@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.utilitymodels;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.xdrip;
 

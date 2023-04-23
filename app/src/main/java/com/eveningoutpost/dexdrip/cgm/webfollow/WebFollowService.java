@@ -1,8 +1,8 @@
 package com.eveningoutpost.dexdrip.cgm.webfollow;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.clearRatelimit;
-import static com.eveningoutpost.dexdrip.Models.JoH.emptyString;
-import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.clearRatelimit;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
 import static com.eveningoutpost.dexdrip.utils.DexCollectionType.WebFollow;
 import static com.eveningoutpost.dexdrip.xdrip.gs;
 
@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import android.text.SpannableString;
 
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;

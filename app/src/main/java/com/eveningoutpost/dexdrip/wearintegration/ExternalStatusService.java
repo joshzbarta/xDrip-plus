@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.legacy.content.WakefulBroadcastReceiver;
 
 import com.eveningoutpost.dexdrip.data.APStatus;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.NewDataObserver;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;

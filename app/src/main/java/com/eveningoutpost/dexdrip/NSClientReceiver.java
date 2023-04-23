@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
 import static com.eveningoutpost.dexdrip.xdrip.gs;
 
 import android.content.BroadcastReceiver;
@@ -12,7 +12,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;

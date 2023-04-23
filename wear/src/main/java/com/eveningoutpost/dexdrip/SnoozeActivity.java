@@ -10,7 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 import android.util.TypedValue;
@@ -19,8 +19,8 @@ import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
-import com.eveningoutpost.dexdrip.Models.ActiveBgAlert;
-import com.eveningoutpost.dexdrip.Models.AlertType;
+import com.eveningoutpost.dexdrip.zmodels.ActiveBgAlert;
+import com.eveningoutpost.dexdrip.zmodels.AlertType;
 //KS import com.eveningoutpost.dexdrip.services.MissedReadingService;
 import com.eveningoutpost.dexdrip.utilitymodels.AlertPlayer;
 import com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder;

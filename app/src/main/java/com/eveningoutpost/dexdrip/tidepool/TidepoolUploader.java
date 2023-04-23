@@ -5,7 +5,7 @@ import static com.eveningoutpost.dexdrip.utilitymodels.OkHttpWrapper.enableTls12
 import android.os.PowerManager;
 
 import com.eveningoutpost.dexdrip.BuildConfig;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;

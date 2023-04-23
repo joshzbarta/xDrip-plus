@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.plugin;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
-import static com.eveningoutpost.dexdrip.Models.JoH.tsl;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.tsl;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.MINUTE_IN_MS;
 import static com.eveningoutpost.dexdrip.plugin.PluginDef.State.Fresh;
 import static com.eveningoutpost.dexdrip.plugin.PluginDef.State.Loaded;

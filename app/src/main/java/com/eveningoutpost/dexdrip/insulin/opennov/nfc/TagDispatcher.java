@@ -5,7 +5,7 @@ import static com.eveningoutpost.dexdrip.insulin.opennov.Options.playSounds;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.insulin.opennov.OpenNov;

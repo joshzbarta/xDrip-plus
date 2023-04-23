@@ -8,7 +8,7 @@ import android.util.Base64;
 import android.util.Log;
 
 import com.eveningoutpost.dexdrip.GoogleDriveInterface;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;

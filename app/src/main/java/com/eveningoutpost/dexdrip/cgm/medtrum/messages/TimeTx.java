@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.cgm.medtrum.messages;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 
 import java.util.Calendar;
 

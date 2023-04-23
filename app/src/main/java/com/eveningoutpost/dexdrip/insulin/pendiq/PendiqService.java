@@ -6,7 +6,7 @@ import android.os.PowerManager;
 
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
@@ -47,8 +47,8 @@ import rx.schedulers.Schedulers;
 */
 import io.reactivex.schedulers.Schedulers;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
-import static com.eveningoutpost.dexdrip.Models.JoH.ratelimit;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.ratelimit;
 import static com.eveningoutpost.dexdrip.insulin.pendiq.Const.INCOMING_CHAR;
 import static com.eveningoutpost.dexdrip.insulin.pendiq.Const.INSULIN_CLASSIFIER;
 import static com.eveningoutpost.dexdrip.insulin.pendiq.Const.OUTGOING_CHAR;

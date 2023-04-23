@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.watch.thinjam.firmware;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utils.CipherUtils;
 

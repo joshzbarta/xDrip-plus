@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.glucosemeter.glucomen.blocks;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.buffer.MyByteBuffer;
 
 import lombok.AllArgsConstructor;

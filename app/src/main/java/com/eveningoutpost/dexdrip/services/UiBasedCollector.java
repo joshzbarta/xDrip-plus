@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.services;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
 import static com.eveningoutpost.dexdrip.cgm.dex.ClassifierAction.lastReadingTimestamp;
 import static com.eveningoutpost.dexdrip.utils.DexCollectionType.UiBased;
 import static com.eveningoutpost.dexdrip.utils.DexCollectionType.getDexCollectionType;
@@ -27,7 +27,7 @@ import androidx.annotation.VisibleForTesting;
 
 import com.eveningoutpost.dexdrip.BestGlucose;
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;

@@ -2,9 +2,9 @@ package com.eveningoutpost.dexdrip.utilitymodels;
 
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.BloodTest;
-import com.eveningoutpost.dexdrip.Models.DateUtil;
-import com.eveningoutpost.dexdrip.Models.InsulinInjection;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.DateUtil;
+import com.eveningoutpost.dexdrip.zmodels.InsulinInjection;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;
 

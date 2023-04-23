@@ -11,7 +11,7 @@ import com.eveningoutpost.dexdrip.watch.thinjam.io.ThinJamApiReceiver;
 
 import lombok.val;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.MINUTE_IN_MS;
 import static com.eveningoutpost.dexdrip.xdrip.getAppContext;
 

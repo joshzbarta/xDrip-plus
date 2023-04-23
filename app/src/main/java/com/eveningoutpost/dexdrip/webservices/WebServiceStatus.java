@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.webservices;
 
 import android.util.Log;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
@@ -10,7 +10,7 @@ import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static com.eveningoutpost.dexdrip.Models.JoH.tolerantParseDouble;
+import static com.eveningoutpost.dexdrip.zmodels.JoH.tolerantParseDouble;
 
 /**
  * Created by jamorham on 04/02/2018.

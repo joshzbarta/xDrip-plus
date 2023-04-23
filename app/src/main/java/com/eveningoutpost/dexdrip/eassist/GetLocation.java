@@ -10,7 +10,7 @@ import android.location.Location;
 import android.os.Looper;
 import androidx.core.app.ActivityCompat;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
 import com.eveningoutpost.dexdrip.xdrip;

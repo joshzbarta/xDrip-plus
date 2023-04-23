@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.utils;
 
 // jamorham
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 
 public class CRC16ccitt {

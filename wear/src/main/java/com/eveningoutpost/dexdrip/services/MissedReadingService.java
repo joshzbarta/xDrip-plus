@@ -8,13 +8,13 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.Models.AlertType;
+import com.eveningoutpost.dexdrip.zmodels.AlertType;
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.Models.JoH;
-//import com.eveningoutpost.dexdrip.Models.Reminder;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
+//import com.eveningoutpost.dexdrip.zmodels.Reminder;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.Models.UserNotification;
+import com.eveningoutpost.dexdrip.zmodels.UserNotification;
 import com.eveningoutpost.dexdrip.utilitymodels.CollectionServiceStarter;
 import com.eveningoutpost.dexdrip.utilitymodels.Notifications;
 //import com.eveningoutpost.dexdrip.utilitymodels.pebble.PebbleUtil;

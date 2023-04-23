@@ -12,7 +12,7 @@ import androidx.core.app.NotificationCompat;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.utilitymodels.NotificationChannels;
 import com.eveningoutpost.dexdrip.utilitymodels.Notifications;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;

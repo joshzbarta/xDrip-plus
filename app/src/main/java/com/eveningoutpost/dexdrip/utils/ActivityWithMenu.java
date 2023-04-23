@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.eveningoutpost.dexdrip.BaseAppCompatActivity;
-import com.eveningoutpost.dexdrip.Models.JoH;
+import com.eveningoutpost.dexdrip.zmodels.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.NavDrawerBuilder;
 import com.eveningoutpost.dexdrip.NavigationDrawerFragment;
