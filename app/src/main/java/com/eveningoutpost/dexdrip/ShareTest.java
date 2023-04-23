@@ -22,10 +22,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.activeandroid.query.Select;
-import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.ReadDataShare;
-import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.records.CalRecord;
-import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.records.EGVRecord;
-import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.records.SensorRecord;
+import com.eveningoutpost.dexdrip.importedlibraries.dexcom.ReadDataShare;
+import com.eveningoutpost.dexdrip.importedlibraries.dexcom.records.CalRecord;
+import com.eveningoutpost.dexdrip.importedlibraries.dexcom.records.EGVRecord;
+import com.eveningoutpost.dexdrip.importedlibraries.dexcom.records.SensorRecord;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.Calibration;

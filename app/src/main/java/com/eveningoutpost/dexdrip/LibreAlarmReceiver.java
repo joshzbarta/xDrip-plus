@@ -11,7 +11,7 @@ import android.preference.PreferenceManager;
 
 import com.eveningoutpost.dexdrip.models.SensorSanity;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
-import com.eveningoutpost.dexdrip.zimportedlibraries.usbserial.util.HexDump;
+import com.eveningoutpost.dexdrip.importedlibraries.usbserial.util.HexDump;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.models.Forecast;
 import com.eveningoutpost.dexdrip.models.GlucoseData;

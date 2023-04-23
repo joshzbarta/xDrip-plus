@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.data;
 
-import static com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.Dex_Constants.TREND_ARROW_VALUES.NOT_COMPUTABLE;
-import static com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.Dex_Constants.TREND_ARROW_VALUES.getTrend;
+import static com.eveningoutpost.dexdrip.importedlibraries.dexcom.Dex_Constants.TREND_ARROW_VALUES.NOT_COMPUTABLE;
+import static com.eveningoutpost.dexdrip.importedlibraries.dexcom.Dex_Constants.TREND_ARROW_VALUES.getTrend;
 import static com.eveningoutpost.dexdrip.calibrations.PluggableCalibration.getCalibrationPluginFromPreferences;
 import static com.eveningoutpost.dexdrip.calibrations.PluggableCalibration.newCloseSensorData;
 
@@ -21,8 +21,8 @@ import com.activeandroid.util.SQLiteUtils;
 import com.eveningoutpost.dexdrip.BestGlucose;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.records.EGVRecord;
-import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.records.SensorRecord;
+import com.eveningoutpost.dexdrip.importedlibraries.dexcom.records.EGVRecord;
+import com.eveningoutpost.dexdrip.importedlibraries.dexcom.records.SensorRecord;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.xmodels.ProcessInitialDataQuality;
 import com.eveningoutpost.dexdrip.models.SensorSanity;

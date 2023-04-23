@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.SyncingService;
+import com.eveningoutpost.dexdrip.importedlibraries.dexcom.SyncingService;
 
 public class UsbConnectedActivity extends BaseActivity {
 

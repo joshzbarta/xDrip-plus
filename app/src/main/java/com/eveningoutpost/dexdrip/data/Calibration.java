@@ -15,8 +15,8 @@ import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.records.CalRecord;
-import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.records.CalSubrecord;
+import com.eveningoutpost.dexdrip.importedlibraries.dexcom.records.CalRecord;
+import com.eveningoutpost.dexdrip.importedlibraries.dexcom.records.CalSubrecord;
 
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.SensorSanity;

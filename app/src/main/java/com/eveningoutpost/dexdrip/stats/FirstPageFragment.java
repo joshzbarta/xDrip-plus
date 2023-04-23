@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.Dex_Constants;
+import com.eveningoutpost.dexdrip.importedlibraries.dexcom.Dex_Constants;
 import com.eveningoutpost.dexdrip.R;
 
 import java.text.DecimalFormat;

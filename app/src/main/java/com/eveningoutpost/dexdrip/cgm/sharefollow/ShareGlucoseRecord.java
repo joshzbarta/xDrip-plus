@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.cgm.sharefollow;
 
-import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.Dex_Constants;
+import com.eveningoutpost.dexdrip.importedlibraries.dexcom.Dex_Constants;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.utilitymodels.Unitized;

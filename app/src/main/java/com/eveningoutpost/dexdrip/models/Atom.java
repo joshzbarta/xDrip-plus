@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.models;
 
-import com.eveningoutpost.dexdrip.zimportedlibraries.usbserial.util.HexDump;
+import com.eveningoutpost.dexdrip.importedlibraries.usbserial.util.HexDump;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.NFCReaderX;

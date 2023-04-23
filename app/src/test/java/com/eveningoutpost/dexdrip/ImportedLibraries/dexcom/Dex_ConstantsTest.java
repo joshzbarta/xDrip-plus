@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.zimportedlibraries.dexcom;
+package com.eveningoutpost.dexdrip.importedlibraries.dexcom;
 
 import org.junit.Test;
 
