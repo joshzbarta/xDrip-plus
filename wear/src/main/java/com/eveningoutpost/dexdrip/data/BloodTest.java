@@ -1,4 +1,6 @@
+
 package com.eveningoutpost.dexdrip.data;
+
 
 import android.provider.BaseColumns;
 import android.util.Log;

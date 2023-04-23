@@ -1,3 +1,4 @@
+
 package com.eveningoutpost.dexdrip.data;
 
 import com.activeandroid.Model;
@@ -9,7 +10,7 @@ import com.activeandroid.util.SQLiteUtils;
 
 public class PlusModel extends Model {
 
-    public synchronized static boolean fixUpTable(String[] schema, boolean patched) {
+    protected synchronized static boolean fixUpTable(String[] schema, boolean patched) {
         if (patched) return true;
 
         for (String patch : schema) {

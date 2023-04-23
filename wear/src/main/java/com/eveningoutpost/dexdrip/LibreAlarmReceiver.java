@@ -16,7 +16,7 @@ import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.models.Forecast;
 import com.eveningoutpost.dexdrip.models.GlucoseData;
 import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.models.LibreBlock;
+import com.eveningoutpost.dexdrip.data.LibreBlock;
 import com.eveningoutpost.dexdrip.models.ReadingData;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utilitymodels.Intents;

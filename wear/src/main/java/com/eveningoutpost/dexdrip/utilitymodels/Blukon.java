@@ -11,7 +11,7 @@ import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
 import com.eveningoutpost.dexdrip.models.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.models.LibreBlock;
+import com.eveningoutpost.dexdrip.data.LibreBlock;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.models.SensorSanity;
 import com.eveningoutpost.dexdrip.models.TransmitterData;

@@ -1,4 +1,6 @@
+
 package com.eveningoutpost.dexdrip.data;
+
 
 import android.content.Context;
 import android.provider.BaseColumns;
@@ -14,6 +16,7 @@ import android.database.sqlite.SQLiteDatabase;//KS
 
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
+
 import com.eveningoutpost.dexdrip.utilitymodels.SensorSendQueue;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

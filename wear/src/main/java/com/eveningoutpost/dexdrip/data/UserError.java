@@ -1,4 +1,6 @@
+
 package com.eveningoutpost.dexdrip.data;
+
 
 import android.os.AsyncTask;
 import android.provider.BaseColumns;
@@ -7,7 +9,7 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
 import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.models.PlusModel;
+import com.eveningoutpost.dexdrip.data.PlusModel;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

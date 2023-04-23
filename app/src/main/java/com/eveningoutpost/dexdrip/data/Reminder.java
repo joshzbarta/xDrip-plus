@@ -18,7 +18,6 @@ import com.google.gson.annotations.Expose;
 import java.util.Calendar;
 import java.util.List;
 
-
 /**
  * Created by jamorham on 01/02/2017.
  */

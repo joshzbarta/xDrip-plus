@@ -1,11 +1,7 @@
-
 package com.eveningoutpost.dexdrip.models;
-
 
 import androidx.databinding.BaseObservable;
 
-import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.models.SensorSanity;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 import com.eveningoutpost.dexdrip.xdrip;

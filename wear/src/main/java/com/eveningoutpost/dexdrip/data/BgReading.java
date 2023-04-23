@@ -1,4 +1,6 @@
+
 package com.eveningoutpost.dexdrip.data;
+
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -18,12 +20,14 @@ import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.EGVRecord;
 import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.SensorRecord;
+
 import com.eveningoutpost.dexdrip.models.Calibration;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.ProcessInitialDataQuality;
 import com.eveningoutpost.dexdrip.models.SensorSanity;
 import com.eveningoutpost.dexdrip.models.UserNotification;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
+
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.services.Ob1G5CollectionService;
 import com.eveningoutpost.dexdrip.services.SyncService;

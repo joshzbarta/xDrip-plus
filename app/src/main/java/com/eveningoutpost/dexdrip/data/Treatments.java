@@ -1,3 +1,4 @@
+
 package com.eveningoutpost.dexdrip.data;
 
 /**
@@ -18,6 +19,7 @@ import com.activeandroid.query.Select;
 import com.activeandroid.util.SQLiteUtils;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
+
 import com.eveningoutpost.dexdrip.models.DateUtil;
 import com.eveningoutpost.dexdrip.models.InsulinInjection;
 import com.eveningoutpost.dexdrip.models.Iob;
@@ -25,6 +27,7 @@ import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.NSClientChat;
 import com.eveningoutpost.dexdrip.models.Profile;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
+
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.services.SyncService;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;

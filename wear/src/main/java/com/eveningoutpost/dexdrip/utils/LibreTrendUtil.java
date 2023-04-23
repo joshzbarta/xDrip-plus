@@ -9,7 +9,7 @@ import java.util.ListIterator;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.NFCReaderX;
 import com.eveningoutpost.dexdrip.models.GlucoseData;
-import com.eveningoutpost.dexdrip.models.LibreBlock;
+import com.eveningoutpost.dexdrip.data.LibreBlock;
 
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 

@@ -1,4 +1,6 @@
-package com.eveningoutpost.dexdrip.models;
+
+package com.eveningoutpost.dexdrip.data;
+
 
 import android.provider.BaseColumns;
 
@@ -14,6 +16,8 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+
+import com.eveningoutpost.dexdrip.models.JoH;
 
 /**
  * Created by jamorham on 11/06/2018.

@@ -8,7 +8,7 @@ import org.xml.sax.InputSource;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.Serializable;
+
 import java.io.StringReader;
 import java.util.Arrays;
 

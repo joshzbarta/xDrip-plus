@@ -1,3 +1,4 @@
+
 package com.eveningoutpost.dexdrip.data;
 
 import android.content.Context;
@@ -16,9 +17,11 @@ import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.CalRecord;
 import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.CalSubrecord;
+
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.SensorSanity;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
+
 import com.eveningoutpost.dexdrip.services.Ob1G5CollectionService;
 import com.eveningoutpost.dexdrip.utilitymodels.BgSendQueue;
 import com.eveningoutpost.dexdrip.utilitymodels.CalibrationSendQueue;
@@ -43,7 +46,6 @@ import java.util.UUID;
 
 import static com.eveningoutpost.dexdrip.data.BgReading.isDataSuitableForDoubleCalibration;
 import static com.eveningoutpost.dexdrip.calibrations.PluggableCalibration.newFingerStickData;
-
 
 class DexParameters extends SlopeParameters {
     DexParameters() {

@@ -1,4 +1,6 @@
+
 package com.eveningoutpost.dexdrip.data;
+
 
 import android.os.Bundle;
 import android.provider.BaseColumns;

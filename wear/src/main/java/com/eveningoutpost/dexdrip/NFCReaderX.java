@@ -28,7 +28,7 @@ import com.eveningoutpost.dexdrip.models.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.models.GlucoseData;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.Libre2SensorData;
-import com.eveningoutpost.dexdrip.models.LibreBlock;
+import com.eveningoutpost.dexdrip.data.LibreBlock;
 import com.eveningoutpost.dexdrip.models.LibreOOPAlgorithm;
 import com.eveningoutpost.dexdrip.models.ReadingData;
 import com.eveningoutpost.dexdrip.models.SensorSanity;
