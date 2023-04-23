@@ -24,10 +24,10 @@ import android.os.PowerManager;
 import android.preference.PreferenceManager;
 
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.ReadDataShare;
-import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.CalRecord;
-import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.EGVRecord;
-import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.SensorRecord;
+import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.ReadDataShare;
+import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.records.CalRecord;
+import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.records.EGVRecord;
+import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.records.SensorRecord;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.Calibration;

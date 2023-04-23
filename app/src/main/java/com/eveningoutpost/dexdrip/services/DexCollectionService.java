@@ -40,7 +40,7 @@ import android.preference.PreferenceManager;
 
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
+import com.eveningoutpost.dexdrip.zimportedlibraries.usbserial.util.HexDump;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.models.Atom;
 import com.eveningoutpost.dexdrip.data.BgReading;

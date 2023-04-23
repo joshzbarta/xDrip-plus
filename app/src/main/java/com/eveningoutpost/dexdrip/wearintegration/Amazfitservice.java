@@ -18,7 +18,7 @@ import android.util.Log;
 import com.eveningoutpost.dexdrip.BestGlucose;
 import com.eveningoutpost.dexdrip.g5model.Extensions;
 import com.eveningoutpost.dexdrip.g5model.Transmitter;
-import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.Dex_Constants;
+import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.Dex_Constants;
 import com.eveningoutpost.dexdrip.data.ActiveBgAlert;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.data.HeartRate;

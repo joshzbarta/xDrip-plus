@@ -18,8 +18,8 @@ import com.activeandroid.util.SQLiteUtils;
 import com.eveningoutpost.dexdrip.BestGlucose;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.EGVRecord;
-import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.records.SensorRecord;
+import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.records.EGVRecord;
+import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.records.SensorRecord;
 
 import com.eveningoutpost.dexdrip.models.Calibration;
 import com.eveningoutpost.dexdrip.models.JoH;
@@ -65,7 +65,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-import static com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.Dex_Constants.TREND_ARROW_VALUES.*;
+import static com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.Dex_Constants.TREND_ARROW_VALUES.*;
 import static com.eveningoutpost.dexdrip.calibrations.PluggableCalibration.getCalibrationPluginFromPreferences;
 import static com.eveningoutpost.dexdrip.calibrations.PluggableCalibration.newCloseSensorData;
 

@@ -22,7 +22,7 @@ import android.widget.TextView;
 
 import com.eveningoutpost.dexdrip.BaseAppCompatActivity;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.ImportedLibraries.dexcom.Dex_Constants;
+import com.eveningoutpost.dexdrip.zimportedlibraries.dexcom.Dex_Constants;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.Profile;
 import com.eveningoutpost.dexdrip.data.UserError;
