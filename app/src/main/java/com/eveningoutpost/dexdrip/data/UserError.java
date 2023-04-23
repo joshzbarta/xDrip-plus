@@ -9,7 +9,7 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.google.gson.annotations.Expose;

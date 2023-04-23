@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.watch.lefun;
 
 // jamorham
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 
 import java.util.Calendar;
 

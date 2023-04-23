@@ -20,7 +20,7 @@ import android.util.SparseArray;
 import com.eveningoutpost.dexdrip.ErrorsActivity;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;

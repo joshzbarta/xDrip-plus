@@ -18,12 +18,12 @@ import com.activeandroid.query.Select;
 import com.activeandroid.util.SQLiteUtils;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.zmodels.DateUtil;
-import com.eveningoutpost.dexdrip.zmodels.InsulinInjection;
-import com.eveningoutpost.dexdrip.zmodels.Iob;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
-import com.eveningoutpost.dexdrip.zmodels.NSClientChat;
-import com.eveningoutpost.dexdrip.zmodels.Profile;
+import com.eveningoutpost.dexdrip.models.DateUtil;
+import com.eveningoutpost.dexdrip.models.InsulinInjection;
+import com.eveningoutpost.dexdrip.models.Iob;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.NSClientChat;
+import com.eveningoutpost.dexdrip.models.Profile;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.services.SyncService;
@@ -60,11 +60,11 @@ import java.util.regex.Pattern;
 
 import lombok.val;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.msSince;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.HOUR_IN_MS;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.MINUTE_IN_MS;
 import static java.lang.StrictMath.abs;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.models.JoH.emptyString;
 
 // TODO Switchable Carb models
 // TODO Linear array timeline optimization

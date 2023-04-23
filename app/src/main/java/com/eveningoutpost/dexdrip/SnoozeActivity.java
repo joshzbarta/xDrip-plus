@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 import android.util.TypedValue;

@@ -16,7 +16,7 @@ import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
@@ -59,7 +59,7 @@ import io.reactivex.schedulers.Schedulers;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.models.JoH.emptyString;
 import static com.eveningoutpost.dexdrip.services.JamBaseBluetoothSequencer.BaseState.CLOSE;
 import static com.eveningoutpost.dexdrip.services.JamBaseBluetoothSequencer.BaseState.CLOSED;
 import static com.eveningoutpost.dexdrip.services.JamBaseBluetoothSequencer.BaseState.CONNECT_NOW;

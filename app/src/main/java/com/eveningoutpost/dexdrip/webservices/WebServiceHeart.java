@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.webservices;
 
 import com.eveningoutpost.dexdrip.data.HeartRate;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 
 import java.util.List;

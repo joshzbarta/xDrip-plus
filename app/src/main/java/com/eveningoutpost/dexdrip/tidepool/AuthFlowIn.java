@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.tidepool;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.pratelimit;
+import static com.eveningoutpost.dexdrip.models.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.models.JoH.pratelimit;
 import static com.eveningoutpost.dexdrip.tidepool.AuthFlowOut.eraseAuthState;
 
 import android.content.Intent;

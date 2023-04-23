@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.utils.jobs;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.evernote.android.job.Job;
 import com.evernote.android.job.JobCreator;

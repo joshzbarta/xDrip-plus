@@ -18,7 +18,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.eveningoutpost.dexdrip.BaseAppCompatActivity;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 

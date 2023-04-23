@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.cgm.sharefollow;
 
 import android.os.PowerManager;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
@@ -16,7 +16,7 @@ import java.util.Map;
 
 import lombok.Getter;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.models.JoH.emptyString;
 import static com.eveningoutpost.dexdrip.cgm.sharefollow.ShareConstants.MAX_RECORDS_TO_ASK_FOR;
 
 /**

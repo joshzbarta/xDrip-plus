@@ -4,10 +4,10 @@ package com.eveningoutpost.dexdrip.tidepool;
 
 // lightweight class entry point
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.isLANConnected;
+import static com.eveningoutpost.dexdrip.models.JoH.isLANConnected;
 import static com.eveningoutpost.dexdrip.utils.PowerStateReceiver.is_power_connected;
 
 public class TidepoolEntry {

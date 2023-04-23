@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.provider.Settings;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 

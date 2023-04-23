@@ -6,7 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.tsl;
+import static com.eveningoutpost.dexdrip.models.JoH.tsl;
 
 // jamorham
 

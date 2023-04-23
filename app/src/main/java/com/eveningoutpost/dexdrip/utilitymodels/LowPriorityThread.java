@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.utilitymodels;
 
 import android.os.PowerManager;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 
 // jamorham
 

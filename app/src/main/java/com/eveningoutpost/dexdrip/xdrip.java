@@ -12,7 +12,7 @@ import androidx.multidex.MultiDexApplication;
 import android.util.Log;
 
 import com.eveningoutpost.dexdrip.data.AlertType;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.Reminder;
 import com.eveningoutpost.dexdrip.alert.Poller;
 import com.eveningoutpost.dexdrip.services.ActivityRecognizedService;

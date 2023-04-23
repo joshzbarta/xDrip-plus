@@ -8,7 +8,7 @@ import android.preference.PreferenceManager;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.ActiveBgAlert;
 import com.eveningoutpost.dexdrip.data.AlertType;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.data.UserNotification;

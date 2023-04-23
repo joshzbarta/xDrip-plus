@@ -1,10 +1,10 @@
 package com.eveningoutpost.dexdrip.cgm.webfollow;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.models.JoH.emptyString;
 import static com.eveningoutpost.dexdrip.cgm.webfollow.Agent.get;
 
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.cgm.medtrum.BackfillAssessor;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 

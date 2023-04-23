@@ -7,7 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.databinding.ActivityDepositActivityBinding;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
@@ -17,7 +17,7 @@ import com.eveningoutpost.dexdrip.ui.dialog.GenericConfirmDialog;
 import androidx.annotation.RequiresApi;
 import lombok.RequiredArgsConstructor;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.tsl;
+import static com.eveningoutpost.dexdrip.models.JoH.tsl;
 import static com.eveningoutpost.dexdrip.deposit.WebDeposit.getSerialInfo;
 
 // jamorham

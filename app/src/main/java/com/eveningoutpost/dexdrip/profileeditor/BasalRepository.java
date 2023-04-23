@@ -1,8 +1,8 @@
 package com.eveningoutpost.dexdrip.profileeditor;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.roundDouble;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.tsl;
+import static com.eveningoutpost.dexdrip.models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.roundDouble;
+import static com.eveningoutpost.dexdrip.models.JoH.tsl;
 import static com.eveningoutpost.dexdrip.profileeditor.BasalProfile.getActiveRateName;
 
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;

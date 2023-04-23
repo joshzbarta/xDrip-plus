@@ -20,11 +20,11 @@ import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.BloodTest;
 import com.eveningoutpost.dexdrip.data.Calibration;
 import com.eveningoutpost.dexdrip.data.DesertSync;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.LibreBlock;
 import com.eveningoutpost.dexdrip.data.RollCall;
 import com.eveningoutpost.dexdrip.data.Sensor;
-import com.eveningoutpost.dexdrip.zmodels.SensorSanity;
+import com.eveningoutpost.dexdrip.models.SensorSanity;
 import com.eveningoutpost.dexdrip.data.TransmitterData;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;
@@ -54,8 +54,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.isAnyNetworkConnected;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.showNotification;
+import static com.eveningoutpost.dexdrip.models.JoH.isAnyNetworkConnected;
+import static com.eveningoutpost.dexdrip.models.JoH.showNotification;
 
 public class GcmListenerSvc extends JamListenerSvc {
 

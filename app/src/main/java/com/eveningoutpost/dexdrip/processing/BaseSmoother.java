@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.processing;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.tolerantParseDouble;
+import static com.eveningoutpost.dexdrip.models.JoH.tolerantParseDouble;
 
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;

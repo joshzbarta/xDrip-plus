@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.utilitymodels;
 // stub placeholder
 
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.zmodels.LibreBlock;
+import com.eveningoutpost.dexdrip.models.LibreBlock;
 
 public class UploaderQueue {
 

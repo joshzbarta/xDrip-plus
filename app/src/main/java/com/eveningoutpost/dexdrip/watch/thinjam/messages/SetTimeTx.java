@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.watch.thinjam.messages;
 
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.google.gson.annotations.Expose;
 
 import java.nio.ByteBuffer;

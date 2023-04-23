@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.g5model;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 
 import static com.eveningoutpost.dexdrip.g5model.DexTimeKeeper.getDexTime;

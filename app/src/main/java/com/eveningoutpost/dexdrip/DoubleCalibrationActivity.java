@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 

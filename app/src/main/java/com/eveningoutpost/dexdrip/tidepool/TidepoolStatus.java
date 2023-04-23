@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.tidepool;
 
 // jamorham
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.utilitymodels.StatusItem;
 import com.eveningoutpost.dexdrip.store.FastStore;
 import com.eveningoutpost.dexdrip.store.KeyStore;
@@ -10,8 +10,8 @@ import com.eveningoutpost.dexdrip.store.KeyStore;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.niceTimeScalar;
+import static com.eveningoutpost.dexdrip.models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.niceTimeScalar;
 
 public class TidepoolStatus {
 

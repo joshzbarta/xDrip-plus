@@ -12,7 +12,7 @@ import android.preference.PreferenceManager;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.util.Log;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.services.PlusSyncService;
 import com.google.android.gms.gcm.GcmNetworkManager;
 import com.google.android.gms.gcm.PeriodicTask;

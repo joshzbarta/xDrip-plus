@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.eassist;
 import androidx.databinding.ObservableField;
 import android.os.PowerManager;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;

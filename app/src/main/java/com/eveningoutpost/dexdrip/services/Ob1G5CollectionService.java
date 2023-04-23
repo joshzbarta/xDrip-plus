@@ -1,11 +1,11 @@
 package com.eveningoutpost.dexdrip.services;
 
 import static com.eveningoutpost.dexdrip.Home.get_engineering_mode;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.niceTimeScalar;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.tolerantHexStringToByteArray;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.tsl;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.upForAtLeastMins;
+import static com.eveningoutpost.dexdrip.models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.niceTimeScalar;
+import static com.eveningoutpost.dexdrip.models.JoH.tolerantHexStringToByteArray;
+import static com.eveningoutpost.dexdrip.models.JoH.tsl;
+import static com.eveningoutpost.dexdrip.models.JoH.upForAtLeastMins;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.DAY_IN_MS;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.G5_CALIBRATION_REQUEST;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.G5_SENSOR_FAILED;
@@ -72,7 +72,7 @@ import com.eveningoutpost.dexdrip.AddCalibration;
 import com.eveningoutpost.dexdrip.DoubleCalibrationActivity;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;

@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.Preference;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;

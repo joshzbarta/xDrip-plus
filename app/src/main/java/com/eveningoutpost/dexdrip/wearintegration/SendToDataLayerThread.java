@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.wearable.DataApi;

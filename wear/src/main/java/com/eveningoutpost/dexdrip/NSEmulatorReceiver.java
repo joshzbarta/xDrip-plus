@@ -10,8 +10,8 @@ import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.util.Base64;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
-import com.eveningoutpost.dexdrip.zmodels.LibreOOPAlgorithm;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.LibreOOPAlgorithm;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.utilitymodels.Intents;

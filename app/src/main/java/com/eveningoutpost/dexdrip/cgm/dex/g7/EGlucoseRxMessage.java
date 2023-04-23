@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.cgm.dex.g7;
 
 import com.eveningoutpost.dexdrip.g5model.CalibrationState;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 

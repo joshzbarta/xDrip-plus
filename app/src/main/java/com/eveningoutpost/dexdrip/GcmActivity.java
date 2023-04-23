@@ -20,7 +20,7 @@ import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.BloodTest;
 import com.eveningoutpost.dexdrip.data.Calibration;
 import com.eveningoutpost.dexdrip.data.DesertSync;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.RollCall;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.Treatments;
@@ -52,7 +52,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.isOldVersion;
+import static com.eveningoutpost.dexdrip.models.JoH.isOldVersion;
 import static com.eveningoutpost.dexdrip.xdrip.gs;
 
 /**

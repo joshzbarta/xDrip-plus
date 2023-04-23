@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip;
 
 import static com.eveningoutpost.dexdrip.Home.get_engineering_mode;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.models.JoH.emptyString;
 import static com.eveningoutpost.dexdrip.data.Libre2Sensor.Libre2Sensors;
 
 import android.content.BroadcastReceiver;
@@ -11,9 +11,9 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.text.format.DateFormat;
 
-import com.eveningoutpost.dexdrip.zmodels.GlucoseData;
+import com.eveningoutpost.dexdrip.models.GlucoseData;
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.Libre2RawValue;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError;

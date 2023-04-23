@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.buffer;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.reverseBytes;
+import static com.eveningoutpost.dexdrip.models.JoH.reverseBytes;
 
 import java.nio.ByteBuffer;
 

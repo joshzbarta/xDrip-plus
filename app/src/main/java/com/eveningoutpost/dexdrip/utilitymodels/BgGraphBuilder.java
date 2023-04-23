@@ -21,15 +21,15 @@ import com.eveningoutpost.dexdrip.data.APStatus;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.BloodTest;
 import com.eveningoutpost.dexdrip.data.Calibration;
-import com.eveningoutpost.dexdrip.zmodels.Forecast;
-import com.eveningoutpost.dexdrip.zmodels.Forecast.PolyTrendLine;
-import com.eveningoutpost.dexdrip.zmodels.Forecast.TrendLine;
+import com.eveningoutpost.dexdrip.models.Forecast;
+import com.eveningoutpost.dexdrip.models.Forecast.PolyTrendLine;
+import com.eveningoutpost.dexdrip.models.Forecast.TrendLine;
 import com.eveningoutpost.dexdrip.data.HeartRate;
-import com.eveningoutpost.dexdrip.zmodels.Iob;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.Iob;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.Libre2RawValue;
 import com.eveningoutpost.dexdrip.data.Prediction;
-import com.eveningoutpost.dexdrip.zmodels.Profile;
+import com.eveningoutpost.dexdrip.models.Profile;
 import com.eveningoutpost.dexdrip.data.StepCounter;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;
@@ -82,7 +82,7 @@ import lombok.Getter;
 
 import lombok.val;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.tolerantParseDouble;
+import static com.eveningoutpost.dexdrip.models.JoH.tolerantParseDouble;
 import static com.eveningoutpost.dexdrip.utilitymodels.ColorCache.X;
 import static com.eveningoutpost.dexdrip.utilitymodels.ColorCache.getCol;
 

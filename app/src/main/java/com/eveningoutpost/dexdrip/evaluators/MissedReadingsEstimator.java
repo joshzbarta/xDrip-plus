@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.evaluators;
 // jamorham
 
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 
 import static com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder.DEXCOM_PERIOD;

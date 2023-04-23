@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.services.SyncService;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;

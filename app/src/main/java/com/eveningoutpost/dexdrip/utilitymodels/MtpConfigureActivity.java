@@ -4,7 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.databinding.ActivityMtpConfigureBinding;
 import com.eveningoutpost.dexdrip.utils.usb.UsbTools;
 

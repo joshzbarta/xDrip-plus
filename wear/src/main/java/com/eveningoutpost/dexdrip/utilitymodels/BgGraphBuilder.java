@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.zmodels.Calibration;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.Calibration;
+import com.eveningoutpost.dexdrip.models.JoH;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;

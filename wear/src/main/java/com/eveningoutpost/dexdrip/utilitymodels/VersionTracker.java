@@ -5,7 +5,7 @@ import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.xdrip;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.dateTimeText;
+import static com.eveningoutpost.dexdrip.models.JoH.dateTimeText;
 
 /**
  * jamorham

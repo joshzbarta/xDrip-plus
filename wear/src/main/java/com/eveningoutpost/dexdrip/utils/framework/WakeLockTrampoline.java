@@ -9,7 +9,7 @@ import android.os.Build;
 import android.util.SparseArray;
 
 import com.eveningoutpost.dexdrip.BuildConfig;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.ForegroundServiceStarter;
 import com.eveningoutpost.dexdrip.xdrip;

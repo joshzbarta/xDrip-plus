@@ -3,11 +3,11 @@ package com.eveningoutpost.dexdrip.cloud.backup;
 
 import static android.provider.OpenableColumns.DISPLAY_NAME;
 import static android.provider.OpenableColumns.SIZE;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.getFieldFromURI;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.getLocalBluetoothName;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.hexStringToByteArray;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.readLine;
+import static com.eveningoutpost.dexdrip.models.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.models.JoH.getFieldFromURI;
+import static com.eveningoutpost.dexdrip.models.JoH.getLocalBluetoothName;
+import static com.eveningoutpost.dexdrip.models.JoH.hexStringToByteArray;
+import static com.eveningoutpost.dexdrip.models.JoH.readLine;
 import static com.eveningoutpost.dexdrip.utils.SdcardImportExport.PREFERENCES_FILE;
 import static java.nio.file.StandardCopyOption.ATOMIC_MOVE;
 
@@ -16,7 +16,7 @@ import android.os.Build;
 import android.util.Pair;
 
 import com.activeandroid.Configuration;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;

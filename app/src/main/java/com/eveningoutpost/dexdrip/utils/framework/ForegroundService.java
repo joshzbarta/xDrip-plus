@@ -4,7 +4,7 @@ package com.eveningoutpost.dexdrip.utils.framework;
 
 import android.app.Service;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.ForegroundServiceStarter;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;

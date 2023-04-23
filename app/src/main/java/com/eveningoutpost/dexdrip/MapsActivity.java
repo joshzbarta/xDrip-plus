@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.view.WindowManager;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 //import com.google.android.gms.maps.CameraUpdateFactory;
 //import com.google.android.gms.maps.GoogleMap;
 //import com.google.android.gms.maps.OnMapReadyCallback;

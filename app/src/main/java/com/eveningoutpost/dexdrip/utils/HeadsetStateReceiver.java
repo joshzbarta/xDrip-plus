@@ -9,7 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;

@@ -14,7 +14,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.google.android.gms.wearable.DataMap;
 
 import java.nio.charset.StandardCharsets;

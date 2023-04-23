@@ -10,7 +10,7 @@ import android.os.PowerManager;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.DesertSync;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.Libre2RawValue;
 import com.eveningoutpost.dexdrip.data.RollCall;
 import com.eveningoutpost.dexdrip.data.StepCounter;

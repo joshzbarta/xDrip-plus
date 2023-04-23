@@ -18,7 +18,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.FrameLayout;
 import android.widget.RemoteViews;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
 import com.eveningoutpost.dexdrip.utils.math.BlockFinder;
@@ -32,7 +32,7 @@ import static android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN;
 import static android.view.WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
 import static android.view.WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
 import static android.view.WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.tsl;
+import static com.eveningoutpost.dexdrip.models.JoH.tsl;
 import static com.eveningoutpost.dexdrip.ui.helpers.UiHelper.convertDpToPixel;
 
 /**

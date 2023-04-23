@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.utils.jobs;
 
 import androidx.annotation.NonNull;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.services.DailyIntentService;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;

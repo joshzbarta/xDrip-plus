@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.os.ParcelUuid;
 import android.os.PowerManager;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
@@ -28,7 +28,7 @@ import java.util.concurrent.TimeoutException;
 import io.reactivex.schedulers.Schedulers;
 import lombok.NoArgsConstructor;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.ratelimit;
+import static com.eveningoutpost.dexdrip.models.JoH.ratelimit;
 
 
 // jamorham

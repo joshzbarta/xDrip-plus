@@ -7,7 +7,7 @@ import android.media.AudioManager;
 import android.os.PowerManager;
 import android.speech.tts.TextToSpeech;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.xdrip;
 

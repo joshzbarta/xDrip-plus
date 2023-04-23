@@ -1,14 +1,14 @@
 package com.eveningoutpost.dexdrip.calibrations;
 
 import com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder;
 import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 import com.eveningoutpost.dexdrip.utilitymodels.Unitized;
 import com.eveningoutpost.dexdrip.cgm.medtrum.Medtrum;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.msSince;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.HOUR_IN_MS;
 
 /**

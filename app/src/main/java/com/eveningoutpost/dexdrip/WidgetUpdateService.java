@@ -11,7 +11,7 @@ import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 
 public class WidgetUpdateService extends Service {

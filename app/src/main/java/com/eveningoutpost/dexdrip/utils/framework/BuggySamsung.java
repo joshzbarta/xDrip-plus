@@ -2,15 +2,15 @@ package com.eveningoutpost.dexdrip.utils.framework;
 
 import android.os.Build;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.buggy_samsung;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.buggy_samsung;
+import static com.eveningoutpost.dexdrip.models.JoH.msSince;
 
 /**
  * jamorham

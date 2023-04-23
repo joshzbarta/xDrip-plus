@@ -9,8 +9,8 @@ import android.text.style.StrikethroughSpan;
 import android.util.Log;
 
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
-import com.eveningoutpost.dexdrip.zmodels.SensorSanity;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.SensorSanity;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;

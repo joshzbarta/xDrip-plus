@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import android.text.SpannableString;
 
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
@@ -24,8 +24,8 @@ import com.eveningoutpost.dexdrip.xdrip;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.models.JoH.msSince;
 import static com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder.DEXCOM_PERIOD;
 import static com.eveningoutpost.dexdrip.cgm.sharefollow.ShareConstants.MAX_RECORDS_TO_ASK_FOR;
 import static com.eveningoutpost.dexdrip.cgm.sharefollow.ShareConstants.NON_US_SHARE_BASE_URL;

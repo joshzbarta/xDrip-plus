@@ -32,7 +32,7 @@ import android.widget.Toast;
 
 import com.activeandroid.query.Select;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.utilitymodels.Blukon;

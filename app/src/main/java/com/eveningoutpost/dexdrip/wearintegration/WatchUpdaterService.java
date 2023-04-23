@@ -25,7 +25,7 @@ import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.BloodTest;
 import com.eveningoutpost.dexdrip.data.Calibration;
 import com.eveningoutpost.dexdrip.data.HeartRate;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.StepCounter;
 import com.eveningoutpost.dexdrip.data.TransmitterData;
@@ -85,8 +85,8 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import static com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine.PREF_QUEUE_DRAINED;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.showNotification;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.ts;
+import static com.eveningoutpost.dexdrip.models.JoH.showNotification;
+import static com.eveningoutpost.dexdrip.models.JoH.ts;
 
 @SuppressLint("LogNotTimber")
 public class WatchUpdaterService extends WearableListenerService implements

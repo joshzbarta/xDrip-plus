@@ -9,7 +9,7 @@ import android.os.Message;
 
 import androidx.annotation.NonNull;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 
 import lombok.val;

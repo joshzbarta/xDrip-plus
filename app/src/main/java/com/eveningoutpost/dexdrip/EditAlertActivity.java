@@ -42,7 +42,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.eveningoutpost.dexdrip.data.AlertType;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.utilitymodels.AlertPlayer;
 import com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder;

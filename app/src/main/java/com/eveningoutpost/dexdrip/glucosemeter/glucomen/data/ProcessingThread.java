@@ -2,13 +2,13 @@ package com.eveningoutpost.dexdrip.glucosemeter.glucomen.data;
 
 
 import static com.eveningoutpost.dexdrip.glucosemeter.glucomen.GlucoMen.playSounds;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.tsl;
+import static com.eveningoutpost.dexdrip.models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.tsl;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.SECOND_IN_MS;
 
 import com.eveningoutpost.dexdrip.glucosemeter.glucomen.GlucoMenNfc;
 import com.eveningoutpost.dexdrip.data.BloodTest;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;

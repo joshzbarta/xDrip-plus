@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 
 public class LicenseAgreementActivity extends BaseAppCompatActivity {

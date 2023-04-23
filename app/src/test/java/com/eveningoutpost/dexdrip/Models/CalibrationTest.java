@@ -1,4 +1,4 @@
-package com.eveningoutpost.dexdrip.zmodels;
+package com.eveningoutpost.dexdrip.models;
 
 import com.eveningoutpost.dexdrip.RobolectricTestWithConfig;
 import com.eveningoutpost.dexdrip.data.BgReading;

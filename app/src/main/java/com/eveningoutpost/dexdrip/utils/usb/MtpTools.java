@@ -11,7 +11,7 @@ import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import androidx.annotation.RequiresApi;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
 import com.eveningoutpost.dexdrip.utils.CipherUtils;

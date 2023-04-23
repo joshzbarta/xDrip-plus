@@ -1,8 +1,8 @@
 package com.eveningoutpost.dexdrip.utilitymodels;
 
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.zmodels.LibreOOPAlgorithm;
-import com.eveningoutpost.dexdrip.zmodels.SensorSanity;
+import com.eveningoutpost.dexdrip.models.LibreOOPAlgorithm;
+import com.eveningoutpost.dexdrip.models.SensorSanity;
 
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 

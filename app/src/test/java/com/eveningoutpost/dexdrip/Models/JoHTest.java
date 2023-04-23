@@ -1,10 +1,10 @@
-package com.eveningoutpost.dexdrip.zmodels;
+package com.eveningoutpost.dexdrip.models;
 
 import com.eveningoutpost.dexdrip.HexTestTools;
 
 import org.junit.Test;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.validateMacAddress;
+import static com.eveningoutpost.dexdrip.models.JoH.validateMacAddress;
 import static com.google.common.truth.Truth.assertWithMessage;
 
 // jamorham

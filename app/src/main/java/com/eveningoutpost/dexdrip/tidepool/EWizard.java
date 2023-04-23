@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.tidepool;
 
-import com.eveningoutpost.dexdrip.zmodels.Profile;
+import com.eveningoutpost.dexdrip.models.Profile;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.google.gson.annotations.Expose;

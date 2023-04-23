@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.Cache;
 import com.activeandroid.Configuration;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 

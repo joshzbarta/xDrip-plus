@@ -1,13 +1,13 @@
 package com.eveningoutpost.dexdrip.watch.miband;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.utilitymodels.Unitized;
 
 import java.util.Calendar;
 
 import lombok.AllArgsConstructor;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.roundDouble;
+import static com.eveningoutpost.dexdrip.models.JoH.roundDouble;
 import static com.eveningoutpost.dexdrip.utilitymodels.Unitized.mmolConvert;
 
 public class FunAlmanac {

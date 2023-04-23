@@ -20,7 +20,7 @@ import com.eveningoutpost.dexdrip.data.AlertType;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.BloodTest;
 import com.eveningoutpost.dexdrip.data.HeartRate;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.StepCounter;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;

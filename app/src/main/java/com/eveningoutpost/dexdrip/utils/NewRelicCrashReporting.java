@@ -4,7 +4,7 @@ import static com.eveningoutpost.dexdrip.utils.DexCollectionType.getBestCollecto
 import static com.eveningoutpost.dexdrip.utils.NewRelicCrashReporting.StateMonitor.checkReportingInterval;
 
 import com.eveningoutpost.dexdrip.BuildConfig;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
 import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;

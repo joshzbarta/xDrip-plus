@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine;
 import com.eveningoutpost.dexdrip.data.Calibration;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.utilitymodels.AlertPlayer;

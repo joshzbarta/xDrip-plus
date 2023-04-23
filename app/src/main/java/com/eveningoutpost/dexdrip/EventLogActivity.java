@@ -26,7 +26,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 
 import com.eveningoutpost.dexdrip.databinding.ActivityEventLogBinding;

@@ -11,7 +11,7 @@ import com.activeandroid.query.Select;
 import com.activeandroid.util.SQLiteUtils;
 import com.eveningoutpost.dexdrip.AddCalibration;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.services.SyncService;
 import com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;

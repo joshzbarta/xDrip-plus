@@ -10,9 +10,9 @@ import android.util.Log;
 
 import com.activeandroid.ActiveAndroid;
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
-import com.eveningoutpost.dexdrip.zmodels.LibreBlock;
-import com.eveningoutpost.dexdrip.zmodels.LibreData;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.LibreBlock;
+import com.eveningoutpost.dexdrip.models.LibreData;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.utilitymodels.PlusAsyncExecutor;
 import com.eveningoutpost.dexdrip.utilitymodels.VersionTracker;

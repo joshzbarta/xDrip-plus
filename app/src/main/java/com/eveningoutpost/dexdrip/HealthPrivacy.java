@@ -5,7 +5,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 
 // jamorham
 

@@ -31,7 +31,7 @@ import android.widget.TextView;
 
 import com.eveningoutpost.dexdrip.BR;
 import com.eveningoutpost.dexdrip.MegaStatus;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.databinding.ActivityThinJamBinding;

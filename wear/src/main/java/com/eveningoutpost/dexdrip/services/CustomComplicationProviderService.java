@@ -30,7 +30,7 @@ import android.util.Log;
 import com.activeandroid.ActiveAndroid;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.BgReading;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;

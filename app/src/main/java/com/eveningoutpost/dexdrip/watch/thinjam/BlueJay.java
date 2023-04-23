@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.watch.thinjam;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 import lombok.val;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.models.JoH.emptyString;
 import static com.eveningoutpost.dexdrip.watch.thinjam.BlueJayEntry.isEnabled;
 import static com.eveningoutpost.dexdrip.watch.thinjam.BlueJayInfo.getInfo;
 import static com.eveningoutpost.dexdrip.watch.thinjam.Const.FEATURE_TJ_AUDIO_I;

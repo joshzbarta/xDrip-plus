@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.watch.thinjam;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
@@ -13,8 +13,8 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 import lombok.val;
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.bytesToHex;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.models.JoH.bytesToHex;
+import static com.eveningoutpost.dexdrip.models.JoH.emptyString;
 import static com.eveningoutpost.dexdrip.watch.thinjam.assets.AssetDownload.getAsset;
 
 // jamorham

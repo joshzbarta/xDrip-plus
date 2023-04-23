@@ -1,13 +1,13 @@
 package com.eveningoutpost.dexdrip.tidepool;
 
 
-import static com.eveningoutpost.dexdrip.zmodels.JoH.dateTimeText;
+import static com.eveningoutpost.dexdrip.models.JoH.dateTimeText;
 
 import com.eveningoutpost.dexdrip.data.APStatus;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.BloodTest;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
-import com.eveningoutpost.dexdrip.zmodels.Profile;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.Profile;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;

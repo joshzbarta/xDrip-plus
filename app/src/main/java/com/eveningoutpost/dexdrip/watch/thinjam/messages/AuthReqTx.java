@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.watch.thinjam.messages;
 
 import android.annotation.SuppressLint;
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.watch.thinjam.BlueJay;
 

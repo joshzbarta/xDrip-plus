@@ -10,7 +10,7 @@ import android.preference.PreferenceManager;
 import com.eveningoutpost.dexdrip.BuildConfig;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.services.DexCollectionService;
 import com.eveningoutpost.dexdrip.services.DexShareCollectionService;

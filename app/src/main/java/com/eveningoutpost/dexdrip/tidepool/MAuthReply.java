@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.tidepool;
 
 // jamorham
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

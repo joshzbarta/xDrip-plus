@@ -11,7 +11,7 @@ import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.GcmListenerSvc;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.JamListenerSvc;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utilitymodels.Inevitable;
@@ -40,7 +40,7 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import static com.eveningoutpost.dexdrip.GoogleDriveInterface.getDriveIdentityString;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.emptyString;
+import static com.eveningoutpost.dexdrip.models.JoH.emptyString;
 import static com.eveningoutpost.dexdrip.utilitymodels.desertsync.RouteTools.getBestInterfaceAddress;
 import static com.eveningoutpost.dexdrip.utilitymodels.desertsync.RouteTools.ip;
 

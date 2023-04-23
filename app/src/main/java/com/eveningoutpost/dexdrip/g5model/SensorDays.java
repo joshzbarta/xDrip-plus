@@ -21,9 +21,9 @@ import lombok.Getter;
 import lombok.val;
 
 import static com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine.getFirmwareXDetails;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.msSince;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.roundDouble;
-import static com.eveningoutpost.dexdrip.zmodels.JoH.tsl;
+import static com.eveningoutpost.dexdrip.models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.roundDouble;
+import static com.eveningoutpost.dexdrip.models.JoH.tsl;
 import static com.eveningoutpost.dexdrip.services.G5BaseService.usingG6;
 import static com.eveningoutpost.dexdrip.services.Ob1G5CollectionService.getTransmitterID;
 import static com.eveningoutpost.dexdrip.services.Ob1G5CollectionService.usingNativeMode;

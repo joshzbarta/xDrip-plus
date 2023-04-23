@@ -29,13 +29,13 @@ import android.widget.CheckBox;
 
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
-import com.eveningoutpost.dexdrip.zmodels.GlucoseData;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
-import com.eveningoutpost.dexdrip.zmodels.Libre2SensorData;
+import com.eveningoutpost.dexdrip.models.GlucoseData;
+import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.Libre2SensorData;
 import com.eveningoutpost.dexdrip.data.LibreBlock;
-import com.eveningoutpost.dexdrip.zmodels.LibreOOPAlgorithm;
-import com.eveningoutpost.dexdrip.zmodels.ReadingData;
-import com.eveningoutpost.dexdrip.zmodels.SensorSanity;
+import com.eveningoutpost.dexdrip.models.LibreOOPAlgorithm;
+import com.eveningoutpost.dexdrip.models.ReadingData;
+import com.eveningoutpost.dexdrip.models.SensorSanity;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.utilitymodels.CollectionServiceStarter;
@@ -45,7 +45,7 @@ import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
 
-import com.eveningoutpost.dexdrip.zmodels.LibreOOPAlgorithm.SensorType;
+import com.eveningoutpost.dexdrip.models.LibreOOPAlgorithm.SensorType;
 import com.eveningoutpost.dexdrip.utils.LibreTrendUtil;
 
 

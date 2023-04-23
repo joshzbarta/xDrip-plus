@@ -4,7 +4,7 @@ import android.util.Base64;
 import android.util.Log;
 
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
-import com.eveningoutpost.dexdrip.zmodels.LibreOOPAlgorithm;
+import com.eveningoutpost.dexdrip.models.LibreOOPAlgorithm;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Intents;
 

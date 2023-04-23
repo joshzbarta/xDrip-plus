@@ -9,7 +9,7 @@ import com.activeandroid.query.Select;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.ImportedLibraries.usbserial.util.HexDump;
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;

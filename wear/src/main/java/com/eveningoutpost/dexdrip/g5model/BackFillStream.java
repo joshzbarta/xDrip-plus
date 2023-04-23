@@ -2,7 +2,7 @@ package com.eveningoutpost.dexdrip.g5model;
 
 // created by jamorham
 
-import com.eveningoutpost.dexdrip.zmodels.JoH;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
