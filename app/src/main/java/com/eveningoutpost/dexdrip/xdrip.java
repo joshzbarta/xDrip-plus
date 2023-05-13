@@ -8,7 +8,7 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import androidx.annotation.StringRes;
-import androidx.multidex.MultiDexApplication;
+
 import android.util.Log;
 
 import com.eveningoutpost.dexdrip.data.AlertType;
@@ -45,7 +45,7 @@ import java.util.Locale;
  * Created by Emma Black on 3/21/15.
  */
 
-public class xdrip extends MultiDexApplication {
+public class xdrip extends Application {
 
     private static final String TAG = "xdrip.java";
     @SuppressLint("StaticFieldLeak")

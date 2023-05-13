@@ -107,7 +107,7 @@ android {
         buildConfigField "int", "targetSDK", targetSdkVersion.mApiLevel.toString()
         //vectorDrawables.useSupportLibrary = true // broken in newer gradle versions
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
-        multiDexEnabled true
+        multiDexEnabled false
 
         // To get a Google Maps API key, follow this link, follow the directions and press "Create" at the end:
         // https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=7C:1E:BB:15:CE:A1:92:30:47:9D:D0:3D:89:F6:C6:51:7D:3C:1B:DD%3Bcom.eveningoutpost.dexdrip
@@ -345,7 +345,7 @@ dependencies {
     implementation 'org.apache.commons:commons-text:1.10.0'
     implementation 'com.google.dagger:dagger:2.45'
     implementation 'com.evernote:android-job:1.4.3'
-    implementation 'androidx.multidex:multidex:2.0.1'
+    //implementation 'com.android.support:multidex:2.0.1'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.45'
     implementation 'net.danlew:android.joda:2.12.5'
     testImplementation 'joda-time:joda-time:2.12.5'
