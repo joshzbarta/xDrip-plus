@@ -2641,36 +2641,37 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
             notificationText.setText(R.string.now_start_your_sensor);
 
             if ((dialog == null) || (!dialog.isShowing())) {
-            }
-            if (!Experience.gotData() && Experience.backupAvailable() && JoH.ratelimit("restore-backup-prompt", 10)) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                final Context context = this;
-                builder.setTitle(gs(R.string.restore_backup));
-                builder.setMessage(gs(R.string.do_you_want_to_restore_the_backup_file_) + Pref.getString("last-saved-database-zip", "ERROR").replaceFirst("^.*/", ""));
-                builder.setNegativeButton(gs(R.string.no), (dialog, which) -> dialog.dismiss());
-                builder.setPositiveButton(gs(R.string.restore), (dialog, which) -> {
-                    dialog.dismiss();
-                    startActivity(new Intent(context, ImportDatabaseActivity.class).putExtra("importit", Pref.getString("last-saved-database-zip", "")).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                });
-                dialog = builder.create();
-                dialog.show();
-            } else {
-                boolean showPrompt = Pref.getBoolean("show_start_sensor_prompt", false);
-                if (showPrompt && !Experience.gotData() && !QuickSettingsDialogs.isDialogShowing() && JoH.ratelimit("start-sensor_prompt", 20)) {
+
+                if (!Experience.gotData() && Experience.backupAvailable() && JoH.ratelimit("restore-backup-prompt", 10)) {
                     final AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     final Context context = this;
-                    builder.setTitle(getString(R.string.start_sensor) + "?");
-                        builder.setMessage(String.format(gs(R.string.start_sensor_confirmation), DexCollectionType.getDexCollectionType().toString()));
-                    builder.setNegativeButton(gs(R.string.change_settings), (dialog, which) -> {
+                    builder.setTitle(gs(R.string.restore_backup));
+                    builder.setMessage(gs(R.string.do_you_want_to_restore_the_backup_file_) + Pref.getString("last-saved-database-zip", "ERROR").replaceFirst("^.*/", ""));
+                    builder.setNegativeButton(gs(R.string.no), (dialog, which) -> dialog.dismiss());
+                    builder.setPositiveButton(gs(R.string.restore), (dialog, which) -> {
                         dialog.dismiss();
-                        startActivity(new Intent(context, Preferences.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                    });
-                    builder.setPositiveButton(R.string.start_sensor, (dialog, which) -> {
-                        dialog.dismiss();
-                        startActivity(new Intent(context, StartNewSensor.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        startActivity(new Intent(context, ImportDatabaseActivity.class).putExtra("importit", Pref.getString("last-saved-database-zip", "")).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     });
                     dialog = builder.create();
                     dialog.show();
+                } else {
+                    boolean showPrompt = Pref.getBoolean("show_start_sensor_prompt", false);
+                    if (showPrompt && !Experience.gotData() && !QuickSettingsDialogs.isDialogShowing() && JoH.ratelimit("start-sensor_prompt", 20)) {
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                        final Context context = this;
+                        builder.setTitle(getString(R.string.start_sensor) + "?");
+                            builder.setMessage(String.format(gs(R.string.start_sensor_confirmation), DexCollectionType.getDexCollectionType().toString()));
+                        builder.setNegativeButton(gs(R.string.change_settings), (dialog, which) -> {
+                            dialog.dismiss();
+                            startActivity(new Intent(context, Preferences.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        });
+                        builder.setPositiveButton(R.string.start_sensor, (dialog, which) -> {
+                            dialog.dismiss();
+                            startActivity(new Intent(context, StartNewSensor.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        });
+                        dialog = builder.create();
+                        dialog.show();
+                    }
                 }
             }
             return;
