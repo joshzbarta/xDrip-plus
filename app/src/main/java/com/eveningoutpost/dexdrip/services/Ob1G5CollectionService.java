@@ -1,23 +1,6 @@
 package com.eveningoutpost.dexdrip.services;
 
 import static com.eveningoutpost.dexdrip.Home.get_engineering_mode;
-import static com.eveningoutpost.dexdrip.models.JoH.msSince;
-import static com.eveningoutpost.dexdrip.models.JoH.niceTimeScalar;
-import static com.eveningoutpost.dexdrip.models.JoH.tolerantHexStringToByteArray;
-import static com.eveningoutpost.dexdrip.models.JoH.tsl;
-import static com.eveningoutpost.dexdrip.models.JoH.upForAtLeastMins;
-import static com.eveningoutpost.dexdrip.utilitymodels.Constants.DAY_IN_MS;
-import static com.eveningoutpost.dexdrip.utilitymodels.Constants.G5_CALIBRATION_REQUEST;
-import static com.eveningoutpost.dexdrip.utilitymodels.Constants.G5_SENSOR_FAILED;
-import static com.eveningoutpost.dexdrip.utilitymodels.Constants.G5_SENSOR_RESTARTED;
-import static com.eveningoutpost.dexdrip.utilitymodels.Constants.G5_SENSOR_STARTED;
-import static com.eveningoutpost.dexdrip.utilitymodels.Constants.HOUR_IN_MS;
-import static com.eveningoutpost.dexdrip.utilitymodels.Constants.MINUTE_IN_MS;
-import static com.eveningoutpost.dexdrip.utilitymodels.Constants.SECOND_IN_MS;
-import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.BAD;
-import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.CRITICAL;
-import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.NORMAL;
-import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.NOTICE;
 import static com.eveningoutpost.dexdrip.g5model.BluetoothServices.Advertisement;
 import static com.eveningoutpost.dexdrip.g5model.BluetoothServices.ExtraData;
 import static com.eveningoutpost.dexdrip.g5model.BluetoothServices.Mask16;
@@ -31,6 +14,11 @@ import static com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine.pendingCalibr
 import static com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine.pendingStart;
 import static com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine.pendingStop;
 import static com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine.usingAlt;
+import static com.eveningoutpost.dexdrip.models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.niceTimeScalar;
+import static com.eveningoutpost.dexdrip.models.JoH.tolerantHexStringToByteArray;
+import static com.eveningoutpost.dexdrip.models.JoH.tsl;
+import static com.eveningoutpost.dexdrip.models.JoH.upForAtLeastMins;
 import static com.eveningoutpost.dexdrip.plugin.Dialog.txIdMatch;
 import static com.eveningoutpost.dexdrip.services.Ob1G5CollectionService.STATE.BOND;
 import static com.eveningoutpost.dexdrip.services.Ob1G5CollectionService.STATE.CLOSE;
@@ -42,6 +30,18 @@ import static com.eveningoutpost.dexdrip.services.Ob1G5CollectionService.STATE.G
 import static com.eveningoutpost.dexdrip.services.Ob1G5CollectionService.STATE.INIT;
 import static com.eveningoutpost.dexdrip.services.Ob1G5CollectionService.STATE.PREBOND;
 import static com.eveningoutpost.dexdrip.services.Ob1G5CollectionService.STATE.SCAN;
+import static com.eveningoutpost.dexdrip.utilitymodels.Constants.DAY_IN_MS;
+import static com.eveningoutpost.dexdrip.utilitymodels.Constants.G5_CALIBRATION_REQUEST;
+import static com.eveningoutpost.dexdrip.utilitymodels.Constants.G5_SENSOR_FAILED;
+import static com.eveningoutpost.dexdrip.utilitymodels.Constants.G5_SENSOR_RESTARTED;
+import static com.eveningoutpost.dexdrip.utilitymodels.Constants.G5_SENSOR_STARTED;
+import static com.eveningoutpost.dexdrip.utilitymodels.Constants.HOUR_IN_MS;
+import static com.eveningoutpost.dexdrip.utilitymodels.Constants.MINUTE_IN_MS;
+import static com.eveningoutpost.dexdrip.utilitymodels.Constants.SECOND_IN_MS;
+import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.BAD;
+import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.CRITICAL;
+import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.NORMAL;
+import static com.eveningoutpost.dexdrip.utilitymodels.StatusItem.Highlight.NOTICE;
 import static com.eveningoutpost.dexdrip.utils.DexCollectionType.DexcomG5;
 import static com.eveningoutpost.dexdrip.utils.bt.Subscription.addErrorHandler;
 import static com.eveningoutpost.dexdrip.xdrip.gs;
@@ -303,9 +303,14 @@ public class Ob1G5CollectionService extends G5BaseService {
         }).start();
     }
 
-    private boolean specialPairingWorkaround() {
+    private static boolean specialPairingWorkaround() {
         return Pref.getBooleanDefaultFalse("ob1_special_pairing_workaround");
     }
+
+    private static boolean getTrustAutoConnect() {
+        return Pref.getBoolean("bluetooth_trust_autoconnect", true);
+    }
+
 
     private synchronized void automata() {
 
@@ -350,7 +355,7 @@ public class Ob1G5CollectionService extends G5BaseService {
                             } else {
                                 wasBonded = locallyBonded ? getTransmitterID() : "";
                                 skippedConnects = 0;
-                                connect_to_device(specialPairingWorkaround());
+                                connect_to_device(specialPairingWorkaround() && getTrustAutoConnect());
                             }
                         } else {
                             connect_to_device(false);
@@ -522,7 +527,14 @@ public class Ob1G5CollectionService extends G5BaseService {
     }
 
     private static void init_tx_id() {
-        transmitterID = Pref.getString("dex_txid", "NULL");
+        val TXID_PREF = "dex_txid";
+        val txid = Pref.getString(TXID_PREF, "NULL");
+        val txid_filtered = txid.trim();
+        transmitterID = txid_filtered;
+        if (!txid.equals(txid_filtered)) {
+            Pref.setString(TXID_PREF, txid_filtered);
+            UserError.Log.wtf(TAG, "Had to fix invalid txid: :" + txid + ": -> :" + txid_filtered + ":");
+        }
     }
 
     private synchronized void scan_for_device() {
