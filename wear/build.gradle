@@ -214,7 +214,7 @@ dependencies {
     // implementation 'com.google.android.support:wearable:1.4.0'
     //implementation 'com.google.android.gms:play-services-wearable:9.4.0'
     implementation 'com.google.android.gms:play-services-wearable:18.0.0'
-    implementation 'com.squareup.wire:wire-runtime:4.5.5'
+    implementation 'com.squareup.wire:wire-runtime:4.7.2'
     //implementation 'com.ustwo.android:clockwise-wearable:1.0.2'
     implementation(files('libs/hellocharts-library-1.5.5.jar'))
     implementation(files("libs/ustwo-clockwise-debug.aar"))
