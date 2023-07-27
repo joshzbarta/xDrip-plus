@@ -10,6 +10,8 @@ public class Injectors {
 
     private static MicroStatusComponent microStatusComponent;
     private static HomeShelfComponent homeShelfComponent;
+
+    private static ZHomeShelfComponent zHomeShelfComponent;
     private static WebServiceComponent webServiceComponent;
 
     public static MicroStatusComponent getMicroStatusComponent() {
@@ -17,6 +19,13 @@ public class Injectors {
             microStatusComponent = DaggerMicroStatusComponent.create();
         }
         return microStatusComponent;
+    }
+
+    public static ZHomeShelfComponent getZHomeShelfComponent() {
+        if (zHomeShelfComponent == null) {
+            zHomeShelfComponent = DaggerZHomeShelfComponent.create();
+        }
+        return zHomeShelfComponent;
     }
 
     public static HomeShelfComponent getHomeShelfComponent() {
