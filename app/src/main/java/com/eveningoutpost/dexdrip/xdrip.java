@@ -7,9 +7,10 @@ import android.content.ContextWrapper;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.preference.PreferenceManager;
-import androidx.annotation.StringRes;
 
 import android.util.Log;
+
+import androidx.annotation.StringRes;
 
 import com.eveningoutpost.dexdrip.data.AlertType;
 import com.eveningoutpost.dexdrip.models.JoH;
