@@ -271,7 +271,7 @@ dependencies {
     //    exclude group: 'androidx.core', module: 'core' // fix INotificationSideChannel // android.support.v4.app
     }
 
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
     implementation(files('libs/ns-sdk-full-release.aar'))
 
     //implementation 'androidx.core:core-ktx:1.9.0'
