@@ -9,10 +9,13 @@ buildscript {
         }
     }
 }
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
 //apply from: 'token-replace.gradle'
 apply from: '../common.gradle'
-apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android'
 
 if (project.file('local.gradle').exists()) {
     apply from: 'local.gradle'
@@ -152,10 +155,15 @@ android {
 
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
-
+    kotlin {
+        jvmToolchain(17)
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
     dataBinding {
         enabled = true
     }
@@ -206,12 +214,12 @@ android {
             buildConfigField "String", "buildUUID", "\"0f79a60a-5616-99be-8eb1-a430edcfd9fd\""
             buildConfigField "long", "buildTimestamp", "1609459200L"
             resConfigs 'en', 'xxhdpi'
-            targetSdkVersion 26
+            targetSdkVersion 33
         }
 
         prod {
             minSdkVersion 26
-            targetSdkVersion 26
+            targetSdkVersion 33
 
             // If you've configured the defaultConfig block for the release version of
             // your app, you can leave this block empty and Gradle uses configurations in
