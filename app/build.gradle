@@ -69,7 +69,7 @@ def getLocalProperty(String propertyName) {
 }
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
 
     android {
         sourceSets {
@@ -263,11 +263,11 @@ dependencies {
 
     // use specific version of data binding until google resolves the bugs with mixed case package names
     //noinspection GradleDependency
-    implementation 'androidx.databinding:databinding-adapters:8.0.1'
+    implementation 'androidx.databinding:databinding-adapters:8.1.0'
     //noinspection GradleDependency
-    implementation 'androidx.databinding:databinding-runtime:8.0.1'
+    implementation 'androidx.databinding:databinding-runtime:8.1.0'
     //noinspection GradleDependency
-    implementation 'androidx.databinding:databinding-common:8.0.1'
+    implementation 'androidx.databinding:databinding-common:8.1.0'
     //////
 
     // app auth implementation
@@ -275,7 +275,7 @@ dependencies {
     implementation(files('libs/appauth-release.aar')) {
     //    exclude group: 'androidx.core', module: 'core' // fix INotificationSideChannel // android.support.v4.app
     }
-    implementation('androidx.browser:browser:1.5.0') {
+    implementation('androidx.browser:browser:1.6.0') {
     //    exclude group: 'androidx.core', module: 'core' // fix INotificationSideChannel // android.support.v4.app
     }
 
