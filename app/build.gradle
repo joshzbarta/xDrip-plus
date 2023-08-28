@@ -12,6 +12,7 @@ buildscript {
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.devtools.ksp'
 }
 //apply from: 'token-replace.gradle'
 apply from: '../common.gradle'
