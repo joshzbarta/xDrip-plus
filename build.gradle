@@ -15,14 +15,13 @@ buildscript {
         classpath 'com.google.android.gms:oss-licenses-plugin:0.10.6'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.20'
 
-        apply plugin: 'java-library'
-        apply plugin: 'maven-publish'
-
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 plugins {
+    id 'java-library'
+    id 'maven-publish'
     id 'com.google.devtools.ksp' version '1.9.0-1.0.12' apply false
 }
 allprojects {
@@ -34,4 +33,9 @@ allprojects {
         mavenCentral()
         maven { url "https://jitpack.io" }
     }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
