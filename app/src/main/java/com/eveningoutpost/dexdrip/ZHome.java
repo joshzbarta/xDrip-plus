@@ -3587,7 +3587,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
         if (JoH.ratelimit("manual-update-check", 5)) {
             toast(getString(R.string.checking_for_update));
             UpdateActivity.last_check_time = -1;
-            UpdateActivity.checkForAnUpdate(getApplicationContext());
+            UpdateActivity.checkForAnUpdate(getApplicationContext(), true);
         }
     }
 

@@ -145,6 +145,8 @@ public class IdempotentMigrations {
     // Force legacy settings to be at their recommended values
     private static void legacySettingsFix() {
         Pref.setBoolean("use_ob1_g5_collector_service", true);
+        Pref.setBoolean("ob1_g5_fallback_to_xdrip", false);
+        Pref.setBoolean("always_unbond_G5", false);
     }
 
 }
