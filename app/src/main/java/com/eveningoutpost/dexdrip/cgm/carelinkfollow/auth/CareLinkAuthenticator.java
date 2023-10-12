@@ -6,7 +6,7 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v7.widget.LinearLayoutCompat;
+import androidx.appcompat.widget.LinearLayoutCompat;
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
 import android.webkit.WebView;

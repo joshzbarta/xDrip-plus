@@ -1,7 +1,7 @@
 package com.eveningoutpost.dexdrip.cgm.carelinkfollow.auth;
 
 
-import com.eveningoutpost.dexdrip.models.UserError;
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
 import com.google.gson.GsonBuilder;
 
