@@ -460,7 +460,7 @@ public class BlueJayService extends JamBaseBluetoothSequencer {
                     lastUsableGlucoseTimestamp = inboundTimestamp;
                     final BgReading existing = BgReading.getForPreciseTimestamp(inboundTimestamp, Constants.MINUTE_IN_MS * 4, false);
                     if (existing == null) {
-                        val last = BgReading.last();
+                        val last = BgReading.last(Home.get_follower());
                         final BgReading bgr = BgReading.bgReadingInsertFromG5(info.glucose, inboundTimestamp, "BlueJay");
                         try {
                             bgr.calculated_value_slope = info.getTrend() / Constants.MINUTE_IN_MS; // note this is different to the typical calculated slope, (normally delta)
@@ -488,7 +488,7 @@ public class BlueJayService extends JamBaseBluetoothSequencer {
     }
 
     public void sendGlucose() {
-        val last = BgReading.last();
+        val last = BgReading.last(Home.get_follower());
         if (last != null && msSince(last.timestamp) < Constants.HOUR_IN_MS) {
             val info = BlueJayInfo.getInfo(BlueJay.getMac());
             if (Math.abs(info.lastReadingTime - last.timestamp) > Constants.MINUTE_IN_MS * 3) {

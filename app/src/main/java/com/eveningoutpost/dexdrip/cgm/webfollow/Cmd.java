@@ -3,6 +3,7 @@ package com.eveningoutpost.dexdrip.cgm.webfollow;
 import static com.eveningoutpost.dexdrip.models.JoH.emptyString;
 import static com.eveningoutpost.dexdrip.cgm.webfollow.Agent.get;
 
+import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.cgm.medtrum.BackfillAssessor;
@@ -76,7 +77,7 @@ public class Cmd {
                     break;
 
                 case "allCurrent":
-                    val last = BgReading.last();
+                    val last = BgReading.last(Home.get_follower());
                     if (last != null) {
                         if (JoH.msSince(last.timestamp) < DexCollectionType.getCurrentSamplePeriod()) {
                             m.doAction(pc[1]);

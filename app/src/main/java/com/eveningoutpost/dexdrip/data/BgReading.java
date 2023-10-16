@@ -20,7 +20,7 @@ import com.activeandroid.query.Select;
 import com.activeandroid.util.SQLiteUtils;
 import com.eveningoutpost.dexdrip.BestGlucose;
 import com.eveningoutpost.dexdrip.GcmActivity;
-import com.eveningoutpost.dexdrip.Home;
+import com.eveningoutpost.dexdrip.Home; //TODO: Refactor! Data layer should not have dependency on UI layer
 import com.eveningoutpost.dexdrip.importedlibraries.dexcom.records.EGVRecord;
 import com.eveningoutpost.dexdrip.importedlibraries.dexcom.records.SensorRecord;
 import com.eveningoutpost.dexdrip.models.JoH;

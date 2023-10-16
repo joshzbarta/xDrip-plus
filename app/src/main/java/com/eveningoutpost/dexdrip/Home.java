@@ -1018,7 +1018,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
             } else if (bundle.getString(Home.SHOW_NOTIFICATION) != null) {
                 final Intent notificationIntent = new Intent(this, Home.class);
                 final int notification_id = bundle.getInt("notification_id");
-                if ((notification_id == SENSOR_READY_ID) && (!Sensor.isActive() || BgReading.last() != null)) {
+                if ((notification_id == SENSOR_READY_ID) && (!Sensor.isActive() || BgReading.last(Home.get_follower()) != null)) {
                     Log.e(TAG, "Sensor not in warm up period when notification due to fire");
                     return;
                 }
