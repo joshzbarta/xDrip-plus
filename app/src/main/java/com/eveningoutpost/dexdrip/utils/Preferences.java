@@ -2048,6 +2048,15 @@ public class Preferences extends BasePreferenceActivity implements SearchPrefere
                 } catch (Exception e) {
                     //
                 }
+
+                try {
+                    findPreference("health_connect_manage").setOnPreferenceClickListener((preference) -> {
+                        HealthGamut.init(getActivity()).openPermissionManager();
+                        return true;
+                    });
+                } catch (Exception e) {
+                    //
+                }
             }
 
 

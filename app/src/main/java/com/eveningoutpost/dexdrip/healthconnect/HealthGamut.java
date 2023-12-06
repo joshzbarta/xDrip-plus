@@ -1,5 +1,6 @@
 package com.eveningoutpost.dexdrip.healthconnect;
 
+import static com.eveningoutpost.dexdrip.healthconnect.Coroutines.suspendFunction;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.HEALTH_CONNECT_RESPONSE_ID;
 import static kotlin.jvm.internal.Reflection.createKotlinClass;
 
@@ -10,6 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
 import androidx.health.connect.client.HealthConnectClient;
 import androidx.health.connect.client.PermissionController;
 import androidx.health.connect.client.changes.Change;
@@ -17,37 +19,50 @@ import androidx.health.connect.client.changes.UpsertionChange;
 import androidx.health.connect.client.permission.HealthPermission;
 import androidx.health.connect.client.records.BloodGlucoseRecord;
 import androidx.health.connect.client.records.DistanceRecord;
-import androidx.health.connect.client.records.ExerciseEventRecord;
+import androidx.health.connect.client.records.ElevationGainedRecord;
 import androidx.health.connect.client.records.ExerciseSessionRecord;
+import androidx.health.connect.client.records.FloorsClimbedRecord;
 import androidx.health.connect.client.records.HeartRateRecord;
+import androidx.health.connect.client.records.HeartRateVariabilityRmssdRecord;
+import androidx.health.connect.client.records.HeightRecord;
+import androidx.health.connect.client.records.HydrationRecord;
 import androidx.health.connect.client.records.MealType;
 import androidx.health.connect.client.records.NutritionRecord;
+import androidx.health.connect.client.records.PowerRecord;
 import androidx.health.connect.client.records.Record;
+import androidx.health.connect.client.records.RelationToMeal;
+import androidx.health.connect.client.records.RestingHeartRateRecord;
 import androidx.health.connect.client.records.SleepSessionRecord;
 import androidx.health.connect.client.records.SpeedRecord;
 import androidx.health.connect.client.records.StepsRecord;
 import androidx.health.connect.client.records.TotalCaloriesBurnedRecord;
+import androidx.health.connect.client.records.WeightRecord;
+import androidx.health.connect.client.records.WheelchairPushesRecord;
 import androidx.health.connect.client.records.metadata.Metadata;
 import androidx.health.connect.client.request.ChangesTokenRequest;
 import androidx.health.connect.client.request.ReadRecordsRequest;
 import androidx.health.connect.client.time.TimeRangeFilter;
 import androidx.health.connect.client.units.BloodGlucose;
 
+import com.eveningoutpost.dexdrip.BuildConfig;
+import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.xdrip;
 
 import java.time.Instant;
+import java.time.ZoneOffset;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
-import jamorham.javakotlininterop.Coroutines;
+
 import kotlin.reflect.KClass;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
@@ -61,21 +76,35 @@ public class HealthGamut {
 
     private static final String TAG = HealthGamut.class.getSimpleName();
 
-    private static final HealthPermission[] permissionList = {
+    private static final HealthPermission[] fullPermissionList = {
             HealthPermission.createReadPermission(createKotlinClass(ExerciseSessionRecord.class)),
-            HealthPermission.createReadPermission(createKotlinClass(ExerciseEventRecord.class)),
             HealthPermission.createReadPermission(createKotlinClass(SleepSessionRecord.class)),
             HealthPermission.createReadPermission(createKotlinClass(StepsRecord.class)),
             HealthPermission.createReadPermission(createKotlinClass(SpeedRecord.class)),
             HealthPermission.createReadPermission(createKotlinClass(DistanceRecord.class)),
             HealthPermission.createReadPermission(createKotlinClass(TotalCaloriesBurnedRecord.class)),
             HealthPermission.createReadPermission(createKotlinClass(HeartRateRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(HeartRateVariabilityRmssdRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(RestingHeartRateRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(ElevationGainedRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(FloorsClimbedRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(HeightRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(WeightRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(WheelchairPushesRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(PowerRecord.class)),
             HealthPermission.createReadPermission(createKotlinClass(BloodGlucoseRecord.class)),
             HealthPermission.createWritePermission(createKotlinClass(BloodGlucoseRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(HydrationRecord.class)),
             HealthPermission.createReadPermission(createKotlinClass(NutritionRecord.class)),
             HealthPermission.createWritePermission(createKotlinClass(NutritionRecord.class))
     };
 
+    private static final HealthPermission[] minimalPermissionList = {
+            HealthPermission.createReadPermission(createKotlinClass(StepsRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(HeartRateRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(BloodGlucoseRecord.class)),
+            HealthPermission.createWritePermission(createKotlinClass(BloodGlucoseRecord.class))
+    };
     private static final List<KClass<? extends Record>> recordList = new LinkedList<>();
 
     static {
@@ -83,7 +112,8 @@ public class HealthGamut {
         recordList.add(createKotlinClass(HeartRateRecord.class));
     }
 
-    private static final Set<HealthPermission> permissions = new HashSet<>(Arrays.asList(permissionList));
+    private static final Set<HealthPermission> permissions = new HashSet<>(Arrays.asList(fullPermissionList));
+    private static final Set<HealthPermission> minimalPermissions = new HashSet<>(Arrays.asList(minimalPermissionList));
     private static final Set<? extends KClass<? extends Record>> records = new HashSet<>(recordList);
 
     private static volatile String token = null;
@@ -91,7 +121,7 @@ public class HealthGamut {
     private final Context context;
     private HealthConnectClient client;
 
-    private final Coroutines coroutines = new Coroutines();
+    private final Coroutines coroutines = Coroutines.INSTANCE;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean init() {
@@ -99,41 +129,36 @@ public class HealthGamut {
             Log.e(TAG, "Needs above android 8");
             return false;
         }
-        if (HealthConnectClient.isAvailable(context)) {
+
+        if(/*HealthConnectClient.getSdkStatus(context) == HealthConnectClient.SDK_AVAILABLE*/HealthConnectClient.isAvailable(context)) {
             client = HealthConnectClient.getOrCreate(context);
-
-            client.getPermissionController().getGrantedPermissions(permissions, coroutines.getContinuation((result, throwable) -> {
-                try {
-                    if (throwable != null) {
-                        throw new RuntimeException(throwable);
-                    }
-
-                    if (!permissions.equals(result)) {
-                        Log.d(TAG, "Need permissions!");
-                        val permsIntent = PermissionController.createRequestPermissionResultContract().createIntent(context, permissions);
-                        JoH.runOnUiThread(() -> {
-                            try {
-                                if (context instanceof Activity) {
-                                    ((Activity) context).startActivityForResult(permsIntent, HEALTH_CONNECT_RESPONSE_ID);
-                                } else {
-                                    JoH.static_toast_long("ERROR: Health connect needs permissions! - try from settings menu again");
-                                }
-                            } catch (Exception e) {
-                                Log.e(TAG, "Cannot start permissions request: " + e);
-                            }
-                        });
-
-                    } else {
-                        Log.d(TAG, "Got permissions!");
-                        if (HealthConnectEntry.receiveEnabled()) {
-                            getAllData();
+            try {
+                suspendFunction(Coroutines::getGrantedPermissions).apply(client, minimalPermissions, (result, throwable) -> {
+                    try {
+                        if (throwable != null) {
+                            throw new RuntimeException(throwable);
                         }
-                    }
-                } catch (Exception e) {
-                    Log.e(TAG, "Failed to get permissions: " + e);
-                }
-            }));
 
+                        if (!result.containsAll(minimalPermissions)) {
+                            Log.d(TAG, "Need permissions!");
+
+                            if (Build.VERSION.SDK_INT >= 34) {
+                                askPermsNew();
+                            } else {
+                                askPermsOld();
+                            }
+
+                        } else {
+                            Log.d(TAG, "Got permissions!");
+                            getAllDataIfEnabled();
+                        }
+                    } catch (Exception e) {
+                        Log.e(TAG, "Failed to get permissions: " + e);
+                    }
+                });
+            } catch (Exception e) {
+                Log.d(TAG, "got exception in permissions get granted: " + e);
+            }
             return true;
         } else {
             Log.e(TAG, "Companion app not available - asking for installation");
@@ -158,8 +183,64 @@ public class HealthGamut {
         return false;
     }
 
-    public static void init(Activity activity) {
-        new HealthGamut(activity).init();
+    private void askPermsNew() {
+        val permsIntent = PermissionController.createRequestPermissionResultContract().createIntent(context, permissions);
+        JoH.runOnUiThread(() -> {
+            try {
+                if (context instanceof Activity) {
+                    ActivityCompat.requestPermissions((Activity) context,
+                            Objects.requireNonNull(permsIntent.getStringArrayExtra("androidx.activity.result.contract.extra.PERMISSIONS")), HEALTH_CONNECT_RESPONSE_ID);
+                } else {
+                    JoH.static_toast_long(xdrip.gs(R.string.google_health_connect_needs_perms));
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "Cannot start permissions request: " + e);
+            }
+        });
+    }
+
+    private void askPermsOld() {
+        val permsIntent = PermissionController.createRequestPermissionResultContract().createIntent(context, permissions);
+        JoH.runOnUiThread(() -> {
+            try {
+                if (context instanceof Activity) {
+                    ((Activity) context).startActivityForResult(permsIntent, HEALTH_CONNECT_RESPONSE_ID);
+                } else {
+                    JoH.static_toast_long(xdrip.gs(R.string.google_health_connect_needs_perms));
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "Cannot start permissions request: " + e);
+            }
+        });
+    }
+
+    public void openPermissionManager() {
+        JoH.runOnUiThread(() -> {
+            try {
+                if (context instanceof Activity) {
+                    if (Build.VERSION.SDK_INT >= 34) {
+                        val intent =
+                                new Intent("android.health.connect.action.MANAGE_HEALTH_PERMISSIONS")
+                                        .putExtra(Intent.EXTRA_PACKAGE_NAME, BuildConfig.APPLICATION_ID);
+                        ((Activity) context).startActivity(intent);
+                    } else {
+                        val intent = new Intent("androidx.health.ACTION_HEALTH_CONNECT_SETTINGS");
+                        ((Activity) context).startActivity(intent);
+                    }
+
+                } else {
+                    JoH.static_toast_long(xdrip.gs(R.string.google_health_connect_needs_perms));
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "Cannot start permissions request: " + e);
+            }
+        });
+    }
+
+    public static HealthGamut init(Activity activity) {
+        val instance = new HealthGamut(activity);
+        instance.init();
+        return instance;
     }
 
     public static void ping() {
@@ -168,6 +249,12 @@ public class HealthGamut {
 
     public static void sendGlucoseStatic(final BgReading bg) {
         new HealthGamut(xdrip.getAppContext()).sendGlucose(bg);
+    }
+
+    public void getAllDataIfEnabled() {
+        if (HealthConnectEntry.receiveEnabled()) {
+            getAllData();
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -221,7 +308,6 @@ public class HealthGamut {
             Log.e(TAG, "Exception trying to get changes: " + e);
         }
 
-
         client.readRecords(new ReadRecordsRequest<StepsRecord>(createKotlinClass(StepsRecord.class),
                 TimeRangeFilter.between(startTime, endTime),
                 Collections.emptySet(),
@@ -272,17 +358,16 @@ public class HealthGamut {
         }));
     }
 
-
     public void sendGlucose(final BgReading bg) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return;
         if (init()) {
             val list = new LinkedList<BloodGlucoseRecord>();
             val record = new BloodGlucoseRecord(BloodGlucose.milligramsPerDeciliter(bg.calculated_value),
                     BloodGlucoseRecord.SpecimenSource.INTERSTITIAL_FLUID,
                     MealType.UNKNOWN,
-                    null,
+                    RelationToMeal.GENERAL,
                     Instant.ofEpochMilli(bg.timestamp),
-                    null, new Metadata());
+                    null,
+                      new Metadata());
             list.add(record);
             client.insertRecords(list, coroutines.getContinuation((result, throwable) -> {
                 try {
