@@ -8,7 +8,7 @@ import android.graphics.Bitmap;
 import android.net.UrlQuerySanitizer;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.appcompat.widget.LinearLayoutCompat;
+
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
 import android.webkit.WebResourceError;
@@ -38,6 +38,8 @@ import java.util.ArrayList;
 import android.util.Base64;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+
+import androidx.appcompat.widget.LinearLayoutCompat;
 
 import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.bouncycastle.operator.ContentSigner;

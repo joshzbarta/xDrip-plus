@@ -2,8 +2,11 @@ package com.eveningoutpost.dexdrip.wearintegration;
 
 import android.content.Context;
 import android.content.Intent;
-import com.eveningoutpost.dexdrip.data.UserError;
+
+
 import androidx.legacy.content.WakefulBroadcastReceiver;
+
+import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 
 /**

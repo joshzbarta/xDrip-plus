@@ -15,9 +15,10 @@ package com.eveningoutpost.dexdrip.adapters;
  * limitations under the License.
  */
 
+import androidx.collection.ArrayMap;
 import androidx.databinding.MapChangeRegistry;
 import androidx.databinding.ObservableMap;
-import androidx.collection.ArrayMap;
+
 
 import java.util.Collection;
 

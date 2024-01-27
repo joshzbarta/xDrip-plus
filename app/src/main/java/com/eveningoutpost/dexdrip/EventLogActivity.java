@@ -1,6 +1,8 @@
 package com.eveningoutpost.dexdrip;
 
 import android.content.Intent;
+
+import androidx.appcompat.widget.SearchView;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ObservableList;
@@ -11,7 +13,7 @@ import androidx.annotation.LayoutRes;
 import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.SearchView;
+
 import android.util.SparseBooleanArray;
 import android.util.TypedValue;
 import android.view.LayoutInflater;

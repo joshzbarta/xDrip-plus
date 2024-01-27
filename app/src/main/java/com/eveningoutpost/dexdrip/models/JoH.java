@@ -25,7 +25,6 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.content.res.AssetFileDescriptor;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -45,11 +44,11 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.provider.Settings;
-import androidx.core.app.NotificationCompat;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ContextThemeWrapper;
+import androidx.core.app.NotificationCompat;
 import androidx.loader.content.CursorLoader;
 
 import android.text.InputType;
@@ -467,11 +466,11 @@ public class JoH {
     public static String getFieldFromURI(final String column, final Uri contentUri) {
         try {
             final String[] projection = { column };
-            CursorLoader loader = new CursorLoader(xdrip.getAppContext(), contentUri, projection, null, null, null);
-            Cursor cursor = loader.loadInBackground();
-            int column_index = cursor.getColumnIndexOrThrow(column);
+            val loader = new CursorLoader(xdrip.getAppContext(), contentUri, projection, null, null, null);
+            val cursor = loader.loadInBackground();
+            val column_index = cursor.getColumnIndexOrThrow(column);
             cursor.moveToFirst();
-            String result = cursor.getString(column_index);
+            val result = cursor.getString(column_index);
             cursor.close();
             return result;
         } catch (Exception e) {

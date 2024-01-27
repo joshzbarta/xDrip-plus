@@ -8,8 +8,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
-import androidx.core.graphics.drawable.DrawableCompat;
+
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.graphics.drawable.DrawableCompat;
+
 import android.util.LruCache;
 
 import com.eveningoutpost.dexdrip.data.UserError;

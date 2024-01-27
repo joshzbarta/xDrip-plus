@@ -4,9 +4,10 @@ package com.eveningoutpost.dexdrip;
 
 import android.app.Activity;
 import android.os.Bundle;
-import androidx.fragment.app.FragmentActivity;
 
 import android.view.WindowManager;
+
+import androidx.fragment.app.FragmentActivity;
 
 import com.eveningoutpost.dexdrip.models.JoH;
 //import com.google.android.gms.maps.CameraUpdateFactory;

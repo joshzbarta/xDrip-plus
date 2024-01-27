@@ -2,6 +2,8 @@ package com.eveningoutpost.dexdrip.insulin;
 
 import android.util.Log;
 
+import androidx.annotation.Keep;
+
 import com.eveningoutpost.dexdrip.R;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.eveningoutpost.dexdrip.xdrip;
@@ -10,6 +12,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -21,7 +24,9 @@ public class InsulinManager {
     private static ArrayList<Insulin> profiles;
     private static volatile Insulin basalProfile, bolusProfile;
 
+    @Keep
     class InsulinDataWrapper {
+        @Expose
         public ArrayList<InsulinData> profiles;
 
         public InsulinDataWrapper() {
@@ -52,7 +57,7 @@ public class InsulinManager {
         private Boolean checkUniquenessPPN() {
             Log.d(TAG, "checking for uniqueness");
             ArrayList<String> PPNs = new ArrayList<String>();
-            for (InsulinData d : profiles)
+            for (insulinData d : profiles)
                 for (String ppn : d.PPN)
                     if (PPNs.contains(ppn)) {
                         Log.d(TAG, "pharmacy product number duplicated " + ppn + ". That's not allowed!");
@@ -61,6 +66,28 @@ public class InsulinManager {
             Log.d(TAG, "pharmacy product numbers unique");
             return true;
         }
+    }
+
+    @Keep
+    class insulinCurve {
+        @Expose
+        public String type;
+        @Expose
+        public JsonObject data;
+    }
+
+    @Keep
+    class insulinData {
+        @Expose
+        public String displayName;
+        @Expose
+        public String name;
+        @Expose
+        public ArrayList<String> PPN;
+        @Expose
+        public String concentration;
+        @Expose
+        public insulinCurve Curve;
     }
 
     private static String readTextFile(InputStream inputStream) {
@@ -83,9 +110,10 @@ public class InsulinManager {
 
     private static void initializeInsulinManager(InputStream in_s) {
         Log.d(TAG, "Initialize insulin profiles");
-        InsulinDataWrapper iDW;
+        insulinDataWrapper iDW;
         try {
             String input = readTextFile(in_s);
+			Log.d(TAG,"read text bytes: " + input.length());
             Gson gson = new Gson();
 
             //iDW = gson.fromJson(input, InsulinDataWrapper.class);
@@ -178,7 +206,9 @@ public class InsulinManager {
     }
 
     public static ArrayList<Insulin> getAllProfiles() {
-        checkInitialized();
+        if (profiles == null) {
+            InsulinManager.getDefaultInstance(); // this entire feature needs a serious rework
+        }
         return profiles;
     }
 

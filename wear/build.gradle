@@ -88,13 +88,10 @@ apply plugin: 'com.android.application'
 //apply plugin: 'io.fabric'
 
 android {
-    compileSdkVersion 33
-    android {
-        sourceSets {
-            main {
-                jniLibs.srcDirs = ['libs']
-            }
-        }
+    compileSdkVersion 34
+    lintOptions {
+        checkReleaseBuilds false
+//        abortOnError false
     }
     defaultConfig {
         applicationId "com.eveningoutpost.dexdrip"
@@ -198,7 +195,10 @@ android {
 
 allprojects {
     repositories {
-        google()
+        flatDir {
+            dirs project(':wear').file('libs'), project(':app').file('libs') // Seems to always use the directive from app build.gradle not this one
+        }
+	google()
         mavenCentral()
         maven { url "https://jitpack.io" }
     }
@@ -232,6 +232,10 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'com.google.truth:truth:1.1.5'
 
+    // add missing JAXB dependencies for JDK 9+
+    //if (JavaVersion.current().ordinal() >= JavaVersion.VERSION_1_9.ordinal()) {
+    //    annotationProcessor 'jakarta.xml.bind:jakarta.xml.bind-api:2.3.3'
+    //}
     implementation 'uk.com.robust-it:cloning:1.9.12'
     // you will want to install the android studio lombok plugin
     compileOnly 'org.projectlombok:lombok:1.18.28'

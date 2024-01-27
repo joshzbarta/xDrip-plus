@@ -19,13 +19,15 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
+
 
 //KS import com.eveningoutpost.dexdrip.AddCalibration;
 //KS import com.eveningoutpost.dexdrip.BestGlucose;
 //KS import com.eveningoutpost.dexdrip.DoubleCalibrationActivity;
 //KS import com.eveningoutpost.dexdrip.EditAlertActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.models.ActiveBgAlert;
 import com.eveningoutpost.dexdrip.models.AlertType;

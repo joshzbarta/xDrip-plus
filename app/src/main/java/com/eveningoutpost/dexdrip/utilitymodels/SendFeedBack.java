@@ -3,7 +3,6 @@ package com.eveningoutpost.dexdrip.utilitymodels;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AlertDialog;
 
 import android.text.InputType;
 import android.util.Log;
@@ -34,6 +33,8 @@ import okio.GzipSink;
 import okio.Okio;
 
 import static com.eveningoutpost.dexdrip.utils.DexCollectionType.getBestCollectorHardwareName;
+
+import androidx.appcompat.app.AlertDialog;
 
 public class SendFeedBack extends BaseAppCompatActivity {
 

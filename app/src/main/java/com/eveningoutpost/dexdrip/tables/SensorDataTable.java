@@ -2,9 +2,12 @@ package com.eveningoutpost.dexdrip.tables;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import androidx.drawerlayout.widget.DrawerLayout;
+
+
 import android.view.View;
 import android.widget.SimpleCursorAdapter;
+
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.activeandroid.Cache;
 import com.eveningoutpost.dexdrip.BaseListActivity;

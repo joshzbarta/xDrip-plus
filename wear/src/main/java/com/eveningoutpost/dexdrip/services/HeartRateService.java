@@ -10,6 +10,8 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.PowerManager;
+
+
 import androidx.core.app.ActivityCompat;
 
 import com.eveningoutpost.dexdrip.ListenerService;

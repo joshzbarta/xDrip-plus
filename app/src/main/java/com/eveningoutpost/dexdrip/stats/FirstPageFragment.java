@@ -1,5 +1,8 @@
 package com.eveningoutpost.dexdrip.stats;
 
+import static android.app.PendingIntent.getActivity;
+
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,6 +10,7 @@ import android.preference.PreferenceManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import com.eveningoutpost.dexdrip.data.UserError.Log;
 import android.view.LayoutInflater;
 import android.view.View;
