@@ -30,6 +30,7 @@ import androidx.health.connect.client.records.MealType;
 import androidx.health.connect.client.records.NutritionRecord;
 import androidx.health.connect.client.records.PowerRecord;
 import androidx.health.connect.client.records.Record;
+import androidx.health.connect.client.records.RelationToMeal;
 import androidx.health.connect.client.records.RestingHeartRateRecord;
 import androidx.health.connect.client.records.SleepSessionRecord;
 import androidx.health.connect.client.records.SpeedRecord;
@@ -45,9 +46,9 @@ import androidx.health.connect.client.units.BloodGlucose;
 
 import com.eveningoutpost.dexdrip.BuildConfig;
 import com.eveningoutpost.dexdrip.R;
-import com.eveningoutpost.dexdrip.models.BgReading;
+import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.models.UserError.Log;
+import com.eveningoutpost.dexdrip.data.UserError.Log;
 import com.eveningoutpost.dexdrip.xdrip;
 
 import java.time.Instant;
@@ -74,34 +75,34 @@ public class HealthGamut {
 
     private static final String TAG = HealthGamut.class.getSimpleName();
 
-    private static final String[] fullPermissionList = {
-            HealthPermission.getReadPermission(createKotlinClass(ExerciseSessionRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(SleepSessionRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(StepsRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(SpeedRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(DistanceRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(TotalCaloriesBurnedRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(HeartRateRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(HeartRateVariabilityRmssdRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(RestingHeartRateRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(ElevationGainedRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(FloorsClimbedRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(HeightRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(WeightRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(WheelchairPushesRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(PowerRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(BloodGlucoseRecord.class)),
-            HealthPermission.getWritePermission(createKotlinClass(BloodGlucoseRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(HydrationRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(NutritionRecord.class)),
-            HealthPermission.getWritePermission(createKotlinClass(NutritionRecord.class))
+    private static final HealthPermission[] fullPermissionList = {
+            HealthPermission.createReadPermission(createKotlinClass(ExerciseSessionRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(SleepSessionRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(StepsRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(SpeedRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(DistanceRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(TotalCaloriesBurnedRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(HeartRateRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(HeartRateVariabilityRmssdRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(RestingHeartRateRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(ElevationGainedRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(FloorsClimbedRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(HeightRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(WeightRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(WheelchairPushesRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(PowerRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(BloodGlucoseRecord.class)),
+            HealthPermission.createWritePermission(createKotlinClass(BloodGlucoseRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(HydrationRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(NutritionRecord.class)),
+            HealthPermission.createWritePermission(createKotlinClass(NutritionRecord.class))
     };
 
-    private static final String[] minimalPermissionList = {
-            HealthPermission.getReadPermission(createKotlinClass(StepsRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(HeartRateRecord.class)),
-            HealthPermission.getReadPermission(createKotlinClass(BloodGlucoseRecord.class)),
-            HealthPermission.getWritePermission(createKotlinClass(BloodGlucoseRecord.class))
+    private static final HealthPermission[] minimalPermissionList = {
+            HealthPermission.createReadPermission(createKotlinClass(StepsRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(HeartRateRecord.class)),
+            HealthPermission.createReadPermission(createKotlinClass(BloodGlucoseRecord.class)),
+            HealthPermission.createWritePermission(createKotlinClass(BloodGlucoseRecord.class))
     };
     private static final List<KClass<? extends Record>> recordList = new LinkedList<>();
 
@@ -110,8 +111,8 @@ public class HealthGamut {
         recordList.add(createKotlinClass(HeartRateRecord.class));
     }
 
-    private static final Set<String> permissions = new HashSet<>(Arrays.asList(fullPermissionList));
-    private static final Set<String> minimalPermissions = new HashSet<>(Arrays.asList(minimalPermissionList));
+    private static final Set<HealthPermission> permissions = new HashSet<>(Arrays.asList(fullPermissionList));
+    private static final Set<HealthPermission> minimalPermissions = new HashSet<>(Arrays.asList(minimalPermissionList));
     private static final Set<? extends KClass<? extends Record>> records = new HashSet<>(recordList);
 
     private static volatile String token = null;
@@ -128,10 +129,10 @@ public class HealthGamut {
             return false;
         }
 
-        if (HealthConnectClient.getSdkStatus(context) == HealthConnectClient.SDK_AVAILABLE) {
+        if(/*HealthConnectClient.getSdkStatus(context) == HealthConnectClient.SDK_AVAILABLE*/HealthConnectClient.isAvailable(context)) {
             client = HealthConnectClient.getOrCreate(context);
             try {
-                suspendFunction(Coroutines::getGrantedPermissions).apply(client, (result, throwable) -> {
+                suspendFunction(Coroutines::getGrantedPermissions).apply(client, minimalPermissions, (result, throwable) -> {
                     try {
                         if (throwable != null) {
                             throw new RuntimeException(throwable);
@@ -357,13 +358,15 @@ public class HealthGamut {
     }
 
     public void sendGlucose(final BgReading bg) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return;
         if (init()) {
             val list = new LinkedList<BloodGlucoseRecord>();
-            val record = new BloodGlucoseRecord(Instant.ofEpochMilli(bg.timestamp),
-                    null, BloodGlucose.milligramsPerDeciliter(bg.calculated_value),
-                    BloodGlucoseRecord.SPECIMEN_SOURCE_INTERSTITIAL_FLUID,
-                    MealType.MEAL_TYPE_UNKNOWN, BloodGlucoseRecord.RELATION_TO_MEAL_UNKNOWN, new Metadata());
+            val record = new BloodGlucoseRecord(BloodGlucose.milligramsPerDeciliter(bg.calculated_value),
+                    BloodGlucoseRecord.SpecimenSource.INTERSTITIAL_FLUID,
+                    MealType.UNKNOWN,
+                    RelationToMeal.GENERAL,
+                    Instant.ofEpochMilli(bg.timestamp),
+                    null,
+                    new Metadata());
             list.add(record);
             client.insertRecords(list, coroutines.getContinuation((result, throwable) -> {
                 try {

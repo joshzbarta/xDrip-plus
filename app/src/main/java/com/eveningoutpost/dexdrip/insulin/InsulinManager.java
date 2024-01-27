@@ -57,7 +57,7 @@ public class InsulinManager {
         private Boolean checkUniquenessPPN() {
             Log.d(TAG, "checking for uniqueness");
             ArrayList<String> PPNs = new ArrayList<String>();
-            for (insulinData d : profiles)
+            for (InsulinData d : profiles)
                 for (String ppn : d.PPN)
                     if (PPNs.contains(ppn)) {
                         Log.d(TAG, "pharmacy product number duplicated " + ppn + ". That's not allowed!");
@@ -110,7 +110,7 @@ public class InsulinManager {
 
     private static void initializeInsulinManager(InputStream in_s) {
         Log.d(TAG, "Initialize insulin profiles");
-        insulinDataWrapper iDW;
+        InsulinDataWrapper iDW;
         try {
             String input = readTextFile(in_s);
 			Log.d(TAG,"read text bytes: " + input.length());
