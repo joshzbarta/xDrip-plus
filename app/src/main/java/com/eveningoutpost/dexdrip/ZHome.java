@@ -1,6 +1,7 @@
 package com.eveningoutpost.dexdrip;
 
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine.shortTxId;
 import static com.eveningoutpost.dexdrip.models.JoH.msSince;
 import static com.eveningoutpost.dexdrip.models.JoH.quietratelimit;
 import static com.eveningoutpost.dexdrip.models.JoH.tsl;
@@ -122,6 +123,7 @@ import com.eveningoutpost.dexdrip.ui.graphic.TrendArrowFactory;
 import com.eveningoutpost.dexdrip.utilitymodels.AlertPlayer;
 import com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder;
 import com.eveningoutpost.dexdrip.utilitymodels.CollectionServiceStarter;
+import com.eveningoutpost.dexdrip.utilitymodels.ColorCache;
 import com.eveningoutpost.dexdrip.utilitymodels.CompatibleApps;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utilitymodels.Experience;
@@ -161,6 +163,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.bind.DateTypeAdapter;
+import static com.eveningoutpost.dexdrip.utils.DexCollectionType.DexcomG5;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -208,7 +211,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
     public final static String BLUETOOTH_METER_CALIBRATION = "BLUETOOTH_METER_CALIBRATION";
     public final static String ACTIVITY_SHOWCASE_INFO = "ACTIVITY_SHOWCASE_INFO";
     public final static String ENABLE_STREAMING_DIALOG = "ENABLE_STREAMING_DIALOG";
-    public final static String CHOOSE_INSULIN_PEN = "CHOOSE_INSULIN_PENaw!q@@@@@@@@@@@2222222222222222222SDC";
+    public final static String CHOOSE_INSULIN_PEN = "CHOOSE_INSULIN_PEN";
     public final static int SENSOR_READY_ID = 4912;
     private final UiPing ui = new UiPing();
     public static boolean activityVisible = false;
@@ -1018,7 +1021,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
             } else if (bundle.getString(ZHome.SHOW_NOTIFICATION) != null) {
                 final Intent notificationIntent = new Intent(this, ZHome.class);
                 final int notification_id = bundle.getInt("notification_id");
-                if ((notification_id == SENSOR_READY_ID) && (!Sensor.isActive() || BgReading.last() != null)) {
+                if ((notification_id == SENSOR_READY_ID) && (!Sensor.isActive() || BgReading.last(ZHome.get_follower()) != null)) {
                     Log.e(TAG, "Sensor not in warm up period when notification due to fire");
                     return;
                 }
@@ -1995,7 +1998,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
         final GestureDetector originalDetector;
 
         public InterceptingGestureHandler(ZHome context, GestureDetector originalDetector) {
-            super(context, new SimpleOnGestureListener() {
+            super(context, new GestureDetector.SimpleOnGestureListener() {
             });
             this.originalDetector = originalDetector;
             this.context = context;
@@ -2603,7 +2606,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
     }
 
     private void updateCurrentBgInfoForBtBasedWixel(DexCollectionType collector, TextView notificationText) {
-        if ((Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2)) {
+        if ((android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2)) {
             notificationText.setText(R.string.unfortunately_andoird_version_no_blueooth_low_energy);
             return;
         }
@@ -2644,7 +2647,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
         if (!isSensorActive) {
             // Define a variable (notConnectedToG6Yet) that is only true if Native G6 is chosen, but, transmitter days is unknown.
             boolean notConnectedToG6Yet = DexCollectionType.getDexCollectionType() == DexcomG5 && Pref.getBooleanDefaultFalse("ob1_g5_use_transmitter_alg") && Pref.getBooleanDefaultFalse("using_g6") && DexTimeKeeper.getTransmitterAgeInDays(getTransmitterID()) == -1;
-            if (notConnectedToG6Yet) { // Only if G6 has been selected and transmitter days is unknown.
+            if (notConnectedToG6Yet || shortTxId()) { // Only if G6 has been selected and transmitter days is unknown, or if G7 has been selected.
                 notificationText.setText(R.string.wait_to_connect);
             } else { // Only if G6 is not selected or G6 transmitter days is known.
                 notificationText.setText(R.string.now_start_your_sensor);
@@ -2717,7 +2720,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
         // TODO this logic needed a rework even a year ago, now its a lot more confused with the additional complexity of native mode
         if (Ob1G5CollectionService.isG5ActiveButUnknownState() && Calibration.latestValid(2).size() < 2) {
             // TODO use format string
-            notificationText.setText(String.format(gs(R.string.state_not_currently_known), (Ob1G5StateMachine.usingG6() ? "G6" : "G5")));
+            notificationText.setText(String.format(gs(R.string.state_not_currently_known), (Ob1G5StateMachine.usingG6() ? (shortTxId() ? "G7" : "G6") : "G5")));
             showUncalibratedSlope();
         } else {
 
@@ -2854,7 +2857,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
     }
 
     private void updateCurrentBgInfoForBtShare(TextView notificationText) {
-        if ((Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2)) {
+        if ((android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2)) {
             notificationText.setText(R.string.unfortunately_andoird_version_no_blueooth_low_energy);
             return;
         }
@@ -3139,11 +3142,11 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
             }
         }
         if (bgGraphBuilder.unitized(estimate) <= bgGraphBuilder.lowMark) {
-            currentBgValueText.setTextColor(getCol(X.color_low_bg_values));
+            currentBgValueText.setTextColor(getCol(ColorCache.X.color_low_bg_values));
         } else if (bgGraphBuilder.unitized(estimate) >= bgGraphBuilder.highMark) {
-            currentBgValueText.setTextColor(getCol(X.color_high_bg_values));
+            currentBgValueText.setTextColor(getCol(ColorCache.X.color_high_bg_values));
         } else {
-            currentBgValueText.setTextColor(getCol(X.color_inrange_bg_values));
+            currentBgValueText.setTextColor(getCol(ColorCache.X.color_inrange_bg_values));
         }
 
         // TODO this should be made more efficient probably
@@ -3655,7 +3658,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
 
     public static double convertToMgDlIfMmol(double value) {
         if (!Pref.getString("units", "mgdl").equals("mgdl")) {
-            return value * Constants.MMOLL_TO_MGDL;
+            return value * com.eveningoutpost.dexdrip.utilitymodels.Constants.MMOLL_TO_MGDL;
         } else {
             return value; // no conversion needed
         }
@@ -3775,7 +3778,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
     }
 
     public static PendingIntent getZHomePendingIntent() {
-        return PendingIntent.getActivity(xdrip.getAppContext(), 0, new Intent(xdrip.getAppContext(), ZHome.class), PendingIntent.FLAG_UPDATE_CURRENT);
+        return PendingIntent.getActivity(xdrip.getAppContext(), 0, new Intent(xdrip.getAppContext(), ZHome.class), android.app.PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
    /* class SnackbarUriListener implements ActionClickListener {
