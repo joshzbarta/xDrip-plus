@@ -19,7 +19,7 @@ import android.util.Log;
 import androidx.databinding.ObservableField;
 
 import com.eveningoutpost.dexdrip.BuildConfig;
-import com.eveningoutpost.dexdrip.GcmActivity;
+import com.eveningoutpost.dexdrip.WearGcmActivity;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.utils.DexCollectionType;
@@ -161,7 +161,7 @@ public class NanoStatus {
                     Inevitable.task("update-follower-to-nanostatus", 500, new Runnable() {
                         @Override
                         public void run() {
-                            GcmActivity.sendNanoStatusUpdate(PersistentStore.getString(LAST_COLLECTOR_STATUS_STORE));
+                            WearGcmActivity.sendNanoStatusUpdate(PersistentStore.getString(LAST_COLLECTOR_STATUS_STORE));
                         }
                     });
                 }

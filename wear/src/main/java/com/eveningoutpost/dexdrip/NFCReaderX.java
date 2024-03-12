@@ -284,7 +284,7 @@ public class NFCReaderX {
         }
         final String json = libreBlock.toExtendedJson();
 
-        GcmActivity.pushLibreBlock(json);
+        WearGcmActivity.pushLibreBlock(json);
 
     }
 

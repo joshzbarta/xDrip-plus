@@ -16,7 +16,7 @@ import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.activeandroid.util.SQLiteUtils;
 import com.eveningoutpost.dexdrip.BestGlucose;
-import com.eveningoutpost.dexdrip.GcmActivity;
+import com.eveningoutpost.dexdrip.WearGcmActivity;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.importedlibraries.dexcom.records.EGVRecord;
 import com.eveningoutpost.dexdrip.importedlibraries.dexcom.records.SensorRecord;
@@ -1089,7 +1089,7 @@ public class BgReading extends Model implements ShareUploadableBg {
         Calibration calibration = Calibration.byuuid(bgr.calibration_uuid);
         if (calibration == null) {
             Log.i(TAG, "received Unknown calibration: " + bgr.calibration_uuid + " asking for sensor upate...");
-            GcmActivity.requestSensorCalibrationsUpdate();
+            WearGcmActivity.requestSensorCalibrationsUpdate();
         } else {
             bgr.calibration = calibration;
         }

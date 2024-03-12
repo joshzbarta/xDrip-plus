@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip.models;
 import android.os.AsyncTask;
 import android.provider.BaseColumns;
 
-import com.eveningoutpost.dexdrip.GcmActivity;
+import com.eveningoutpost.dexdrip.WearGcmActivity;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
@@ -91,7 +91,7 @@ public class TransmitterData extends Model {
                         try {
                             Pref.setInt("bridge_battery", Integer.parseInt(data[2]));
                             if (Home.get_master()) {
-                                GcmActivity.sendBridgeBattery(Pref.getInt("bridge_battery", -1));
+                                WearGcmActivity.sendBridgeBattery(Pref.getInt("bridge_battery", -1));
                             }
                             CheckBridgeBattery.checkBridgeBattery();
                         } catch (Exception e) {

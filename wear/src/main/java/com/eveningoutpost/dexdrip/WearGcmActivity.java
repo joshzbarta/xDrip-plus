@@ -6,7 +6,7 @@ package com.eveningoutpost.dexdrip;
 
 // just placeholder for Android Wear code compatibility
 
-public class GcmActivity {
+public class WearGcmActivity {
 
     public static void sendBridgeBattery(int i) {
 

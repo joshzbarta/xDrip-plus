@@ -1,6 +1,6 @@
 package com.eveningoutpost.dexdrip.utils.bt;
 
-import com.eveningoutpost.dexdrip.GcmActivity;
+import com.eveningoutpost.dexdrip.WearGcmActivity;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.services.Ob1G5CollectionService;
@@ -97,7 +97,7 @@ public class Mimeograph {
             if (result.equals(lastBroadcast) && JoH.pratelimit("mimeograph last bcast", 3600)) {
                 UserError.Log.d(TAG, "Data unchanged since last broadcast");
             } else {
-                GcmActivity.sendMimeoGraphUpdate(result);
+                WearGcmActivity.sendMimeoGraphUpdate(result);
                 lastBroadcast = result;
             }
         } else {

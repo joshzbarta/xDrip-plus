@@ -32,6 +32,7 @@ import static com.eveningoutpost.dexdrip.utilitymodels.Constants.DAY_IN_MS;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.HOUR_IN_MS;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.MINUTE_IN_MS;
 import static com.eveningoutpost.dexdrip.utils.DexCollectionType.None;
+import static com.eveningoutpost.dexdrip.utils.DexCollectionType.getBestCollectorHardwareName;
 import static com.eveningoutpost.dexdrip.utils.DexCollectionType.getDexCollectionType;
 import static com.eveningoutpost.dexdrip.utils.DexCollectionType.hasDexcomRaw;
 import static com.eveningoutpost.dexdrip.utils.DexCollectionType.hasLibre;
@@ -103,7 +104,7 @@ public class SensorDays {
                ths.warmupMs = 2 * HOUR_IN_MS;
             }
 
-            if (FirmwareCapability.isDeviceG7(getTransmitterID())) { // If using a G7
+            if (getBestCollectorHardwareName().equals("G7")) { // If using a G7
                 ths.period = DAY_IN_MS * 10 + HOUR_IN_MS * 12; // The device lasts 10.5 days.
                 ths.warmupMs = 30 * MINUTE_IN_MS; // The warmup time is 30 minutes.
             }
