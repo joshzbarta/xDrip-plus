@@ -10,7 +10,7 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
-import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.receiver.InfoContentProvider;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import com.google.gson.annotations.Expose;
@@ -19,7 +19,6 @@ import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
 
-//import com.bugfender.sdk.Bugfender;
 
 /**
  * Created by Emma Black on 8/3/15.
@@ -238,6 +237,15 @@ public class UserError extends Model {
     }
 
 
+    public static UserError newestBySeverity(int level) {
+        return new Select()
+                .from(UserError.class)
+                .where("severity == "+level)
+                .orderBy("timestamp desc")
+                .limit(1)
+                .executeSingle();
+    }
+
     public static UserError getForTimestamp(UserError error) {
         try {
             return new Select()
@@ -333,6 +341,7 @@ public class UserError extends Model {
         public static void ueh(String tag, String b) {
             android.util.Log.i(tag, b);
             UserError.UserEventHigh(tag, b);
+            InfoContentProvider.ping("info");
         }
 
         public static void d(String tag, String b) {
