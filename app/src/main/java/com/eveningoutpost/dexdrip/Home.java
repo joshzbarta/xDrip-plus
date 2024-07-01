@@ -629,7 +629,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
 
 
-    private boolean firstRunDiaaalogs(final boolean checkedeula) {
+    private boolean firstRunDialogs(final boolean checkedeula) {
 
         if (checkedeula && is_newbie && ((dialog == null) || !dialog.isShowing())) {
 
