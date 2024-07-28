@@ -263,7 +263,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
     private static final int SHOWCASE_VARIANT = 7;
     public static final int SHOWCASE_STATISTICS = 8;
     private static final int SHOWCASE_G5FIRMWARE = 9;
-    static final int SHOWCASE_MEGASTATUS = 10;
+    public static final int SHOWCASE_MEGASTATUS = 10;
     public static final int SHOWCASE_MOTION_DETECTION = 11;
     public static final int SHOWCASE_MDNS = 12;
     public static final int SHOWCASE_REMINDER1 = 14;
@@ -290,7 +290,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
     private boolean small_width = false;
     private boolean small_height = false;
     private boolean small_screen = false;
-    double thisnumber = -1;
+    private double thisnumber = -1;
     private double thisglucosenumber = 0;
     private double thiscarbsnumber = 0;
     private double thisInsulinSumNumber = 0;
@@ -2318,8 +2318,12 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
                 break;
         }
 
-        float ideal_hours_to_show = DEFAULT_CHART_HOURS + bgGraphBuilder.getPredictivehours();
-        // always show at least the ideal number of hours if locked or auto
+        // always show at least the ideal number of hours
+        float ideal_hours_to_show = DEFAULT_CHART_HOURS;
+        // ... and rescale to accommodate predictions if not locked
+        if (! homeShelf.get("time_locked_always")) {
+            ideal_hours_to_show += bgGraphBuilder.getPredictivehours();
+        }
         float hours_to_show =  exactHoursSpecified ? hours : Math.max(hours, ideal_hours_to_show);
 
         UserError.Log.d(TAG, "VIEWPORT " + source + " moveviewport in setHours: asked " + hours + " vs auto " + ideal_hours_to_show + " = " + hours_to_show + " full chart width: " + bgGraphBuilder.hoursShownOnChart());
@@ -2329,6 +2333,12 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
         holdViewport.right = maxViewPort.right;
         holdViewport.top = maxViewPort.top;
         holdViewport.bottom = maxViewPort.bottom;
+
+        // if locked, center display on current bg values, not predictions
+        if (homeShelf.get("time_locked_always")) {
+            holdViewport.left -= hour_width * bgGraphBuilder.getPredictivehours();
+            holdViewport.right -= hour_width * bgGraphBuilder.getPredictivehours();
+        }
 
         if (d) {
             UserError.Log.d(TAG, "HOLD VIEWPORT " + holdViewport);
@@ -2675,7 +2685,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
                         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
                         final Context context = this;
                         builder.setTitle(getString(R.string.start_sensor) + "?");
-                            builder.setMessage(String.format(gs(R.string.start_sensor_confirmation), DexCollectionType.getDexCollectionType().toString()));
+                        builder.setMessage(String.format(gs(R.string.start_sensor_confirmation), DexCollectionType.getBestCollectorHardwareName()));
                         builder.setNegativeButton(gs(R.string.change_settings), (dialog, which) -> {
                             dialog.dismiss();
                             startActivity(new Intent(context, Preferences.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));

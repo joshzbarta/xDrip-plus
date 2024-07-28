@@ -168,9 +168,9 @@ public class MegaStatus extends ActivityWithMenu {
             }
             if (dexCollectionType.equals(DexcomG5)) {
                 if (Pref.getBooleanDefaultFalse(Ob1G5CollectionService.OB1G5_PREFS)) {
-                    addAsection(G5_STATUS, "G6/Dex1/G7/1+ Collector/Transmitter Status");
+                    addSection(G5_STATUS, "G6/Dex1/G7/1+ Collector/Transmitter Status");
                 } else {
-                    addAsection(G5_STATUS, "G5 Collector and Transmitter Status");
+                    addSection(G5_STATUS, "G5 Collector and Transmitter Status");
                 }
             } else if (dexCollectionType.equals(Medtrum)) {
                 addSection(MEDTRUM_STATUS, "Medtrum A6 Status");

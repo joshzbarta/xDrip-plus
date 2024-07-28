@@ -1783,7 +1783,6 @@
     <string name="show_setup_wizard_prompt">Show Setup Wizard Prompt</string>
     <string name="show_start_sensor_prompt">Show Start Sensor Prompt</string>
     <string name="last_reading">Last Reading</string>
-    <string name="last_reading">Last Reading</string>
     <string name="select_file_for_alert">Select File for Alert</string>
     <string name="cannot_choose_file_without_permission">Cannot choose file without storage permission</string>
     <string name="select_time">Select Time</string>
