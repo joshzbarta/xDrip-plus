@@ -13,7 +13,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.devtools.ksp'
-    //id "org.jetbrains.kotlin.kapt" version "1.9.21"
+    //id "org.jetbrains.kotlin.kapt" //version "1.9.21"
 }
 //apply from: 'token-replace.gradle'
 apply from: '../common.gradle'
@@ -179,15 +179,19 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+    dataBinding {
+        enabled = true
+    }
     kotlin {
         jvmToolchain(17)
     }
     kotlinOptions {
         jvmTarget = '17'
     }
-    dataBinding {
-        enabled = true
-    }
+    //kapt {
+    //    keepJavacAnnotationProcessors = true
+    //}
+
 
     buildTypes {
         release {
