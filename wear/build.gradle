@@ -195,12 +195,12 @@ android {
 
 allprojects {
     repositories {
-        flatDir {
-            dirs project(':wear').file('libs'), project(':app').file('libs') // Seems to always use the directive from app build.gradle not this one
-        }
-	google()
-        mavenCentral()
-        maven { url "https://jitpack.io" }
+        //flatDir {
+        //    dirs project(':wear').file('libs'), project(':app').file('libs') // Seems to always use the directive from app build.gradle not this one
+        //}
+ 	    //google()
+        //mavenCentral()
+        //maven { url "https://jitpack.io" }
     }
 }
 

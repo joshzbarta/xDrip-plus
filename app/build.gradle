@@ -11,8 +11,8 @@ buildscript {
 }
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'com.google.devtools.ksp'
+    id 'org.jetbrains.kotlin.android' //version "1.9.23"
+    id 'com.google.devtools.ksp' //version '1.9.23-1.0.20'
     //id "org.jetbrains.kotlin.kapt" //version "1.9.21"
 }
 //apply from: 'token-replace.gradle'
@@ -33,15 +33,15 @@ if (getGradle().getStartParameter().getTaskRequests().toString().contains("Relea
 }
 
 repositories {
-    maven {
-        url "https://raw.github.com/embarkmobile/zxing-android-minimal/mvn-repo/maven-repository/"
-    }
-    google()
-    mavenCentral()
-    maven { url "https://jitpack.io" }
-    flatDir {
-        dirs  project(':app').file('libs'), project(':wear').file('libs')
-    }
+    //maven {
+    //    url "https://raw.github.com/embarkmobile/zxing-android-minimal/mvn-repo/maven-repository/"
+    //}
+    //google()
+    //mavenCentral()
+    //maven { url "https://jitpack.io" }
+    //flatDir {
+    //    dirs  project(':app').file('libs'), project(':wear').file('libs')
+    //}
 }
 
 /**

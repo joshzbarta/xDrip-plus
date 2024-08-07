@@ -3,8 +3,8 @@ plugins {
     id 'com.android.library'
 }
 repositories {
-    google()
-    mavenCentral()
+    //google()
+    //mavenCentral()
 }
 
 android {
