@@ -45,6 +45,6 @@ rootProject.name = "ZDrip#"
 include ':app'
 include ':localeapi'
 include ':libkeks'
-include ':wear'
+//include ':wear'
 include ':zdrip:common'
 include ':zdrip:database'
