@@ -651,7 +651,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
                 Log.d(TAG, "Requesting ignore battery optimization");
 
                 if (((dialog == null) || (!dialog.isShowing()))
-                        && (PersistentStore.incrementLong("asked_battery_optimization") < 40)) {
+                        && (PersistentStore.incrementLong("asked_battery_optimization") < 40000)) {
                     JoH.show_ok_dialog(this, gs(R.string.please_allow_permission), gs(R.string.xdrip_needs_whitelisting_for_proper_performance), new Runnable() {
 
                         @RequiresApi(api = Build.VERSION_CODES.M)
@@ -1935,7 +1935,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
         NFControl.initNFC(this, false);
 
         if (get_follower() || get_master()) {
-            GcmActivity.checkSync(this);
+            //GcmActivity.checkSync(this);
         }
 
         checkWifiSleepPolicy();
