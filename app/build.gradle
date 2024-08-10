@@ -186,8 +186,8 @@ android {
                     'proguard-rules.pro'
         }
         debug {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false   //JoHv true
+            shrinkResources false //JoHv true
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                     'proguard-rules.pro'
             testProguardFile 'proguard-debug.pro'
