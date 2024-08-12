@@ -1,5 +1,7 @@
 package com.eveningoutpost.dexdrip;
 
+import java.lang.reflect.Field;
+
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine.shortTxId;
 import static com.eveningoutpost.dexdrip.models.JoH.msSince;
@@ -194,7 +196,6 @@ import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
 import lecho.lib.hellocharts.view.PreviewLineChartView;
 import lombok.Getter;
-import lombok.val;
 
 public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestPermissionsResultCallback {
     private final static String TAG = "jamorham " + ZHome.class.getSimpleName();
@@ -2040,12 +2041,12 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
 
         // inject our gesture handler if it hasn't already been done
         try {
-            val gestureDetector =  ChartTouchHandler.class.getDeclaredField("gestureDetector");
+            Field gestureDetector =  ChartTouchHandler.class.getDeclaredField("gestureDetector");
             gestureDetector.setAccessible(true);
-            val chartTouchHandler = chart.getTouchHandler();
-            val previewChartTouchHandler = previewChart.getTouchHandler();
-            val activeDetector = (GestureDetector) gestureDetector.get(chartTouchHandler);
-            val previewActiveDetector = (GestureDetector) gestureDetector.get(previewChartTouchHandler);
+            ChartTouchHandler chartTouchHandler = chart.getTouchHandler();
+            ChartTouchHandler  previewChartTouchHandler = previewChart.getTouchHandler();
+            GestureDetector activeDetector = (GestureDetector) gestureDetector.get(chartTouchHandler);
+            GestureDetector previewActiveDetector = (GestureDetector) gestureDetector.get(previewChartTouchHandler);
             if (!(activeDetector instanceof InterceptingGestureHandler)) {
                 gestureDetector.set(chartTouchHandler, new InterceptingGestureHandler(this, activeDetector));
             } else {
