@@ -63,8 +63,6 @@ import java.util.List;
 import static com.eveningoutpost.dexdrip.Home.startWatchUpdaterService;
 import static com.eveningoutpost.dexdrip.xdrip.gs;
 
-import lombok.val;
-
 public class EditAlertActivity extends ActivityWithMenu {
     //public static String menu_name = "Edit Alert";
 
@@ -720,7 +718,7 @@ public class EditAlertActivity extends ActivityWithMenu {
             } else {
                 if (requestCode == REQUEST_CODE_CHOOSE_FILE) {
                     try {
-                        val selectedAudioUri = data.getData();
+                        final Uri selectedAudioUri = data.getData();
                         getContentResolver().takePersistableUriPermission(selectedAudioUri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
                         // Todo this code is very flacky. Probably need a much better understanding of how the different programs
