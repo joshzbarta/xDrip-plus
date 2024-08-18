@@ -1,6 +1,9 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id "io.freefair.lombok"
+}
 android {
-    compileSdkVersion 34
+    compileSdk 34
 
     defaultConfig {
         minSdkVersion 26

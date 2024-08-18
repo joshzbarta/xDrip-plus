@@ -11,8 +11,9 @@ buildscript {
 }
 plugins {
     id 'com.android.application'
+    id "io.freefair.lombok"
     id 'org.jetbrains.kotlin.android' //version "1.9.23"
-    id 'com.google.devtools.ksp' //version '1.9.23-1.0.20'
+    ////id 'com.google.devtools.ksp' //version '1.9.23-1.0.20'
     //id "org.jetbrains.kotlin.kapt" //version "1.9.21"
 }
 //apply from: 'token-replace.gradle'
@@ -167,6 +168,7 @@ android {
     dataBinding {
         enabled = true
     }
+    /*
     kotlin {
         jvmToolchain(17)
     }
@@ -176,8 +178,7 @@ android {
     //kapt {
     //    keepJavacAnnotationProcessors = true
     //}
-
-
+    */
     buildTypes {
         release {
             minifyEnabled true
@@ -251,8 +252,8 @@ dependencies {
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation project(path: ':zdrip:common')
-    implementation project(path: ':zdrip:database')
+    ////implementation project(path: ':zdrip:common')
+    ////implementation project(path: ':zdrip:database')
     //wearApp project(':wear')
 
     //weapApp files('../wear/build/outputs/apk/wear_release.apk')
@@ -295,7 +296,7 @@ dependencies {
     implementation(files('libs/ns-sdk-full-release.aar'))
 
     //implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.9.20'
+    //implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.9.20'
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
@@ -411,12 +412,13 @@ dependencies {
     // add this for webview testing support
     //androidTestImplementation 'com.android.support.test.espresso:espresso-web:3.0.1'
 
-    // you will want to install the android studio lombok plugin in AndroidStudioPlugins/Required
-    compileOnly 'org.projectlombok:lombok:1.18.28'
+
+    // you will want to install the android studio lombok plugin in AndroidStudioPlugins/Require
+
+    implementation 'org.projectlombok:lombok:1.18.28'
     annotationProcessor 'org.projectlombok:lombok:1.18.28'
 
     // use lombok in unit tests
-    testCompileOnly 'org.projectlombok:lombok:1.18.28'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
 }
 tasks.withType(Test) {

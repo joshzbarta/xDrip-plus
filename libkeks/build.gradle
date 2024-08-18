@@ -1,6 +1,7 @@
 
 plugins {
     id 'com.android.library'
+    id "io.freefair.lombok"
 }
 repositories {
     //google()
@@ -8,7 +9,7 @@ repositories {
 }
 
 android {
-    compileSdkVersion 34
+    compileSdk 34
 
     defaultConfig {
         minSdkVersion 21
@@ -54,7 +55,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.28' //
     annotationProcessor 'org.projectlombok:lombok:1.18.28'
     // use lombok in unit tests
-    testCompileOnly 'org.projectlombok:lombok:1.18.28'
+    //testCompileOnly 'org.projectlombok:lombok:1.18.28'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
     testImplementation 'com.google.truth:truth:1.1.5'
 
