@@ -32,6 +32,7 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
     namespace 'jamorham.libkeks'
+    buildToolsVersion '34.0.0'
 }
 
 

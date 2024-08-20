@@ -18,6 +18,9 @@ pluginManagement {
         maven { url "https://jitpack.io" }
     }
 }
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.4.0'
+}
 dependencyResolutionManagement {
 
     /**
@@ -41,6 +44,7 @@ dependencyResolutionManagement {
         maven { url "https://jitpack.io" }
     }
 }
+
 rootProject.name = "ZDrip#"
 include ':app'
 include ':localeapi'
