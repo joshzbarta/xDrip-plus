@@ -40,7 +40,7 @@ public class RegistrationIntentService extends IntentService {
         final PowerManager.WakeLock wl = JoH.getWakeLock("registration-intent", 120000);
 
         try {
-            GcmActivity.senderid = getString(R.string.gcm_defaultSenderId);
+            GcmActivity.senderid = null;//getString(R.string.gcm_defaultSenderId);
 
             //TODO Refactor to be handled via token listeners
             String token = FirebaseMessaging.getInstance().getToken().getResult();
