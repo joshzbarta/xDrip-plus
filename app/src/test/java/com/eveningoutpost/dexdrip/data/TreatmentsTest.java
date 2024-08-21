@@ -1,8 +1,5 @@
-<<<<<<<< HEAD:app/src/test/java/com/eveningoutpost/dexdrip/data/TreatmentsTest.java
+
 package com.eveningoutpost.dexdrip.data;
-========
-package com.eveningoutpost.dexdrip.models;
->>>>>>>> 4080a260a82afbfcff72ef7c65439acc06a11b0f:app/src/test/java/com/eveningoutpost/dexdrip/models/TreatmentsTest.java
 
 import com.eveningoutpost.dexdrip.models.InsulinInjection;
 import com.eveningoutpost.dexdrip.models.JoH;
