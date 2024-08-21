@@ -21,7 +21,7 @@ public class SpannableSerializer {
 
     public static String serializeSpannableString(SpannableString ss) {
         if (ss == null) ss = new SpannableString(""); // use blank if input is null
-        val json = new JSONObject();
+        final JSONObject json = new JSONObject();
         try {
             json.put("mText", ss.toString());
             json.put("bgc", extractClass(ss, BackgroundColorSpan.class));
@@ -35,8 +35,8 @@ public class SpannableSerializer {
 
     public static SpannableString unserializeSpannableString(final String str) {
         try {
-            val json = new JSONObject(str);
-            val ss = new SpannableString(json.getString("mText"));
+            final JSONObject json = new JSONObject(str);
+            final SpannableString ss = new SpannableString(json.getString("mText"));
             pushSpanColor(json.getJSONArray("fgc"), ss, 1);
             pushSpanColor(json.getJSONArray("bgc"), ss, 2);
             return ss;
@@ -47,9 +47,9 @@ public class SpannableSerializer {
     }
 
     private static JSONArray extractClass(final SpannableString ss, final Class<? extends CharacterStyle> clz) {
-        val array = new JSONArray();
-        val spansBg = ss.getSpans(0, ss.length(), clz);
-        for (val span : spansBg) {
+        final JSONArray array = new JSONArray();
+        final CharacterStyle[] spansBg = ss.getSpans(0, ss.length(), clz);
+        for (final CharacterStyle span : spansBg) {
             int col;
             switch (clz.getSimpleName()) {
                 case "BackgroundColorSpan":

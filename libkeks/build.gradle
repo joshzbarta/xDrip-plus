@@ -37,7 +37,7 @@ android {
 
 
 dependencies {
-    implementation 'androidx.annotation:annotation-jvm:1.7.0-rc01'
+    implementation 'androidx.annotation:annotation-jvm:1.8.2'
     compileOnly files('lib/xdrip-plugin-interface.jar')
     implementation 'androidx.legacy:legacy-support-v13:1.0.0'
 
@@ -53,11 +53,11 @@ dependencies {
     // don't update as mismatches with powermock
 
     // you will want to install the android studio lombok plugin
-    compileOnly 'org.projectlombok:lombok:1.18.28' //
-    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    compileOnly 'org.projectlombok:lombok:1.18.32' //
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
     // use lombok in unit tests
     //testCompileOnly 'org.projectlombok:lombok:1.18.28'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
     testImplementation 'com.google.truth:truth:1.1.5'
 
 }

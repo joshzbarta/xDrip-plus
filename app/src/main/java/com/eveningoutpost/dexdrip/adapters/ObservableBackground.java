@@ -1,57 +1,49 @@
 package com.eveningoutpost.dexdrip.adapters;
 
-import androidx.databinding.BaseObservable;
-import androidx.databinding.BindingAdapter;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.view.View;
+
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-import android.view.View;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.BindingAdapter;
 
-import lombok.Getter;
 import lombok.Setter;
 
+@Setter
 public final class ObservableBackground extends BaseObservable {
     @Nullable
-    @Getter
-    @Setter
-    private Integer mDrawableResource;
+    private Integer drawableResource;
+
     @Nullable
-    @Getter
-    @Setter
-    private Integer mColorResource;
+    private Integer colorResource;
     @Nullable
-    @Getter
-    @Setter
-    private Integer mColorValue;
+    private Integer colorValue;
     @Nullable
-    @Getter
-    @Setter
-    private Drawable mDrawable;
+    private Drawable drawable;
     @Nullable
-    @Getter
-    @Setter
-    private Bitmap mBitmap;
+    private Bitmap bitmap;
 
     private void reset() {
-        this.mDrawableResource = null;
-        this.mColorResource = null;
-        this.mColorValue = null;
-        this.mDrawable = null;
+        this.drawableResource = null;
+        this.colorResource = null;
+        this.colorValue = null;
+        this.drawable = null;
     }
 
     public final void setDrawable(Drawable drawable) {
         this.reset();
-        this.mDrawable = drawable;
+        this.drawable = drawable;
         this.notifyChange();
     }
 
     public final void setBitmap(Bitmap bitmap) {
         this.reset();
-        this.mBitmap = bitmap;
+        this.bitmap = bitmap;
         this.notifyChange();
     }
 
@@ -63,29 +55,29 @@ public final class ObservableBackground extends BaseObservable {
     @BindingAdapter(value = "background")
     public static void setBackground(View view, ObservableBackground observable) {
         Integer resource;
-        if (observable.getMDrawableResource() != null) {
-            resource = observable.getMDrawableResource();
+        if (observable.getDrawableResource() != null) {
+            resource = observable.getDrawableResource();
             if (resource != null) {
                 view.setBackgroundResource(resource);
             }
-        } else if (observable.getMColorResource() != null) {
-            resource = observable.getMColorResource();
+        } else if (observable.getColorResource() != null) {
+            resource = observable.getColorResource();
             if (resource != null) {
                 final int mcolor = ContextCompat.getColor(view.getContext(), resource);
                 view.setBackgroundColor(mcolor);
             }
-        } else if (observable.getMColorValue() != null) {
-            final Integer colorVal = observable.getMColorValue();
+        } else if (observable.getColorValue() != null) {
+            final Integer colorVal = observable.getColorValue();
             if (colorVal != null) {
                 view.setBackgroundColor(colorVal);
             }
-        } else if (observable.getMDrawable() != null) {
-            final Drawable drawable = observable.getMDrawable();
+        } else if (observable.getDrawable() != null) {
+            final Drawable drawable = observable.getDrawable();
             if (drawable != null) {
                 view.setBackground(drawable);
             }
-        } else if (observable.getMBitmap() != null) {
-            Bitmap bitmap = observable.getMBitmap();
+        } else if (observable.getBitmap() != null) {
+            Bitmap bitmap = observable.getBitmap();
             if (bitmap != null) {
                 view.setBackground((new BitmapDrawable(view.getContext().getResources(), bitmap)));
             }
@@ -96,19 +88,44 @@ public final class ObservableBackground extends BaseObservable {
 
     public final void setDrawableResource(@DrawableRes int drawableResource) {
         this.reset();
-        this.mDrawableResource = drawableResource;
+        this.drawableResource = drawableResource;
         this.notifyChange();
     }
 
     public final void setColorResource(@ColorRes int colorResource) {
         this.reset();
-        this.mColorResource = colorResource;
+        this.colorResource = colorResource;
         this.notifyChange();
     }
 
     public final void setColorValue(int colorValue) {
         this.reset();
-        this.mColorValue = colorValue;
+        this.colorValue = colorValue;
         this.notifyChange();
+    }
+
+    @Nullable
+    public Integer getDrawableResource() {
+        return this.drawableResource;
+    }
+
+    @Nullable
+    public Integer getColorResource() {
+        return this.colorResource;
+    }
+
+    @Nullable
+    public Integer getColorValue() {
+        return this.colorValue;
+    }
+
+    @Nullable
+    public Drawable getDrawable() {
+        return this.drawable;
+    }
+
+    @Nullable
+    public Bitmap getBitmap() {
+        return this.bitmap;
     }
 }
