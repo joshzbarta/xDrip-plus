@@ -26,9 +26,9 @@ plugins {
     id 'java-library'
     //id 'maven-publish'
     id "io.freefair.lombok" version "8.7.1"
-    id 'org.jetbrains.kotlin.android' version '1.9.21' apply false //version "2.0.20-RC"
-    id "org.jetbrains.kotlin.kapt" version '1.9.21' apply false  //iss apply false nec.>
-    id 'com.google.devtools.ksp' version '1.9.21-1.0.16' apply false
+    id 'org.jetbrains.kotlin.android' version '2.0.10' apply false //version "2.0.20-RC"
+    id "org.jetbrains.kotlin.kapt" version '2.0.10' apply false  //iss apply false nec.>
+    id 'com.google.devtools.ksp' version '2.0.10-1.0.24' apply false
 }
 allprojects {
     tasks.withType(JavaCompile).configureEach {
