@@ -34,11 +34,6 @@ allprojects {
     tasks.withType(JavaCompile).configureEach {
         options.fork = true
     }
-    repositories {
-        //google()
-        //mavenCentral()
-        //maven { url "https://jitpack.io" }
-    }
 }
 
 java {
