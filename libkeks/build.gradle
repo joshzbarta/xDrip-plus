@@ -37,7 +37,7 @@ android {
 
 
 dependencies {
-    implementation 'androidx.annotation:annotation-jvm:1.8.2'
+    //implementation 'androidx.annotation:annotation-jvm:1.8.2'
     compileOnly files('lib/xdrip-plugin-interface.jar')
     implementation 'androidx.legacy:legacy-support-v13:1.0.0'
 
@@ -58,6 +58,6 @@ dependencies {
     // use lombok in unit tests
     //testCompileOnly 'org.projectlombok:lombok:1.18.28'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
-    testImplementation 'com.google.truth:truth:1.1.5'
+    testImplementation 'com.google.truth:truth:1.4.4'
 
 }
