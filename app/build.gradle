@@ -18,7 +18,6 @@ plugins {
 }
 //apply from: 'token-replace.gradle'
 apply from: '../common.gradle'
-//apply plugin: 'kotlin-android'
 
 if (project.file('local.gradle').exists()) {
     apply from: 'local.gradle'
@@ -257,7 +256,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.10"
     implementation "com.google.devtools.ksp:symbol-processing-api:2.0.10-1.0.24"
 
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0-RC.2'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0-RC.2'
     implementation(files('libs/ns-sdk-full-release.aar'))
 
     def core_version = "1.13.1"
@@ -311,20 +310,11 @@ dependencies {
         annotationProcessor 'org.glassfish.jaxb:jaxb-runtime:2.3.5'
     }
 
-
-
-    // use specific version of data binding until google resolves the bugs with mixed case package names
-
     //implementation 'androidx.databinding:baseLibrary:8.5.2'
-
     implementation 'androidx.databinding:databinding-adapters:8.5.2'
-    //noinspection GradleDependency
     implementation 'androidx.databinding:databinding-runtime:8.5.2'
-    //noinspection GradleDependency
     implementation 'androidx.databinding:databinding-common:8.5.2'
-    //////
-    //annotationProcessor 'androidx.databinding:databinding-compiler:8.5.2'
-    //implementation 'androidx.databinding:databinding-compiler-common:8.5.2'
+    annotationProcessor 'androidx.databinding:databinding-compiler:8.5.2'
 
     // app auth implementation
     //implementation(name: 'core-1.1.0', ext: 'aar')
@@ -334,8 +324,6 @@ dependencies {
     implementation('androidx.browser:browser:1.8.0') {
     //    exclude group: 'androidx.core', module: 'core' // fix INotificationSideChannel // android.support.v4.app
     }
-
-
 
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.google.android.material:material:1.12.0'
@@ -403,17 +391,20 @@ dependencies {
     implementation(files("libs/search-preference.aar"))
     //implementation(files("libs/javakotlininterop.aar")) //IS THIS NEEDED?
     implementation 'org.apache.commons:commons-text:1.12.0'
-    implementation 'com.google.dagger:dagger:2.52'
+
     implementation 'com.evernote:android-job:1.4.3'
     //implementation 'com.android.support:multidex:2.0.1'
+
+    implementation 'com.google.dagger:dagger:2.52'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.52' //should this be dagger-ksp instead of dagger-compiler?
-    implementation 'net.danlew:android.joda:2.12.7'
+
     implementation 'org.bouncycastle:bcpkix-jdk15to18:1.78.1'
 
     def appCenterSdkVersion = '5.0.4'
     implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
     implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
 
+    implementation 'net.danlew:android.joda:2.12.7'
     testImplementation 'joda-time:joda-time:2.12.7'
 
     testImplementation 'junit:junit:4.13.2'
@@ -451,10 +442,6 @@ dependencies {
     // add this for webview testing support
     //androidTestImplementation 'com.android.support.test.espresso:espresso-web:3.0.1'
 
-
-    // you will want to install the android studio lombok plugin in AndroidStudioPlugins/Require
-
-    // you will want to install the android studio lombok plugin
     compileOnly 'org.projectlombok:lombok:1.18.34' //
     annotationProcessor 'org.projectlombok:lombok:1.18.34'
     //kapt 'org.projectlombok:lombok:1.18.32'

@@ -3,10 +3,6 @@ plugins {
     id 'com.android.library'
     id "io.freefair.lombok"
 }
-repositories {
-    //google()
-    //mavenCentral()
-}
 
 android {
     compileSdk 34
@@ -35,7 +31,6 @@ android {
     buildToolsVersion '34.0.0'
 }
 
-
 dependencies {
     //implementation 'androidx.annotation:annotation-jvm:1.8.2'
     compileOnly files('lib/xdrip-plugin-interface.jar')
@@ -59,5 +54,4 @@ dependencies {
     //testCompileOnly 'org.projectlombok:lombok:1.18.28'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
     testImplementation 'com.google.truth:truth:1.4.4'
-
 }
