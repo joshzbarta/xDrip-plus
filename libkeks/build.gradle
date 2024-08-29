@@ -10,7 +10,6 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 34
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -20,7 +19,6 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-
     }
 
     compileOptions {
@@ -28,7 +26,6 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
     namespace 'jamorham.libkeks'
-    buildToolsVersion '34.0.0'
 }
 
 dependencies {
@@ -48,10 +45,10 @@ dependencies {
     // don't update as mismatches with powermock
 
     // you will want to install the android studio lombok plugin
-    compileOnly 'org.projectlombok:lombok:1.18.34' //
-    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+    compileOnly "org.projectlombok:lombok:${lombok_version}"
+    annotationProcessor "org.projectlombok:lombok:${lombok_version}"
     // use lombok in unit tests
-    //testCompileOnly 'org.projectlombok:lombok:1.18.28'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
+    testCompileOnly "org.projectlombok:lombok:${lombok_version}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombok_version}"
     testImplementation 'com.google.truth:truth:1.4.4'
 }
