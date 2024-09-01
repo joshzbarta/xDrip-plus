@@ -15,8 +15,9 @@ plugins {
     id "org.jetbrains.kotlin.plugin.lombok"
     //id "io.franzbecker.gradle-lombok"
     id "org.jetbrains.kotlin.android"
-    //id "org.jetbrains.kotlin.kapt"
+
     id "com.google.devtools.ksp"
+    //id "org.jetbrains.kotlin.kapt"
 }
 //apply from: 'token-replace.gradle'
 apply from: '../common.gradle'
@@ -150,34 +151,50 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     java{
         toolchain {
             languageVersion = JavaLanguageVersion.of(17)
         }
         compileOptions {
-            sourceCompatibility JavaVersion.VERSION_17
-            targetCompatibility JavaVersion.VERSION_17
+            sourceCompatibility = JavaVersion.VERSION_17
+            targetCompatibility = JavaVersion.VERSION_17
         }
     }
     kotlin {
         jvmToolchain(17)
+        compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_17
+            targetCompatibility = JavaVersion.VERSION_17
+        }
     }
     kotlinOptions {
         jvmTarget = '17'
+        compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_17
+            targetCompatibility = JavaVersion.VERSION_17
+        }
+
     }
-/*
+
+    /*
     kapt {
         keepJavacAnnotationProcessors = true
         useBuildCache = false
         includeCompileClasspath = false
-        arguments {
-            arg("key", "value")
+        showProcessorStats = true
+        javacOptions {
+            // Increase the max count of errors from annotation processors.
+            // Default is 100.
+            option("-Xmaxerrs", 500)
         }
-    }
-*/
+        //arguments {
+            //arg("key", "value")
+        //}
+    }*/
+
     buildFeatures {
         buildConfig true
         dataBinding true
@@ -319,6 +336,20 @@ dependencies {
     //    annotationProcessor 'org.glassfish.jaxb:jaxb-runtime:2.3.5'
     //}
 
+    // Add missing dependencies for JDK 9+
+    if (JavaVersion.current().ordinal() >= JavaVersion.VERSION_1_9.ordinal()) {
+        // Add both if you're using both Kotlin and Java
+
+        // If you're using Kotlin
+        //kapt "com.sun.xml.bind:jaxb-core:2.3.0.1"
+        //kapt "javax.xml.bind:jaxb-api:2.3.1"
+        //kapt "com.sun.xml.bind:jaxb-impl:2.3.2"
+
+        // If you're using Java
+        annotationProcessor "com.sun.xml.bind:jaxb-core:2.3.0.1"
+        annotationProcessor "javax.xml.bind:jaxb-api:2.3.1"
+    }
+
     //implementation 'androidx.databinding:baseLibrary:8.5.2'
     /*implementation 'androidx.databinding:databinding-adapters:8.5.2'
     implementation 'androidx.databinding:databinding-runtime:8.5.2'
@@ -398,7 +429,7 @@ dependencies {
     //implementation 'com.android.support:multidex:2.0.1'
 
     implementation 'com.google.dagger:dagger:2.52'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.52' //should this be dagger-ksp instead of dagger-compiler?
+    ksp 'com.google.dagger:dagger-compiler:2.52' //should this be dagger-ksp instead of dagger-compiler?
 
     implementation 'org.bouncycastle:bcpkix-jdk15to18:1.78.1'
     //implementation 'org.bouncycastle:bcpkix-jdk18on:1.78.1'
@@ -448,11 +479,13 @@ dependencies {
     compileOnly "org.projectlombok:lombok:${lombok_version}"
     annotationProcessor "org.projectlombok:lombok:${lombok_version}"
     //kapt "org.projectlombok:lombok:${lombok_version}"
-    //ksp "org.projectlombok:lombok:${lombok_version}"
+    ksp "org.projectlombok:lombok:${lombok_version}"
 
     // use lombok in unit tests
     testCompileOnly "org.projectlombok:lombok:${lombok_version}"
-    testAnnotationProcessor "org.projectlombok:lombok"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombok_version}"
+    //kaptTest "org.projectlombok:lombok:${lombok_version}"
+    kspTest "org.projectlombok:lombok:${lombok_version}"
 }
 tasks.withType(Test) {
     testLogging {
