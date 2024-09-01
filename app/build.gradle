@@ -429,7 +429,7 @@ dependencies {
     //implementation 'com.android.support:multidex:2.0.1'
 
     implementation 'com.google.dagger:dagger:2.52'
-    ksp 'com.google.dagger:dagger-compiler:2.52' //should this be dagger-ksp instead of dagger-compiler?
+    ksp 'com.google.dagger:dagger-compiler:2.52'
 
     implementation 'org.bouncycastle:bcpkix-jdk15to18:1.78.1'
     //implementation 'org.bouncycastle:bcpkix-jdk18on:1.78.1'
