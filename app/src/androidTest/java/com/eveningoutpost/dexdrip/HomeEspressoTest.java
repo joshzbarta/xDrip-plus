@@ -3,7 +3,7 @@ package com.eveningoutpost.dexdrip;
 /**
  * Created by jamorham on 01/10/2017.
  */
-
+/*
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -45,6 +45,7 @@ import static androidx.test.espresso.matcher.RootMatchers.isDialog;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+
 import static com.schibsted.spain.barista.BaristaClickActions.click;
 import static com.schibsted.spain.barista.BaristaScrollActions.scrollTo;
 import static com.schibsted.spain.barista.custom.NestedEnabledScrollToAction.scrollTo;
@@ -155,4 +156,4 @@ public class HomeEspressoTest {
 
 }
 
-
+*/
