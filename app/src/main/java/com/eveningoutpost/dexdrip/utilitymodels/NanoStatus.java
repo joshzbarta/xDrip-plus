@@ -133,6 +133,7 @@ public class NanoStatus {
             case "mtp-configure":
                 return collectorNano(getClassByName(".utilitymodels.MtpConfigure"));
             case "sensor-expiry":
+            case "s-expiry":
                 return getLocalOrRemoteSensorExpiry();
             default:
                 return new SpannableString("Invalid module type");
@@ -141,7 +142,7 @@ public class NanoStatus {
 
     private static SpannableString getLocalOrRemoteSensorExpiry() {
         if (Home.get_follower()) {
-            return getRemote("sensor-expiry");
+            return getRemote("s-expiry");
         }
         return SensorDays.get().getSpannable();
     }
@@ -179,7 +180,7 @@ public class NanoStatus {
 
     public static void keepFollowerUpdated(final boolean ratelimits) {
         keepFollowerUpdated("", 0); // legacy defaults to collector
-        keepFollowerUpdated("sensor-expiry", ratelimits ? 3600 : 0);
+        keepFollowerUpdated("s-expiry", ratelimits ? 3600 : 0);
     }
 
     public static void keepFollowerUpdated(final String prefix, final int rateLimit) {
