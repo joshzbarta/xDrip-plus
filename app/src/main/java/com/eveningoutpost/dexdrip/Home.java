@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine.shortTxId;
 import static com.eveningoutpost.dexdrip.models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.niceTimeScalarZ;
 import static com.eveningoutpost.dexdrip.models.JoH.quietratelimit;
 import static com.eveningoutpost.dexdrip.models.JoH.tsl;
 import static com.eveningoutpost.dexdrip.services.Ob1G5CollectionService.getTransmitterID;
@@ -162,7 +163,6 @@ import com.eveningoutpost.dexdrip.wearintegration.WatchUpdaterService;
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.Target;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.bind.DateTypeAdapter;
@@ -196,6 +196,7 @@ import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
 import lecho.lib.hellocharts.view.PreviewLineChartView;
 import lombok.Getter;
+import lombok.val;
 
 public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPermissionsResultCallback {
     private final static String TAG = "jamorham " + Home.class.getSimpleName();
@@ -228,6 +229,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
     private boolean updatingChartViewport = false;
     private long lastViewPortPan;
     private long lastDataTick;
+    private long lastBgReadingTimestamp = 0;
     private boolean screen_forced_on = false;
     public BgGraphBuilder bgGraphBuilder;
     private Viewport tempViewport = new Viewport();
@@ -284,6 +286,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
     private TextView parakeetBattery;
     private TextView sensorAge;
     private TextView currentBgValueText;
+    private TextView lastBgReadingTimeAgoText;
     private TextView notificationText;
     private TextView extraStatusLineText;
     private boolean alreadyDisplayedBgInfoCommon = false;
@@ -431,8 +434,21 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         if (BgGraphBuilder.isXLargeTablet(getApplicationContext())) {
             this.currentBgValueText.setTextSize(100);
         }
+
+        final BgReading lastBgReading = BgReading.lastNoSenssor();
+        if(lastBgReading!=null){
+            lastBgReadingTimestamp = lastBgReading.timestamp;
+        }
+        this.lastBgReadingTimeAgoText = findViewById(R.id.lastBgReadingTimeAgoText);
+
+
+        quickRefreshThread.start();
+
+
+
         this.notificationText = (TextView) findViewById(R.id.notices);
         if (BgGraphBuilder.isXLargeTablet(getApplicationContext())) {
+            this.lastBgReadingTimeAgoText.setTextSize(40);
             this.notificationText.setTextSize(40);
         }
 
@@ -629,11 +645,40 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         currentBgValueText.setText(""); // clear any design prototyping default
     }
 
+    private final Thread quickRefreshThread = new Thread() {
+        @Override
+        public void run() {
+            try {
+                //this this refers to quickRefreshThread
+                while (!this.isInterrupted()) {
+                    Thread.sleep(1000);
+                    runOnUiThread(() -> {
+                        refreshLastBgReadingTimeAgoText();
+                    });
+                }
+            } catch (InterruptedException e) {
+                //
+            }
+        }
+    };
 
+    private void refreshLastBgReadingTimeAgoText() {
+        long timeAgoMillis = msSince(lastBgReadingTimestamp);
+
+        if(timeAgoMillis < 10L*365*24*60*60*1000) {
+            val text = niceTimeScalarZ(timeAgoMillis)+" ago";
+            lastBgReadingTimeAgoText.setText(text);
+            lastBgReadingTimeAgoText.setVisibility(View.VISIBLE);
+        }
+        else {
+            lastBgReadingTimeAgoText.setText("");
+            lastBgReadingTimeAgoText.setVisibility(View.GONE);
+        }
+    }
 
     private boolean firstRunDialogs(final boolean checkedeula) {
 
-        if (checkedeula && is_newbie && ((dialog == null) || !dialog.isShowing())) {
+        if (checkedeula && is_newbie && (dialog == null || !dialog.isShowing())) {
 
             if (Experience.processSteps(this)) {
 
@@ -1858,17 +1903,14 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         }
     }
 
-    @TargetApi(21)
     private void handleFlairColors() {
-        if ((Build.VERSION.SDK_INT >= 21)) {
-            try {
-                if (Pref.getBooleanDefaultFalse("use_flair_colors")) {
-                    getWindow().setNavigationBarColor(getCol(X.color_lower_flair_bar));
-                    getWindow().setStatusBarColor(getCol(X.color_upper_flair_bar));
-                }
-            } catch (Exception e) {
-                //
+        try {
+            if (Pref.getBooleanDefaultFalse("use_flair_colors")) {
+                getWindow().setNavigationBarColor(getCol(X.color_lower_flair_bar));
+                getWindow().setStatusBarColor(getCol(X.color_upper_flair_bar));
             }
+        } catch (Exception e) {
+            //
         }
     }
 
@@ -1888,10 +1930,12 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
         if (BgGraphBuilder.isXLargeTablet(getApplicationContext())) {
             this.currentBgValueText.setTextSize(100);
+            this.lastBgReadingTimeAgoText.setTextSize(40);
             this.notificationText.setTextSize(40);
             this.extraStatusLineText.setTextSize(40);
         } else if (BgGraphBuilder.isLargeTablet(getApplicationContext())) {
             this.currentBgValueText.setTextSize(70);
+            this.lastBgReadingTimeAgoText.setTextSize(34);
             this.notificationText.setTextSize(34); // 35 too big 33 works
             this.extraStatusLineText.setTextSize(35);
         }
@@ -2501,7 +2545,6 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                         }
                     }
                 }, 500);
-
             }
         } else if (collector.equals(DexCollectionType.Mock)) {
             notificationText.append("\n USING FAKE DATA SOURCE !!!");
@@ -2512,17 +2555,18 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                 notificationText.append(" Amp");
             }
         }
+
         if (Pref.getLong("alerts_disabled_until", 0) > new Date().getTime()) {
             notificationText.append("\n " + getString(R.string.all_alerts_currently_disabled));
-        } else if (Pref.getLong("low_alerts_disabled_until", 0) > new Date().getTime()
-                &&
-                Pref.getLong("high_alerts_disabled_until", 0) > new Date().getTime()) {
+        } else if (Pref.getLong("low_alerts_disabled_until", 0) > new Date().getTime() &&
+                   Pref.getLong("high_alerts_disabled_until", 0) > new Date().getTime()) {
             notificationText.append("\n " + getString(R.string.low_and_high_alerts_currently_disabled));
         } else if (Pref.getLong("low_alerts_disabled_until", 0) > new Date().getTime()) {
             notificationText.append("\n " + getString(R.string.low_alerts_currently_disabled));
         } else if (Pref.getLong("high_alerts_disabled_until", 0) > new Date().getTime()) {
             notificationText.append("\n " + getString(R.string.high_alerts_currently_disabled));
         }
+
         NavigationDrawerFragment navigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
 
         // DEBUG ONLY
@@ -2947,7 +2991,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
             final int bridgeBattery = Pref.getInt("parakeet_battery", 0);
             if (bridgeBattery > 0) {
                 if (bridgeBattery < 50) {
-                    parakeetBattery.setText(getString(R.string.parakeet_battery) + ": " + bridgeBattery + "%");
+                    parakeetBattery.setText("%s: %d%%".formatted(getString(R.string.parakeet_battery), bridgeBattery));
 
                     if (bridgeBattery < 40) {
                         parakeetBattery.setTextColor(Color.RED);
@@ -3020,7 +3064,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
                     toaststaticnext(msg);
                 }
             }
-
+            lastBgReadingTimestamp = lastBgReading.timestamp;
             displayCurrentInfoFromReading(lastBgReading, predictive);
         } else {
             display_delta = "";
@@ -3052,8 +3096,10 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         String slope_arrow = dg.delta_arrow;
         String extrastring = "";
         boolean hide_slope = false;
+
+        boolean isStale = (new Date().getTime()) - stale_data_millis() - lastBgReading.timestamp > 0;
         // when stale
-        if ((new Date().getTime()) - stale_data_millis() - lastBgReading.timestamp > 0) {
+        if(isStale) {
             notificationText.setText(R.string.signal_missed);
             if (!predictive) {
                 //  estimate = lastBgReading.calculated_value;
@@ -3067,9 +3113,13 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
             hide_slope = true;
         } else {
             // not stale
+            if (lastBgReadingTimeAgoText.getText().length() == 0) {
+                lastBgReadingTimeAgoText.setTextColor(Color.WHITE);
+            }
             if (notificationText.getText().length() == 0) {
                 notificationText.setTextColor(Color.WHITE);
             }
+
             boolean bg_from_filtered = Pref.getBoolean("bg_from_filtered", false);
             if (!predictive) {
                 //estimate = lastBgReading.calculated_value; // normal
@@ -3115,19 +3165,16 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
             if (extrastring.length() > 0)
                 currentBgValueText.setText(extrastring + currentBgValueText.getText());
         }
-        int minutes = (int) (System.currentTimeMillis() - lastBgReading.timestamp) / (60 * 1000);
 
-        if ((!small_width) || (notificationText.length() > 0)) notificationText.append("\n");
-        if (!small_width) {
-            final String fmt = getString(R.string.minutes_ago);
-            notificationText.append(MessageFormat.format(fmt, minutes));
-        } else {
-            // small screen
-            notificationText.append(minutes + getString(R.string.space_mins));
-            currentBgValueText.setPadding(0, 0, 0, 0);
+        lastBgReadingTimestamp = lastBgReading.timestamp;
+        refreshLastBgReadingTimeAgoText();
+
+        if (!small_width || notificationText.length() > 0) {
+            notificationText.append("\n");
         }
 
         if (small_screen) {
+            currentBgValueText.setPadding(0, 0, 0, 0);
             if (currentBgValueText.getText().length() > 4)
                 currentBgValueText.setTextSize(25);
         }

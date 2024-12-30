@@ -27,6 +27,8 @@ import java.util.List;
 
 public class Profile {
 
+    public static final long estimatedInterstitialLagSeconds = 600; // how far behind venous glucose do we estimate
+    public static final long estimatedInterstitialLagMillis = estimatedInterstitialLagSeconds * 1000;
     private final static String TAG = "jamorham pred";
     public static double minimum_shown_iob = 0.005;
     public static double minimum_shown_cob = 0.01;

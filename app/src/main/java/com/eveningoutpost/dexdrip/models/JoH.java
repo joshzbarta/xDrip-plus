@@ -80,6 +80,8 @@ import com.google.common.primitives.UnsignedInts;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.ztech.zdrip.common.ITimeProvider;
+import com.ztech.zdrip.common.SystemTimeProvider;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -126,6 +128,7 @@ import lombok.val;
  * lazy helper class for utilities
  */
 public class JoH {
+    private static ITimeProvider timeProvider = new SystemTimeProvider();
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
     private final static String TAG = "jamorham JoH";
     private final static int PAIRING_VARIANT_PASSKEY = 1; // hidden in api
@@ -151,15 +154,15 @@ public class JoH {
     // singletons to avoid repeated allocation
     private static DecimalFormatSymbols dfs;
     private static DecimalFormat df;
-    public static String qs(double x, int digits) {
+    public static String qs(double x, int maximumFractionDigits) {
 
-        if (digits == -1) {
-            digits = 0;
-            if (((int) x != x)) {
-                digits++;
-                if ((((int) x * 10) / 10 != x)) {
-                    digits++;
-                    if ((((int) x * 100) / 100 != x)) digits++;
+        if (maximumFractionDigits == -1) {
+            maximumFractionDigits = 0;
+            if ((int) x != x) {
+                maximumFractionDigits++;
+                if ((int) x * 10 / 10 != x) {
+                    maximumFractionDigits++;
+                    if ((int) x * 100 / 100 != x) maximumFractionDigits++;
                 }
             }
         }
@@ -183,7 +186,7 @@ public class JoH {
             this_df = new DecimalFormat("#", dfs);
         }
 
-        this_df.setMaximumFractionDigits(digits);
+        this_df.setMaximumFractionDigits(maximumFractionDigits);
         return this_df.format(x);
     }
 
@@ -843,6 +846,18 @@ public class JoH {
         }
     }
 
+    public static String niceTimeScalarZ(long ms){
+        long totalSeconds = ms / 1000;
+        long s = totalSeconds % 60;
+        long m = (totalSeconds / 60) % 60;
+        long h = (totalSeconds / (60 * 60)) % 24;
+        long d = (totalSeconds)/(24*60*60);
+
+        String dText = d>0?(d+"d "):"";
+        String hText = h>0?String.format(Locale.US, "%02d:", h):"";
+
+        return dText+hText+String.format(Locale.US, "%02d:%02d", m,s);
+    }
 
     public static double tolerantParseDouble(String str) throws NumberFormatException {
         return Double.parseDouble(str.replace(",", "."));

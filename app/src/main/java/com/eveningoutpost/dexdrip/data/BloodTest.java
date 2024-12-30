@@ -10,9 +10,9 @@ import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.activeandroid.util.SQLiteUtils;
-import com.eveningoutpost.dexdrip.AddCalibration;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.models.JoH;
+import com.eveningoutpost.dexdrip.models.Profile;
 import com.eveningoutpost.dexdrip.services.SyncService;
 import com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
@@ -446,7 +446,7 @@ public class BloodTest extends Model {
             }
 
             // get closest bgreading - must be within dexcom period and locked to sensor
-            final BgReading bgReading = BgReading.getForPreciseTimestamp(bt.timestamp + (AddCalibration.estimatedInterstitialLagSeconds * 1000), BgGraphBuilder.DEXCOM_PERIOD);
+            final BgReading bgReading = BgReading.getForPreciseTimestamp(bt.timestamp + Profile.estimatedInterstitialLagMillis, BgGraphBuilder.DEXCOM_PERIOD);
             if (bgReading == null) {
                 Log.d(TAG, "opportunistic: No matching bg reading");
                 return;
@@ -490,7 +490,7 @@ public class BloodTest extends Model {
 
         // CACHE??
 
-        final List<BloodTest> bloodTests = latestForGraph(1000, JoH.tsl() - period, JoH.tsl() - AddCalibration.estimatedInterstitialLagSeconds);
+        final List<BloodTest> bloodTests = latestForGraph(1000, JoH.tsl() - period, JoH.tsl() - Profile.estimatedInterstitialLagMillis);
         final List<Double> difference = new ArrayList<>();
         final List<Double> plugin_difference = new ArrayList<>();
         if ((bloodTests == null) || (bloodTests.size() == 0)) return null;
@@ -500,7 +500,7 @@ public class BloodTest extends Model {
 
 
         for (BloodTest bt : bloodTests) {
-            final BgReading bgReading = BgReading.getForPreciseTimestamp(bt.timestamp + (AddCalibration.estimatedInterstitialLagSeconds * 1000), BgGraphBuilder.DEXCOM_PERIOD);
+            final BgReading bgReading = BgReading.getForPreciseTimestamp(bt.timestamp + Profile.estimatedInterstitialLagMillis, BgGraphBuilder.DEXCOM_PERIOD);
 
             if (bgReading != null) {
                 final Calibration calibration = bgReading.calibration;

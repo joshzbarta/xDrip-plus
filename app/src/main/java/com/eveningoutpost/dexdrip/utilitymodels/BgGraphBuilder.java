@@ -14,7 +14,6 @@ import android.util.Pair;
 import android.view.View;
 import android.widget.Toast;
 
-import com.eveningoutpost.dexdrip.AddCalibration;
 import com.eveningoutpost.dexdrip.GcmActivity;
 import com.eveningoutpost.dexdrip.Home;
 import com.eveningoutpost.dexdrip.data.APStatus;
@@ -1150,7 +1149,7 @@ public class BgGraphBuilder {
                 for (Calibration calibration : calibrations) {
                     if (calibration.timestamp < (start_time * FUZZER)) break;
                     if (calibration.slope_confidence != 0) {
-                        final long adjusted_timestamp = (calibration.timestamp + (AddCalibration.estimatedInterstitialLagSeconds * 1000));
+                        final long adjusted_timestamp = calibration.timestamp + Profile.estimatedInterstitialLagMillis;
                         final PointValueExtended this_point = new PointValueExtended((double) (adjusted_timestamp / FUZZER), unitized(calibration.bg));
                         if (adjusted_timestamp >= close_to_side_time) {
                             predictivehours = Math.max(predictivehours, 1);
@@ -1168,8 +1167,9 @@ public class BgGraphBuilder {
 
             // enumerate blood tests
             try {
+
                 for (BloodTest bloodtest : bloodtests) {
-                    final long adjusted_timestamp = (bloodtest.timestamp + (AddCalibration.estimatedInterstitialLagSeconds * 1000));
+                    final long adjusted_timestamp = bloodtest.timestamp + Profile.estimatedInterstitialLagMillis;
                     final PointValueExtended this_point = new PointValueExtended((double) (adjusted_timestamp / FUZZER), unitized(bloodtest.mgdl))
                             .setType(PointValueExtended.BloodTest)
                             .setUUID(bloodtest.uuid);
@@ -1177,7 +1177,7 @@ public class BgGraphBuilder {
                     // exclude any which have been used for calibration
                     boolean matches = false;
                     for (PointValue calibration_point : calibrationValues) {
-                        if ((Math.abs(calibration_point.getX() - this_point.getX())) <= ((AddCalibration.estimatedInterstitialLagSeconds * 1000) / FUZZER) && (calibration_point.getY() == calibration_point.getY())) {
+                        if ((Math.abs(calibration_point.getX() - this_point.getX())) <= (Profile.estimatedInterstitialLagMillis / FUZZER) && (calibration_point.getY() == calibration_point.getY())) {
                             matches = true;
                             break;
                         }
@@ -1220,7 +1220,7 @@ public class BgGraphBuilder {
             for (final BgReading bgReading : bgReadings) {
                 // jamorham special
 
-                if ((cd != null) && (calibrations.size() > 0)) {
+                if (cd != null && !calibrations.isEmpty()) {
 
                     while ((bgReading.timestamp < calibrations.get(cdposition).timestamp) || (calibrations.get(cdposition).slope == 0)) {
 
@@ -1383,7 +1383,7 @@ public class BgGraphBuilder {
                             best_bg_estimate = -99;
                             last_bg_estimate = -99;
                         }
-                        Log.i(TAG, "Noise: Poly Error Varience: " + JoH.qs(last_noise, 5));
+                        Log.i(TAG, "Noise: Poly Error Variance: " + JoH.qs(last_noise, 5));
                     } else {
                         Log.i(TAG, "Noise: Not enough data to get sensible noise value");
                         noisePoly = null;
@@ -1402,7 +1402,9 @@ public class BgGraphBuilder {
             if (!simple) {
                 // momentum
                 try {
-                    if (d) Log.d(TAG, "moment Poly list size: " + polyxList.size());
+                    if (d) {
+                        Log.d(TAG, "moment Poly list size: " + polyxList.size());
+                    }
                     if (polyxList.size() > 1) {
                         final double[] polyys = PolyTrendLine.toPrimitiveFromList(polyyList);
                         final double[] polyxs = PolyTrendLine.toPrimitiveFromList(polyxList);
@@ -1421,10 +1423,13 @@ public class BgGraphBuilder {
 
                             }
                         }
-                        if (d)
+                        if (d) {
                             Log.i(TAG, "set forecast best model to: " + poly.getClass().getSimpleName() + " with varience of: " + JoH.qs(poly.errorVarience(), 4));
+                        }
                     } else {
-                        if (d) Log.i(TAG, "Not enough data for forecast model");
+                        if (d) {
+                            Log.i(TAG, "Not enough data for forecast model");
+                        }
                     }
 
                 } catch (Exception e) {
@@ -1454,7 +1459,7 @@ public class BgGraphBuilder {
                 // work backwards to see whether we think a low is estimated
                 low_occurs_at = -1;
                 try {
-                    if ((predict_lows) && (prediction_enabled) && (poly != null)) {
+                    if (predict_lows && prediction_enabled && poly != null) {
                         final double offset = ActivityRecognizedService.raise_limit_due_to_vehicle_mode() ? unitized(ActivityRecognizedService.getVehicle_mode_adjust_mgdl()) : 0;
                         final double plow_now = JoH.ts();
                         double plow_timestamp = plow_now + (1000 * 60 * 99); // max look-ahead
@@ -1542,7 +1547,7 @@ public class BgGraphBuilder {
                                 BitmapLoader.loadAndSetKey(pv, R.drawable.triangle, 180);
                                 pv.setBitmapTint(getCol(X.color_smb_icon));
                                 pv.setBitmapScale((float) (0.5f + (treatment.insulin * 5f))); // 0.1U == 100% 0.2U = 150%
-                                pv.note = "SMB: " + JoH.qs(treatment.insulin, 2) + "U" + (treatment.notes != null ? " " + treatment.notes : "");
+                                pv.note = "SMB: " + JoH.qs(treatment.insulin, 3) + "U" + (treatment.notes != null ? " " + treatment.notes : "");
                                 pv.real_timestamp = treatment.timestamp;
                                 smbValues.add(pv);
                                 continue;
@@ -1585,12 +1590,12 @@ public class BgGraphBuilder {
                         }
                         String mylabel = "";
                         if (treatment.insulin > 0) {
-                            if (mylabel.length() > 0)
+                            if (!mylabel.isEmpty())
                                 mylabel = mylabel + System.getProperty("line.separator");
-                            mylabel = mylabel + (JoH.qs(treatment.insulin, 2) + "u").replace(".0u", "u");
+                            mylabel = mylabel + (JoH.qs(treatment.insulin, 3) + "u");//.replace(".00u","u").replace(".0u", "u");
                         }
                         if (treatment.carbs > 0) {
-                            if (mylabel.length() > 0)
+                            if (!mylabel.isEmpty())
                                 mylabel = mylabel + System.getProperty("line.separator");
                             mylabel = mylabel + (JoH.qs(treatment.carbs, 1) + "g").replace(".0g", "g");
                         }
@@ -1610,7 +1615,7 @@ public class BgGraphBuilder {
                         }
 
                         //Log.d(TAG, "watchkeypad pv.mylabel: " + mylabel);
-                        if ((treatment.notes != null) && (treatment.notes.length() > 0)) {
+                        if (treatment.notes != null && !treatment.notes.isEmpty()) {
                             pv.note = treatment.getBestShortText();
                             //Log.d(TAG, "watchkeypad pv.note: " + pv.note + " mylabel: " + mylabel);
                             try {
@@ -1624,7 +1629,7 @@ public class BgGraphBuilder {
                         } else {
                             pv.note = treatment.getBestShortText();
                         }
-                        if (treatmentValues.size() > 0) { // not sure if this >1 is right really - needs a review
+                        if (!treatmentValues.isEmpty()) { // not sure if this >1 is right really - needs a review
                             PointValue lastpv = treatmentValues.get(treatmentValues.size() - 1);
                             if (Math.abs(lastpv.getX() - pv.getX()) < ((10 * 60 * 1000) / FUZZER)) {
                                 // merge label with previous - Intelligent parsing and additions go here

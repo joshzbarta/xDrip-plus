@@ -1927,4 +1927,5 @@
     <string name="use_camera_light_summary">Flash camera light during alerts when connected to a charger</string>
     <string name="g7_should_start_automatically">G7 should start automatically</string>
     <string name="screenshot">Screenshot</string>
+    <string name="last_bg_reading_time_ago_placeholder">\??:?? ago</string>
 </resources>

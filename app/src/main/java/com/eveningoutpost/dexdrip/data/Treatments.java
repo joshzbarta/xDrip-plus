@@ -1081,7 +1081,7 @@ public class Treatments extends Model {
 
             if (thisTreatment.carbs > 0) {
 
-                mytime = ((long) (thisTreatment.timestamp / stepms)) * stepms; // effects of treatment occur only after it is given / fit to slot time
+                mytime = (thisTreatment.timestamp / stepms) * stepms; // effects of treatment occur only after it is given / fit to slot time
                 tendtime = mytime + 6 * HOUR_IN_MS;     // 6 hours max look
 
                 long cob_time = (long) (mytime + carb_delay_ms_stepped);

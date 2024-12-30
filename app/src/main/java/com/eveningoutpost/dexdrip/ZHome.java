@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine.shortTxId;
 import static com.eveningoutpost.dexdrip.models.JoH.msSince;
+import static com.eveningoutpost.dexdrip.models.JoH.niceTimeScalarZ;
 import static com.eveningoutpost.dexdrip.models.JoH.quietratelimit;
 import static com.eveningoutpost.dexdrip.models.JoH.tsl;
 import static com.eveningoutpost.dexdrip.services.Ob1G5CollectionService.getTransmitterID;
@@ -14,7 +15,6 @@ import static com.eveningoutpost.dexdrip.utilitymodels.Constants.DAY_IN_MS;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.HOUR_IN_MS;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.MINUTE_IN_MS;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.SECOND_IN_MS;
-import static com.eveningoutpost.dexdrip.utils.DexCollectionType.DexcomG5;
 import static com.eveningoutpost.dexdrip.xdrip.gs;
 
 import android.Manifest;
@@ -43,6 +43,19 @@ import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.speech.RecognizerIntent;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+
+import com.eveningoutpost.dexdrip.databinding.ActivityZhomeBinding;
+import com.eveningoutpost.dexdrip.databinding.ActivityZhomeShelfSettingsBinding;
+import com.eveningoutpost.dexdrip.databinding.PopupInitialStatusHelperBinding;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import android.text.InputType;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -64,65 +77,30 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-
-import com.eveningoutpost.dexdrip.calibrations.NativeCalibrationPipe;
-import com.eveningoutpost.dexdrip.calibrations.PluggableCalibration;
-import com.eveningoutpost.dexdrip.cloud.backup.BackupActivity;
-import com.eveningoutpost.dexdrip.dagger.Injectors;
+import com.eveningoutpost.dexdrip.g5model.DexSyncKeeper;
+import com.eveningoutpost.dexdrip.g5model.DexTimeKeeper;
+import com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine;
+import com.eveningoutpost.dexdrip.g5model.SensorDays;
+import com.eveningoutpost.dexdrip.importedlibraries.usbserial.util.HexDump;
 import com.eveningoutpost.dexdrip.data.ActiveBgAlert;
 import com.eveningoutpost.dexdrip.data.ActiveBluetoothDevice;
 import com.eveningoutpost.dexdrip.data.BgReading;
 import com.eveningoutpost.dexdrip.data.BloodTest;
 import com.eveningoutpost.dexdrip.data.Calibration;
 import com.eveningoutpost.dexdrip.data.HeartRate;
+import com.eveningoutpost.dexdrip.models.InsulinInjection;
+import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.LibreBlock;
+import com.eveningoutpost.dexdrip.xmodels.ProcessInitialDataQuality;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.StepCounter;
 import com.eveningoutpost.dexdrip.data.Treatments;
 import com.eveningoutpost.dexdrip.data.UserError;
-import com.eveningoutpost.dexdrip.databinding.ActivityZhomeBinding;
-import com.eveningoutpost.dexdrip.databinding.ActivityHomeShelfSettingsBinding;
-import com.eveningoutpost.dexdrip.databinding.ActivityZhomeShelfSettingsBinding;
-import com.eveningoutpost.dexdrip.databinding.PopupInitialStatusHelperBinding;
-import com.eveningoutpost.dexdrip.eassist.EmergencyAssistActivity;
-import com.eveningoutpost.dexdrip.g5model.DexSyncKeeper;
-import com.eveningoutpost.dexdrip.g5model.DexTimeKeeper;
-import com.eveningoutpost.dexdrip.g5model.Ob1G5StateMachine;
-import com.eveningoutpost.dexdrip.g5model.SensorDays;
-import com.eveningoutpost.dexdrip.importedlibraries.usbserial.util.HexDump;
-import com.eveningoutpost.dexdrip.insulin.Insulin;
-import com.eveningoutpost.dexdrip.insulin.InsulinManager;
-import com.eveningoutpost.dexdrip.insulin.MultipleInsulins;
-import com.eveningoutpost.dexdrip.insulin.inpen.InPenEntry;
-import com.eveningoutpost.dexdrip.insulin.pendiq.Pendiq;
-import com.eveningoutpost.dexdrip.models.InsulinInjection;
-import com.eveningoutpost.dexdrip.models.JoH;
-import com.eveningoutpost.dexdrip.nfc.NFControl;
-import com.eveningoutpost.dexdrip.profileeditor.DatePickerFragment;
-import com.eveningoutpost.dexdrip.profileeditor.ProfileAdapter;
 import com.eveningoutpost.dexdrip.services.ActivityRecognizedService;
 import com.eveningoutpost.dexdrip.services.DexCollectionService;
 import com.eveningoutpost.dexdrip.services.Ob1G5CollectionService;
 import com.eveningoutpost.dexdrip.services.PlusSyncService;
 import com.eveningoutpost.dexdrip.services.WixelReader;
-import com.eveningoutpost.dexdrip.ui.BaseShelf;
-import com.eveningoutpost.dexdrip.ui.MicroStatus;
-import com.eveningoutpost.dexdrip.ui.MicroStatusImpl;
-import com.eveningoutpost.dexdrip.ui.NumberGraphic;
-import com.eveningoutpost.dexdrip.ui.UiPing;
-import com.eveningoutpost.dexdrip.ui.dialog.ChooseInsulinPenDialog;
-import com.eveningoutpost.dexdrip.ui.dialog.DidYouCancelAlarm;
-import com.eveningoutpost.dexdrip.ui.dialog.HeyFamUpdateOptInDialog;
-import com.eveningoutpost.dexdrip.ui.dialog.QuickSettingsDialogs;
-import com.eveningoutpost.dexdrip.ui.graphic.ITrendArrow;
-import com.eveningoutpost.dexdrip.ui.graphic.TrendArrowFactory;
 import com.eveningoutpost.dexdrip.utilitymodels.AlertPlayer;
 import com.eveningoutpost.dexdrip.utilitymodels.BgGraphBuilder;
 import com.eveningoutpost.dexdrip.utilitymodels.CollectionServiceStarter;
@@ -147,6 +125,30 @@ import com.eveningoutpost.dexdrip.utilitymodels.StatusLine;
 import com.eveningoutpost.dexdrip.utilitymodels.UndoRedo;
 import com.eveningoutpost.dexdrip.utilitymodels.UpdateActivity;
 import com.eveningoutpost.dexdrip.utilitymodels.VoiceCommands;
+import com.eveningoutpost.dexdrip.calibrations.NativeCalibrationPipe;
+import com.eveningoutpost.dexdrip.calibrations.PluggableCalibration;
+import com.eveningoutpost.dexdrip.cloud.backup.BackupActivity;
+import com.eveningoutpost.dexdrip.dagger.Injectors;
+import com.eveningoutpost.dexdrip.eassist.EmergencyAssistActivity;
+import com.eveningoutpost.dexdrip.insulin.Insulin;
+import com.eveningoutpost.dexdrip.insulin.InsulinManager;
+import com.eveningoutpost.dexdrip.insulin.MultipleInsulins;
+import com.eveningoutpost.dexdrip.insulin.inpen.InPenEntry;
+import com.eveningoutpost.dexdrip.insulin.pendiq.Pendiq;
+import com.eveningoutpost.dexdrip.nfc.NFControl;
+import com.eveningoutpost.dexdrip.profileeditor.DatePickerFragment;
+import com.eveningoutpost.dexdrip.profileeditor.ProfileAdapter;
+import com.eveningoutpost.dexdrip.ui.BaseShelf;
+import com.eveningoutpost.dexdrip.ui.MicroStatus;
+import com.eveningoutpost.dexdrip.ui.MicroStatusImpl;
+import com.eveningoutpost.dexdrip.ui.NumberGraphic;
+import com.eveningoutpost.dexdrip.ui.UiPing;
+import com.eveningoutpost.dexdrip.ui.dialog.ChooseInsulinPenDialog;
+import com.eveningoutpost.dexdrip.ui.dialog.DidYouCancelAlarm;
+import com.eveningoutpost.dexdrip.ui.dialog.HeyFamUpdateOptInDialog;
+import com.eveningoutpost.dexdrip.ui.dialog.QuickSettingsDialogs;
+import com.eveningoutpost.dexdrip.ui.graphic.ITrendArrow;
+import com.eveningoutpost.dexdrip.ui.graphic.TrendArrowFactory;
 import com.eveningoutpost.dexdrip.utils.ActivityWithMenu;
 import com.eveningoutpost.dexdrip.utils.BgToSpeech;
 import com.eveningoutpost.dexdrip.utils.DatabaseUtil;
@@ -158,11 +160,9 @@ import com.eveningoutpost.dexdrip.utils.SdcardImportExport;
 import com.eveningoutpost.dexdrip.utils.TestFeature;
 import com.eveningoutpost.dexdrip.wearintegration.Amazfitservice;
 import com.eveningoutpost.dexdrip.wearintegration.WatchUpdaterService;
-import com.eveningoutpost.dexdrip.xmodels.ProcessInitialDataQuality;
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.Target;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.bind.DateTypeAdapter;
@@ -196,6 +196,7 @@ import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
 import lecho.lib.hellocharts.view.PreviewLineChartView;
 import lombok.Getter;
+import lombok.val;
 
 public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestPermissionsResultCallback {
     private final static String TAG = "jamorham " + ZHome.class.getSimpleName();
@@ -228,6 +229,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
     private boolean updatingChartViewport = false;
     private long lastViewPortPan;
     private long lastDataTick;
+    private long lastBgReadingTimestamp = 0;
     private boolean screen_forced_on = false;
     public BgGraphBuilder bgGraphBuilder;
     private Viewport tempViewport = new Viewport();
@@ -284,6 +286,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
     private TextView parakeetBattery;
     private TextView sensorAge;
     private TextView currentBgValueText;
+    private TextView lastBgReadingTimeAgoText;
     private TextView notificationText;
     private TextView extraStatusLineText;
     private boolean alreadyDisplayedBgInfoCommon = false;
@@ -431,8 +434,21 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
         if (BgGraphBuilder.isXLargeTablet(getApplicationContext())) {
             this.currentBgValueText.setTextSize(100);
         }
+
+        final BgReading lastBgReading = BgReading.lastNoSenssor();
+        if(lastBgReading!=null){
+            lastBgReadingTimestamp = lastBgReading.timestamp;
+        }
+        this.lastBgReadingTimeAgoText = findViewById(R.id.lastBgReadingTimeAgoText);
+
+
+        quickRefreshThread.start();
+
+
+
         this.notificationText = (TextView) findViewById(R.id.notices);
         if (BgGraphBuilder.isXLargeTablet(getApplicationContext())) {
+            this.lastBgReadingTimeAgoText.setTextSize(40);
             this.notificationText.setTextSize(40);
         }
 
@@ -629,11 +645,40 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
         currentBgValueText.setText(""); // clear any design prototyping default
     }
 
+    private final Thread quickRefreshThread = new Thread() {
+        @Override
+        public void run() {
+            try {
+                //this this refers to quickRefreshThread
+                while (!this.isInterrupted()) {
+                    Thread.sleep(1000);
+                    runOnUiThread(() -> {
+                        refreshLastBgReadingTimeAgoText();
+                    });
+                }
+            } catch (InterruptedException e) {
+                //
+            }
+        }
+    };
 
+    private void refreshLastBgReadingTimeAgoText() {
+        long timeAgoMillis = msSince(lastBgReadingTimestamp);
+
+        if(timeAgoMillis < 10L*365*24*60*60*1000) {
+            val text = niceTimeScalarZ(timeAgoMillis)+" ago";
+            lastBgReadingTimeAgoText.setText(text);
+            lastBgReadingTimeAgoText.setVisibility(View.VISIBLE);
+        }
+        else {
+            lastBgReadingTimeAgoText.setText("");
+            lastBgReadingTimeAgoText.setVisibility(View.GONE);
+        }
+    }
 
     private boolean firstRunDialogs(final boolean checkedeula) {
 
-        if (checkedeula && is_newbie && ((dialog == null) || !dialog.isShowing())) {
+        if (checkedeula && is_newbie && (dialog == null || !dialog.isShowing())) {
 
             if (Experience.processSteps(this)) {
 
@@ -1858,17 +1903,14 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
         }
     }
 
-    @TargetApi(21)
     private void handleFlairColors() {
-        if ((Build.VERSION.SDK_INT >= 21)) {
-            try {
-                if (Pref.getBooleanDefaultFalse("use_flair_colors")) {
-                    getWindow().setNavigationBarColor(getCol(X.color_lower_flair_bar));
-                    getWindow().setStatusBarColor(getCol(X.color_upper_flair_bar));
-                }
-            } catch (Exception e) {
-                //
+        try {
+            if (Pref.getBooleanDefaultFalse("use_flair_colors")) {
+                getWindow().setNavigationBarColor(getCol(X.color_lower_flair_bar));
+                getWindow().setStatusBarColor(getCol(X.color_upper_flair_bar));
             }
+        } catch (Exception e) {
+            //
         }
     }
 
@@ -1888,10 +1930,12 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
 
         if (BgGraphBuilder.isXLargeTablet(getApplicationContext())) {
             this.currentBgValueText.setTextSize(100);
+            this.lastBgReadingTimeAgoText.setTextSize(40);
             this.notificationText.setTextSize(40);
             this.extraStatusLineText.setTextSize(40);
         } else if (BgGraphBuilder.isLargeTablet(getApplicationContext())) {
             this.currentBgValueText.setTextSize(70);
+            this.lastBgReadingTimeAgoText.setTextSize(34);
             this.notificationText.setTextSize(34); // 35 too big 33 works
             this.extraStatusLineText.setTextSize(35);
         }
@@ -1936,7 +1980,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
         NFControl.initNFC(this, false);
 
         if (get_follower() || get_master()) {
-            //GcmActivity.checkSync(this);
+           // GcmActivity.checkSync(this);
         }
 
         checkWifiSleepPolicy();
@@ -2514,9 +2558,8 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
         }
         if (Pref.getLong("alerts_disabled_until", 0) > new Date().getTime()) {
             notificationText.append("\n " + getString(R.string.all_alerts_currently_disabled));
-        } else if (Pref.getLong("low_alerts_disabled_until", 0) > new Date().getTime()
-                &&
-                Pref.getLong("high_alerts_disabled_until", 0) > new Date().getTime()) {
+        } else if (Pref.getLong("low_alerts_disabled_until", 0) > new Date().getTime() &&
+                   Pref.getLong("high_alerts_disabled_until", 0) > new Date().getTime()) {
             notificationText.append("\n " + getString(R.string.low_and_high_alerts_currently_disabled));
         } else if (Pref.getLong("low_alerts_disabled_until", 0) > new Date().getTime()) {
             notificationText.append("\n " + getString(R.string.low_alerts_currently_disabled));
@@ -2947,7 +2990,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
             final int bridgeBattery = Pref.getInt("parakeet_battery", 0);
             if (bridgeBattery > 0) {
                 if (bridgeBattery < 50) {
-                    parakeetBattery.setText(getString(R.string.parakeet_battery) + ": " + bridgeBattery + "%");
+                    parakeetBattery.setText("%s: %d%%".formatted(getString(R.string.parakeet_battery), bridgeBattery));
 
                     if (bridgeBattery < 40) {
                         parakeetBattery.setTextColor(Color.RED);
@@ -3020,7 +3063,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
                     toaststaticnext(msg);
                 }
             }
-
+            lastBgReadingTimestamp = lastBgReading.timestamp;
             displayCurrentInfoFromReading(lastBgReading, predictive);
         } else {
             display_delta = "";
@@ -3035,7 +3078,7 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
         }
     }
 
-    // TODO consider moving this out of ZHome
+    // TODO consider moving this out of Home
     public static long stale_data_millis() {
         if (DexCollectionType.getDexCollectionType() == DexCollectionType.LibreAlarm)
             return (60000 * 13);
@@ -3052,8 +3095,10 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
         String slope_arrow = dg.delta_arrow;
         String extrastring = "";
         boolean hide_slope = false;
+
+        boolean isStale = (new Date().getTime()) - stale_data_millis() - lastBgReading.timestamp > 0;
         // when stale
-        if ((new Date().getTime()) - stale_data_millis() - lastBgReading.timestamp > 0) {
+        if(isStale) {
             notificationText.setText(R.string.signal_missed);
             if (!predictive) {
                 //  estimate = lastBgReading.calculated_value;
@@ -3067,6 +3112,9 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
             hide_slope = true;
         } else {
             // not stale
+            if (lastBgReadingTimeAgoText.getText().length() == 0) {
+                lastBgReadingTimeAgoText.setTextColor(Color.WHITE);
+            }
             if (notificationText.getText().length() == 0) {
                 notificationText.setTextColor(Color.WHITE);
             }
@@ -3115,19 +3163,16 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
             if (extrastring.length() > 0)
                 currentBgValueText.setText(extrastring + currentBgValueText.getText());
         }
-        int minutes = (int) (System.currentTimeMillis() - lastBgReading.timestamp) / (60 * 1000);
 
-        if ((!small_width) || (notificationText.length() > 0)) notificationText.append("\n");
-        if (!small_width) {
-            final String fmt = getString(R.string.minutes_ago);
-            notificationText.append(MessageFormat.format(fmt, minutes));
-        } else {
-            // small screen
-            notificationText.append(minutes + getString(R.string.space_mins));
-            currentBgValueText.setPadding(0, 0, 0, 0);
+        lastBgReadingTimestamp = lastBgReading.timestamp;
+        refreshLastBgReadingTimeAgoText();
+
+        if (!small_width || notificationText.length() > 0) {
+            notificationText.append("\n");
         }
 
         if (small_screen) {
+            currentBgValueText.setPadding(0, 0, 0, 0);
             if (currentBgValueText.getText().length() > 4)
                 currentBgValueText.setTextSize(25);
         }
@@ -3393,13 +3438,13 @@ public class ZHome extends ActivityWithMenu implements ActivityCompat.OnRequestP
                     snackBar(R.string.share, getString(R.string.exported_to) + filename, makeSnackBarUriLauncher(Uri.fromFile(new File(filename)), getString(R.string.share_database)), ZHome.this);
                     startActivity(new Intent(xdrip.getAppContext(), SdcardImportExport.class).putExtra("backup", "now").setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     /*    SnackbarManager.show(
-                                Snackbar.with(ZHome.this)
+                                Snackbar.with(Home.this)
                                         .type(SnackbarType.MULTI_LINE)
                                         .duration(4000)
                                         .text(getString(R.string.exported_to) + filename) // text to display
                                         .actionLabel("Share") // action button label
                                         .actionListener(new SnackbarUriListener(Uri.fromFile(new File(filename)))),
-                                ZHome.this);*/
+                                Home.this);*/
                 } else {
                     Toast.makeText(ZHome.this, R.string.could_not_export_database, Toast.LENGTH_LONG).show();
                 }

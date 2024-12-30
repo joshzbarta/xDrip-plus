@@ -16,6 +16,7 @@ import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.data.Sensor;
 import com.eveningoutpost.dexdrip.data.UserError;
 import com.eveningoutpost.dexdrip.data.UserError.Log;
+import com.eveningoutpost.dexdrip.models.Profile;
 import com.eveningoutpost.dexdrip.utilitymodels.CollectionServiceStarter;
 import com.eveningoutpost.dexdrip.utilitymodels.Constants;
 import com.eveningoutpost.dexdrip.utilitymodels.PersistentStore;
@@ -39,7 +40,6 @@ public class AddCalibration extends AppCompatActivity implements NavigationDrawe
     private static final String TAG = "AddCalibration";
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private static double lastExternalCalibrationValue = 0;
-    public static final long estimatedInterstitialLagSeconds = 600; // how far behind venous glucose do we estimate
     private static final String LAST_EXTERNAL_CALIBRATION = "last-external-calibration-value";
 
     @Override
@@ -121,8 +121,8 @@ public class AddCalibration extends AppCompatActivity implements NavigationDrawe
                                         // most appropriate raw value to calculate calibration
                                         // from should be some time after venous glucose reading
                                         // adjust timestamp for this if we can
-                                        if (bgAgeNumber > estimatedInterstitialLagSeconds) {
-                                            localEstimatedInterstitialLagSeconds = estimatedInterstitialLagSeconds;
+                                        if (bgAgeNumber > Profile.estimatedInterstitialLagSeconds) {
+                                            localEstimatedInterstitialLagSeconds = Profile.estimatedInterstitialLagSeconds;
                                         }
                                         // Sanity checking can go here
 
@@ -145,7 +145,7 @@ public class AddCalibration extends AppCompatActivity implements NavigationDrawe
                                                         UserError.Log.uel(TAG, "Sending native calibration pipe value: " + convertedBg.intValue() + " mg/dl taken at timestamp: " + JoH.dateTimeText(calibration_timestamp) + " source: " + cal_source);
                                                     }
 
-                                                    final Calibration calibration = Calibration.create(calValue, bgAgeNumber, getApplicationContext(), (note_only.equals("true")), localEstimatedInterstitialLagSeconds);
+                                                    final Calibration calibration = Calibration.create(calValue, bgAgeNumber, getApplicationContext(), note_only.equals("true"), localEstimatedInterstitialLagSeconds);
                                                     if ((calibration != null) && allow_undo.equals("true") && (JoH.msSince(calibration.timestamp) < Constants.HOUR_IN_MS)) {
                                                         UndoRedo.addUndoCalibration(calibration.uuid);
                                                     }
