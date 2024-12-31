@@ -67,7 +67,6 @@ import lombok.val;
 import static com.eveningoutpost.dexdrip.models.JoH.msSince;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.HOUR_IN_MS;
 import static com.eveningoutpost.dexdrip.utilitymodels.Constants.MINUTE_IN_MS;
-import com.eveningoutpost.dexdrip.utilitymodels.Pref;
 import static java.lang.StrictMath.abs;
 import static com.eveningoutpost.dexdrip.models.JoH.emptyString;
 
@@ -149,8 +148,7 @@ public class Treatments extends Model {
         return sb.toString();
     }
 
-    private void setInsulinInjections(List<InsulinInjection> i)
-    {
+    private void setInsulinInjections(List<InsulinInjection> i) {
         // TODO possiblity here to preserve null if Multiple Injections is not enabled
         if (i == null) {
             i = new ArrayList<>();
@@ -990,7 +988,7 @@ public class Treatments extends Model {
     }
 
     // NEW NEW NEW
-    public static List<Iob> ioBForGraph_new(long startTime) {
+    public static List<Iob> iobForGraphNew(long startTime) {
 
        // Log.d(TAG, "Processing iobforgraph2: main  ");
         JoH.benchmark_method_start();
@@ -1028,14 +1026,13 @@ public class Treatments extends Model {
         for (Treatments thisTreatment : theTreatments) {
             // early optimisation exclusion
 
-            mytime = (long) ((thisTreatment.timestamp / stepms) * stepms); // effects of treatment occur only after it is given / fit to slot time
+            mytime = (thisTreatment.timestamp / stepms) * stepms; // effects of treatment occur only after it is given / fit to slot time
             tendtime = mytime + 36 * HOUR_IN_MS;     // 36 hours max look (24h history plus 12h forecast)
             if (tendtime > startTime + 30 * HOUR_IN_MS)
                 tendtime = startTime + 30 * HOUR_IN_MS;   // dont look more than 6h in future // TODO review time limit
             if (thisTreatment.insulin > 0) {
                 // lay down insulin on board
                 do {
-
                     calcreply = calcTreatment(thisTreatment, mytime, useBasal);
                     calcreply.jActivity *= step_minutes;    // has to be multiplied because derivation function of IOB calculates a step_minutes lower activity as the "old" logic
                     calcreply.jActivity *= Profile.getSensitivity(mytime);
@@ -1044,8 +1041,8 @@ public class Treatments extends Model {
                         timesliceInsulinWriter(timeslices, calcreply, mytime);
                     }
                     mytime = mytime + stepms; // advance time counter
-                } while ((mytime < tendtime) &&
-                        ((calcreply.iob == 0) || (calcreply.iob > 0.01)));
+                } while (mytime < tendtime &&
+                        (calcreply.iob == 0 || calcreply.iob > 0.01));
             }
         } // per insulin treatment
 
@@ -1078,9 +1075,7 @@ public class Treatments extends Model {
 
         // calculate carb treatments
         for (Treatments thisTreatment : theTreatments) {
-
             if (thisTreatment.carbs > 0) {
-
                 mytime = (thisTreatment.timestamp / stepms) * stepms; // effects of treatment occur only after it is given / fit to slot time
                 tendtime = mytime + 6 * HOUR_IN_MS;     // 6 hours max look
 
@@ -1117,14 +1112,14 @@ public class Treatments extends Model {
         }
 
         // evaluate carb impact
-        Iob lastiob = null;
+        Iob lastIob = null;
         for (Map.Entry<Long, Iob> entry : timeslices.entrySet()) {
             Iob thisiob = entry.getValue();
-            if (lastiob != null) {
-                if ((thisiob.cob != 0 || (lastiob.cob != 0))) {
-                    if (thisiob.cob < lastiob.cob) {
+            if (lastIob != null) {
+                if ((thisiob.cob != 0 || (lastIob.cob != 0))) {
+                    if (thisiob.cob < lastIob.cob) {
                         // decaying cob
-                        thisiob.jCarbImpact = (lastiob.cob - thisiob.cob) / Profile.getCarbRatio(thisiob.timestamp) * Profile.getSensitivity(thisiob.timestamp);
+                        thisiob.jCarbImpact = (lastIob.cob - thisiob.cob) / Profile.getCarbRatio(thisiob.timestamp) * Profile.getSensitivity(thisiob.timestamp);
                     } else {
                         // more carbs added
                         thisiob.jCarbImpact = 0; // TODO THIS IS NOT RIGHT IT MISSES ONE DECAY STEP
@@ -1134,7 +1129,7 @@ public class Treatments extends Model {
 
             //   Log.d(TAG,"iobinfo2carb  debug: "+JoH.qs(thisiob.timestamp)+" C:"+JoH.qs(thisiob.cob,4)+" I:"+JoH.qs(thisiob.iob,4)+" CA:"+JoH.qs(thisiob.jCarbImpact)+" IA:"+JoH.qs(thisiob.jActivity));
             counter++;
-            lastiob = thisiob;
+            lastIob = thisiob;
         }
 
         Log.d(TAG, "second iteration counter: " + counter);
@@ -1320,7 +1315,7 @@ public class Treatments extends Model {
     public static Double getCurrentIoBFromGraphCalculation() {
         long now = System.currentTimeMillis();
 
-        final List<Iob> iobInfo = Treatments.ioBForGraph_new(now - 1 * Constants.DAY_IN_MS);
+        final List<Iob> iobInfo = Treatments.iobForGraphNew(now - 1 * Constants.DAY_IN_MS);
 
         if (iobInfo != null) {
             for (Iob iob : iobInfo) {

@@ -19,7 +19,6 @@ import static com.eveningoutpost.dexdrip.xdrip.gs;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -2368,7 +2367,7 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         float ideal_hours_to_show = DEFAULT_CHART_HOURS;
         // ... and rescale to accommodate predictions if not locked
         if (! homeShelf.get("time_locked_always")) {
-            ideal_hours_to_show += bgGraphBuilder.getPredictivehours();
+            ideal_hours_to_show += bgGraphBuilder.getPredictiveHours();
         }
         float hours_to_show =  exactHoursSpecified ? hours : Math.max(hours, ideal_hours_to_show);
 
@@ -2382,8 +2381,8 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
         // if locked, center display on current bg values, not predictions
         if (homeShelf.get("time_locked_always")) {
-            holdViewport.left -= hour_width * bgGraphBuilder.getPredictivehours();
-            holdViewport.right -= hour_width * bgGraphBuilder.getPredictivehours();
+            holdViewport.left -= hour_width * bgGraphBuilder.getPredictiveHours();
+            holdViewport.right -= hour_width * bgGraphBuilder.getPredictiveHours();
         }
 
         if (d) {

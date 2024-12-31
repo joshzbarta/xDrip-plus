@@ -133,7 +133,7 @@ public class BgGraphBuilder {
     public boolean doMgdl;
     public static double capturePercentage = -1;
     @Getter
-    private int predictivehours = 0;
+    private int predictiveHours = 0;
     private boolean prediction_enabled = false;
     private boolean simulation_enabled = false;
     private static double avg1value = 0;
@@ -672,7 +672,7 @@ public class BgGraphBuilder {
                 lines.add(subLine); // iob line
             }
 
-            predictive_end_time = simple ? end_time : ((end_time * FUZZER) + (60000 * 10) + (Constants.HOUR_IN_MS * predictivehours)) / FUZZER; // used first in ideal/highline
+            predictive_end_time = simple ? end_time : ((end_time * FUZZER) + (60000 * 10) + (Constants.HOUR_IN_MS * predictiveHours)) / FUZZER; // used first in ideal/highline
 //            predictive_end_time = (new Date().getTime() + (60000 * 10) + (1000 * 60 * 60 * predictivehours)) / FUZZER; // used first in ideal/highline
 
 
@@ -1152,7 +1152,7 @@ public class BgGraphBuilder {
                         final long adjusted_timestamp = calibration.timestamp + Profile.estimatedInterstitialLagMillis;
                         final PointValueExtended this_point = new PointValueExtended((double) (adjusted_timestamp / FUZZER), unitized(calibration.bg));
                         if (adjusted_timestamp >= close_to_side_time) {
-                            predictivehours = Math.max(predictivehours, 1);
+                            predictiveHours = Math.max(predictiveHours, 1);
                         }
                         this_point.real_timestamp = calibration.timestamp;
                         calibrationValues.add(this_point);
@@ -1187,7 +1187,7 @@ public class BgGraphBuilder {
                         last_bloodtest = bloodtest.timestamp;
                     }
                     if (adjusted_timestamp >= close_to_side_time) {
-                        predictivehours = Math.max(predictivehours, 1);
+                        predictiveHours = Math.max(predictiveHours, 1);
                     }
                 }
             } catch (Exception e) {
@@ -1485,7 +1485,7 @@ public class BgGraphBuilder {
                                 }
                             }
                             Log.i(TAG, "LOW PREDICTED AT: " + JoH.dateTimeText((long) low_occurs_at));
-                            predictivehours = Math.max(predictivehours, (int) ((low_occurs_at - plow_now) / (60 * Constants.MINUTE_IN_MS)) + 1);
+                            predictiveHours = Math.max(predictiveHours, (int) ((low_occurs_at - plow_now) / (60 * Constants.MINUTE_IN_MS)) + 1);
                         }
                     }
 
@@ -1660,6 +1660,7 @@ public class BgGraphBuilder {
                     // we need to check we actually have sufficient data for this
                     double predictedbg = -1000;
                     BgReading mylastbg = bgReadings.get(0);
+                    String mylastbgTS = mylastbg.toString();
                     long lasttimestamp = 0;
 
                     // this can be optimised to oncreate and onchange
@@ -1685,48 +1686,53 @@ public class BgGraphBuilder {
                         // could not get a bg reading
                     }
 
-                    final double iobscale = 1 * bgScale;
-                    final double cobscale = 0.2 * bgScale;
+                    final double iobScale = 1 * bgScale;
+                    final double cobScale = 0.2 * bgScale;
                     final double initial_predicted_bg = predictedbg;
                     final double relaxed_predicted_bg_limit = initial_predicted_bg * 1.20;
                     final double cob_insulin_max_draw_value = highMark * 1.20;
                     // final List<Iob> iobinfo_old = Treatments.ioBForGraph(numValues, (start_time * FUZZER));
-                    final List<Iob> iobinfo = (simulation_enabled) ? Treatments.ioBForGraph_new(start_time * FUZZER) : null; // for test
+                    final List<Iob> iobInfo = (simulation_enabled) ? Treatments.iobForGraphNew(start_time * FUZZER) : null; // for test
 
                     long fuzzed_timestamp = (long) end_time; // initial value in case there are no iob records
-                    if (d)
+                    if(d) {
                         Log.d(TAG, "Internal date timestamp: " + android.text.format.DateFormat.format("yyyy-MM-dd HH:mm:ss", new java.util.Date()));
+                    }
 
 
-                    if (d)
+                    if(d) {
                         Log.d(TAG, "initial Fuzzed end timestamp: " + android.text.format.DateFormat.format("yyyy-MM-dd HH:mm:ss", fuzzed_timestamp * FUZZER));
-                    if (d)
+                    }
+                    if(d) {
                         Log.d(TAG, "initial Fuzzed start timestamp: " + android.text.format.DateFormat.format("yyyy-MM-dd HH:mm:ss", (long) start_time * FUZZER));
-                    if ((iobinfo != null) && (prediction_enabled) && (simulation_enabled)) {
+                    }
+                    if (iobInfo != null && prediction_enabled && simulation_enabled) {
 
                         double predict_weight = 0.1;
                         boolean iob_shown_already = false;
-                        for (Iob iob : iobinfo) {
+                        for (Iob iob : iobInfo) {
 
                             //double activity = iob.activity;
-                            if ((iob.iob > 0) || (iob.cob > 0) || (iob.jActivity > 0) || (iob.jCarbImpact > 0)) {
+                            if (iob.iob > 0 || iob.cob > 0 || iob.jActivity > 0 || iob.jCarbImpact > 0) {
                                 fuzzed_timestamp = iob.timestamp / FUZZER;
                                 if (d) Log.d(TAG, "iob timestamp: " + iob.timestamp);
                                 if (iob.iob > Profile.minimum_shown_iob) {
-                                    double height = iob.iob * iobscale;
-                                    if (height > cob_insulin_max_draw_value)
-                                        height = cob_insulin_max_draw_value;
+                                    double height = iob.iob * iobScale;
+                                    if(height > cob_insulin_max_draw_value) {
+                                       height = cob_insulin_max_draw_value;
+                                    }
                                     PointValue pv = new HPointValue((double) fuzzed_timestamp, (float) height);
                                     iobValues.add(pv);
                                     double activityheight = iob.jActivity * 3; // currently scaled by profile
-                                    if (activityheight > cob_insulin_max_draw_value)
-                                        activityheight = cob_insulin_max_draw_value;
+                                    if(activityheight > cob_insulin_max_draw_value) {
+                                       activityheight = cob_insulin_max_draw_value;
+                                    }
                                     PointValue av = new HPointValue((double) fuzzed_timestamp, (float) activityheight);
                                     activityValues.add(av);
                                 }
 
                                 if (iob.cob > 0) {
-                                    double height = iob.cob * cobscale;
+                                    double height = iob.cob * cobScale;
                                     if (height > cob_insulin_max_draw_value)
                                         height = cob_insulin_max_draw_value;
                                     PointValue pv = new HPointValue((double) fuzzed_timestamp, (float) height);
@@ -1777,9 +1783,9 @@ public class BgGraphBuilder {
                                     }
                                 }
                                 if (fuzzed_timestamp > end_time) {
-                                    predictivehours = (int) (((fuzzed_timestamp - end_time) * FUZZER) / (1000 * 60 * 60)) + 1; // round up to nearest future hour - timestamps in minutes here
+                                    predictiveHours = (int) (((fuzzed_timestamp - end_time) * FUZZER) / (1000 * 60 * 60)) + 1; // round up to nearest future hour - timestamps in minutes here
                                     if (d)
-                                        Log.d(TAG, "Predictive hours updated to: " + predictivehours);
+                                        Log.d(TAG, "Predictive hours updated to: " + predictiveHours);
                                 } else {
                                     //KS Log.d(TAG, "IOB DEBUG: " + (fuzzed_timestamp - end_time) + " " + iob.iob);
                                     if (!iob_shown_already && (Math.abs(fuzzed_timestamp - end_time) < ((Constants.MINUTE_IN_MS * 5) / FUZZER)) && (iob.iob > 0)) {
@@ -1806,13 +1812,16 @@ public class BgGraphBuilder {
 
                             }
                         }
-                        if (d)
-                            Log.i(TAG, "Size of iob: " + Integer.toString(iobinfo.size()) + " Predictive hours: " + Integer.toString(predictivehours)
+                        if(d) {
+                            Log.i(TAG, "Size of iob: " + iobInfo.size() + " Predictive hours: " + predictiveHours
                                     + " Predicted end game change: " + JoH.qs(predictedbg - mylastbg.calculated_value_mmol())
                                     + " Start bg: " + JoH.qs(mylastbg.calculated_value_mmol()) + " Predicted: " + JoH.qs(predictedbg));
+                        }
                         // calculate bolus or carb adjustment - these should have granularity for injection / pump and thresholds
                     } else {
-                        if (d) Log.i(TAG, "iobinfo was null");
+                        if(d) {
+                            Log.i(TAG, "iobInfo was null");
+                        }
                     }
 
                     double[] evaluation;
@@ -2097,7 +2106,7 @@ public class BgGraphBuilder {
         if (calendar.getTimeInMillis() < (start_time * FUZZER)) {
             calendar.add(Calendar.HOUR, 1);
         }
-        while (calendar.getTimeInMillis() < ((end_time * FUZZER) + ((long) predictivehours * 60 * 60 * 1000))) {
+        while (calendar.getTimeInMillis() < ((end_time * FUZZER) + ((long) predictiveHours * 60 * 60 * 1000))) {
             xAxisValues.add(new AxisValue(((double)calendar.getTimeInMillis() / FUZZER), (timeFormat.format(calendar.getTimeInMillis())).toCharArray()));
             calendar.add(Calendar.HOUR, 1);
         }

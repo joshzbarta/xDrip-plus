@@ -14,6 +14,8 @@ import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.provider.BaseColumns;
 
+import androidx.annotation.NonNull;
+
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
@@ -59,10 +61,15 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.text.MessageFormat;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 import java.util.UUID;
 
@@ -2283,7 +2290,23 @@ public class BgReading extends Model implements ShareUploadableBg {
         return (int) calculated_value;
     }
 
+    public double getMMolL() {return getMgdlValue()*Constants.MGDL_TO_MMOLL; }
+
     public long getEpochTimestamp() {
         return timestamp;
+    }
+
+    private static final DateTimeFormatter toStringFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).withZone(ZoneId.systemDefault());
+
+    @NonNull
+    @Override
+    public String toString(){
+        Instant tsInstant = Instant.ofEpochMilli(timestamp);
+        String timestampString = toStringFormatter.format(tsInstant);
+
+        return MessageFormat.format("{0}|{1}@{2}",
+                                            getMgdlValue(),
+                                            String.format(Locale.ROOT, "%.3f", getMMolL()),
+                                            timestampString);
     }
 }
