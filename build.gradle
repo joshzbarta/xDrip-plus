@@ -1,8 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    def kotlin_major_version = '2.0.20'
-    def kotlin_minor_version = '1.0.24'
+    def kotlin_major_version = '2.1.0'
+    def kotlin_minor_version = '1.0.29'
     ext.kotlin_major_version  = kotlin_major_version
     ext.kotlin_minor_version  = kotlin_minor_version
 
@@ -13,6 +13,9 @@ buildscript {
 
     def kotlin_coroutines_version = "1.10.1"
     ext.kotlin_coroutines_version = kotlin_coroutines_version
+
+    def androidx_core_version = "1.13.1" //1.15.0 requires compileSdk 35, which has breaking changes
+    ext.androidx_core_version = androidx_core_version
 
     //ext.hilt_version = '2.44'
     repositories {
