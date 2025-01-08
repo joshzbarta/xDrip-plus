@@ -11,7 +11,7 @@ buildscript {
     ext.lombok_plugin_version = lombok_plugin_version
     ext.lombok_version = lombok_version
 
-    def kotlin_coroutines_version = "1.9.0-RC.2"
+    def kotlin_coroutines_version = "1.10.1"
     ext.kotlin_coroutines_version = kotlin_coroutines_version
 
     //ext.hilt_version = '2.44'
