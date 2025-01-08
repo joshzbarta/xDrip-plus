@@ -7,7 +7,7 @@ buildscript {
     ext.kotlin_minor_version  = kotlin_minor_version
 
     def lombok_plugin_version = "8.10"
-    def lombok_version = "1.18.34"
+    def lombok_version = '1.18.36'
     ext.lombok_plugin_version = lombok_plugin_version
     ext.lombok_version = lombok_version
 
