@@ -1083,7 +1083,7 @@ public class Treatments extends Model {
                 double stomachDiff = ((Profile.getCarbAbsorptionRate(cob_time) * stepms) / HOUR_IN_MS); // initial value
                 double newdelayedCarbs = 0;
                 double cob_remain = thisTreatment.carbs;
-                while ((cob_remain > 0) && (stomachDiff > 0) && (cob_time < tendtime)) {
+                while (cob_remain > 0 && stomachDiff > 0 && cob_time < tendtime) {
 
                     if (cob_time >= startTime) {
                         timesliceCarbWriter(timeslices, cob_time, cob_remain);
