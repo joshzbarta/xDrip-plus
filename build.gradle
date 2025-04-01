@@ -25,7 +25,7 @@ buildscript {
         maven { url "https://jitpack.io" }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.7.3'
+        classpath 'com.android.tools.build:gradle:8.9.1'
         classpath 'com.google.gms:google-services:4.3.10'
         classpath 'com.github.jamorham:ReplaceTokenPreprocessor:1.5'
         classpath 'com.google.android.gms:oss-licenses-plugin:0.10.6'

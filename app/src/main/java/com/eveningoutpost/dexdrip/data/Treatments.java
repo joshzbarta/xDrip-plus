@@ -1001,14 +1001,14 @@ public class Treatments extends Model {
 // look back the longest effect period of all enabled insulin profiles (startTime is always 24h behind NOW)
         List<Treatments> theTreatments = latestForGraph(2000, startTime - dontLookThisFar);
         Log.d(TAG,"TREATMENT LIST: "+theTreatments.size()+" "+JoH.dateTimeText((long)(startTime - dontLookThisFar)));
-        if (theTreatments.size() == 0) return null;
+        if (theTreatments.isEmpty()) return null;
 
         int counter = 0; // iteration counter
 
         final double step_minutes = 5;
         final long stepms = (long) (step_minutes * MINUTE_IN_MS); // 300s = 5 mins
         long mytime = startTime;
-        long tendtime = startTime;
+        long tendtime;
 
 
         final double carb_delay_minutes = Profile.carbDelayMinutes(mytime); // not likely a time dependent parameter
@@ -1016,7 +1016,7 @@ public class Treatments extends Model {
 
         Log.d(TAG, "Carb delay ms: " + carb_delay_ms_stepped);
 
-        Map<String, Boolean> carbsEaten = new HashMap<String, Boolean>();
+        Map<String, Boolean> carbsEaten = new HashMap<>();
 
         // linear array populated as needed and layered by each treatment etc
         SortedMap<Long, Iob> timeslices = new TreeMap<>();
